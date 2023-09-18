@@ -1,24 +1,35 @@
 $swal2-white: #fff !default;
 $swal2-black: #000 !default;
 $swal2-outline-color: rgba(100, 150, 200, 0.5) !default;
-
+$gray-100: #E5E5E5 !default;
+$gray-900: #191919 !default;
+$indigo:      #6610F2 !default;
+$purple:      #9954BB !default;
+$pink:        #E83E8C !default;
+$red:         #FF2222 !default;
+$orange:      #FF7300 !default;
+$yellow:      #FFC107 !default;
+$green:       #7DF525 !default;
+$blue:        #00BEFF !default;
+$light:         $gray-100 !default;
+$dark:          $gray-900 !default;
 // CONTAINER
 $swal2-container-padding: 0.625em !default;
 
 // POPUP
 $swal2-width: 32em !default;
-$swal2-padding: 0 0 1.25em !default;
+$swal2-padding: 0 !default;
 $swal2-border: none !default;
-$swal2-color: lighten($swal2-black, 33) !default;
+$swal2-color: #fff !default;
 $swal2-border-radius: 5px !default;
 $swal2-box-shadow: #d9d9d9 !default;
 
 // ANIMATIONS
-$swal2-show-animation: swal2-show 0.3s !default;
-$swal2-hide-animation: swal2-hide 0.15s forwards !default;
+$swal2-show-animation: swal2-show 0.5s !default;
+$swal2-hide-animation: swal2-hide 0.3s forwards !default;
 
 // BACKGROUND
-$swal2-background: $swal2-white !default;
+$swal2-background: transparent !default;
 
 // TYPOGRAPHY
 $swal2-font: inherit !default;
@@ -29,19 +40,20 @@ $swal2-backdrop: rgba($swal2-black, 0.4) !default;
 $swal2-backdrop-transition: background-color 0.1s !default;
 
 // ICONS
-$swal2-icon-size: 5em !default;
+$swal2-icon-size: 40px !default;
 $swal2-icon-animations: true !default;
-$swal2-icon-margin: 2.5em auto 0.6em !default;
+$swal2-icon-margin: 0 !default;
+// $swal2-icon-margin: 2.5em auto 0.6em !default;
 $swal2-icon-font-family: inherit !default;
 $swal2-icon-font-size: 3.75em !default;
 $swal2-icon-border-color: #000 !default;
 $swal2-icon-zoom: null !default;
-$swal2-success: #a5dc86 !default;
+$swal2-success: $green !default;
 $swal2-success-border: rgba($swal2-success, 0.3) !default;
-$swal2-error: #f27474 !default;
-$swal2-warning: #f8bb86 !default;
-$swal2-info: #3fc3ee !default;
-$swal2-question: #87adbd !default;
+$swal2-error: $red !default;
+$swal2-warning: $yellow !default;
+$swal2-info: $blue !default;
+$swal2-question: $blue !default;
 
 // IMAGE
 $swal2-image-margin: 2em auto 1em !default;
@@ -50,9 +62,9 @@ $swal2-image-margin: 2em auto 1em !default;
 $swal2-title-position: relative !default;
 $swal2-title-max-width: 100% !default;
 $swal2-title-margin: 0 !default;
-$swal2-title-padding: 0.8em 1em 0 !default;
+$swal2-title-padding: 0 80px 0 0 !default;
 $swal2-title-color: inherit !default;
-$swal2-title-font-size: 1.875em !default;
+$swal2-title-font-size: 24px !default;
 $swal2-title-font-weight: 600 !default;
 $swal2-title-text-align: center !default;
 

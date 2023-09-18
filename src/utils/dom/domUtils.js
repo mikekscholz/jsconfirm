@@ -8,26 +8,28 @@ import { getCancelButton, getConfirmButton, getDenyButton, getTimerProgressBar }
  *
  * @param {HTMLElement} elem
  * @param {string} html
+ * @param {DOMParserSupportedType} mime
  */
-export const setInnerHtml = (elem, html) => {
+export const setInnerHtml = (elem, html, mime = `text/html`) => {
   elem.textContent = ''
   if (html) {
     const parser = new DOMParser()
-    const parsed = parser.parseFromString(html, `text/html`)
-    const head = parsed.querySelector('head')
-    head &&
-      Array.from(head.childNodes).forEach((child) => {
-        elem.appendChild(child)
-      })
-    const body = parsed.querySelector('body')
-    body &&
-      Array.from(body.childNodes).forEach((child) => {
-        if (child instanceof HTMLVideoElement || child instanceof HTMLAudioElement) {
-          elem.appendChild(child.cloneNode(true)) // https://github.com/sweetalert2/sweetalert2/issues/2507
-        } else {
-          elem.appendChild(child)
-        }
-      })
+    const parsed = parser.parseFromString(html, mime).body.childNodes[0]
+    elem.append(parsed)
+    // const head = parsed.querySelector('head')
+    // head &&
+      // Array.from(head.childNodes).forEach((child) => {
+        // elem.appendChild(child)
+      // })
+    // const body = parsed.querySelector('body')
+    // body &&
+    //   Array.from(body.childNodes).forEach((child) => {
+    //     if (child instanceof HTMLVideoElement || child instanceof HTMLAudioElement) {
+    //       elem.appendChild(child.cloneNode(true)) // https://github.com/sweetalert2/sweetalert2/issues/2507
+    //     } else {
+    //       elem.appendChild(child)
+    //     }
+    //   })
   }
 }
 
@@ -177,14 +179,17 @@ export const removeClass = (target, classList) => {
  * @returns {HTMLElement | undefined}
  */
 export const getDirectChildByClass = (elem, className) => {
-  const children = Array.from(elem.children)
-  for (let i = 0; i < children.length; i++) {
-    const child = children[i]
-    if (child instanceof HTMLElement && hasClass(child, className)) {
-      return child
-    }
-  }
+      return elem.querySelector(`.${className}`)
 }
+// export const getDirectChildByClass = (elem, className) => {
+//   const children = Array.from(elem.children)
+//   for (let i = 0; i < children.length; i++) {
+//     const child = children[i]
+//     if (child instanceof HTMLElement && hasClass(child, className)) {
+//       return child
+//     }
+//   }
+// }
 
 /**
  * @param {HTMLElement} elem

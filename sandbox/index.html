@@ -1,42 +1,73 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style>
-      @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
-      * {
-        font-family: Montserrat, sans-serif;
-      }
-    </style>
-  </head>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<style>
+		@import url('https://fonts.googleapis.com/css?family=Montserrat');
 
-  <body>
-    <script type="module">
-      import '../src/sweetalert2.scss'
+		* {
+			font-family: Montserrat, sans-serif;
+		}
+		
+		body {
+			background: url(./citynight.jpg);
+		}
+	</style>
+</head>
 
-      import Swal from '../src/sweetalert2.js'
+<body>
+	<script type="module">
+		import '../src/sweetalert2.scss'
 
-      window.Swal = Swal
+		import Swal from '../src/sweetalert2.js'
 
-      Swal.fire({
-        title: 'Test modal with input',
-        html: 'custom <strong>content</strong>',
-        input: 'text',
-        icon: 'success',
-        showCloseButton: true,
-        showCancelButton: true,
-        inputValidator: (value) => {
-          if (!value) {
-            return 'Should not be empty!'
-          }
-        },
-        didOpen: (modal) => {
-          console.log(modal)
-        },
-      }).then((result) => {
-        console.log(result)
-      })
-    </script>
-  </body>
+		window.Swal = Swal
+
+		Swal.fire({
+			title: 'Test modal with input',
+			html: 'custom <strong>content</strong>',
+			// input: 'text',
+			// icon: 'error',
+			// icon: 'question',
+			// icon: 'info',
+			icon: 'success',
+			// icon: 'warning',
+			customClass: {
+				container: 'modalBackdrop',
+				popup: 'modalShadow modal-green',
+				header: '...',
+				title: '...',
+				closeButton: 'modalClose',
+				icon: '...',
+				image: '...',
+				htmlContainer: '...',
+				input: '...',
+				inputLabel: '...',
+				validationMessage: '...',
+				actions: '...',
+				confirmButton: '...',
+				denyButton: '...',
+				cancelButton: '...',
+				loader: '...',
+				footer: '....',
+				timerProgressBar: '....',
+			},
+			showCloseButton: true,
+			showCancelButton: true,
+			closeButtonHtml: '<svg class="solid" data-src="./assets/xmark.svg" height="22px" fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"></path></svg>',
+			inputValidator: (value) => {
+				if (!value) {
+					return 'Should not be empty!'
+				}
+			},
+			didOpen: (modal) => {
+				console.log(modal)
+			},
+		}).then((result) => {
+			console.log(result)
+		})
+	</script>
+</body>
+
 </html>
