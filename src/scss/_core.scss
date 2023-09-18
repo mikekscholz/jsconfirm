@@ -173,6 +173,122 @@ $red: #FF2222 !default;
 	gap: 10px;
 }
 
+.swal2-actions {
+	display: flex;
+	gap: 10px;
+	justify-content: flex-end;
+	> button {
+	  // margin-bottom: 4px;
+	  // margin-left: 2px;
+	  // margin-right: 2px;
+	}
+
+	button {
+	  height: 30px;
+	  font-size: 14px;
+	  font-weight: 600;
+	  border-radius: 6px;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  padding: 0 12px;
+	  touch-action: manipulation;
+	  cursor: pointer;
+	  user-select: none;
+	  -webkit-tap-highlight-color: transparent;
+	  border: none;
+	  background-image: none;
+
+	  &.btn-blue {
+		background-color: $blue;
+		color: $black;
+		text-shadow: none;
+		transition: background .2s;
+		&:hover {
+		  background-color: $blueHover;
+		  color: $black;
+		}
+	  }
+
+	  &.btn-green {
+		background-color: $green;
+		color: $dark;
+		text-shadow: none;
+		transition: background .2s;
+		&:hover {
+		  background-color: $greenHover;
+		  color: #FFF;
+		}
+	  }
+
+	  &.btn-red {
+		background-color: $red;
+		color: #FFF;
+		text-shadow: none;
+		transition: background .2s;
+		&:hover {
+		  background-color: $redHover;
+		  color: #FFF;
+		}
+	  }
+
+	  &.btn-yellow {
+		background-color: $yellow;
+		color: $black;
+		text-shadow: none;
+		transition: background .2s;
+		&:hover {
+		  background-color: $yellowHover;
+		  color: $black;
+		}
+	  }
+
+	//   &.btn-default {
+	// 	background-color: $default;
+	// 	color: #000;
+	// 	text-shadow: none;
+	// 	transition: background .2s;
+	// 	&:hover {
+	// 	  background-color: $defaultHover;
+	// 	  color: #000;
+	// 	}
+	//   }
+
+	  &.btn-purple {
+		background-color: $purple;
+		color: #FFF;
+		text-shadow: none;
+		transition: background .2s;
+		&:hover {
+		  background-color: $purpleHover;
+		  color: #FFF;
+		}
+	  }
+
+	  &.btn-dark {
+		background-color: $dark;
+		color: #FFF;
+		text-shadow: none;
+		transition: background .2s;
+		&:hover {
+		  background-color: $darkHover;
+		  color: #FFF;
+		}
+	  }
+
+	  &.btn-light {
+		background-color: $light;
+		color: #000;
+		text-shadow: none;
+		transition: background .2s;
+		&:hover {
+		  background-color: $lightHover;
+		  color: #000;
+		}
+	  }
+	}
+  }
+  
 div:where(.swal2-container) {
 	display: grid;
 	position: fixed;
@@ -374,68 +490,68 @@ div:where(.swal2-container) {
 		border-color: $swal2-loader-border-color;
 	}
 
-	button:where(.swal2-styled) {
-		margin: $swal2-button-margin;
-		padding: $swal2-button-padding;
-		transition: $swal2-button-transition;
-		box-shadow: $swal2-button-box-shadow;
-		font-weight: $swal2-button-font-weight;
+	// button:where(.swal2-styled) {
+	// 	margin: $swal2-button-margin;
+	// 	padding: $swal2-button-padding;
+	// 	transition: $swal2-button-transition;
+	// 	box-shadow: $swal2-button-box-shadow;
+	// 	font-weight: $swal2-button-font-weight;
 
-		&:not([disabled]) {
-			cursor: pointer;
-		}
+	// 	&:not([disabled]) {
+	// 		cursor: pointer;
+	// 	}
 
-		&.swal2-confirm {
-			order: $swal2-confirm-button-order;
-			border: $swal2-confirm-button-border;
-			border-radius: $swal2-confirm-button-border-radius;
-			background: initial;
-			background-color: $swal2-confirm-button-background-color;
-			color: $swal2-confirm-button-color;
-			font-size: $swal2-confirm-button-font-size;
+	// 	&.swal2-confirm {
+	// 		order: $swal2-confirm-button-order;
+	// 		border: $swal2-confirm-button-border;
+	// 		border-radius: $swal2-confirm-button-border-radius;
+	// 		background: initial;
+	// 		background-color: $swal2-confirm-button-background-color;
+	// 		color: $swal2-confirm-button-color;
+	// 		font-size: $swal2-confirm-button-font-size;
 
-			&:focus {
-				box-shadow: $swal2-confirm-button-focus-box-shadow;
-			}
-		}
+	// 		&:focus {
+	// 			box-shadow: $swal2-confirm-button-focus-box-shadow;
+	// 		}
+	// 	}
 
-		&.swal2-deny {
-			order: $swal2-deny-button-order;
-			border: $swal2-deny-button-border;
-			border-radius: $swal2-deny-button-border-radius;
-			background: initial;
-			background-color: $swal2-deny-button-background-color;
-			color: $swal2-deny-button-color;
-			font-size: $swal2-deny-button-font-size;
+	// 	&.swal2-deny {
+	// 		order: $swal2-deny-button-order;
+	// 		border: $swal2-deny-button-border;
+	// 		border-radius: $swal2-deny-button-border-radius;
+	// 		background: initial;
+	// 		background-color: $swal2-deny-button-background-color;
+	// 		color: $swal2-deny-button-color;
+	// 		font-size: $swal2-deny-button-font-size;
 
-			&:focus {
-				box-shadow: $swal2-deny-button-focus-box-shadow;
-			}
-		}
+	// 		&:focus {
+	// 			box-shadow: $swal2-deny-button-focus-box-shadow;
+	// 		}
+	// 	}
 
-		&.swal2-cancel {
-			order: $swal2-cancel-button-order;
-			border: $swal2-cancel-button-border;
-			border-radius: $swal2-cancel-button-border-radius;
-			background: initial;
-			background-color: $swal2-cancel-button-background-color;
-			color: $swal2-cancel-button-color;
-			font-size: $swal2-cancel-button-font-size;
+	// 	&.swal2-cancel {
+	// 		order: $swal2-cancel-button-order;
+	// 		border: $swal2-cancel-button-border;
+	// 		border-radius: $swal2-cancel-button-border-radius;
+	// 		background: initial;
+	// 		background-color: $swal2-cancel-button-background-color;
+	// 		color: $swal2-cancel-button-color;
+	// 		font-size: $swal2-cancel-button-font-size;
 
-			&:focus {
-				box-shadow: $swal2-cancel-button-focus-box-shadow;
-			}
-		}
+	// 		&:focus {
+	// 			box-shadow: $swal2-cancel-button-focus-box-shadow;
+	// 		}
+	// 	}
 
-		&.swal2-default-outline {
-			&:focus {
-				box-shadow: $swal2-button-focus-box-shadow;
-			}
-		}
+	// 	&.swal2-default-outline {
+	// 		&:focus {
+	// 			box-shadow: $swal2-button-focus-box-shadow;
+	// 		}
+	// 	}
 
-		&:focus {
-			outline: $swal2-button-focus-outline;
-		}
+	// 	&:focus {
+	// 		outline: $swal2-button-focus-outline;
+	// 	}
 
 		&::-moz-focus-inner {
 			border: 0;
@@ -716,7 +832,7 @@ div:where(.swal2-container) {
 			background: $swal2-active-step-background;
 		}
 	}
-}
+// }
 
 @import 'icons';
 
