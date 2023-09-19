@@ -13,8 +13,8 @@ $red: #FF2222 !default;
 	width: 100dvw;
 	height: 100dvh;
 	min-height: 100dvh;
-	background-color: #181818aa;
-	backdrop-filter: blur(6px);
+	// background-color: #181818aa;
+	backdrop-filter: blur(6px) brightness(0.8);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -177,11 +177,11 @@ $red: #FF2222 !default;
 	display: flex;
 	gap: 10px;
 	justify-content: flex-end;
-	> button {
-	  // margin-bottom: 4px;
-	  // margin-left: 2px;
-	  // margin-right: 2px;
-	}
+	// > button {
+	//   // margin-bottom: 4px;
+	//   // margin-left: 2px;
+	//   // margin-right: 2px;
+	// }
 
 	button {
 	  height: 30px;
