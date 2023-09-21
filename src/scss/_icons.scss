@@ -76,15 +76,15 @@ div:where(.swal2-icon) {
     color: $swal2-warning;
 
     // Warning icon animation
-    &.swal2-icon-show {
-      @if $swal2-icon-animations {
-        animation: wobble 1s;
+    // &.swal2-icon-show {
+    //   @if $swal2-icon-animations {
+    //     animation: wobble 1s;
 
-        // .swal2-icon-content {
-        //   animation: swal2-animate-i-mark 0.5s;
-        // }
-      }
-    }
+    //     // .swal2-icon-content {
+    //     //   animation: swal2-animate-i-mark 0.5s;
+    //     // }
+    //   }
+    // }
   }
 
   &.swal2-info {
@@ -92,15 +92,15 @@ div:where(.swal2-icon) {
     color: $swal2-info;
 
     // Info icon animation
-    &.swal2-icon-show {
-      @if $swal2-icon-animations {
-        animation: wobble 1s;
+    // &.swal2-icon-show {
+    //   @if $swal2-icon-animations {
+    //     animation: wobble 1s;
 
-        // .swal2-icon-content {
-        //   animation: swal2-animate-i-mark 0.8s;
-        // }
-      }
-    }
+    //     // .swal2-icon-content {
+    //     //   animation: swal2-animate-i-mark 0.8s;
+    //     // }
+    //   }
+    // }
   }
 
   &.swal2-question {
@@ -109,15 +109,15 @@ div:where(.swal2-icon) {
     color: $swal2-question;
 
     // Question icon animation
-    &.swal2-icon-show {
-      @if $swal2-icon-animations {
-        animation: flip 1s;
+    // &.swal2-icon-show {
+    //   @if $swal2-icon-animations {
+    //     animation: flip 1s;
 
-        // .swal2-icon-content {
-        //   animation: swal2-animate-question-mark 0.8s;
-        // }
-      }
-    }
+    //     // .swal2-icon-content {
+    //     //   animation: swal2-animate-question-mark 0.8s;
+    //     // }
+    //   }
+    // }
   }
 
   &.swal2-success {

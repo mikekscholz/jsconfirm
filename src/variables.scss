@@ -14,13 +14,13 @@ $green:       #7DF525 !default;
 $blue:        #00BEFF !default;
 $light:         $gray-100 !default;
 $dark:          $gray-900 !default;
-$blueHover:     mix(black, $blue, 10%) !default;
-$greenHover:    mix(black, $green, 10%) !default;
-$redHover:      mix(black, $red, 10%) !default;
-$yellowHover:   mix(black, $yellow, 10%) !default;
-$purpleHover:   mix(black, $purple, 10%) !default;
-$lightHover:    mix(black, $light, 10%) !default;
-$darkHover:     mix(white, $dark, 10%) !default;
+$blueHover:     mix(black, $blue, 20%) !default;
+$greenHover:    mix(black, $green, 20%) !default;
+$redHover:      mix(black, $red, 20%) !default;
+$yellowHover:   mix(black, $yellow, 20%) !default;
+$purpleHover:   mix(black, $purple, 20%) !default;
+$lightHover:    mix(black, $light, 20%) !default;
+$darkHover:     mix(black, $dark, 20%) !default;
 // CONTAINER
 $swal2-container-padding: 0.625em !default;
 
