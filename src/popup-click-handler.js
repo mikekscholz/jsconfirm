@@ -93,8 +93,17 @@ const handleModalClick = (innerParams, domCache, dismissWith) => {
       ignoreOutsideClick = false
       return
     }
-    if (e.target === domCache.container && callIfFunction(innerParams.allowOutsideClick)) {
-      dismissWith(DismissReason.backdrop)
+    if (e.target === domCache.container) {
+      if (callIfFunction(innerParams.allowOutsideClick)) {
+        dismissWith(DismissReason.backdrop)
+      }
+      else {
+        domCache.popup.classList.add('modal-shake')
+        let dur = parseFloat(window.getComputedStyle(domCache.popup)['animation-duration'])
+        setTimeout(() => {
+          domCache.popup.classList.remove('modal-shake')
+        }, dur * 1000);
+      }
     }
   }
 }

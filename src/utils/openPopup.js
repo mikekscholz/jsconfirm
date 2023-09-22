@@ -55,6 +55,7 @@ const swalOpenAnimationFinished = (event) => {
   }
   const container = dom.getContainer()
   popup.removeEventListener(dom.animationEndEvent, swalOpenAnimationFinished)
+  popup.classList.remove('swal2-show')
   container.style.overflowY = 'auto'
 }
 

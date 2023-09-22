@@ -124,8 +124,8 @@ $red: #FF2222 !default;
 	}
 }
 .modal-shake {
-    animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-    transform: translate3d(0, 0, 0);
+    animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both !important;
+    // transform: translate3d(0, 0, 0) !important;
 }
 .modal-title {
 	display: flex;
@@ -199,7 +199,7 @@ $red: #FF2222 !default;
 	  cursor: pointer;
 	  user-select: none;
 	  -webkit-tap-highlight-color: transparent;
-	  border: none;
+	  border: 1px solid transparent;
 	  background-image: none;
 
 	  &.btn-blue {
@@ -211,6 +211,11 @@ $red: #FF2222 !default;
 		  background-color: $blueHover;
 		  color: $black;
 		}
+		&:focus, &:focus-visible {
+			outline: none;
+			box-shadow: 0 0 0 1px currentColor, 0 0 0 3px $blue;
+			border: 1px solid currentColor;
+		}
 	  }
 
 	  &.btn-green {
@@ -220,7 +225,12 @@ $red: #FF2222 !default;
 		transition: background .2s;
 		&:hover {
 		  background-color: $greenHover;
-		  color: #FFF;
+		  color: $dark;
+		}
+		&:focus, &:focus-visible {
+			outline: none;
+			box-shadow: 0 0 0 1px currentColor, 0 0 0 3px $green;
+			border: 1px solid currentColor;
 		}
 	  }
 
@@ -233,6 +243,11 @@ $red: #FF2222 !default;
 		  background-color: $redHover;
 		  color: #FFF;
 		}
+		&:focus, &:focus-visible {
+			outline: none;
+			box-shadow: 0 0 0 1px currentColor, 0 0 0 3px $red;
+			border: 1px solid currentColor;
+		}
 	  }
 
 	  &.btn-yellow {
@@ -243,6 +258,11 @@ $red: #FF2222 !default;
 		&:hover {
 		  background-color: $yellowHover;
 		  color: $black;
+		}
+		&:focus, &:focus-visible {
+			outline: none;
+			box-shadow: 0 0 0 1px currentColor, 0 0 0 3px $yellow;
+			border: 1px solid currentColor;
 		}
 	  }
 
@@ -266,6 +286,11 @@ $red: #FF2222 !default;
 		  background-color: $purpleHover;
 		  color: #FFF;
 		}
+		&:focus, &:focus-visible {
+			outline: none;
+			box-shadow: 0 0 0 1px currentColor, 0 0 0 3px $purple;
+			border: 1px solid currentColor;
+		}
 	  }
 
 	  &.btn-dark {
@@ -277,6 +302,11 @@ $red: #FF2222 !default;
 		  background-color: $darkHover;
 		  color: #FFF;
 		}
+		&:focus, &:focus-visible {
+			outline: none;
+			box-shadow: 0 0 0 1px currentColor, 0 0 0 3px $dark;
+			border: 1px solid currentColor;
+		}
 	  }
 
 	  &.btn-light {
@@ -287,6 +317,11 @@ $red: #FF2222 !default;
 		&:hover {
 		  background-color: $lightHover;
 		  color: #000;
+		}
+		&:focus, &:focus-visible {
+			outline: none;
+			box-shadow: 0 0 0 1px currentColor, 0 0 0 3px $light;
+			border: 1px solid currentColor;
 		}
 	  }
 	}
