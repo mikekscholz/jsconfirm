@@ -186,7 +186,7 @@ function populateRadioOptions(popup, inputOptions, params) {
     }
     const label = document.createElement('span')
     dom.setInnerHtml(label, radioLabel)
-    label.className = swalClasses.label
+    label.classList.add(swalClasses.label)
     radioLabelElement.appendChild(radioInput)
     radioLabelElement.appendChild(label)
     radio.appendChild(radioLabelElement)

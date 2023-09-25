@@ -1,4 +1,4 @@
-export const swalPrefix = 'swal2-'
+export const swalPrefix = 'jsconfirm-'
 
 /**
  * @typedef

@@ -4,19 +4,37 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<style>
-		@import url('https://fonts.googleapis.com/css?family=Nunito');
+		@font-face {
+			font-family: 'Nunito';
+			font-weight: 1 999;
+			/* webpackIgnore: true */
+			src: url(../assets/Nunito-VariableFont_wght.ttf) format('truetype-variations');
+		}
 
 		* {
-			font-family: Nunito, sans-serif;
+			font-family: 'Nunito', sans-serif;
 		}
 		
 		body {
 			background: url(./citynight.jpg);
+			width: 100dvw;
+			height: 100dvh;
+			margin: 0;
 		}
 	</style>
+	<!-- <link rel="stylesheet" href="../dist/sweetalert2.min.css"> -->
 </head>
 
 <body>
+	<div class="jsconfirm-actions" style="height: 100%; justify-content: center; align-items: center;">
+		<button id="error" class="btn-red">Error</button>
+		<button id="warning" class="btn-yellow">Warning</button>
+		<button id="success" class="btn-green">Success</button>
+		<button id="question" class="btn-blue">Question</button>
+		<button id="info" class="btn-light">Info</button>
+		<button id="default" class="btn-dark">Default</button>
+	</div>
+	<!-- <script src="../dist/sweetalert2.min.js"></script> -->
 	<script type="module">
 		import '../src/sweetalert2.scss'
 
@@ -24,53 +42,306 @@
 
 		window.Swal = Swal
 
-		Swal.fire({
-			title: 'Test modal with input',
-			html: 'custom <strong>content</strong>',
-			// input: 'text',
-			// icon: 'error',
-			// icon: 'question',
-			// icon: 'info',
-			icon: 'success',
-			// icon: 'warning',
-			// iconColor: '#ff3311',
-			customClass: {
-				container: 'modalBackdrop',
-				popup: 'modalShadow modal-green',
-				header: '...',
-				title: '...',
-				closeButton: 'modalClose',
-				icon: '...',
-				image: '...',
-				htmlContainer: '...',
-				input: '...',
-				inputLabel: '...',
-				validationMessage: '...',
-				actions: '...',
-				confirmButton: 'btn-green',
-				denyButton: '...',
-				cancelButton: 'btn-dark',
-				loader: '...',
-				footer: '....',
-				timerProgressBar: '....',
-			},
-			showCloseButton: true,
-			showCancelButton: true,
-			buttonsStyling: false,
-			allowOutsideClick: false,
-			// timer: 3000,
-			// timerProgressBar: true,
-			closeButtonHtml: '<svg class="solid" data-src="./assets/xmark.svg" height="22px" fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"></path></svg>',
-			inputValidator: (value) => {
-				if (!value) {
-					return 'Should not be empty!'
-				}
-			},
-			didOpen: (modal) => {
-				console.log(modal)
-			},
-		}).then((result) => {
-			console.log(result)
+		document.querySelector('#error').addEventListener('click', () => {
+			Swal.fire({
+				title: 'Error',
+				html: 'custom <strong>content</strong>',
+				// input: 'text',
+				icon: 'error',
+				// icon: 'question',
+				// icon: 'info',
+				// icon: 'success',
+				// icon: 'warning',
+				// iconColor: '#ff3311',
+				customClass: {
+					container: '',
+					popup: 'modal-red',
+					header: '',
+					title: '',
+					closeButton: '',
+					icon: '',
+					image: '',
+					htmlContainer: '',
+					input: '',
+					inputLabel: '',
+					validationMessage: '',
+					actions: '',
+					confirmButton: 'btn-red',
+					denyButton: '',
+					cancelButton: 'btn-dark',
+					loader: '',
+					footer: '',
+					timerProgressBar: '',
+				},
+				showCloseButton: true,
+				showCancelButton: true,
+				buttonsStyling: false,
+				allowOutsideClick: false,
+				width: '301px',
+				// timer: 3000,
+				// timerProgressBar: true,
+				// closeButtonHtml: '',
+				inputValidator: (value) => {
+					if (!value) {
+						return 'Should not be empty!'
+					}
+				},
+				didOpen: (modal) => {
+					console.log(modal)
+				},
+			}).then((result) => {
+				console.log(result)
+			})
+		})
+		document.querySelector('#warning').addEventListener('click', () => {
+			Swal.fire({
+				title: 'Warning',
+				html: 'custom <strong>content</strong>',
+				// input: 'text',
+				// icon: 'error',
+				// icon: 'question',
+				// icon: 'info',
+				// icon: 'success',
+				icon: 'warning',
+				// iconColor: '#ff3311',
+				customClass: {
+					container: '',
+					popup: 'modal-yellow',
+					header: '',
+					title: '',
+					closeButton: '',
+					icon: '',
+					image: '',
+					htmlContainer: '',
+					input: '',
+					inputLabel: '',
+					validationMessage: '',
+					actions: '',
+					confirmButton: 'btn-yellow',
+					denyButton: '',
+					cancelButton: 'btn-dark',
+					loader: '',
+					footer: '',
+					timerProgressBar: '',
+				},
+				showCloseButton: true,
+				showCancelButton: true,
+				buttonsStyling: false,
+				allowOutsideClick: false,
+				// timer: 3000,
+				// timerProgressBar: true,
+				// closeButtonHtml: '',
+				inputValidator: (value) => {
+					if (!value) {
+						return 'Should not be empty!'
+					}
+				},
+				didOpen: (modal) => {
+					console.log(modal)
+				},
+			}).then((result) => {
+				console.log(result)
+			})
+		})
+		document.querySelector('#success').addEventListener('click', () => {
+			Swal.fire({
+				title: 'Success',
+				html: 'custom <strong>content</strong>',
+				// input: 'text',
+				// icon: 'error',
+				// icon: 'question',
+				// icon: 'info',
+				icon: 'success',
+				// icon: 'warning',
+				// iconColor: '#ff3311',
+				customClass: {
+					container: '',
+					popup: 'modal-green',
+					header: '',
+					title: '',
+					closeButton: '',
+					icon: '',
+					image: '',
+					htmlContainer: '',
+					input: '',
+					inputLabel: '',
+					validationMessage: '',
+					actions: '',
+					confirmButton: 'btn-green',
+					denyButton: '',
+					cancelButton: 'btn-dark',
+					loader: '',
+					footer: '',
+					timerProgressBar: '',
+				},
+				showCloseButton: true,
+				showCancelButton: true,
+				buttonsStyling: false,
+				allowOutsideClick: false,
+				// timer: 3000,
+				// timerProgressBar: true,
+				// closeButtonHtml: '',
+				inputValidator: (value) => {
+					if (!value) {
+						return 'Should not be empty!'
+					}
+				},
+				didOpen: (modal) => {
+					console.log(modal)
+				},
+			}).then((result) => {
+				console.log(result)
+			})
+		})
+		document.querySelector('#question').addEventListener('click', () => {
+			Swal.fire({
+				title: 'Test modal with input',
+				html: 'custom <strong>content</strong>',
+				// input: 'text',
+				// icon: 'error',
+				icon: 'question',
+				// icon: 'info',
+				// icon: 'success',
+				// icon: 'warning',
+				// iconColor: '#ff3311',
+				customClass: {
+					container: '',
+					popup: 'modal-blue',
+					header: '',
+					title: '',
+					closeButton: '',
+					icon: '',
+					image: '',
+					htmlContainer: '',
+					input: '',
+					inputLabel: '',
+					validationMessage: '',
+					actions: '',
+					confirmButton: 'btn-blue',
+					denyButton: '',
+					cancelButton: 'btn-dark',
+					loader: '',
+					footer: '',
+					timerProgressBar: '',
+				},
+				showCloseButton: true,
+				showCancelButton: true,
+				buttonsStyling: false,
+				allowOutsideClick: false,
+				// timer: 3000,
+				// timerProgressBar: true,
+				// closeButtonHtml: '',
+				inputValidator: (value) => {
+					if (!value) {
+						return 'Should not be empty!'
+					}
+				},
+				didOpen: (modal) => {
+					console.log(modal)
+				},
+			}).then((result) => {
+				console.log(result)
+			})
+		})
+		document.querySelector('#info').addEventListener('click', () => {
+			Swal.fire({
+				title: 'Test modal with input',
+				html: 'custom <strong>content</strong>',
+				// input: 'text',
+				// icon: 'error',
+				// icon: 'question',
+				icon: 'info',
+				// icon: 'success',
+				// icon: 'warning',
+				// iconColor: '#ff3311',
+				customClass: {
+					container: '',
+					popup: 'modal-light',
+					header: '',
+					title: '',
+					closeButton: '',
+					icon: '',
+					image: '',
+					htmlContainer: '',
+					input: '',
+					inputLabel: '',
+					validationMessage: '',
+					actions: '',
+					confirmButton: 'btn-light',
+					denyButton: '',
+					cancelButton: 'btn-dark',
+					loader: '',
+					footer: '',
+					timerProgressBar: '',
+				},
+				showCloseButton: true,
+				showCancelButton: true,
+				buttonsStyling: false,
+				allowOutsideClick: false,
+				// timer: 3000,
+				// timerProgressBar: true,
+				// closeButtonHtml: '',
+				inputValidator: (value) => {
+					if (!value) {
+						return 'Should not be empty!'
+					}
+				},
+				didOpen: (modal) => {
+					console.log(modal)
+				},
+			}).then((result) => {
+				console.log(result)
+			})
+		})
+		document.querySelector('#default').addEventListener('click', () => {
+			Swal.fire({
+				title: 'Default',
+				html: 'custom <strong>content</strong>',
+				// input: 'text',
+				// icon: 'error',
+				// icon: 'question',
+				// icon: 'info',
+				// icon: 'success',
+				// icon: 'warning',
+				// iconColor: '#ff3311',
+				customClass: {
+					container: '',
+					popup: '',
+					header: '',
+					title: '',
+					closeButton: '',
+					icon: '',
+					image: '',
+					htmlContainer: '',
+					input: '',
+					inputLabel: '',
+					validationMessage: '',
+					actions: '',
+					confirmButton: 'btn-light',
+					denyButton: '',
+					cancelButton: 'btn-dark',
+					loader: '',
+					footer: '',
+					timerProgressBar: '',
+				},
+				showCloseButton: true,
+				showCancelButton: true,
+				buttonsStyling: false,
+				allowOutsideClick: false,
+				// timer: 3000,
+				// timerProgressBar: true,
+				// closeButtonHtml: '',
+				inputValidator: (value) => {
+					if (!value) {
+						return 'Should not be empty!'
+					}
+				},
+				didOpen: (modal) => {
+					console.log(modal)
+				},
+			}).then((result) => {
+				console.log(result)
+			})
 		})
 	</script>
 </body>

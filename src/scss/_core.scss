@@ -3,29 +3,9 @@
 $glow-white: rgba(255, 255, 255, 0.3);
 $red: #FF2222 !default;
 
-.modalBackdrop {
-	position: absolute;
-	top: 0;
-	left: 0;
-	// right: 0;
-	// bottom: 0;
-	z-index: 3;
-	width: 100dvw;
-	height: 100dvh;
-	min-height: 100dvh;
-	// background-color: #181818aa;
-	backdrop-filter: blur(6px) brightness(0.8);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	/* transform: translate(-100%, 0); */
-	/* opacity: 0; */
-	transition: backdrop-filter 500ms ease-in-out, background-color 500ms ease-in-out;
-	overflow: hidden;
-	scrollbar-width: none;
-}
 
-.modalShadow {
+
+.jsconfirm-popup {
 	box-shadow: 0 0 20px 10px #0009;
 	border-radius: 16px;
 	position: relative;
@@ -40,7 +20,7 @@ $red: #FF2222 !default;
 	// overflow: hidden;
 }
 
-.modalBody {
+.jsconfirm-body {
 	border-radius: 16px;
 	position: relative;
 	background-color: #333;
@@ -55,78 +35,165 @@ $red: #FF2222 !default;
 	max-height: 80dvh;
 }
 
-.modal-animated .modalBody {
+.jsconfirm-close {
+	background-color: $glow-white;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 70px;
+	height: 35px;
+	border-bottom-left-radius: 16px;
+	border-top-right-radius: 16px;
+	box-shadow: -6px 6px 0 6px #333333;
+	transition: background-color 400ms ease-in-out, color 400ms ease-in-out;
+	align-items: center;
+	justify-content: center;
+	appearance: none;
+	color: #FFF;
+	border-width: 0;
+
+	&:hover {
+		background-color: $red;
+	}
+
+	&:focus,
+	&:focus-visible,
+	&::-moz-focus-inner {
+		outline: none;
+		background-color: $red;
+	}
+}
+
+.modal-animated .jsconfirm-body {
 	animation-duration: 2s;
 	animation-iteration-count: infinite;
 }
 
 .modal-blue {
-	.modalBody {
+	.jsconfirm-body {
 		border-top: solid 7px $blue;
 		animation-name: type-blue;
 	}
-	.modalClose:hover {
-		background-color: $blue;
+
+	.jsconfirm-close {
+
+		&:hover,
+		&:focus,
+		&:focus-visible {
+			outline: none;
+			background-color: $blue;
+		}
 	}
 }
+
 .modal-green {
-	.modalBody {
+	.jsconfirm-body {
 		border-top: solid 7px $green;
 		animation-name: type-green;
 	}
-	.modalClose:hover {
-		background-color: $green;
+
+	.jsconfirm-close {
+
+		&:hover,
+		&:focus,
+		&:focus-visible {
+			outline: none;
+			background-color: $green;
+		}
 	}
 }
+
 .modal-red {
-	.modalBody {
+	.jsconfirm-body {
 		border-top: solid 7px $red;
 		animation-name: type-red;
 	}
-	.modalClose:hover {
-		background-color: $red;
+
+	.jsconfirm-close {
+
+		&:hover,
+		&:focus,
+		&:focus-visible {
+			outline: none;
+			background-color: $red;
+		}
 	}
 }
+
 .modal-yellow {
-	.modalBody {
+	.jsconfirm-body {
 		border-top: solid 7px $yellow;
 		animation-name: type-yellow;
 	}
-	.modalClose:hover {
-		background-color: $yellow;
+
+	.jsconfirm-close {
+
+		&:hover,
+		&:focus,
+		&:focus-visible {
+			outline: none;
+			background-color: $yellow;
+		}
 	}
 }
+
 .modal-purple {
-	.modalBody {
+	.jsconfirm-body {
 		border-top: solid 7px $purple;
 		animation-name: type-purple;
 	}
-	.modalClose:hover {
-		background-color: $purple;
+
+	.jsconfirm-close {
+
+		&:hover,
+		&:focus,
+		&:focus-visible {
+			outline: none;
+			background-color: $purple;
+		}
 	}
 }
+
 .modal-dark {
-	.modalBody {
+	.jsconfirm-body {
 		border-top: solid 7px $dark;
 		animation-name: type-dark;
 	}
-	.modalClose:hover {
-		background-color: $dark;
+
+	.jsconfirm-close {
+
+		&:hover,
+		&:focus,
+		&:focus-visible {
+			outline: none;
+			background-color: $dark;
+		}
 	}
 }
+
 .modal-light {
-	.modalBody {
+	.jsconfirm-body {
 		border-top: solid 7px $light;
 		animation-name: type-light;
 	}
-	.modalClose:hover {
-		background-color: $light;
+
+	.jsconfirm-close {
+
+		&:hover,
+		&:focus,
+		&:focus-visible {
+			outline: none;
+			background-color: $light;
+			color: $dark;
+		}
 	}
 }
+
 .modal-shake {
-    animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both !important;
-    // transform: translate3d(0, 0, 0) !important;
+	animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both !important;
+	// transform: translate3d(0, 0, 0) !important;
 }
+
 .modal-title {
 	display: flex;
 	font-size: 22px;
@@ -137,38 +204,11 @@ $red: #FF2222 !default;
 	padding-bottom: 10px;
 }
 
-.modalClip {
+.jsconfirm-clip {
 	// clip-path: polygon(calc(100% - 70px) 0px, calc(100% - 70px) 36px, 101% 36px, 101% 101%, 0% 101%, 0% 0%);
 	clip-path: polygon(calc(100% - 70px) -2%, calc(100% - 70px) 35px, 102% 35px, 102% calc(102% + 150px), -2% calc(102% + 150px), -2% -2%);
 }
 
-.modalClose {
-	background-color: $glow-white;
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 70px;
-	height: 35px;
-	border-bottom-left-radius: 16px;
-	border-top-right-radius: 16px;
-	box-shadow: -6px 6px 0 6px #333333;
-	transition: background-color 250ms ease-in-out;
-	align-items: center;
-	justify-content: center;
-
-	.solid {
-		position: relative;
-		transition: fill 200ms ease-in-out;
-	}
-
-	&:hover {
-		background-color: $red;
-
-		.solid {
-			fill: #ffffff;
-		}
-	}
-}
 
 .swalHeaderRow {
 	display: flex;
@@ -176,7 +216,7 @@ $red: #FF2222 !default;
 	gap: 10px;
 }
 
-.swal2-actions {
+.jsconfirm-actions {
 	display: flex;
 	gap: 10px;
 	justify-content: flex-end;
@@ -187,147 +227,190 @@ $red: #FF2222 !default;
 	// }
 
 	button {
-	  height: 30px;
-	  font-size: 14px;
-	  font-weight: 600;
-	  border-radius: 6px;
-	  display: flex;
-	  justify-content: center;
-	  align-items: center;
-	  padding: 0 12px;
-	  touch-action: manipulation;
-	  cursor: pointer;
-	  user-select: none;
-	  -webkit-tap-highlight-color: transparent;
-	  border: 1px solid transparent;
-	  background-image: none;
+		height: 30px;
+		font-size: 14px;
+		font-weight: 600;
+		border-radius: 6px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 0 12px;
+		touch-action: manipulation;
+		cursor: pointer;
+		user-select: none;
+		-webkit-tap-highlight-color: transparent;
+		border: 1px solid transparent;
+		background-image: none;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
 
-	  &.btn-blue {
-		background-color: $blue;
-		color: $black;
-		text-shadow: none;
-		transition: background .2s;
-		&:hover {
-		  background-color: $blueHover;
-		  color: $black;
-		}
-		&:focus, &:focus-visible {
-			outline: none;
-			box-shadow: 0 0 0 1px currentColor, 0 0 0 3px $blue;
-			border: 1px solid currentColor;
-		}
-	  }
+		&.btn-blue {
+			background-color: $blue;
+			color: $black;
+			text-shadow: none;
+			transition: background .2s;
 
-	  &.btn-green {
-		background-color: $green;
-		color: $dark;
-		text-shadow: none;
-		transition: background .2s;
-		&:hover {
-		  background-color: $greenHover;
-		  color: $dark;
-		}
-		&:focus, &:focus-visible {
-			outline: none;
-			box-shadow: 0 0 0 1px currentColor, 0 0 0 3px $green;
-			border: 1px solid currentColor;
-		}
-	  }
+			&:hover {
+				background-color: $blueHover;
+				color: $black;
+			}
 
-	  &.btn-red {
-		background-color: $red;
-		color: #FFF;
-		text-shadow: none;
-		transition: background .2s;
-		&:hover {
-		  background-color: $redHover;
-		  color: #FFF;
+			&:focus,
+			&:focus-visible {
+				outline: none;
+				box-shadow: 0 0 0 1px currentColor, 0 0 0 3px $blue;
+				border: 1px solid currentColor;
+			}
 		}
-		&:focus, &:focus-visible {
-			outline: none;
-			box-shadow: 0 0 0 1px currentColor, 0 0 0 3px $red;
-			border: 1px solid currentColor;
-		}
-	  }
 
-	  &.btn-yellow {
-		background-color: $yellow;
-		color: $black;
-		text-shadow: none;
-		transition: background .2s;
-		&:hover {
-		  background-color: $yellowHover;
-		  color: $black;
-		}
-		&:focus, &:focus-visible {
-			outline: none;
-			box-shadow: 0 0 0 1px currentColor, 0 0 0 3px $yellow;
-			border: 1px solid currentColor;
-		}
-	  }
+		&.btn-green {
+			background-color: $green;
+			color: $black;
+			text-shadow: none;
+			transition: background .2s;
 
-	//   &.btn-default {
-	// 	background-color: $default;
-	// 	color: #000;
-	// 	text-shadow: none;
-	// 	transition: background .2s;
-	// 	&:hover {
-	// 	  background-color: $defaultHover;
-	// 	  color: #000;
-	// 	}
-	//   }
+			&:hover {
+				background-color: $greenHover;
+				color: $black;
+			}
 
-	  &.btn-purple {
-		background-color: $purple;
-		color: #FFF;
-		text-shadow: none;
-		transition: background .2s;
-		&:hover {
-		  background-color: $purpleHover;
-		  color: #FFF;
+			&:focus,
+			&:focus-visible {
+				outline: none;
+				box-shadow: 0 0 0 1px currentColor, 0 0 0 3px $green;
+				border: 1px solid currentColor;
+			}
 		}
-		&:focus, &:focus-visible {
-			outline: none;
-			box-shadow: 0 0 0 1px currentColor, 0 0 0 3px $purple;
-			border: 1px solid currentColor;
-		}
-	  }
 
-	  &.btn-dark {
-		background-color: $dark;
-		color: #FFF;
-		text-shadow: none;
-		transition: background .2s;
-		&:hover {
-		  background-color: $darkHover;
-		  color: #FFF;
-		}
-		&:focus, &:focus-visible {
-			outline: none;
-			box-shadow: 0 0 0 1px currentColor, 0 0 0 3px $dark;
-			border: 1px solid currentColor;
-		}
-	  }
+		&.btn-red {
+			background-color: $red;
+			color: $black;
+			text-shadow: none;
+			transition: background .2s;
 
-	  &.btn-light {
-		background-color: $light;
-		color: #000;
-		text-shadow: none;
-		transition: background .2s;
-		&:hover {
-		  background-color: $lightHover;
-		  color: #000;
+			&:hover {
+				background-color: $redHover;
+				color: $black;
+			}
+
+			&:focus,
+			&:focus-visible {
+				outline: none;
+				box-shadow: 0 0 0 1px currentColor, 0 0 0 3px $red;
+				border: 1px solid currentColor;
+			}
 		}
-		&:focus, &:focus-visible {
-			outline: none;
-			box-shadow: 0 0 0 1px currentColor, 0 0 0 3px $light;
-			border: 1px solid currentColor;
+
+		&.btn-yellow {
+			background-color: $yellow;
+			color: $black;
+			text-shadow: none;
+			transition: background .2s;
+
+			&:hover {
+				background-color: $yellowHover;
+				color: $black;
+			}
+
+			&:focus,
+			&:focus-visible {
+				outline: none;
+				box-shadow: 0 0 0 1px currentColor, 0 0 0 3px $yellow;
+				border: 1px solid currentColor;
+			}
 		}
-	  }
+
+		//   &.btn-default {
+		// 	background-color: $default;
+		// 	color: #000;
+		// 	text-shadow: none;
+		// 	transition: background .2s;
+		// 	&:hover {
+		// 	  background-color: $defaultHover;
+		// 	  color: #000;
+		// 	}
+		//   }
+
+		&.btn-purple {
+			background-color: $purple;
+			color: #FFF;
+			text-shadow: none;
+			transition: background .2s;
+
+			&:hover {
+				background-color: $purpleHover;
+				color: #FFF;
+			}
+
+			&:focus,
+			&:focus-visible {
+				outline: none;
+				box-shadow: 0 0 0 1px currentColor, 0 0 0 3px $purple;
+				border: 1px solid currentColor;
+			}
+		}
+
+		&.btn-dark {
+			background-color: $dark;
+			color: #FFF;
+			text-shadow: none;
+			transition: background .2s;
+
+			&:hover {
+				background-color: $darkHover;
+				color: #FFF;
+			}
+
+			&:focus,
+			&:focus-visible {
+				outline: none;
+				box-shadow: 0 0 0 1px currentColor, 0 0 0 3px $dark;
+				border: 1px solid currentColor;
+			}
+		}
+
+		&.btn-light {
+			background-color: $light;
+			color: #000;
+			text-shadow: none;
+			transition: background .2s;
+
+			&:hover {
+				background-color: $lightHover;
+				color: #000;
+			}
+
+			&:focus,
+			&:focus-visible {
+				outline: none;
+				box-shadow: 0 0 0 1px currentColor, 0 0 0 3px $light;
+				border: 1px solid currentColor;
+			}
+		}
 	}
-  }
-  
-div:where(.swal2-container) {
+}
+// .modalBackdrop {
+// 	position: absolute;
+// 	top: 0;
+// 	left: 0;
+// 	// right: 0;
+// 	// bottom: 0;
+// 	z-index: 3;
+// 	width: 100dvw;
+// 	height: 100dvh;
+// 	min-height: 100dvh;
+// 	// background-color: #181818aa;
+// 	backdrop-filter: blur(6px) brightness(0.8);
+// 	display: flex;
+// 	justify-content: center;
+// 	align-items: center;
+// 	/* transform: translate(-100%, 0); */
+// 	/* opacity: 0; */
+// 	transition: backdrop-filter 500ms ease-in-out, background-color 500ms ease-in-out;
+// 	overflow: hidden;
+// 	scrollbar-width: none;
+// }
+div:where(.jsconfirm-container) {
 	display: grid;
 	position: fixed;
 	z-index: 1060;
@@ -338,561 +421,587 @@ div:where(.swal2-container) {
 		'center-start  center         center-end'
 		'bottom-start  bottom-center  bottom-end';
 	grid-template-rows: minmax(min-content, auto) minmax(min-content, auto) minmax(min-content, auto);
-	height: 100%; // Safari
-	padding: $swal2-container-padding;
+	// height: 100%; // Safari
+	width: 100dvw;
+	height: 100dvh;
+	padding: $jsconfirm-container-padding;
+	backdrop-filter: none;
 	overflow-x: hidden;
-	transition: $swal2-backdrop-transition;
+	overflow: hidden;
+	scrollbar-width: none;
+	transition: $jsconfirm-backdrop-transition;
+	// transform: translate3d(0,0,0);
 
 	// sweetalert2/issues/905
 	-webkit-overflow-scrolling: touch;
 
-	&.swal2-backdrop-show,
-	&.swal2-noanimation {
-		background: $swal2-backdrop;
+	&.jsconfirm-backdrop-show,
+	&.jsconfirm-noanimation {
+		background: $jsconfirm-backdrop;
+		backdrop-filter: $jsconfirm-backdrop-filter;
 	}
 
-	&.swal2-backdrop-hide {
+	&.jsconfirm-backdrop-hide {
+		backdrop-filter: none;
 		background: transparent !important;
 	}
 
-	&.swal2-top-start,
-	&.swal2-center-start,
-	&.swal2-bottom-start {
+	&.jsconfirm-top-start,
+	&.jsconfirm-center-start,
+	&.jsconfirm-bottom-start {
 		grid-template-columns: minmax(0, 1fr) auto auto;
 	}
 
-	&.swal2-top,
-	&.swal2-center,
-	&.swal2-bottom {
+	&.jsconfirm-top,
+	&.jsconfirm-center,
+	&.jsconfirm-bottom {
 		grid-template-columns: auto minmax(0, 1fr) auto;
 	}
 
-	&.swal2-top-end,
-	&.swal2-center-end,
-	&.swal2-bottom-end {
+	&.jsconfirm-top-end,
+	&.jsconfirm-center-end,
+	&.jsconfirm-bottom-end {
 		grid-template-columns: auto auto minmax(0, 1fr);
 	}
 
-	&.swal2-top-start > .swal2-popup {
+	&.jsconfirm-top-start > .jsconfirm-popup {
 		align-self: start;
 	}
 
-	&.swal2-top > .swal2-popup {
+	&.jsconfirm-top > .jsconfirm-popup {
 		grid-column: 2;
 		align-self: start;
 		justify-self: center;
 	}
 
-	&.swal2-top-end > .swal2-popup,
-	&.swal2-top-right > .swal2-popup {
+	&.jsconfirm-top-end > .jsconfirm-popup,
+	&.jsconfirm-top-right > .jsconfirm-popup {
 		grid-column: 3;
 		align-self: start;
 		justify-self: end;
 	}
 
-	&.swal2-center-start > .swal2-popup,
-	&.swal2-center-left > .swal2-popup {
+	&.jsconfirm-center-start > .jsconfirm-popup,
+	&.jsconfirm-center-left > .jsconfirm-popup {
 		grid-row: 2;
 		align-self: center;
 	}
 
-	&.swal2-center > .swal2-popup {
+	&.jsconfirm-center > .jsconfirm-popup {
 		grid-column: 2;
 		grid-row: 2;
 		align-self: center;
 		justify-self: center;
 	}
 
-	&.swal2-center-end > .swal2-popup,
-	&.swal2-center-right > .swal2-popup {
+	&.jsconfirm-center-end > .jsconfirm-popup,
+	&.jsconfirm-center-right > .jsconfirm-popup {
 		grid-column: 3;
 		grid-row: 2;
 		align-self: center;
 		justify-self: end;
 	}
 
-	&.swal2-bottom-start > .swal2-popup,
-	&.swal2-bottom-left > .swal2-popup {
+	&.jsconfirm-bottom-start > .jsconfirm-popup,
+	&.jsconfirm-bottom-left > .jsconfirm-popup {
 		grid-column: 1;
 		grid-row: 3;
 		align-self: end;
 	}
 
-	&.swal2-bottom > .swal2-popup {
+	&.jsconfirm-bottom > .jsconfirm-popup {
 		grid-column: 2;
 		grid-row: 3;
 		justify-self: center;
 		align-self: end;
 	}
 
-	&.swal2-bottom-end > .swal2-popup,
-	&.swal2-bottom-right > .swal2-popup {
+	&.jsconfirm-bottom-end > .jsconfirm-popup,
+	&.jsconfirm-bottom-right > .jsconfirm-popup {
 		grid-column: 3;
 		grid-row: 3;
 		align-self: end;
 		justify-self: end;
 	}
 
-	&.swal2-grow-row > .swal2-popup,
-	&.swal2-grow-fullscreen > .swal2-popup {
+	&.jsconfirm-grow-row > .jsconfirm-popup,
+	&.jsconfirm-grow-fullscreen > .jsconfirm-popup {
 		grid-column: 1/4;
 		width: 100%;
 	}
 
-	&.swal2-grow-column > .swal2-popup,
-	&.swal2-grow-fullscreen > .swal2-popup {
+	&.jsconfirm-grow-column > .jsconfirm-popup,
+	&.jsconfirm-grow-fullscreen > .jsconfirm-popup {
 		grid-row: 1/4;
 		align-self: stretch;
 	}
 
-	&.swal2-no-transition {
+	&.jsconfirm-no-transition {
 		transition: none !important;
 	}
 
-	div:where(.swal2-popup) {
+	div:where(.jsconfirm-popup) {
 		display: none;
 		position: relative;
 		box-sizing: border-box;
 		grid-template-columns: minmax(0, 100%);
-		width: $swal2-width;
+		width: $jsconfirm-width;
 		max-width: 100%;
-		padding: $swal2-padding;
-		border: $swal2-border;
-		border-radius: $swal2-border-radius;
-		background: $swal2-background;
-		color: $swal2-color;
-		font-family: $swal2-font;
-		font-size: $swal2-font-size;
-
+		padding: $jsconfirm-padding;
+		border: $jsconfirm-border;
+		border-radius: $jsconfirm-border-radius;
+		background: $jsconfirm-background;
+		color: $jsconfirm-color;
+		font-family: $jsconfirm-font;
+		font-size: $jsconfirm-font-size;
+		transform: translate3d(0,0,0);
+		
 		&:focus {
 			outline: none;
 		}
 
-		&.swal2-loading {
+		&.jsconfirm-loading {
 			overflow-y: hidden;
 		}
 	}
 
-	h2:where(.swal2-title) {
-		position: $swal2-title-position;
-		max-width: $swal2-title-max-width;
-		margin: $swal2-title-margin;
-		padding: $swal2-title-padding;
-		color: $swal2-title-color;
-		font-size: $swal2-title-font-size;
-		font-weight: $swal2-title-font-weight;
-		text-align: $swal2-title-text-align;
+	h2:where(.jsconfirm-title) {
+		position: $jsconfirm-title-position;
+		max-width: $jsconfirm-title-max-width;
+		margin: $jsconfirm-title-margin;
+		padding: $jsconfirm-title-padding;
+		color: $jsconfirm-title-color;
+		font-size: $jsconfirm-title-font-size;
+		font-weight: $jsconfirm-title-font-weight;
+		text-align: $jsconfirm-title-text-align;
 		text-transform: none;
 		word-wrap: break-word;
 	}
 
-	div:where(.swal2-actions) {
+	div:where(.jsconfirm-actions) {
 		display: flex;
 		z-index: 1; // prevent success icon from overlapping buttons
 		box-sizing: border-box;
-		flex-wrap: $swal2-actions-flex-wrap;
-		align-items: $swal2-actions-align-items;
-		justify-content: $swal2-actions-justify-content;
-		width: $swal2-actions-width;
-		margin: $swal2-actions-margin;
-		padding: $swal2-actions-padding;
+		flex-wrap: $jsconfirm-actions-flex-wrap;
+		align-items: $jsconfirm-actions-align-items;
+		justify-content: $jsconfirm-actions-justify-content;
+		width: $jsconfirm-actions-width;
+		margin: $jsconfirm-actions-margin;
+		padding: $jsconfirm-actions-padding;
 
-		&:not(.swal2-loading) {
-			.swal2-styled {
+		&:not(.jsconfirm-loading) {
+			.jsconfirm-styled {
 				&[disabled] {
 					opacity: 0.4;
 				}
 
 				&:hover {
-					background-image: linear-gradient($swal2-button-darken-hover, $swal2-button-darken-hover);
+					background-image: linear-gradient($jsconfirm-button-darken-hover, $jsconfirm-button-darken-hover);
 				}
 
 				&:active {
-					background-image: linear-gradient($swal2-button-darken-active, $swal2-button-darken-active);
+					background-image: linear-gradient($jsconfirm-button-darken-active, $jsconfirm-button-darken-active);
 				}
 			}
 		}
 	}
 
-	div:where(.swal2-loader) {
+	div:where(.jsconfirm-loader) {
 		display: none;
-		align-items: $swal2-loader-align-items;
-		justify-content: $swal2-loader-justify-content;
-		width: $swal2-loader-width;
-		height: $swal2-loader-height;
-		margin: $swal2-loader-margin;
-		animation: $swal2-loader-animation;
-		border-width: $swal2-loader-border-width;
-		border-style: $swal2-loader-border-style;
-		border-radius: $swal2-loader-border-radius;
-		border-color: $swal2-loader-border-color;
+		align-items: $jsconfirm-loader-align-items;
+		justify-content: $jsconfirm-loader-justify-content;
+		width: $jsconfirm-loader-width;
+		height: $jsconfirm-loader-height;
+		margin: $jsconfirm-loader-margin;
+		animation: $jsconfirm-loader-animation;
+		border-width: $jsconfirm-loader-border-width;
+		border-style: $jsconfirm-loader-border-style;
+		border-radius: $jsconfirm-loader-border-radius;
+		border-color: $jsconfirm-loader-border-color;
 	}
 
-	// button:where(.swal2-styled) {
-	// 	margin: $swal2-button-margin;
-	// 	padding: $swal2-button-padding;
-	// 	transition: $swal2-button-transition;
-	// 	box-shadow: $swal2-button-box-shadow;
-	// 	font-weight: $swal2-button-font-weight;
+	// button:where(.jsconfirm-styled) {
+	// 	margin: $jsconfirm-button-margin;
+	// 	padding: $jsconfirm-button-padding;
+	// 	transition: $jsconfirm-button-transition;
+	// 	box-shadow: $jsconfirm-button-box-shadow;
+	// 	font-weight: $jsconfirm-button-font-weight;
 
 	// 	&:not([disabled]) {
 	// 		cursor: pointer;
 	// 	}
 
-	// 	&.swal2-confirm {
-	// 		order: $swal2-confirm-button-order;
-	// 		border: $swal2-confirm-button-border;
-	// 		border-radius: $swal2-confirm-button-border-radius;
+	// 	&.jsconfirm-confirm {
+	// 		order: $jsconfirm-confirm-button-order;
+	// 		border: $jsconfirm-confirm-button-border;
+	// 		border-radius: $jsconfirm-confirm-button-border-radius;
 	// 		background: initial;
-	// 		background-color: $swal2-confirm-button-background-color;
-	// 		color: $swal2-confirm-button-color;
-	// 		font-size: $swal2-confirm-button-font-size;
+	// 		background-color: $jsconfirm-confirm-button-background-color;
+	// 		color: $jsconfirm-confirm-button-color;
+	// 		font-size: $jsconfirm-confirm-button-font-size;
 
 	// 		&:focus {
-	// 			box-shadow: $swal2-confirm-button-focus-box-shadow;
+	// 			box-shadow: $jsconfirm-confirm-button-focus-box-shadow;
 	// 		}
 	// 	}
 
-	// 	&.swal2-deny {
-	// 		order: $swal2-deny-button-order;
-	// 		border: $swal2-deny-button-border;
-	// 		border-radius: $swal2-deny-button-border-radius;
+	// 	&.jsconfirm-deny {
+	// 		order: $jsconfirm-deny-button-order;
+	// 		border: $jsconfirm-deny-button-border;
+	// 		border-radius: $jsconfirm-deny-button-border-radius;
 	// 		background: initial;
-	// 		background-color: $swal2-deny-button-background-color;
-	// 		color: $swal2-deny-button-color;
-	// 		font-size: $swal2-deny-button-font-size;
+	// 		background-color: $jsconfirm-deny-button-background-color;
+	// 		color: $jsconfirm-deny-button-color;
+	// 		font-size: $jsconfirm-deny-button-font-size;
 
 	// 		&:focus {
-	// 			box-shadow: $swal2-deny-button-focus-box-shadow;
+	// 			box-shadow: $jsconfirm-deny-button-focus-box-shadow;
 	// 		}
 	// 	}
 
-	// 	&.swal2-cancel {
-	// 		order: $swal2-cancel-button-order;
-	// 		border: $swal2-cancel-button-border;
-	// 		border-radius: $swal2-cancel-button-border-radius;
+	// 	&.jsconfirm-cancel {
+	// 		order: $jsconfirm-cancel-button-order;
+	// 		border: $jsconfirm-cancel-button-border;
+	// 		border-radius: $jsconfirm-cancel-button-border-radius;
 	// 		background: initial;
-	// 		background-color: $swal2-cancel-button-background-color;
-	// 		color: $swal2-cancel-button-color;
-	// 		font-size: $swal2-cancel-button-font-size;
+	// 		background-color: $jsconfirm-cancel-button-background-color;
+	// 		color: $jsconfirm-cancel-button-color;
+	// 		font-size: $jsconfirm-cancel-button-font-size;
 
 	// 		&:focus {
-	// 			box-shadow: $swal2-cancel-button-focus-box-shadow;
+	// 			box-shadow: $jsconfirm-cancel-button-focus-box-shadow;
 	// 		}
 	// 	}
 
-	// 	&.swal2-default-outline {
+	// 	&.jsconfirm-default-outline {
 	// 		&:focus {
-	// 			box-shadow: $swal2-button-focus-box-shadow;
+	// 			box-shadow: $jsconfirm-button-focus-box-shadow;
 	// 		}
 	// 	}
 
 	// 	&:focus {
-	// 		outline: $swal2-button-focus-outline;
+	// 		outline: $jsconfirm-button-focus-outline;
 	// 	}
 
-		&::-moz-focus-inner {
-			border: 0;
-		}
+	&::-moz-focus-inner {
+		border: 0;
+	}
+}
+
+div:where(.jsconfirm-footer) {
+	margin: $jsconfirm-footer-margin;
+	padding: $jsconfirm-footer-padding;
+	border-top: 1px solid $jsconfirm-footer-border-color;
+	color: $jsconfirm-footer-color;
+	font-size: $jsconfirm-footer-font-size;
+	text-align: $jsconfirm-footer-text-align;
+}
+
+.jsconfirm-timer-progress-bar-container {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	grid-column: auto !important;
+	overflow: hidden;
+	border-bottom-right-radius: $jsconfirm-border-radius;
+	border-bottom-left-radius: $jsconfirm-border-radius;
+}
+
+div:where(.jsconfirm-timer-progress-bar) {
+	width: 100%;
+	height: $jsconfirm-timer-progress-bar-height;
+	background: $jsconfirm-timer-progress-bar-background;
+}
+
+img:where(.jsconfirm-image) {
+	max-width: 100%;
+	margin: $jsconfirm-image-margin;
+}
+
+// button:where(.jsconfirm-close) {
+// 	position: $jsconfirm-close-button-position;
+// 	z-index: 2; // sweetalert2/issues/1617
+// 	align-items: $jsconfirm-close-button-align-items;
+// 	justify-content: $jsconfirm-close-button-justify-content;
+// 	width: $jsconfirm-close-button-width;
+// 	height: $jsconfirm-close-button-height;
+// 	margin-top: $jsconfirm-close-button-gap;
+// 	margin-right: $jsconfirm-close-button-gap;
+// 	margin-bottom: -$jsconfirm-close-button-height;
+// 	padding: $jsconfirm-close-button-padding;
+// 	overflow: hidden;
+// 	transition: $jsconfirm-close-button-transition;
+// 	border: $jsconfirm-close-button-border;
+// 	border-radius: $jsconfirm-close-button-border-radius;
+// 	outline: $jsconfirm-close-button-outline;
+// 	background: $jsconfirm-close-button-background;
+// 	color: $jsconfirm-close-button-color;
+// 	font-family: $jsconfirm-close-button-font-family;
+// 	font-size: $jsconfirm-close-button-font-size;
+// 	cursor: pointer;
+// 	justify-self: $jsconfirm-close-button-justify-self;
+
+// 	&:hover {
+// 		transform: $jsconfirm-close-button-hover-transform;
+// 		background: $jsconfirm-close-button-hover-background;
+// 		color: $jsconfirm-close-button-hover-color;
+// 	}
+
+// 	&:focus {
+// 		outline: $jsconfirm-close-button-focus-outline;
+// 		box-shadow: $jsconfirm-close-button-focus-box-shadow;
+// 	}
+
+// 	&::-moz-focus-inner {
+// 		border: 0;
+// 	}
+// }
+
+.jsconfirm-html-container {
+	z-index: 1; // prevent sucess icon overlapping the content
+	justify-content: $jsconfirm-html-container-justify-content;
+	margin: $jsconfirm-html-container-margin;
+	padding: $jsconfirm-html-container-padding;
+	overflow: $jsconfirm-html-container-overflow;
+	color: $jsconfirm-html-container-color;
+	font-size: $jsconfirm-html-container-font-size;
+	font-weight: $jsconfirm-html-container-font-weight;
+	line-height: $jsconfirm-html-container-line-height;
+	text-align: $jsconfirm-html-container-text-align;
+	word-wrap: $jsconfirm-html-container-word-wrap;
+	word-break: $jsconfirm-html-container-word-break;
+}
+
+input:where(.jsconfirm-input),
+input:where(.jsconfirm-file),
+textarea:where(.jsconfirm-textarea),
+select:where(.jsconfirm-select),
+div:where(.jsconfirm-radio),
+label:where(.jsconfirm-checkbox) {
+	margin: $jsconfirm-input-margin;
+}
+
+input:where(.jsconfirm-input),
+input:where(.jsconfirm-file),
+textarea:where(.jsconfirm-textarea) {
+	box-sizing: border-box;
+	width: $jsconfirm-input-width;
+	transition: $jsconfirm-input-transition;
+	border: $jsconfirm-input-border;
+	border-radius: $jsconfirm-input-border-radius;
+	background: $jsconfirm-input-background;
+	box-shadow: $jsconfirm-input-box-shadow;
+	color: $jsconfirm-input-color;
+	font-size: $jsconfirm-input-font-size;
+
+	&.jsconfirm-inputerror {
+		border-color: $jsconfirm-error !important;
+		box-shadow: 0 0 2px $jsconfirm-error !important;
 	}
 
-	div:where(.swal2-footer) {
-		margin: $swal2-footer-margin;
-		padding: $swal2-footer-padding;
-		border-top: 1px solid $swal2-footer-border-color;
-		color: $swal2-footer-color;
-		font-size: $swal2-footer-font-size;
-		text-align: $swal2-footer-text-align;
+	&:focus {
+		border: $jsconfirm-input-focus-border;
+		outline: $jsconfirm-input-focus-outline;
+		box-shadow: $jsconfirm-input-focus-box-shadow;
 	}
 
-	.swal2-timer-progress-bar-container {
-		position: absolute;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		grid-column: auto !important;
-		overflow: hidden;
-		border-bottom-right-radius: $swal2-border-radius;
-		border-bottom-left-radius: $swal2-border-radius;
+	&::placeholder {
+		color: #ccc;
+	}
+}
+
+.jsconfirm-range {
+	margin: $jsconfirm-input-margin;
+	background: $jsconfirm-background;
+
+	input {
+		width: 80%;
 	}
 
-	div:where(.swal2-timer-progress-bar) {
-		width: 100%;
-		height: $swal2-timer-progress-bar-height;
-		background: $swal2-timer-progress-bar-background;
+	output {
+		width: 20%;
+		color: $jsconfirm-input-color;
+		font-weight: 600;
+		text-align: center;
 	}
 
-	img:where(.swal2-image) {
-		max-width: 100%;
-		margin: $swal2-image-margin;
+	input,
+	output {
+		height: $jsconfirm-input-height;
+		padding: 0;
+		font-size: $jsconfirm-input-font-size;
+		line-height: $jsconfirm-input-height;
+	}
+}
+
+.jsconfirm-input {
+	height: $jsconfirm-input-height;
+	padding: $jsconfirm-input-padding;
+}
+
+.jsconfirm-file {
+	width: 75%;
+	margin-right: auto;
+	margin-left: auto;
+	background: $jsconfirm-input-background;
+	font-size: $jsconfirm-input-font-size;
+}
+
+.jsconfirm-textarea {
+	height: $jsconfirm-textarea-height;
+	padding: $jsconfirm-textarea-padding;
+}
+
+.jsconfirm-select {
+	min-width: 50%;
+	max-width: 100%;
+	padding: 0.375em 0.625em;
+	background: $jsconfirm-input-background;
+	color: $jsconfirm-input-color;
+	font-size: $jsconfirm-input-font-size;
+}
+
+.jsconfirm-radio,
+.jsconfirm-checkbox {
+	align-items: center;
+	justify-content: center;
+	background: $jsconfirm-background;
+	color: $jsconfirm-input-color;
+
+	label {
+		margin: 0 0.6em;
+		font-size: $jsconfirm-input-font-size;
 	}
 
-	button:where(.swal2-close) {
-		position: $swal2-close-button-position;
-		z-index: 2; // sweetalert2/issues/1617
-		align-items: $swal2-close-button-align-items;
-		justify-content: $swal2-close-button-justify-content;
-		width: $swal2-close-button-width;
-		height: $swal2-close-button-height;
-		margin-top: $swal2-close-button-gap;
-		margin-right: $swal2-close-button-gap;
-		margin-bottom: -$swal2-close-button-height;
-		padding: $swal2-close-button-padding;
-		overflow: hidden;
-		transition: $swal2-close-button-transition;
-		border: $swal2-close-button-border;
-		border-radius: $swal2-close-button-border-radius;
-		outline: $swal2-close-button-outline;
-		background: $swal2-close-button-background;
-		color: $swal2-close-button-color;
-		font-family: $swal2-close-button-font-family;
-		font-size: $swal2-close-button-font-size;
-		cursor: pointer;
-		justify-self: $swal2-close-button-justify-self;
+	input {
+		flex-shrink: 0;
+		margin: 0 0.4em;
+	}
+}
 
-		&:hover {
-			transform: $swal2-close-button-hover-transform;
-			background: $swal2-close-button-hover-background;
-			color: $swal2-close-button-hover-color;
-		}
+label:where(.jsconfirm-input-label) {
+	display: flex;
+	justify-content: $jsconfirm-input-label-justify-content;
+	margin: $jsconfirm-input-label-margin;
+}
 
-		&:focus {
-			outline: $swal2-close-button-focus-outline;
-			box-shadow: $swal2-close-button-focus-box-shadow;
-		}
+div:where(.jsconfirm-validation-message) {
+	align-items: $jsconfirm-validation-message-align-items;
+	justify-content: $jsconfirm-validation-message-justify-content;
+	margin: $jsconfirm-validation-message-margin;
+	padding: $jsconfirm-validation-message-padding;
+	overflow: hidden;
+	background: $jsconfirm-validation-message-background;
+	color: $jsconfirm-validation-message-color;
+	font-size: $jsconfirm-validation-message-font-size;
+	font-weight: $jsconfirm-validation-message-font-weight;
 
-		&::-moz-focus-inner {
-			border: 0;
-		}
+	&::before {
+		content: '!';
+		display: inline-block;
+		width: 1.5em;
+		min-width: 1.5em;
+		height: 1.5em;
+		margin: 0 0.625em;
+		zoom: $jsconfirm-validation-message-icon-zoom;
+		border-radius: 50%;
+		background-color: $jsconfirm-validation-message-icon-background;
+		color: $jsconfirm-validation-message-icon-color;
+		font-weight: 600;
+		line-height: 1.5em;
+		text-align: center;
+	}
+}
+
+.jsconfirm-progress-steps {
+	flex-wrap: $jsconfirm-progress-steps-flex-wrap;
+	align-items: $jsconfirm-progress-steps-align-items;
+	max-width: $jsconfirm-progress-steps-max-width;
+	margin: $jsconfirm-progress-steps-margin;
+	padding: $jsconfirm-progress-steps-padding;
+	background: $jsconfirm-progress-steps-background;
+	font-weight: $jsconfirm-progress-steps-font-weight;
+
+	li {
+		display: inline-block;
+		position: relative;
 	}
 
-	.swal2-html-container {
-		z-index: 1; // prevent sucess icon overlapping the content
-		justify-content: $swal2-html-container-justify-content;
-		margin: $swal2-html-container-margin;
-		padding: $swal2-html-container-padding;
-		overflow: $swal2-html-container-overflow;
-		color: $swal2-html-container-color;
-		font-size: $swal2-html-container-font-size;
-		font-weight: $swal2-html-container-font-weight;
-		line-height: $swal2-html-container-line-height;
-		text-align: $swal2-html-container-text-align;
-		word-wrap: $swal2-html-container-word-wrap;
-		word-break: $swal2-html-container-word-break;
-	}
+	.jsconfirm-progress-step {
+		z-index: 20;
+		flex-shrink: 0;
+		width: $jsconfirm-progress-step-width;
+		height: $jsconfirm-progress-step-height;
+		border-radius: $jsconfirm-progress-step-border-radius;
+		background: $jsconfirm-active-step-background;
+		color: $jsconfirm-active-step-color;
+		line-height: $jsconfirm-progress-step-height;
+		text-align: center;
 
-	input:where(.swal2-input),
-	input:where(.swal2-file),
-	textarea:where(.swal2-textarea),
-	select:where(.swal2-select),
-	div:where(.swal2-radio),
-	label:where(.swal2-checkbox) {
-		margin: $swal2-input-margin;
-	}
+		&.jsconfirm-active-progress-step {
+			background: $jsconfirm-active-step-background;
 
-	input:where(.swal2-input),
-	input:where(.swal2-file),
-	textarea:where(.swal2-textarea) {
-		box-sizing: border-box;
-		width: $swal2-input-width;
-		transition: $swal2-input-transition;
-		border: $swal2-input-border;
-		border-radius: $swal2-input-border-radius;
-		background: $swal2-input-background;
-		box-shadow: $swal2-input-box-shadow;
-		color: $swal2-input-color;
-		font-size: $swal2-input-font-size;
+			~ .jsconfirm-progress-step {
+				background: $jsconfirm-progress-step-background;
+				color: $jsconfirm-progress-step-color;
+			}
 
-		&.swal2-inputerror {
-			border-color: $swal2-error !important;
-			box-shadow: 0 0 2px $swal2-error !important;
-		}
-
-		&:focus {
-			border: $swal2-input-focus-border;
-			outline: $swal2-input-focus-outline;
-			box-shadow: $swal2-input-focus-box-shadow;
-		}
-
-		&::placeholder {
-			color: #ccc;
-		}
-	}
-
-	.swal2-range {
-		margin: $swal2-input-margin;
-		background: $swal2-background;
-
-		input {
-			width: 80%;
-		}
-
-		output {
-			width: 20%;
-			color: $swal2-input-color;
-			font-weight: 600;
-			text-align: center;
-		}
-
-		input,
-		output {
-			height: $swal2-input-height;
-			padding: 0;
-			font-size: $swal2-input-font-size;
-			line-height: $swal2-input-height;
-		}
-	}
-
-	.swal2-input {
-		height: $swal2-input-height;
-		padding: $swal2-input-padding;
-	}
-
-	.swal2-file {
-		width: 75%;
-		margin-right: auto;
-		margin-left: auto;
-		background: $swal2-input-background;
-		font-size: $swal2-input-font-size;
-	}
-
-	.swal2-textarea {
-		height: $swal2-textarea-height;
-		padding: $swal2-textarea-padding;
-	}
-
-	.swal2-select {
-		min-width: 50%;
-		max-width: 100%;
-		padding: 0.375em 0.625em;
-		background: $swal2-input-background;
-		color: $swal2-input-color;
-		font-size: $swal2-input-font-size;
-	}
-
-	.swal2-radio,
-	.swal2-checkbox {
-		align-items: center;
-		justify-content: center;
-		background: $swal2-background;
-		color: $swal2-input-color;
-
-		label {
-			margin: 0 0.6em;
-			font-size: $swal2-input-font-size;
-		}
-
-		input {
-			flex-shrink: 0;
-			margin: 0 0.4em;
-		}
-	}
-
-	label:where(.swal2-input-label) {
-		display: flex;
-		justify-content: $swal2-input-label-justify-content;
-		margin: $swal2-input-label-margin;
-	}
-
-	div:where(.swal2-validation-message) {
-		align-items: $swal2-validation-message-align-items;
-		justify-content: $swal2-validation-message-justify-content;
-		margin: $swal2-validation-message-margin;
-		padding: $swal2-validation-message-padding;
-		overflow: hidden;
-		background: $swal2-validation-message-background;
-		color: $swal2-validation-message-color;
-		font-size: $swal2-validation-message-font-size;
-		font-weight: $swal2-validation-message-font-weight;
-
-		&::before {
-			content: '!';
-			display: inline-block;
-			width: 1.5em;
-			min-width: 1.5em;
-			height: 1.5em;
-			margin: 0 0.625em;
-			zoom: $swal2-validation-message-icon-zoom;
-			border-radius: 50%;
-			background-color: $swal2-validation-message-icon-background;
-			color: $swal2-validation-message-icon-color;
-			font-weight: 600;
-			line-height: 1.5em;
-			text-align: center;
-		}
-	}
-
-	.swal2-progress-steps {
-		flex-wrap: $swal2-progress-steps-flex-wrap;
-		align-items: $swal2-progress-steps-align-items;
-		max-width: $swal2-progress-steps-max-width;
-		margin: $swal2-progress-steps-margin;
-		padding: $swal2-progress-steps-padding;
-		background: $swal2-progress-steps-background;
-		font-weight: $swal2-progress-steps-font-weight;
-
-		li {
-			display: inline-block;
-			position: relative;
-		}
-
-		.swal2-progress-step {
-			z-index: 20;
-			flex-shrink: 0;
-			width: $swal2-progress-step-width;
-			height: $swal2-progress-step-height;
-			border-radius: $swal2-progress-step-border-radius;
-			background: $swal2-active-step-background;
-			color: $swal2-active-step-color;
-			line-height: $swal2-progress-step-height;
-			text-align: center;
-
-			&.swal2-active-progress-step {
-				background: $swal2-active-step-background;
-
-				~ .swal2-progress-step {
-					background: $swal2-progress-step-background;
-					color: $swal2-progress-step-color;
-				}
-
-				~ .swal2-progress-step-line {
-					background: $swal2-progress-step-background;
-				}
+			~ .jsconfirm-progress-step-line {
+				background: $jsconfirm-progress-step-background;
 			}
 		}
-
-		.swal2-progress-step-line {
-			z-index: 10;
-			flex-shrink: 0;
-			width: $swal2-progress-steps-distance;
-			height: 0.4em;
-			margin: 0 -1px;
-			background: $swal2-active-step-background;
-		}
 	}
+
+	.jsconfirm-progress-step-line {
+		z-index: 10;
+		flex-shrink: 0;
+		width: $jsconfirm-progress-steps-distance;
+		height: 0.4em;
+		margin: 0 -1px;
+		background: $jsconfirm-active-step-background;
+	}
+}
+
 // }
 
 @import 'icons';
 
 // github.com/sweetalert2/sweetalert2/issues/268
-[class^='swal2'] {
+[class^='jsconfirm'] {
 	-webkit-tap-highlight-color: transparent;
 }
 
-.swal2-show {
-	animation: $swal2-show-animation;
+.jsconfirm-show {
+	animation: $jsconfirm-show-animation;
 }
 
-.swal2-hide {
-	animation: $swal2-hide-animation;
+.jsconfirm-hide {
+	animation: $jsconfirm-hide-animation;
 }
 
-.swal2-noanimation {
+.jsconfirm-noanimation {
 	transition: none;
 }
 
+.modalHide {
+	animation: modalHide 0.5s ease forwards;
+}
+
+.modalHideBackdrop {
+	animation: modalHideBackdrop 0.5s ease forwards;
+}
+
+.modalShow {
+	animation: modalShow 0.5s ease forwards;
+}
+
+.modalBackdrop.modalShowBackdrop {
+	animation: modalShowBackdrop 0.5s ease forwards;
+}
+
 // Measure scrollbar width for padding body during modal show/hide
-.swal2-scrollbar-measure {
+.jsconfirm-scrollbar-measure {
 	position: absolute;
 	top: -9999px;
 	width: 50px;
@@ -901,13 +1010,13 @@ div:where(.swal2-container) {
 }
 
 // Right-to-left support
-.swal2-rtl {
-	.swal2-close {
+.jsconfirm-rtl {
+	.jsconfirm-close {
 		margin-right: initial;
-		margin-left: $swal2-close-button-gap;
+		margin-left: $jsconfirm-close-button-gap;
 	}
 
-	.swal2-timer-progress-bar {
+	.jsconfirm-timer-progress-bar {
 		right: 0;
 		left: auto;
 	}

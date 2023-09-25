@@ -99,11 +99,11 @@ function handleButtonsStyling(confirmButton, denyButton, cancelButton, params) {
 function renderButton(button, buttonType, params) {
   const buttonName = /** @type {'Confirm' | 'Deny' | 'Cancel'} */ (capitalizeFirstLetter(buttonType))
 
-  dom.toggle(button, params[`show${buttonName}Button`], 'inline-block')
+  dom.toggle(button, params[`show${buttonName}Button`], '')
   dom.setInnerHtml(button, params[`${buttonType}ButtonText`] || '') // Set caption text
   button.setAttribute('aria-label', params[`${buttonType}ButtonAriaLabel`] || '') // ARIA label
 
   // Add buttons custom classes
-  button.className = swalClasses[buttonType]
+  button.classList.add(swalClasses[buttonType])
   dom.applyCustomClass(button, params, `${buttonType}Button`)
 }

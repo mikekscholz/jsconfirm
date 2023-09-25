@@ -49,8 +49,11 @@ export const renderPopup = (instance, params) => {
 const addClasses = (popup, params) => {
   const showClass = params.showClass || {}
   // Default Class + showClass when updating Swal.update({})
-  popup.className = `${swalClasses.popup} ${dom.isVisible(popup) ? showClass.popup : ''}`
-
+  // popup.className = `${swalClasses.popup} ${dom.isVisible(popup) ? showClass.popup : ''}`
+  popup.classList.add(swalClasses.popup)
+  // popup.classList.add(`${dom.isVisible(popup) ? showClass.popup : ''}`)
+  
+console.log(swalClasses.popup)
   if (params.toast) {
     dom.addClass([document.documentElement, document.body], swalClasses['toast-shown'])
     dom.addClass(popup, swalClasses.toast)

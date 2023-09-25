@@ -1,61 +1,61 @@
-.swal2-popup {
-  &.swal2-toast {
+.jsconfirm-popup {
+  &.jsconfirm-toast {
     box-sizing: border-box;
     grid-column: 1/4 !important;
     grid-row: 1/4 !important;
     grid-template-columns: min-content auto min-content;
-    padding: $swal2-toast-padding;
+    padding: $jsconfirm-toast-padding;
     overflow-y: hidden;
-    background: $swal2-toast-background;
-    box-shadow: $swal2-toast-box-shadow;
+    background: $jsconfirm-toast-background;
+    box-shadow: $jsconfirm-toast-box-shadow;
     pointer-events: all;
 
     > * {
       grid-column: 2;
     }
 
-    .swal2-title {
-      margin: $swal2-toast-title-margin;
-      padding: $swal2-toast-title-padding;
-      font-size: $swal2-toast-title-font-size;
+    .jsconfirm-title {
+      margin: $jsconfirm-toast-title-margin;
+      padding: $jsconfirm-toast-title-padding;
+      font-size: $jsconfirm-toast-title-font-size;
       text-align: initial;
     }
 
-    .swal2-loading {
+    .jsconfirm-loading {
       justify-content: center;
     }
 
-    .swal2-input {
-      height: $swal2-toast-input-height;
-      margin: $swal2-toast-input-margin;
-      font-size: $swal2-toast-input-font-size;
+    .jsconfirm-input {
+      height: $jsconfirm-toast-input-height;
+      margin: $jsconfirm-toast-input-margin;
+      font-size: $jsconfirm-toast-input-font-size;
     }
 
-    .swal2-validation-message {
-      font-size: $swal2-toast-validation-font-size;
+    .jsconfirm-validation-message {
+      font-size: $jsconfirm-toast-validation-font-size;
     }
 
-    .swal2-footer {
-      margin: $swal2-toast-footer-margin;
-      padding: $swal2-toast-footer-margin;
-      font-size: $swal2-toast-footer-font-size;
+    .jsconfirm-footer {
+      margin: $jsconfirm-toast-footer-margin;
+      padding: $jsconfirm-toast-footer-margin;
+      font-size: $jsconfirm-toast-footer-font-size;
     }
 
-    .swal2-close {
+    .jsconfirm-close {
       grid-column: 3/3;
       grid-row: 1/99;
       align-self: center;
-      width: $swal2-toast-close-button-width;
-      height: $swal2-toast-close-button-height;
-      margin: $swal2-toast-close-button-margin;
-      font-size: $swal2-toast-close-button-font-size;
+      width: $jsconfirm-toast-close-button-width;
+      height: $jsconfirm-toast-close-button-height;
+      margin: $jsconfirm-toast-close-button-margin;
+      font-size: $jsconfirm-toast-close-button-font-size;
     }
 
-    .swal2-html-container {
-      margin: $swal2-toast-html-container-margin;
-      padding: $swal2-toast-html-container-padding;
+    .jsconfirm-html-container {
+      margin: $jsconfirm-toast-html-container-margin;
+      padding: $jsconfirm-toast-html-container-padding;
       overflow: initial;
-      font-size: $swal2-toast-html-container-font-size;
+      font-size: $jsconfirm-toast-html-container-font-size;
       text-align: initial;
 
       &:empty {
@@ -63,7 +63,7 @@
       }
     }
 
-    .swal2-loader {
+    .jsconfirm-loader {
       grid-column: 1;
       grid-row: 1/99;
       align-self: center;
@@ -72,7 +72,7 @@
       margin: 0.25em;
     }
 
-    .swal2-icon {
+    .jsconfirm-icon {
       grid-column: 1;
       grid-row: 1/99;
       align-self: center;
@@ -81,22 +81,22 @@
       height: 2em;
       margin: 0 0.5em 0 0;
 
-      .swal2-icon-content {
+      .jsconfirm-icon-content {
         display: flex;
         align-items: center;
-        font-size: $swal2-toast-icon-font-size;
+        font-size: $jsconfirm-toast-icon-font-size;
         font-weight: bold;
       }
 
-      &.swal2-success {
-        .swal2-success-ring {
+      &.jsconfirm-success {
+        .jsconfirm-success-ring {
           width: 2em;
           height: 2em;
         }
       }
 
-      &.swal2-error {
-        [class^='swal2-x-mark-line'] {
+      &.jsconfirm-error {
+        [class^='jsconfirm-x-mark-line'] {
           top: 0.875em;
           width: 1.375em;
 
@@ -111,7 +111,7 @@
       }
     }
 
-    .swal2-actions {
+    .jsconfirm-actions {
       justify-content: flex-start;
       height: auto;
       margin: 0;
@@ -119,16 +119,16 @@
       padding: 0 0.5em;
     }
 
-    .swal2-styled {
+    .jsconfirm-styled {
       margin: 0.25em 0.5em;
       padding: 0.4em 0.6em;
-      font-size: $swal2-toast-buttons-font-size;
+      font-size: $jsconfirm-toast-buttons-font-size;
     }
 
-    .swal2-success {
-      border-color: $swal2-success;
+    .jsconfirm-success {
+      border-color: $jsconfirm-success;
 
-      [class^='swal2-success-circular-line'] {
+      [class^='jsconfirm-success-circular-line'] {
         // Emulate moving circular line
         position: absolute;
         width: 1.6em;
@@ -152,19 +152,19 @@
         }
       }
 
-      .swal2-success-ring {
+      .jsconfirm-success-ring {
         width: 2em;
         height: 2em;
       }
 
-      .swal2-success-fix {
+      .jsconfirm-success-fix {
         top: 0;
         left: 0.4375em;
         width: 0.4375em;
         height: 2.6875em;
       }
 
-      [class^='swal2-success-line'] {
+      [class^='jsconfirm-success-line'] {
         height: 0.3125em;
 
         &[class$='tip'] {
@@ -180,25 +180,25 @@
         }
       }
 
-      &.swal2-icon-show {
-        @if $swal2-icon-animations {
-          .swal2-success-line-tip {
-            animation: swal2-toast-animate-success-line-tip 0.75s;
+      &.jsconfirm-icon-show {
+        @if $jsconfirm-icon-animations {
+          .jsconfirm-success-line-tip {
+            animation: jsconfirm-toast-animate-success-line-tip 0.75s;
           }
 
-          .swal2-success-line-long {
-            animation: swal2-toast-animate-success-line-long 0.75s;
+          .jsconfirm-success-line-long {
+            animation: jsconfirm-toast-animate-success-line-long 0.75s;
           }
         }
       }
     }
 
-    &.swal2-show {
-      animation: $swal2-toast-show-animation;
+    &.jsconfirm-show {
+      animation: $jsconfirm-toast-show-animation;
     }
 
-    &.swal2-hide {
-      animation: $swal2-toast-hide-animation;
+    &.jsconfirm-hide {
+      animation: $jsconfirm-toast-hide-animation;
     }
   }
 }

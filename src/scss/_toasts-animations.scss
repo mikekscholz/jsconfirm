@@ -1,5 +1,5 @@
 // Animations
-@keyframes swal2-toast-show {
+@keyframes jsconfirm-toast-show {
   0% {
     transform: translateY(-0.625em) rotateZ(2deg);
   }
@@ -17,14 +17,14 @@
   }
 }
 
-@keyframes swal2-toast-hide {
+@keyframes jsconfirm-toast-hide {
   100% {
     transform: rotateZ(1deg);
     opacity: 0;
   }
 }
 
-@keyframes swal2-toast-animate-success-line-tip {
+@keyframes jsconfirm-toast-animate-success-line-tip {
   0% {
     top: 0.5625em;
     left: 0.0625em;
@@ -56,7 +56,7 @@
   }
 }
 
-@keyframes swal2-toast-animate-success-line-long {
+@keyframes jsconfirm-toast-animate-success-line-long {
   0% {
     top: 1.625em;
     right: 1.375em;

@@ -1,41 +1,41 @@
 @import 'toasts-body';
 
 @mixin sweetalert2-body() {
-  &.swal2-shown {
-    @include not('.swal2-no-backdrop', '.swal2-toast-shown') {
-      overflow: hidden; // not overflow-y because of Sarari, #1253
-    }
-  }
+  // &.jsconfirm-shown {
+  //   @include not('.jsconfirm-no-backdrop', '.jsconfirm-toast-shown') {
+  //     overflow: hidden; // not overflow-y because of Sarari, #1253
+  //   }
+  // }
 
-  &.swal2-height-auto {
-    height: auto !important; // #781 #1107
-  }
+  // &.jsconfirm-height-auto {
+  //   height: auto !important; // #781 #1107
+  // }
 
-  &.swal2-no-backdrop {
-    .swal2-container {
+  &.jsconfirm-no-backdrop {
+    .jsconfirm-container {
       background-color: transparent !important;
       pointer-events: none;
 
-      .swal2-popup {
+      .jsconfirm-popup {
         pointer-events: all;
       }
 
-      .swal2-modal {
-        box-shadow: 0 0 10px $swal2-backdrop;
+      .jsconfirm-modal {
+        box-shadow: 0 0 10px $jsconfirm-backdrop;
       }
     }
   }
 
   @media print {
-    &.swal2-shown {
-      @include not('.swal2-no-backdrop', '.swal2-toast-shown') {
+    &.jsconfirm-shown {
+      @include not('.jsconfirm-no-backdrop', '.jsconfirm-toast-shown') {
         overflow-y: scroll !important;
 
         > [aria-hidden='true'] {
           display: none;
         }
 
-        .swal2-container {
+        .jsconfirm-container {
           position: static !important;
         }
       }

@@ -27,6 +27,6 @@ export const renderImage = (instance, params) => {
   dom.applyNumericalStyle(image, 'height', params.imageHeight)
 
   // Class
-  image.className = swalClasses.image
+  image.classList.add(swalClasses.image)
   dom.applyCustomClass(image, params, 'image')
 }

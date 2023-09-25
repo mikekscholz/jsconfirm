@@ -8,7 +8,6 @@ import { getCancelButton, getConfirmButton, getDenyButton, getTimerProgressBar }
  *
  * @param {HTMLElement} elem
  * @param {string} html
- * @param {DOMParserSupportedType} mime
  */
 
 export const setInnerHtml = (elem, html) => {

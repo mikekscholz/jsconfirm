@@ -35,7 +35,7 @@ export const renderInput = (instance, params) => {
     setAttributes(inputClass, params.inputAttributes)
 
     // set class
-    inputContainer.className = swalClasses[inputClass]
+    inputContainer.classList.add(swalClasses[inputClass])
 
     if (rerender) {
       dom.hide(inputContainer)
@@ -137,7 +137,7 @@ const setInputLabel = (input, prependTo, params) => {
     const label = document.createElement('label')
     const labelClass = swalClasses['input-label']
     label.setAttribute('for', input.id)
-    label.className = labelClass
+    label.classList.add(labelClass)
     if (typeof params.customClass === 'object') {
       dom.addClass(label, params.customClass.inputLabel)
     }
