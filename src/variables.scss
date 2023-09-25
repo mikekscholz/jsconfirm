@@ -28,6 +28,8 @@ $yellowAlpha:   transparentize($yellowHover, 0.4) !default;
 $purpleAlpha:   transparentize($purpleHover, 0.4) !default;
 $lightAlpha:    transparentize($lightHover, 0.4) !default;
 $darkAlpha:     transparentize($darkHover, 0.4) !default;
+
+$glow-white: rgba(255, 255, 255, 0.3);
 // CONTAINER
 $jsconfirm-container-padding: 0.625em !default;
 
