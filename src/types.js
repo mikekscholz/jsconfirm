@@ -1,10 +1,10 @@
 /**
- * @typedef { import('./SweetAlert').SweetAlert } SweetAlert
- * @typedef { import('sweetalert2').SweetAlertOptions } SweetAlertOptions
- * @typedef { import('sweetalert2').SweetAlertIcon } SweetAlertIcon
- * @typedef { import('sweetalert2').SweetAlertInput } SweetAlertInput
- * @typedef { import('sweetalert2').SweetAlertResult } SweetAlertResult
- * @typedef { import('sweetalert2').SweetAlertOptions['inputValue'] } SweetAlertInputValue
+ * @typedef { import('./SweetAlert').JsConfirm } JsConfirm
+ * @typedef { import('jsconfirm').JsConfirmOptions } JsConfirmOptions
+ * @typedef { import('jsconfirm').JsConfirmIcon } JsConfirmIcon
+ * @typedef { import('jsconfirm').JsConfirmInput } JsConfirmInput
+ * @typedef { import('jsconfirm').JsConfirmResult } JsConfirmResult
+ * @typedef { import('jsconfirm').JsConfirmOptions['inputValue'] } JsConfirmInputValue
  */
 
 /**
@@ -13,7 +13,7 @@
 
 /**
  * @typedef GlobalState
- * @property {SweetAlert} [currentInstance]
+ * @property {JsConfirm} [currentInstance]
  * @property {Element | null} [previousActiveElement]
  * @property {Timer} [timeout]
  * @property {NodeJS.Timeout} [restoreFocusTimeout]

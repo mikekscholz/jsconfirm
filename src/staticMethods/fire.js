@@ -1,10 +1,10 @@
 /**
  * Main method to create a new SweetAlert2 popup
  *
- * @param  {...SweetAlertOptions} args
- * @returns {Promise<SweetAlertResult>}
+ * @param  {...JsConfirmOptions} args
+ * @returns {Promise<JsConfirmResult>}
  */
 export function fire(...args) {
-  const Swal = this // eslint-disable-line @typescript-eslint/no-this-alias
-  return new Swal(...args)
+  const Jsc = this // eslint-disable-line @typescript-eslint/no-this-alias
+  return new Jsc(...args)
 }

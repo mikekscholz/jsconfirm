@@ -1,8 +1,8 @@
 import * as dom from '../../dom/index.js'
 
 /**
- * @param {SweetAlert} instance
- * @param {SweetAlertOptions} params
+ * @param {JsConfirm} instance
+ * @param {JsConfirmOptions} params
  */
 export const renderFooter = (instance, params) => {
   const footer = dom.getFooter()

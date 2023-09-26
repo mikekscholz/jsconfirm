@@ -3,7 +3,7 @@ import * as dom from './dom/index.js'
 import { warn } from './utils.js'
 
 /**
- * @param {SweetAlertOptions} params
+ * @param {JsConfirmOptions} params
  */
 function setDefaultInputValidators(params) {
   // Use default `inputValidator` for supported input types if not provided
@@ -19,7 +19,7 @@ function setDefaultInputValidators(params) {
 }
 
 /**
- * @param {SweetAlertOptions} params
+ * @param {JsConfirmOptions} params
  */
 function validateCustomTargetElement(params) {
   // Determine if the custom target element is valid
@@ -36,7 +36,7 @@ function validateCustomTargetElement(params) {
 /**
  * Set type, text and actions on popup
  *
- * @param {SweetAlertOptions} params
+ * @param {JsConfirmOptions} params
  */
 export default function setParameters(params) {
   setDefaultInputValidators(params)

@@ -1,4 +1,4 @@
-export const swalPrefix = 'jsconfirm-'
+export const jscPrefix = 'jsconfirm-'
 
 /**
  * @typedef
@@ -7,6 +7,8 @@ export const swalPrefix = 'jsconfirm-'
  *   | 'height-auto'
  *   | 'iosfix'
  *   | 'popup'
+ *   | 'body'
+ *   | 'clip'
  *   | 'modal'
  *   | 'no-backdrop'
  *   | 'no-transition'
@@ -71,22 +73,24 @@ export const swalPrefix = 'jsconfirm-'
  *   | 'icon-info'
  *   | 'icon-question'
  *   | 'icon-error'
- * } SwalClass
- * @typedef {Record<SwalClass, string>} SwalClasses
+ * } JscClass
+ * @typedef {Record<JscClass, string>} JscClasses
  */
 
 /**
- * @typedef {'success' | 'warning' | 'info' | 'question' | 'error'} SwalIcon
- * @typedef {Record<SwalIcon, string>} SwalIcons
+ * @typedef {'success' | 'warning' | 'info' | 'question' | 'error'} JscIcon
+ * @typedef {Record<JscIcon, string>} JscIcons
  */
 
-/** @type {SwalClass[]} */
+/** @type {JscClass[]} */
 const classNames = [
   'container',
   'shown',
   'height-auto',
   'iosfix',
   'popup',
+  'body',
+  'clip',
   'modal',
   'no-backdrop',
   'no-transition',
@@ -153,15 +157,15 @@ const classNames = [
   'icon-error',
 ]
 
-export const swalClasses = classNames.reduce((acc, className) => {
-  acc[className] = swalPrefix + className
+export const jscClasses = classNames.reduce((acc, className) => {
+  acc[className] = jscPrefix + className
   return acc
-}, /** @type {SwalClasses} */ ({}))
+}, /** @type {JscClasses} */ ({}))
 
-/** @type {SwalIcon[]} */
+/** @type {JscIcon[]} */
 const icons = ['success', 'warning', 'info', 'question', 'error']
 
 export const iconTypes = icons.reduce((acc, icon) => {
-  acc[icon] = swalPrefix + icon
+  acc[icon] = jscPrefix + icon
   return acc
-}, /** @type {SwalIcons} */ ({}))
+}, /** @type {JscIcons} */ ({}))

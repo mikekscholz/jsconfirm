@@ -2,7 +2,7 @@ import { DismissReason } from './utils/DismissReason.js'
 import { callIfFunction } from './utils/utils.js'
 
 /**
- * @param {SweetAlertOptions} innerParams
+ * @param {JsConfirmOptions} innerParams
  * @param {DomCache} domCache
  * @param {Function} dismissWith
  */
@@ -22,7 +22,7 @@ export const handlePopupClick = (innerParams, domCache, dismissWith) => {
 }
 
 /**
- * @param {SweetAlertOptions} innerParams
+ * @param {JsConfirmOptions} innerParams
  * @param {DomCache} domCache
  * @param {Function} dismissWith
  */
@@ -37,7 +37,7 @@ const handleToastClick = (innerParams, domCache, dismissWith) => {
 }
 
 /**
- * @param {SweetAlertOptions} innerParams
+ * @param {JsConfirmOptions} innerParams
  * @returns {boolean}
  */
 const isAnyButtonShown = (innerParams) => {
@@ -83,7 +83,7 @@ const handleContainerMousedown = (domCache) => {
 }
 
 /**
- * @param {SweetAlertOptions} innerParams
+ * @param {JsConfirmOptions} innerParams
  * @param {DomCache} domCache
  * @param {Function} dismissWith
  */

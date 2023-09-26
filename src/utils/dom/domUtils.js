@@ -1,4 +1,4 @@
-import { iconTypes, swalClasses } from '../classes.js'
+import { iconTypes, jscClasses } from '../classes.js'
 import { warn } from '../utils.js'
 import { getCancelButton, getConfirmButton, getDenyButton, getTimerProgressBar } from './getters.js'
 
@@ -61,12 +61,12 @@ export const hasClass = (elem, className) => {
 
 /**
  * @param {HTMLElement} elem
- * @param {SweetAlertOptions} params
+ * @param {JsConfirmOptions} params
  */
 const removeCustomClasses = (elem, params) => {
   Array.from(elem.classList).forEach((className) => {
     if (
-      !Object.values(swalClasses).includes(className) &&
+      !Object.values(jscClasses).includes(className) &&
       !Object.values(iconTypes).includes(className) &&
       !Object.values(params.showClass || {}).includes(className)
     ) {
@@ -77,7 +77,7 @@ const removeCustomClasses = (elem, params) => {
 
 /**
  * @param {HTMLElement} elem
- * @param {SweetAlertOptions} params
+ * @param {JsConfirmOptions} params
  * @param {string} className
  */
 export const applyCustomClass = (elem, params, className) => {
@@ -99,7 +99,7 @@ export const applyCustomClass = (elem, params, className) => {
 
 /**
  * @param {HTMLElement} popup
- * @param {import('./renderers/renderInput').InputClass | SweetAlertInput} inputClass
+ * @param {import('./renderers/renderInput').InputClass | JsConfirmInput} inputClass
  * @returns {HTMLInputElement | null}
  */
 export const getInput = (popup, inputClass) => {
@@ -110,18 +110,18 @@ export const getInput = (popup, inputClass) => {
     case 'select':
     case 'textarea':
     case 'file':
-      return popup.querySelector(`.${swalClasses.popup} > .${swalClasses[inputClass]}`)
+      return popup.querySelector(`.${jscClasses.popup} > .${jscClasses[inputClass]}`)
     case 'checkbox':
-      return popup.querySelector(`.${swalClasses.popup} > .${swalClasses.checkbox} input`)
+      return popup.querySelector(`.${jscClasses.popup} > .${jscClasses.checkbox} input`)
     case 'radio':
       return (
-        popup.querySelector(`.${swalClasses.popup} > .${swalClasses.radio} input:checked`) ||
-        popup.querySelector(`.${swalClasses.popup} > .${swalClasses.radio} input:first-child`)
+        popup.querySelector(`.${jscClasses.popup} > .${jscClasses.radio} input:checked`) ||
+        popup.querySelector(`.${jscClasses.popup} > .${jscClasses.radio} input:first-child`)
       )
     case 'range':
-      return popup.querySelector(`.${swalClasses.popup} > .${swalClasses.range} input`)
+      return popup.querySelector(`.${jscClasses.popup} > .${jscClasses.range} input`)
     default:
-      return popup.querySelector(`.${swalClasses.popup} > .${swalClasses.input}`)
+      return popup.querySelector(`.${jscClasses.popup} > .${jscClasses.input}`)
   }
 }
 

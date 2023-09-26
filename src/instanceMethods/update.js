@@ -6,7 +6,7 @@ import privateProps from '../privateProps.js'
 /**
  * Updates popup parameters.
  *
- * @param {SweetAlertOptions} params
+ * @param {JsConfirmOptions} params
  */
 export function update(params) {
   const popup = dom.getPopup()
@@ -36,8 +36,8 @@ export function update(params) {
 }
 
 /**
- * @param {SweetAlertOptions} params
- * @returns {SweetAlertOptions}
+ * @param {JsConfirmOptions} params
+ * @returns {JsConfirmOptions}
  */
 const filterValidParams = (params) => {
   const validUpdatableParams = {}

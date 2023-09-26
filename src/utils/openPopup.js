@@ -1,6 +1,6 @@
 import globalState from '../globalState.js'
 import { setAriaHidden } from './aria.js'
-import { swalClasses } from './classes.js'
+import { jscClasses } from './classes.js'
 import * as dom from './dom/index.js'
 import { iOSfix } from './iosFix.js'
 import { replaceScrollbarWithPadding } from './scrollbar.js'
@@ -10,7 +10,7 @@ export const SHOW_CLASS_TIMEOUT = 10
 /**
  * Open popup, add necessary classes and styles, fix scrollbar
  *
- * @param {SweetAlertOptions} params
+ * @param {JsConfirmOptions} params
  */
 export const openPopup = (params) => {
   const container = dom.getContainer()
@@ -42,7 +42,7 @@ export const openPopup = (params) => {
     setTimeout(() => params.didOpen(popup))
   }
 
-  dom.removeClass(container, swalClasses['no-transition'])
+  dom.removeClass(container, jscClasses['no-transition'])
 }
 
 /**
@@ -93,7 +93,7 @@ const fixScrollContainer = (container, scrollbarPadding, initialBodyOverflow) =>
 /**
  * @param {HTMLElement} container
  * @param {HTMLElement} popup
- * @param {SweetAlertOptions} params
+ * @param {JsConfirmOptions} params
  */
 const addClasses = (container, popup, params) => {
   dom.addClass(container, params.showClass.backdrop)
@@ -107,8 +107,8 @@ const addClasses = (container, popup, params) => {
     popup.style.removeProperty('opacity')
   }, SHOW_CLASS_TIMEOUT) // 10ms in order to fix #2062
 
-  dom.addClass([document.documentElement, document.body], swalClasses.shown)
+  dom.addClass([document.documentElement, document.body], jscClasses.shown)
   if (params.heightAuto && params.backdrop && !params.toast) {
-    dom.addClass([document.documentElement, document.body], swalClasses['height-auto'])
+    dom.addClass([document.documentElement, document.body], jscClasses['height-auto'])
   }
 }

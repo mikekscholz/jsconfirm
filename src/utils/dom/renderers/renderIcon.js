@@ -1,11 +1,11 @@
 import privateProps from '../../../privateProps.js'
-import { iconTypes, swalClasses } from '../../classes.js'
+import { iconTypes, jscClasses } from '../../classes.js'
 import * as dom from '../../dom/index.js'
 import { error } from '../../utils.js'
 
 /**
- * @param {SweetAlert} instance
- * @param {SweetAlertOptions} params
+ * @param {JsConfirm} instance
+ * @param {JsConfirmOptions} params
  */
 export const renderIcon = (instance, params) => {
   const innerParams = privateProps.innerParams.get(instance)
@@ -47,7 +47,7 @@ export const renderIcon = (instance, params) => {
 
 /**
  * @param {HTMLElement} icon
- * @param {SweetAlertOptions} params
+ * @param {JsConfirmOptions} params
  */
 const applyStyles = (icon, params) => {
   for (const [iconType, iconClassName] of Object.entries(iconTypes)) {
@@ -107,7 +107,7 @@ const warningIconHtml = `
 
 /**
  * @param {HTMLElement} icon
- * @param {SweetAlertOptions} params
+ * @param {JsConfirmOptions} params
  * @var {DOMParserSupportedType} mime
  */
 const setContent = (icon, params) => {
@@ -138,7 +138,7 @@ const setContent = (icon, params) => {
 
 /**
  * @param {HTMLElement} icon
- * @param {SweetAlertOptions} params
+ * @param {JsConfirmOptions} params
  */
 const setColor = (icon, params) => {
   if (!params.iconColor) {
@@ -161,4 +161,4 @@ const setColor = (icon, params) => {
  * @param {string} content
  * @returns {string}
  */
-const iconContent = (content) => `<div class="${swalClasses['icon-content']}">${content}</div>`
+const iconContent = (content) => `<div class="${jscClasses['icon-content']}">${content}</div>`

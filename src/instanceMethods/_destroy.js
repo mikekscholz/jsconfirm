@@ -27,7 +27,7 @@ export function _destroy() {
 }
 
 /**
- * @param {SweetAlert} instance
+ * @param {JsConfirm} instance
  */
 const disposeSwal = (instance) => {
   disposeWeakMaps(instance)
@@ -41,7 +41,7 @@ const disposeSwal = (instance) => {
 }
 
 /**
- * @param {SweetAlert} instance
+ * @param {JsConfirm} instance
  */
 const disposeWeakMaps = (instance) => {
   // If the current instance is awaiting a promise result, we keep the privateMethods to call them once the promise result is retrieved #2335
@@ -75,7 +75,7 @@ const disposeWeakMaps = (instance) => {
 
 /**
  * @param {object} obj
- * @param {SweetAlert} instance
+ * @param {JsConfirm} instance
  */
 const unsetWeakMaps = (obj, instance) => {
   for (const i in obj) {

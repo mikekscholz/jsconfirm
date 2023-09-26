@@ -1,9 +1,9 @@
-import { swalClasses } from '../../classes.js'
+import { jscClasses } from '../../classes.js'
 import * as dom from '../../dom/index.js'
 
 /**
- * @param {SweetAlert} instance
- * @param {SweetAlertOptions} params
+ * @param {JsConfirm} instance
+ * @param {JsConfirmOptions} params
  */
 export const renderImage = (instance, params) => {
   const image = dom.getImage()
@@ -27,6 +27,6 @@ export const renderImage = (instance, params) => {
   dom.applyNumericalStyle(image, 'height', params.imageHeight)
 
   // Class
-  image.classList.add(swalClasses.image)
+  image.classList.add(jscClasses.image)
   dom.applyCustomClass(image, params, 'image')
 }

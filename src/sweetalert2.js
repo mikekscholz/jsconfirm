@@ -1,7 +1,7 @@
-import SweetAlert from './SweetAlert.js'
+import JsConfirm from './SweetAlert.js'
 
-const Swal = SweetAlert
+const Jsc = JsConfirm
 // @ts-ignore
-Swal.default = Swal
+Jsc.default = Jsc
 
-export default Swal
+export default Jsc

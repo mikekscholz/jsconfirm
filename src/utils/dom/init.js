@@ -1,47 +1,47 @@
 import globalState from '../../globalState.js'
-import { swalClasses } from '../classes.js'
+import { jscClasses } from '../classes.js'
 import { isNodeEnv } from '../isNodeEnv.js'
 import { error } from '../utils.js'
 import { addClass, getDirectChildByClass, removeClass, setInnerHtml } from './domUtils.js'
 import { getContainer, getPopup } from './getters.js'
 
-//  <button type="button" class="${swalClasses.close}"></button>
+//  <button type="button" class="${jscClasses.close}"></button>
 const sweetHTML = `
-<div aria-labelledby="${swalClasses.title}" aria-describedby="${swalClasses['html-container']}" class="${swalClasses.popup}" tabindex="-1">
+<div aria-labelledby="${jscClasses.title}" aria-describedby="${jscClasses['html-container']}" class="${jscClasses.popup}" tabindex="-1">
 <div class="jsconfirm-body">
-   <ul class="${swalClasses['progress-steps']}"></ul>
+   <ul class="${jscClasses['progress-steps']}"></ul>
    <div class="swalHeaderRow">
-   <div class="${swalClasses.icon}"></div>
-   <h2 class="${swalClasses.title}" id="${swalClasses.title}"></h2>
+   <div class="${jscClasses.icon}"></div>
+   <h2 class="${jscClasses.title}" id="${jscClasses.title}"></h2>
    </div>
-   <img class="${swalClasses.image}" />
-   <div class="${swalClasses['html-container']}" id="${swalClasses['html-container']}"></div>
-   <input class="${swalClasses.input}" id="${swalClasses.input}" />
-   <input type="file" class="${swalClasses.file}" />
-   <div class="${swalClasses.range}">
+   <img class="${jscClasses.image}" />
+   <div class="${jscClasses['html-container']}" id="${jscClasses['html-container']}"></div>
+   <input class="${jscClasses.input}" id="${jscClasses.input}" />
+   <input type="file" class="${jscClasses.file}" />
+   <div class="${jscClasses.range}">
      <input type="range" />
      <output></output>
    </div>
-   <select class="${swalClasses.select}" id="${swalClasses.select}"></select>
-   <div class="${swalClasses.radio}"></div>
-   <label class="${swalClasses.checkbox}">
-     <input type="checkbox" id="${swalClasses.checkbox}" />
-     <span class="${swalClasses.label}"></span>
+   <select class="${jscClasses.select}" id="${jscClasses.select}"></select>
+   <div class="${jscClasses.radio}"></div>
+   <label class="${jscClasses.checkbox}">
+     <input type="checkbox" id="${jscClasses.checkbox}" />
+     <span class="${jscClasses.label}"></span>
    </label>
-   <textarea class="${swalClasses.textarea}" id="${swalClasses.textarea}"></textarea>
-   <div class="${swalClasses['validation-message']}" id="${swalClasses['validation-message']}"></div>
-   <div class="${swalClasses.actions}">
-     <div class="${swalClasses.loader}"></div>
-     <button type="button" class="${swalClasses.confirm}"></button>
-     <button type="button" class="${swalClasses.deny}"></button>
-     <button type="button" class="${swalClasses.cancel}"></button>
+   <textarea class="${jscClasses.textarea}" id="${jscClasses.textarea}"></textarea>
+   <div class="${jscClasses['validation-message']}" id="${jscClasses['validation-message']}"></div>
+   <div class="${jscClasses.actions}">
+     <div class="${jscClasses.loader}"></div>
+     <button type="button" class="${jscClasses.confirm}"></button>
+     <button type="button" class="${jscClasses.deny}"></button>
+     <button type="button" class="${jscClasses.cancel}"></button>
    </div>
-   <div class="${swalClasses.footer}"></div>
-   <div class="${swalClasses['timer-progress-bar-container']}">
-     <div class="${swalClasses['timer-progress-bar']}"></div>
+   <div class="${jscClasses.footer}"></div>
+   <div class="${jscClasses['timer-progress-bar-container']}">
+     <div class="${jscClasses['timer-progress-bar']}"></div>
    </div>
  </div>
- <button type="button" class="${swalClasses.close}"></button>
+ <button type="button" class="${jscClasses.close}"></button>
  </div>
 `.replace(/(^|\n)\s*/g, '')
 
@@ -57,7 +57,7 @@ const resetOldContainer = () => {
   oldContainer.remove()
   removeClass(
     [document.documentElement, document.body],
-    [swalClasses['no-backdrop'], swalClasses['toast-shown'], swalClasses['has-column']]
+    [jscClasses['no-backdrop'], jscClasses['toast-shown'], jscClasses['has-column']]
   )
 
   return true
@@ -71,19 +71,19 @@ const addInputChangeListeners = () => {
   const popup = getPopup()
 
   /** @type {HTMLInputElement} */
-  const input = popup.querySelector(`.${swalClasses.input}`)
+  const input = popup.querySelector(`.${jscClasses.input}`)
   /** @type {HTMLInputElement} */
-  const file = popup.querySelector(`.${swalClasses.file}`)
+  const file = popup.querySelector(`.${jscClasses.file}`)
   /** @type {HTMLInputElement} */
-  const range = popup.querySelector(`.${swalClasses.range} input`)
+  const range = popup.querySelector(`.${jscClasses.range} input`)
   /** @type {HTMLOutputElement} */
-  const rangeOutput = popup.querySelector(`.${swalClasses.range} output`)
+  const rangeOutput = popup.querySelector(`.${jscClasses.range} output`)
   /** @type {HTMLInputElement} */
-  const select = popup.querySelector(`.${swalClasses.select}`)
+  const select = popup.querySelector(`.${jscClasses.select}`)
   /** @type {HTMLInputElement} */
-  const checkbox = popup.querySelector(`.${swalClasses.checkbox} input`)
+  const checkbox = popup.querySelector(`.${jscClasses.checkbox} input`)
   /** @type {HTMLInputElement} */
-  const textarea = popup.querySelector(`.${swalClasses.textarea}`)
+  const textarea = popup.querySelector(`.${jscClasses.textarea}`)
 
   input.oninput = resetValidationMessage
   file.onchange = resetValidationMessage
@@ -109,7 +109,7 @@ const addInputChangeListeners = () => {
 const getTarget = (target) => (typeof target === 'string' ? document.querySelector(target) : target)
 
 /**
- * @param {SweetAlertOptions} params
+ * @param {JsConfirmOptions} params
  */
 const setupAccessibility = (params) => {
   const popup = getPopup()
@@ -126,28 +126,28 @@ const setupAccessibility = (params) => {
  */
 const setupRTL = (targetElement) => {
   if (window.getComputedStyle(targetElement).direction === 'rtl') {
-    addClass(getContainer(), swalClasses.rtl)
+    addClass(getContainer(), jscClasses.rtl)
   }
 }
 
 /**
  * Add modal + backdrop + no-war message for Russians to DOM
  *
- * @param {SweetAlertOptions} params
+ * @param {JsConfirmOptions} params
  */
 export const init = (params) => {
   // Clean up the old popup container if it exists
   const oldContainerExisted = resetOldContainer()
 
   if (isNodeEnv()) {
-    error('SweetAlert2 requires document to initialize')
+    error('JsConfirm requires document to initialize')
     return
   }
 
   const container = document.createElement('div')
-  container.classList.add(swalClasses.container)
+  container.classList.add(jscClasses.container)
   if (oldContainerExisted) {
-    addClass(container, swalClasses['no-transition'])
+    addClass(container, jscClasses['no-transition'])
   }
   setInnerHtml(container, sweetHTML)
 

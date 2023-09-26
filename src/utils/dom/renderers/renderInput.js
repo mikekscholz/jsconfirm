@@ -5,7 +5,7 @@
  * @typedef { 'input' | 'file' | 'range' | 'select' | 'radio' | 'checkbox' | 'textarea' } InputClass
  */
 import privateProps from '../../../privateProps.js'
-import { swalClasses } from '../../classes.js'
+import { jscClasses } from '../../classes.js'
 import * as dom from '../../dom/index.js'
 import { error, isPromise, warn } from '../../utils.js'
 
@@ -13,8 +13,8 @@ import { error, isPromise, warn } from '../../utils.js'
 const inputClasses = ['input', 'file', 'range', 'select', 'radio', 'checkbox', 'textarea']
 
 /**
- * @param {SweetAlert} instance
- * @param {SweetAlertOptions} params
+ * @param {JsConfirm} instance
+ * @param {JsConfirmOptions} params
  */
 export const renderInput = (instance, params) => {
   const popup = dom.getPopup()
@@ -25,7 +25,7 @@ export const renderInput = (instance, params) => {
   const rerender = !innerParams || params.input !== innerParams.input
 
   inputClasses.forEach((inputClass) => {
-    const inputContainer = dom.getDirectChildByClass(popup, swalClasses[inputClass])
+    const inputContainer = dom.getDirectChildByClass(popup, jscClasses[inputClass])
 
     if (!inputContainer) {
       return
@@ -35,7 +35,7 @@ export const renderInput = (instance, params) => {
     setAttributes(inputClass, params.inputAttributes)
 
     // set class
-    inputContainer.classList.add(swalClasses[inputClass])
+    inputContainer.classList.add(jscClasses[inputClass])
 
     if (rerender) {
       dom.hide(inputContainer)
@@ -52,7 +52,7 @@ export const renderInput = (instance, params) => {
 }
 
 /**
- * @param {SweetAlertOptions} params
+ * @param {JsConfirmOptions} params
  */
 const showInput = (params) => {
   if (!params.input) {
@@ -92,7 +92,7 @@ const removeAttributes = (input) => {
 
 /**
  * @param {InputClass} inputClass
- * @param {SweetAlertOptions['inputAttributes']} inputAttributes
+ * @param {JsConfirmOptions['inputAttributes']} inputAttributes
  */
 const setAttributes = (inputClass, inputAttributes) => {
   const input = dom.getInput(dom.getPopup(), inputClass)
@@ -108,7 +108,7 @@ const setAttributes = (inputClass, inputAttributes) => {
 }
 
 /**
- * @param {SweetAlertOptions} params
+ * @param {JsConfirmOptions} params
  */
 const setCustomClass = (params) => {
   const inputContainer = getInputContainer(params.input)
@@ -119,7 +119,7 @@ const setCustomClass = (params) => {
 
 /**
  * @param {HTMLInputElement | HTMLTextAreaElement} input
- * @param {SweetAlertOptions} params
+ * @param {JsConfirmOptions} params
  */
 const setInputPlaceholder = (input, params) => {
   if (!input.placeholder || params.inputPlaceholder) {
@@ -130,12 +130,12 @@ const setInputPlaceholder = (input, params) => {
 /**
  * @param {Input} input
  * @param {Input} prependTo
- * @param {SweetAlertOptions} params
+ * @param {JsConfirmOptions} params
  */
 const setInputLabel = (input, prependTo, params) => {
   if (params.inputLabel) {
     const label = document.createElement('label')
-    const labelClass = swalClasses['input-label']
+    const labelClass = jscClasses['input-label']
     label.setAttribute('for', input.id)
     label.classList.add(labelClass)
     if (typeof params.customClass === 'object') {
@@ -147,16 +147,16 @@ const setInputLabel = (input, prependTo, params) => {
 }
 
 /**
- * @param {SweetAlertOptions['input']} inputType
+ * @param {JsConfirmOptions['input']} inputType
  * @returns {HTMLElement}
  */
 const getInputContainer = (inputType) => {
-  return dom.getDirectChildByClass(dom.getPopup(), swalClasses[inputType] || swalClasses.input)
+  return dom.getDirectChildByClass(dom.getPopup(), jscClasses[inputType] || jscClasses.input)
 }
 
 /**
  * @param {HTMLInputElement | HTMLOutputElement | HTMLTextAreaElement} input
- * @param {SweetAlertOptions['inputValue']} inputValue
+ * @param {JsConfirmOptions['inputValue']} inputValue
  */
 const checkAndSetInputValue = (input, inputValue) => {
   if (['string', 'number'].includes(typeof inputValue)) {
@@ -166,12 +166,12 @@ const checkAndSetInputValue = (input, inputValue) => {
   }
 }
 
-/** @type {Record<SweetAlertInput, (input: Input | HTMLElement, params: SweetAlertOptions) => Input>} */
+/** @type {Record<JsConfirmInput, (input: Input | HTMLElement, params: JsConfirmOptions) => Input>} */
 const renderInputType = {}
 
 /**
  * @param {HTMLInputElement} input
- * @param {SweetAlertOptions} params
+ * @param {JsConfirmOptions} params
  * @returns {HTMLInputElement}
  */
 renderInputType.text =
@@ -190,7 +190,7 @@ renderInputType.text =
 
 /**
  * @param {HTMLInputElement} input
- * @param {SweetAlertOptions} params
+ * @param {JsConfirmOptions} params
  * @returns {HTMLInputElement}
  */
 renderInputType.file = (input, params) => {
@@ -201,7 +201,7 @@ renderInputType.file = (input, params) => {
 
 /**
  * @param {HTMLInputElement} range
- * @param {SweetAlertOptions} params
+ * @param {JsConfirmOptions} params
  * @returns {HTMLInputElement}
  */
 renderInputType.range = (range, params) => {
@@ -216,7 +216,7 @@ renderInputType.range = (range, params) => {
 
 /**
  * @param {HTMLSelectElement} select
- * @param {SweetAlertOptions} params
+ * @param {JsConfirmOptions} params
  * @returns {HTMLSelectElement}
  */
 renderInputType.select = (select, params) => {
@@ -244,7 +244,7 @@ renderInputType.radio = (radio) => {
 
 /**
  * @param {HTMLLabelElement} checkboxContainer
- * @param {SweetAlertOptions} params
+ * @param {JsConfirmOptions} params
  * @returns {HTMLInputElement}
  */
 renderInputType.checkbox = (checkboxContainer, params) => {
@@ -258,7 +258,7 @@ renderInputType.checkbox = (checkboxContainer, params) => {
 
 /**
  * @param {HTMLTextAreaElement} textarea
- * @param {SweetAlertOptions} params
+ * @param {JsConfirmOptions} params
  * @returns {HTMLTextAreaElement}
  */
 renderInputType.textarea = (textarea, params) => {

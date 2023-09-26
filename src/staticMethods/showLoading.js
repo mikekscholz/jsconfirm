@@ -1,5 +1,5 @@
-import Swal from '../sweetalert2.js'
-import { swalClasses } from '../utils/classes.js'
+import Jsc from '../sweetalert2.js'
+import { jscClasses } from '../utils/classes.js'
 import * as dom from '../utils/dom/index.js'
 
 /**
@@ -11,7 +11,7 @@ import * as dom from '../utils/dom/index.js'
 const showLoading = (buttonToReplace) => {
   let popup = dom.getPopup()
   if (!popup) {
-    new Swal() // eslint-disable-line no-new
+    new Jsc() // eslint-disable-line no-new
   }
   popup = dom.getPopup()
   if (!popup) {
@@ -52,7 +52,7 @@ const replaceButton = (popup, buttonToReplace) => {
     loader.setAttribute('data-button-to-replace', buttonToReplace.className)
     actions.insertBefore(loader, buttonToReplace)
   }
-  dom.addClass([popup, actions], swalClasses.loading)
+  dom.addClass([popup, actions], jscClasses.loading)
 }
 
 export { showLoading, showLoading as enableLoading }

@@ -11,8 +11,8 @@ import { renderProgressSteps } from './renderProgressSteps.js'
 import { renderTitle } from './renderTitle.js'
 
 /**
- * @param {SweetAlert} instance
- * @param {SweetAlertOptions} params
+ * @param {JsConfirm} instance
+ * @param {JsConfirmOptions} params
  */
 export const render = (instance, params) => {
   renderPopup(instance, params)

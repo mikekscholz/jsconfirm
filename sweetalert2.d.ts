@@ -1,48 +1,48 @@
-declare module 'sweetalert2' {
+declare module 'jsconfirm' {
   /**
    * A namespace inside the default function, containing utility function for controlling the currently-displayed popup.
    *
    * Example:
    * ```
-   * Swal.fire('Hey user!', 'You are the rockstar!', 'info');
+   * Jsc.fire('Hey user!', 'You are the rockstar!', 'info');
    *
-   * Swal.update({
+   * Jsc.update({
    *   icon: 'success'
    * })
    * ```
    */
-  namespace Swal {
+  namespace Jsc {
     /**
-     * Function to display a SweetAlert2 popup, with an object of options, all being optional.
+     * Function to display a JsConfirm popup, with an object of options, all being optional.
      * See the `SweetAlertOptions` interface for the list of accepted fields and values.
      *
      * Example:
      * ```
-     * Swal.fire({
+     * Jsc.fire({
      *   title: 'Auto close alert!',
      *   text: 'I will close in 2 seconds.',
      *   timer: 2000
      * })
      * ```
      */
-    function fire<T = any>(options: SweetAlertOptions): Promise<SweetAlertResult<Awaited<T>>>
+    function fire<T = any>(options: JsConfirmOptions): Promise<JsConfirmResult<Awaited<T>>>
 
     /**
-     * Function to display a simple SweetAlert2 popup.
+     * Function to display a simple JsConfirm popup.
      *
      * Example:
      * ```
-     * Swal.fire('The Internet?', 'That thing is still around?', 'question');
+     * Jsc.fire('The Internet?', 'That thing is still around?', 'question');
      * ```
      */
-    function fire<T = any>(title?: string, html?: string, icon?: SweetAlertIcon): Promise<SweetAlertResult<Awaited<T>>>
+    function fire<T = any>(title?: string, html?: string, icon?: JsConfirmIcon): Promise<JsConfirmResult<Awaited<T>>>
 
     /**
-     * Reuse configuration by creating a `Swal` instance.
+     * Reuse configuration by creating a `Jsc` instance.
      *
      * Example:
      * ```
-     * const Toast = Swal.mixin({
+     * const Toast = Jsc.mixin({
      *   toast: true,
      *   position: 'top-end',
      *   timer: 3000,
@@ -53,7 +53,7 @@ declare module 'sweetalert2' {
      *
      * @param options the default options to set for this instance.
      */
-    function mixin(options: SweetAlertOptions): typeof Swal
+    function mixin(options: JsConfirmOptions): typeof Jsc
 
     /**
      * Determines if a popup is shown.
@@ -62,24 +62,24 @@ declare module 'sweetalert2' {
 
     /**
      * Updates popup options.
-     * See the `SweetAlertOptions` interface for the list of accepted fields and values.
+     * See the `JsConfirmOptions` interface for the list of accepted fields and values.
      *
      * Example:
      * ```
-     * Swal.update({
+     * Jsc.update({
      *   icon: 'error'
      * })
      * ```
      */
-    function update(options: Pick<SweetAlertOptions, SweetAlertUpdatableParameters>): void
+    function update(options: Pick<JsConfirmOptions, JsConfirmUpdatableParameters>): void
 
     /**
-     * Closes the currently open SweetAlert2 popup programmatically.
+     * Closes the currently open JsConfirm popup programmatically.
      *
-     * @param result The promise originally returned by `Swal.fire()` will be resolved with this value.
+     * @param result The promise originally returned by `Jsc.fire()` will be resolved with this value.
      * If no object is given, the promise is resolved with an empty `SweetAlertResult` object.
      */
-    function close(result?: Partial<SweetAlertResult>): void
+    function close(result?: Partial<JsConfirmResult>): void
 
     /**
      * Gets the popup container which contains the backdrop and the popup itself.
@@ -177,7 +177,7 @@ declare module 'sweetalert2' {
      * By default the loader be shown instead of the "Confirm" button, but if you want
      * another button to be replaced with a loader, just pass it like this:
      * ```
-     * Swal.showLoading(Swal.getDenyButton())
+     * Jsc.showLoading(Jsc.getDenyButton())
      * ```
      */
     function showLoading(buttonToReplace?: HTMLButtonElement): void
@@ -283,27 +283,27 @@ declare module 'sweetalert2' {
      *
      * @param paramName The parameter to check
      */
-    function isValidParameter(paramName: string): paramName is keyof SweetAlertOptions
+    function isValidParameter(paramName: string): paramName is keyof JsConfirmOptions
 
     /**
-     * Determines if a given parameter name is valid for `Swal.update()` method.
+     * Determines if a given parameter name is valid for `Jsc.update()` method.
      *
      * @param paramName The parameter to check
      */
-    function isUpdatableParameter(paramName: string): paramName is SweetAlertUpdatableParameters
+    function isUpdatableParameter(paramName: string): paramName is JsConfirmUpdatableParameters
 
     /**
-     * Normalizes the arguments you can give to Swal.fire() in an object of type SweetAlertOptions.
+     * Normalizes the arguments you can give to Jsc.fire() in an object of type JsConfirmOptions.
      *
      * Example:
      * ```
-     * Swal.argsToParams(['title', 'text']); //=> { title: 'title', text: 'text' }
-     * Swal.argsToParams([{ title: 'title', text: 'text' }]); //=> { title: 'title', text: 'text' }
+     * Jsc.argsToParams(['title', 'text']); //=> { title: 'title', text: 'text' }
+     * Jsc.argsToParams([{ title: 'title', text: 'text' }]); //=> { title: 'title', text: 'text' }
      * ```
      *
      * @param params The array of arguments to normalize.
      */
-    function argsToParams(params: SweetAlertArrayOptions | readonly [SweetAlertOptions]): SweetAlertOptions
+    function argsToParams(params: JsConfirmArrayOptions | readonly [JsConfirmOptions]): JsConfirmOptions
 
     /**
      * An enum of possible reasons that can explain an alert dismissal.
@@ -317,12 +317,12 @@ declare module 'sweetalert2' {
     }
 
     /**
-     * SweetAlert2's version
+     * JsConfirm's version
      */
     const version: string
   }
 
-  interface SweetAlertHideShowClass {
+  interface JsConfirmHideShowClass {
     backdrop?: string | readonly string[]
     icon?: string | readonly string[]
     popup?: string | readonly string[]
@@ -334,17 +334,17 @@ declare module 'sweetalert2' {
 
   type ValueOrThunk<T> = T | (() => T)
 
-  export type SweetAlertArrayOptions = readonly [string?, string?, SweetAlertIcon?]
+  export type JsConfirmArrayOptions = readonly [string?, string?, JsConfirmIcon?]
 
-  export type SweetAlertGrow = 'row' | 'column' | 'fullscreen' | false
+  export type JsConfirmGrow = 'row' | 'column' | 'fullscreen' | false
 
-  export type SweetAlertHideClass = SweetAlertHideShowClass
+  export type JsConfirmHideClass = JsConfirmHideShowClass
 
-  export type SweetAlertShowClass = Readonly<SweetAlertHideShowClass>
+  export type JsConfirmShowClass = Readonly<JsConfirmHideShowClass>
 
-  export type SweetAlertIcon = 'success' | 'error' | 'warning' | 'info' | 'question'
+  export type JsConfirmIcon = 'success' | 'error' | 'warning' | 'info' | 'question'
 
-  export type SweetAlertInput =
+  export type JsConfirmInput =
     | 'text'
     | 'email'
     | 'password'
@@ -358,7 +358,7 @@ declare module 'sweetalert2' {
     | 'file'
     | 'url'
 
-  export type SweetAlertPosition =
+  export type JsConfirmPosition =
     | 'top'
     | 'top-start'
     | 'top-end'
@@ -375,7 +375,7 @@ declare module 'sweetalert2' {
     | 'bottom-left'
     | 'bottom-right'
 
-  export type SweetAlertUpdatableParameters =
+  export type JsConfirmUpdatableParameters =
     | 'allowEscapeKey'
     | 'allowOutsideClick'
     | 'background'
@@ -417,7 +417,7 @@ declare module 'sweetalert2' {
     | 'titleText'
     | 'willClose'
 
-  export interface SweetAlertCustomClass {
+  export interface JsConfirmCustomClass {
     container?: string | readonly string[]
     popup?: string | readonly string[]
     title?: string | readonly string[]
@@ -437,18 +437,18 @@ declare module 'sweetalert2' {
     timerProgressBar?: string | readonly string[]
   }
 
-  export interface SweetAlertResult<T = any> {
+  export interface JsConfirmResult<T = any> {
     readonly isConfirmed: boolean
     readonly isDenied: boolean
     readonly isDismissed: boolean
     readonly value?: T
-    readonly dismiss?: Swal.DismissReason
+    readonly dismiss?: Jsc.DismissReason
   }
 
-  export interface SweetAlertOptions {
+  export interface JsConfirmOptions {
     /**
      * The title of the popup, as HTML.
-     * It can either be added to the object under the key `title` or passed as the first parameter of `Swal.fire()`.
+     * It can either be added to the object under the key `title` or passed as the first parameter of `Jsc.fire()`.
      *
      * @default ''
      */
@@ -473,7 +473,7 @@ declare module 'sweetalert2' {
      * A HTML description for the popup.
      * If `text` and `html` parameters are provided in the same time, `html` will be used.
      *
-     * [Security] SweetAlert2 does NOT sanitize this parameter. It is the developer's responsibility
+     * [Security] JsConfirm does NOT sanitize this parameter. It is the developer's responsibility
      * to escape any user input when using the `html` option, so XSS attacks would be prevented.
      *
      * @default ''
@@ -482,13 +482,13 @@ declare module 'sweetalert2' {
 
     /**
      * The icon of the popup.
-     * SweetAlert2 comes with 5 built-in icons which will show a corresponding icon animation:
+     * JsConfirm comes with 5 built-in icons which will show a corresponding icon animation:
      * `'warning'`, `'error'`, `'success'`, `'info'` and `'question'`.
-     * It can either be put to the object under the key `icon` or passed as the third parameter of `Swal.fire()`.
+     * It can either be put to the object under the key `icon` or passed as the third parameter of `Jsc.fire()`.
      *
      * @default undefined
      */
-    icon?: SweetAlertIcon
+    icon?: JsConfirmIcon
 
     /**
      * Use this to change the color of the icon.
@@ -502,7 +502,7 @@ declare module 'sweetalert2' {
      *
      * Example:
      * ```
-     * Swal.fire({
+     * Jsc.fire({
      *   icon: 'error',
      *   iconHtml: '<i class="fas fa-bug"></i>'
      * })
@@ -521,42 +521,42 @@ declare module 'sweetalert2' {
 
     /**
      * The declarative <template> of the popup. All API prams can be set via
-     * `<swal-param name="..." value="..."></swal-param>`, e.g.
-     * `<swal-param name="toast" value="true"></swal-param>`
+     * `<jsc-param name="..." value="..."></jsc-param>`, e.g.
+     * `<jsc-param name="toast" value="true"></jsc-param>`
      *
      * Additionally, there are specialized elements for specific params:
-     *  - `<swal-title>`
-     *  - `<swal-html>`
-     *  - `<swal-icon>`
-     *  - `<swal-image>`
-     *  - `<swal-input>`
-     *  - `<swal-input-option>`
-     *  - `<swal-button>`
-     *  - `<swal-footer>`
+     *  - `<jsc-title>`
+     *  - `<jsc-html>`
+     *  - `<jsc-icon>`
+     *  - `<jsc-image>`
+     *  - `<jsc-input>`
+     *  - `<jsc-input-option>`
+     *  - `<jsc-button>`
+     *  - `<jsc-footer>`
      *
      * Example:
      * ```html
      * <template id="my-template">
-     *   <swal-title>Are you sure?</swal-title>
-     *   <swal-html>You won't be able to revert this!</swal-html>
+     *   <jsc-title>Are you sure?</jsc-title>
+     *   <jsc-html>You won't be able to revert this!</jsc-html>
      *
-     *   <swal-icon type="success"></swal-icon>
-     *   <swal-image src="..." width="..." height="..." alt="..."></swal-image>
+     *   <jsc-icon type="success"></jsc-icon>
+     *   <jsc-image src="..." width="..." height="..." alt="..."></jsc-image>
      *
-     *   <swal-input type="select" placeholder="..." label="..." value="...">
-     *     <swal-input-option value="...">...</swal-input-option>
-     *   </swal-input>
-     *   <swal-param name="inputAttributes" value='{ "multiple": true }'></swal-param>
+     *   <jsc-input type="select" placeholder="..." label="..." value="...">
+     *     <jsc-input-option value="...">...</jsc-input-option>
+     *   </jsc-input>
+     *   <jsc-param name="inputAttributes" value='{ "multiple": true }'></jsc-param>
      *
-     *   <swal-button type="confirm" color="..." aria-label="...">Yes</swal-button>
-     *   <swal-button type="cancel" color="..." aria-label="...">No</swal-button>
+     *   <jsc-button type="confirm" color="..." aria-label="...">Yes</jsc-button>
+     *   <jsc-button type="cancel" color="..." aria-label="...">No</jsc-button>
      *
-     *   <swal-footer>read more here</swal-footer>
+     *   <jsc-footer>read more here</jsc-footer>
      * </template>
      * ```
      *
      * ```
-     * Swal.fire({
+     * Jsc.fire({
      *   template: '#my-template'
      * })
      * ```
@@ -566,7 +566,7 @@ declare module 'sweetalert2' {
     template?: string | HTMLTemplateElement
 
     /**
-     * Whether or not SweetAlert2 should show a full screen click-to-dismiss backdrop.
+     * Whether or not JsConfirm should show a full screen click-to-dismiss backdrop.
      * Either a boolean value or a css background value (hex, rgb, rgba, url, etc.)
      *
      * @default true
@@ -595,7 +595,7 @@ declare module 'sweetalert2' {
      *
      * @default undefined
      */
-    input?: SweetAlertInput
+    input?: JsConfirmInput
 
     /**
      * Popup width, including paddings (`box-sizing: border-box`).
@@ -630,28 +630,28 @@ declare module 'sweetalert2' {
      *
      * @default 'center'
      */
-    position?: SweetAlertPosition
+    position?: JsConfirmPosition
 
     /**
      * Popup grow direction
      *
      * @default false
      */
-    grow?: SweetAlertGrow
+    grow?: JsConfirmGrow
 
     /**
      * CSS classes for animations when showing a popup (fade in)
      *
-     * @default { popup: 'swal2-show', backdrop: 'swal2-backdrop-show', icon: 'swal2-icon-show' }
+     * @default { popup: 'jsc-show', backdrop: 'jsc-backdrop-show', icon: 'jsc-icon-show' }
      */
-    showClass?: SweetAlertShowClass
+    showClass?: JsConfirmShowClass
 
     /**
      * CSS classes for animations when hiding a popup (fade out)
      *
-     * @default { popup: 'swal2-hide', backdrop: 'swal2-backdrop-hide', icon: 'swal2-icon-hide' }
+     * @default { popup: 'jsc-hide', backdrop: 'jsc-backdrop-hide', icon: 'jsc-icon-hide' }
      */
-    hideClass?: SweetAlertHideClass
+    hideClass?: JsConfirmHideClass
 
     /**
      * A custom CSS class for the popup.
@@ -660,7 +660,7 @@ declare module 'sweetalert2' {
      *
      * Example:
      * ```
-     * Swal.fire({
+     * Jsc.fire({
      *   customClass: {
      *     container: '...',
      *     popup: '...',
@@ -685,7 +685,7 @@ declare module 'sweetalert2' {
      *
      * @default {}
      */
-    customClass?: SweetAlertCustomClass | string
+    customClass?: JsConfirmCustomClass | string
 
     /**
      * Auto close timer of the popup. Set in ms (milliseconds).
@@ -703,7 +703,7 @@ declare module 'sweetalert2' {
     timerProgressBar?: boolean
 
     /**
-     * By default, SweetAlert2 sets html's and body's CSS `height` to `auto !important`.
+     * By default, JsConfirm sets html's and body's CSS `height` to `auto !important`.
      * If this behavior isn't compatible with your project's layout, set `heightAuto` to `false`.
      *
      * @default true
@@ -738,16 +738,16 @@ declare module 'sweetalert2' {
     allowEnterKey?: ValueOrThunk<boolean>
 
     /**
-     * If set to `false`, SweetAlert2 will allow keydown events propagation to the document.
+     * If set to `false`, JsConfirm will allow keydown events propagation to the document.
      *
      * @default true
      */
     stopKeydownPropagation?: boolean
 
     /**
-     * Useful for those who are using SweetAlert2 along with Bootstrap modals.
+     * Useful for those who are using JsConfirm along with Bootstrap modals.
      * By default keydownListenerCapture is `false` which means when a user hits `Esc`,
-     * both SweetAlert2 and Bootstrap modals will be closed.
+     * both JsConfirm and Bootstrap modals will be closed.
      * Set `keydownListenerCapture` to `true` to fix that behavior.
      *
      * @default false
@@ -840,7 +840,7 @@ declare module 'sweetalert2' {
     cancelButtonAriaLabel?: string
 
     /**
-     * Whether to apply the default SweetAlert2 styling to buttons.
+     * Whether to apply the default JsConfirm styling to buttons.
      * If you want to use your own classes (e.g. Bootstrap classes) set this parameter to `false`.
      *
      * @default true
@@ -931,22 +931,22 @@ declare module 'sweetalert2' {
      * Function to execute before confirming, may be async (Promise-returning) or sync.
      * Returned (or resolved) value can be:
      *  - `false` to prevent a popup from closing
-     *  - anything else to pass that value as the `result.value` of `Swal.fire()`
+     *  - anything else to pass that value as the `result.value` of `Jsc.fire()`
      *  - `undefined` to keep the default `result.value`
      *
      * Example:
      * ```
-     * Swal.fire({
+     * Jsc.fire({
      *   title: 'Multiple inputs',
      *   html:
-     *     '<input id="swal-input1" class="swal2-input">' +
-     *     '<input id="swal-input2" class="swal2-input">',
+     *     '<input id="jsc-input1" class="jsc-input">' +
+     *     '<input id="jsc-input2" class="jsc-input">',
      *   focusConfirm: false,
      *   preConfirm: () => [
-     *     document.querySelector('#swal-input1').value,
-     *     document.querySelector('#swal-input2').value
+     *     document.querySelector('#jsc-input1').value,
+     *     document.querySelector('#jsc-input2').value
      *   ]
-     * }).then(result => Swal.fire(JSON.stringify(result));
+     * }).then(result => Jsc.fire(JSON.stringify(result));
      * ```
      *
      * @default undefined
@@ -957,7 +957,7 @@ declare module 'sweetalert2' {
      * Function to execute before denying, may be async (Promise-returning) or sync.
      * Returned (or resolved) value can be:
      *  - `false` to prevent a popup from closing
-     *  - anything else to pass that value as the `result.value` of `Swal.fire()`
+     *  - anything else to pass that value as the `result.value` of `Jsc.fire()`
      *  - `undefined` to keep the default `result.value`
      *
      * @default undefined
@@ -1042,7 +1042,7 @@ declare module 'sweetalert2' {
      *
      * Example:
      * ```
-     * Swal.fire({
+     * Jsc.fire({
      *   title: 'Select a file',
      *   input: 'file',
      *   inputAttributes: {
@@ -1060,7 +1060,7 @@ declare module 'sweetalert2' {
      *
      * Example:
      * ```
-     * Swal.fire({
+     * Jsc.fire({
      *   title: 'Select color',
      *   input: 'radio',
      *   inputValidator: result => !result && 'You need to select something!'
@@ -1084,7 +1084,7 @@ declare module 'sweetalert2' {
      *
      * Example:
      * ```
-     * Swal.fire({
+     * Jsc.fire({
      *   input: 'email',
      *   validationMessage: 'Adresse e-mail invalide'
      * })
@@ -1134,8 +1134,8 @@ declare module 'sweetalert2' {
     /**
      * Popup lifecycle hook. Synchronously runs after the popup DOM has been updated (ie. just before the popup is
      * repainted on the screen).
-     * Typically, this will happen after `Swal.fire()` or `Swal.update()`.
-     * If you want to perform changes in the popup's DOM, that survive `Swal.update()`, prefer `didRender` over
+     * Typically, this will happen after `Jsc.fire()` or `Jsc.update()`.
+     * If you want to perform changes in the popup's DOM, that survive `Jsc.update()`, prefer `didRender` over
      * `willOpen`.
      *
      * @default undefined
@@ -1178,23 +1178,23 @@ declare module 'sweetalert2' {
     scrollbarPadding?: boolean
   }
 
-  export default Swal
+  export default Jsc
 }
 
-declare module 'sweetalert2/*/sweetalert2.js' {
-  export * from 'sweetalert2'
+declare module 'jsconfirm/*/jsconfirm.js' {
+  export * from 'jsconfirm'
   // "export *" does not matches the default export, so do it explicitly.
-  export { default } from 'sweetalert2' // eslint-disable-line
+  export { default } from 'jsconfirm' // eslint-disable-line
 }
 
-declare module 'sweetalert2/*/sweetalert2.all.js' {
-  export * from 'sweetalert2'
+declare module 'jsconfirm/*/jsconfirm.all.js' {
+  export * from 'jsconfirm'
   // "export *" does not matches the default export, so do it explicitly.
-  export { default } from 'sweetalert2' // eslint-disable-line
+  export { default } from 'jsconfirm' // eslint-disable-line
 }
 
 /**
- * These interfaces aren't provided by SweetAlert2, but its definitions use them.
+ * These interfaces aren't provided by JsConfirm, but its definitions use them.
  * They will be merged with 'true' definitions.
  */
 

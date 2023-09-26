@@ -1,4 +1,4 @@
-import { swalClasses } from '../classes.js'
+import { jscClasses } from '../classes.js'
 import { hasClass, isVisible } from './domUtils.js'
 
 /**
@@ -6,7 +6,7 @@ import { hasClass, isVisible } from './domUtils.js'
  *
  * @returns {HTMLElement | null}
  */
-export const getContainer = () => document.body.querySelector(`.${swalClasses.container}`)
+export const getContainer = () => document.body.querySelector(`.${jscClasses.container}`)
 
 /**
  * @param {string} selectorString
@@ -28,90 +28,90 @@ const elementByClass = (className) => {
 /**
  * @returns {HTMLElement | null}
  */
-export const getPopup = () => elementByClass(swalClasses.popup)
+export const getPopup = () => elementByClass(jscClasses.popup)
 
 /**
  * @returns {HTMLElement | null}
  */
-export const getIcon = () => elementByClass(swalClasses.icon)
+export const getIcon = () => elementByClass(jscClasses.icon)
 
 /**
  * @returns {HTMLElement | null}
  */
-export const getIconContent = () => elementByClass(swalClasses['icon-content'])
+export const getIconContent = () => elementByClass(jscClasses['icon-content'])
 
 /**
  * @returns {HTMLElement | null}
  */
-export const getTitle = () => elementByClass(swalClasses.title)
+export const getTitle = () => elementByClass(jscClasses.title)
 
 /**
  * @returns {HTMLElement | null}
  */
-export const getHtmlContainer = () => elementByClass(swalClasses['html-container'])
+export const getHtmlContainer = () => elementByClass(jscClasses['html-container'])
 
 /**
  * @returns {HTMLElement | null}
  */
-export const getImage = () => elementByClass(swalClasses.image)
+export const getImage = () => elementByClass(jscClasses.image)
 
 /**
  * @returns {HTMLElement | null}
  */
-export const getProgressSteps = () => elementByClass(swalClasses['progress-steps'])
+export const getProgressSteps = () => elementByClass(jscClasses['progress-steps'])
 
 /**
  * @returns {HTMLElement | null}
  */
-export const getValidationMessage = () => elementByClass(swalClasses['validation-message'])
+export const getValidationMessage = () => elementByClass(jscClasses['validation-message'])
 
 /**
  * @returns {HTMLButtonElement | null}
  */
 export const getConfirmButton = () =>
-  /** @type {HTMLButtonElement} */ (elementBySelector(`.${swalClasses.actions} .${swalClasses.confirm}`))
+  /** @type {HTMLButtonElement} */ (elementBySelector(`.${jscClasses.actions} .${jscClasses.confirm}`))
 
 /**
  * @returns {HTMLButtonElement | null}
  */
 export const getCancelButton = () =>
-  /** @type {HTMLButtonElement} */ (elementBySelector(`.${swalClasses.actions} .${swalClasses.cancel}`))
+  /** @type {HTMLButtonElement} */ (elementBySelector(`.${jscClasses.actions} .${jscClasses.cancel}`))
 
 /**
  * @returns {HTMLButtonElement | null}
  */
 export const getDenyButton = () =>
-  /** @type {HTMLButtonElement} */ (elementBySelector(`.${swalClasses.actions} .${swalClasses.deny}`))
+  /** @type {HTMLButtonElement} */ (elementBySelector(`.${jscClasses.actions} .${jscClasses.deny}`))
 
 /**
  * @returns {HTMLElement | null}
  */
-export const getInputLabel = () => elementByClass(swalClasses['input-label'])
+export const getInputLabel = () => elementByClass(jscClasses['input-label'])
 
 /**
  * @returns {HTMLElement | null}
  */
-export const getLoader = () => elementBySelector(`.${swalClasses.loader}`)
+export const getLoader = () => elementBySelector(`.${jscClasses.loader}`)
 
 /**
  * @returns {HTMLElement | null}
  */
-export const getActions = () => elementByClass(swalClasses.actions)
+export const getActions = () => elementByClass(jscClasses.actions)
 
 /**
  * @returns {HTMLElement | null}
  */
-export const getFooter = () => elementByClass(swalClasses.footer)
+export const getFooter = () => elementByClass(jscClasses.footer)
 
 /**
  * @returns {HTMLElement | null}
  */
-export const getTimerProgressBar = () => elementByClass(swalClasses['timer-progress-bar'])
+export const getTimerProgressBar = () => elementByClass(jscClasses['timer-progress-bar'])
 
 /**
  * @returns {HTMLElement | null}
  */
-export const getCloseButton = () => elementByClass(swalClasses.close)
+export const getCloseButton = () => elementByClass(jscClasses.close)
 
 // https://github.com/jkup/focusable/blob/master/index.js
 const focusable = `
@@ -169,9 +169,9 @@ export const getFocusableElements = () => {
  */
 export const isModal = () => {
   return (
-    hasClass(document.body, swalClasses.shown) &&
-    !hasClass(document.body, swalClasses['toast-shown']) &&
-    !hasClass(document.body, swalClasses['no-backdrop'])
+    hasClass(document.body, jscClasses.shown) &&
+    !hasClass(document.body, jscClasses['toast-shown']) &&
+    !hasClass(document.body, jscClasses['no-backdrop'])
   )
 }
 
@@ -183,7 +183,7 @@ export const isToast = () => {
   if (!popup) {
     return false
   }
-  return hasClass(popup, swalClasses.toast)
+  return hasClass(popup, jscClasses.toast)
 }
 
 /**

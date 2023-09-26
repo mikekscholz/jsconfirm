@@ -1,10 +1,10 @@
-import { swalClasses } from '../../classes.js'
+import { jscClasses } from '../../classes.js'
 import * as dom from '../../dom/index.js'
 import { warn } from '../../utils.js'
 
 /**
- * @param {SweetAlert} instance
- * @param {SweetAlertOptions} params
+ * @param {JsConfirm} instance
+ * @param {JsConfirmOptions} params
  */
 export const renderProgressSteps = (instance, params) => {
   const progressStepsContainer = dom.getProgressSteps()
@@ -32,7 +32,7 @@ export const renderProgressSteps = (instance, params) => {
     const stepEl = createStepElement(step)
     progressStepsContainer.appendChild(stepEl)
     if (index === currentProgressStep) {
-      dom.addClass(stepEl, swalClasses['active-progress-step'])
+      dom.addClass(stepEl, jscClasses['active-progress-step'])
     }
 
     if (index !== progressSteps.length - 1) {
@@ -48,18 +48,18 @@ export const renderProgressSteps = (instance, params) => {
  */
 const createStepElement = (step) => {
   const stepEl = document.createElement('li')
-  dom.addClass(stepEl, swalClasses['progress-step'])
+  dom.addClass(stepEl, jscClasses['progress-step'])
   dom.setInnerHtml(stepEl, step)
   return stepEl
 }
 
 /**
- * @param {SweetAlertOptions} params
+ * @param {JsConfirmOptions} params
  * @returns {HTMLLIElement}
  */
 const createLineElement = (params) => {
   const lineEl = document.createElement('li')
-  dom.addClass(lineEl, swalClasses['progress-step-line'])
+  dom.addClass(lineEl, jscClasses['progress-step-line'])
   if (params.progressStepsDistance) {
     dom.applyNumericalStyle(lineEl, 'width', params.progressStepsDistance)
   }

@@ -1,10 +1,10 @@
-import { swalClasses } from '../../classes.js'
+import { jscClasses } from '../../classes.js'
 import * as dom from '../../dom/index.js'
 import { capitalizeFirstLetter } from '../../utils.js'
 
 /**
- * @param {SweetAlert} instance
- * @param {SweetAlertOptions} params
+ * @param {JsConfirm} instance
+ * @param {JsConfirmOptions} params
  */
 export const renderActions = (instance, params) => {
   const actions = dom.getActions()
@@ -34,7 +34,7 @@ export const renderActions = (instance, params) => {
 /**
  * @param {HTMLElement} actions
  * @param {HTMLElement} loader
- * @param {SweetAlertOptions} params
+ * @param {JsConfirmOptions} params
  */
 function renderButtons(actions, loader, params) {
   const confirmButton = dom.getConfirmButton()
@@ -66,35 +66,35 @@ function renderButtons(actions, loader, params) {
  * @param {HTMLElement} confirmButton
  * @param {HTMLElement} denyButton
  * @param {HTMLElement} cancelButton
- * @param {SweetAlertOptions} params
+ * @param {JsConfirmOptions} params
  */
 function handleButtonsStyling(confirmButton, denyButton, cancelButton, params) {
   if (!params.buttonsStyling) {
-    dom.removeClass([confirmButton, denyButton, cancelButton], swalClasses.styled)
+    dom.removeClass([confirmButton, denyButton, cancelButton], jscClasses.styled)
     return
   }
 
-  dom.addClass([confirmButton, denyButton, cancelButton], swalClasses.styled)
+  dom.addClass([confirmButton, denyButton, cancelButton], jscClasses.styled)
 
   // Buttons background colors
   if (params.confirmButtonColor) {
     confirmButton.style.backgroundColor = params.confirmButtonColor
-    dom.addClass(confirmButton, swalClasses['default-outline'])
+    dom.addClass(confirmButton, jscClasses['default-outline'])
   }
   if (params.denyButtonColor) {
     denyButton.style.backgroundColor = params.denyButtonColor
-    dom.addClass(denyButton, swalClasses['default-outline'])
+    dom.addClass(denyButton, jscClasses['default-outline'])
   }
   if (params.cancelButtonColor) {
     cancelButton.style.backgroundColor = params.cancelButtonColor
-    dom.addClass(cancelButton, swalClasses['default-outline'])
+    dom.addClass(cancelButton, jscClasses['default-outline'])
   }
 }
 
 /**
  * @param {HTMLElement} button
  * @param {'confirm' | 'deny' | 'cancel'} buttonType
- * @param {SweetAlertOptions} params
+ * @param {JsConfirmOptions} params
  */
 function renderButton(button, buttonType, params) {
   const buttonName = /** @type {'Confirm' | 'Deny' | 'Cancel'} */ (capitalizeFirstLetter(buttonType))
@@ -104,6 +104,6 @@ function renderButton(button, buttonType, params) {
   button.setAttribute('aria-label', params[`${buttonType}ButtonAriaLabel`] || '') // ARIA label
 
   // Add buttons custom classes
-  button.classList.add(swalClasses[buttonType])
+  button.classList.add(jscClasses[buttonType])
   dom.applyCustomClass(button, params, `${buttonType}Button`)
 }

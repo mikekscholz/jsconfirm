@@ -2,8 +2,8 @@ import * as dom from '../../dom/index.js'
 import { renderInput } from './renderInput.js'
 
 /**
- * @param {SweetAlert} instance
- * @param {SweetAlertOptions} params
+ * @param {JsConfirm} instance
+ * @param {JsConfirmOptions} params
  */
 export const renderContent = (instance, params) => {
   const htmlContainer = dom.getHtmlContainer()

@@ -213,7 +213,7 @@ const checkIfParamIsDeprecated = (param) => {
 /**
  * Show relevant warnings for given params
  *
- * @param {SweetAlertOptions} params
+ * @param {JsConfirmOptions} params
  */
 export const showWarningsForParams = (params) => {
   if (params.backdrop === false && params.allowOutsideClick) {

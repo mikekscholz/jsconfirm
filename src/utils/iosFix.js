@@ -1,4 +1,4 @@
-import { swalClasses } from '../utils/classes.js'
+import { jscClasses } from '../utils/classes.js'
 import * as dom from './dom/index.js'
 
 // @ts-ignore
@@ -9,10 +9,10 @@ export const isSafariOrIOS = typeof window !== 'undefined' && !!window.GestureEv
  * http://stackoverflow.com/q/39626302
  */
 export const iOSfix = () => {
-  if (isSafariOrIOS && !dom.hasClass(document.body, swalClasses.iosfix)) {
+  if (isSafariOrIOS && !dom.hasClass(document.body, jscClasses.iosfix)) {
     const offset = document.body.scrollTop
     document.body.style.top = `${offset * -1}px`
-    dom.addClass(document.body, swalClasses.iosfix)
+    dom.addClass(document.body, jscClasses.iosfix)
     lockBodyScroll()
   }
 }
@@ -97,9 +97,9 @@ const isZoom = (event) => {
 }
 
 export const undoIOSfix = () => {
-  if (dom.hasClass(document.body, swalClasses.iosfix)) {
+  if (dom.hasClass(document.body, jscClasses.iosfix)) {
     const offset = parseInt(document.body.style.top, 10)
-    dom.removeClass(document.body, swalClasses.iosfix)
+    dom.removeClass(document.body, jscClasses.iosfix)
     document.body.style.top = ''
     document.body.scrollTop = offset * -1
   }

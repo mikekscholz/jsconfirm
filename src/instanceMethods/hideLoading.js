@@ -1,5 +1,5 @@
 import privateProps from '../privateProps.js'
-import { swalClasses } from '../utils/classes.js'
+import { jscClasses } from '../utils/classes.js'
 import * as dom from '../utils/dom/index.js'
 
 /**
@@ -20,7 +20,7 @@ function hideLoading() {
   } else {
     showRelatedButton(domCache)
   }
-  dom.removeClass([domCache.popup, domCache.actions], swalClasses.loading)
+  dom.removeClass([domCache.popup, domCache.actions], jscClasses.loading)
   domCache.popup.removeAttribute('aria-busy')
   domCache.popup.removeAttribute('data-loading')
   domCache.confirmButton.disabled = false

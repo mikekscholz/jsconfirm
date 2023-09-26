@@ -1,9 +1,9 @@
 import * as dom from '../utils/dom/index.js'
 import privateProps from '../privateProps.js'
-import { swalClasses } from '../utils/classes.js'
+import { jscClasses } from '../utils/classes.js'
 
 /**
- * @param {SweetAlert} instance
+ * @param {JsConfirm} instance
  * @param {string[]} buttons
  * @param {boolean} disabled
  */
@@ -25,7 +25,7 @@ function setInputDisabled(input, disabled) {
   }
   if (input.type === 'radio') {
     /** @type {NodeListOf<HTMLInputElement>} */
-    const radios = popup.querySelectorAll(`[name="${swalClasses.radio}"]`)
+    const radios = popup.querySelectorAll(`[name="${jscClasses.radio}"]`)
     for (let i = 0; i < radios.length; i++) {
       radios[i].disabled = disabled
     }
@@ -36,7 +36,7 @@ function setInputDisabled(input, disabled) {
 
 /**
  * Enable all the buttons
- * @this {SweetAlert}
+ * @this {JsConfirm}
  */
 export function enableButtons() {
   setButtonsDisabled(this, ['confirmButton', 'denyButton', 'cancelButton'], false)
@@ -44,7 +44,7 @@ export function enableButtons() {
 
 /**
  * Disable all the buttons
- * @this {SweetAlert}
+ * @this {JsConfirm}
  */
 export function disableButtons() {
   setButtonsDisabled(this, ['confirmButton', 'denyButton', 'cancelButton'], true)
@@ -52,7 +52,7 @@ export function disableButtons() {
 
 /**
  * Enable the input field
- * @this {SweetAlert}
+ * @this {JsConfirm}
  */
 export function enableInput() {
   setInputDisabled(this.getInput(), false)
@@ -60,7 +60,7 @@ export function enableInput() {
 
 /**
  * Disable the input field
- * @this {SweetAlert}
+ * @this {JsConfirm}
  */
 export function disableInput() {
   setInputDisabled(this.getInput(), true)

@@ -17,18 +17,18 @@ import defaultParams, { showWarningsForParams } from './utils/params.js'
 import setParameters from './utils/setParameters.js'
 import { callIfFunction } from './utils/utils.js'
 
-/** @type {SweetAlert} */
+/** @type {JsConfirm} */
 let currentInstance
 
-export class SweetAlert {
+export class JsConfirm {
   /**
-   * @type {Promise<SweetAlertResult>}
+   * @type {Promise<JsConfirmResult>}
    */
   #promise
 
   /**
    * @param {...any} args
-   * @this {SweetAlert}
+   * @this {JsConfirm}
    */
   constructor(...args) {
     // Prevent run in Node env
@@ -41,7 +41,7 @@ export class SweetAlert {
     // @ts-ignore
     const outerParams = Object.freeze(this.constructor.argsToParams(args))
 
-    /** @type {Readonly<SweetAlertOptions>} */
+    /** @type {Readonly<JsConfirmOptions>} */
     this.params = outerParams
 
     /** @type {boolean} */
@@ -95,9 +95,9 @@ export class SweetAlert {
 }
 
 /**
- * @param {SweetAlert} instance
+ * @param {JsConfirm} instance
  * @param {DomCache} domCache
- * @param {SweetAlertOptions} innerParams
+ * @param {JsConfirmOptions} innerParams
  * @returns {Promise}
  */
 const swalPromise = (instance, domCache, innerParams) => {
@@ -149,9 +149,9 @@ const swalPromise = (instance, domCache, innerParams) => {
 }
 
 /**
- * @param {SweetAlertOptions} userParams
- * @param {SweetAlertOptions} mixinParams
- * @returns {SweetAlertOptions}
+ * @param {JsConfirmOptions} userParams
+ * @param {JsConfirmOptions} mixinParams
+ * @returns {JsConfirmOptions}
  */
 const prepareParams = (userParams, mixinParams) => {
   const templateParams = getTemplateParams(userParams)
@@ -162,7 +162,7 @@ const prepareParams = (userParams, mixinParams) => {
 }
 
 /**
- * @param {SweetAlert} instance
+ * @param {JsConfirm} instance
  * @returns {DomCache}
  */
 const populateDomCache = (instance) => {
@@ -185,7 +185,7 @@ const populateDomCache = (instance) => {
 
 /**
  * @param {GlobalState} globalState
- * @param {SweetAlertOptions} innerParams
+ * @param {JsConfirmOptions} innerParams
  * @param {Function} dismissWith
  */
 const setupTimer = (globalState, innerParams, dismissWith) => {
@@ -211,7 +211,7 @@ const setupTimer = (globalState, innerParams, dismissWith) => {
 
 /**
  * @param {DomCache} domCache
- * @param {SweetAlertOptions} innerParams
+ * @param {JsConfirmOptions} innerParams
  */
 const initFocus = (domCache, innerParams) => {
   if (innerParams.toast) {
@@ -230,7 +230,7 @@ const initFocus = (domCache, innerParams) => {
 
 /**
  * @param {DomCache} domCache
- * @param {SweetAlertOptions} innerParams
+ * @param {JsConfirmOptions} innerParams
  * @returns {boolean}
  */
 const focusButton = (domCache, innerParams) => {
@@ -259,25 +259,25 @@ const blurActiveElement = () => {
 }
 
 // Assign instance methods from src/instanceMethods/*.js to prototype
-SweetAlert.prototype.disableButtons = instanceMethods.disableButtons
-SweetAlert.prototype.enableButtons = instanceMethods.enableButtons
-SweetAlert.prototype.getInput = instanceMethods.getInput
-SweetAlert.prototype.disableInput = instanceMethods.disableInput
-SweetAlert.prototype.enableInput = instanceMethods.enableInput
-SweetAlert.prototype.hideLoading = instanceMethods.hideLoading
-SweetAlert.prototype.disableLoading = instanceMethods.disableLoading
-SweetAlert.prototype.showValidationMessage = instanceMethods.showValidationMessage
-SweetAlert.prototype.resetValidationMessage = instanceMethods.resetValidationMessage
-SweetAlert.prototype.close = instanceMethods.close
-SweetAlert.prototype.closePopup = instanceMethods.closePopup
-SweetAlert.prototype.closeModal = instanceMethods.closeModal
-SweetAlert.prototype.closeToast = instanceMethods.closeToast
-SweetAlert.prototype.rejectPromise = instanceMethods.rejectPromise
-SweetAlert.prototype.update = instanceMethods.update
-SweetAlert.prototype._destroy = instanceMethods._destroy
+JsConfirm.prototype.disableButtons = instanceMethods.disableButtons
+JsConfirm.prototype.enableButtons = instanceMethods.enableButtons
+JsConfirm.prototype.getInput = instanceMethods.getInput
+JsConfirm.prototype.disableInput = instanceMethods.disableInput
+JsConfirm.prototype.enableInput = instanceMethods.enableInput
+JsConfirm.prototype.hideLoading = instanceMethods.hideLoading
+JsConfirm.prototype.disableLoading = instanceMethods.disableLoading
+JsConfirm.prototype.showValidationMessage = instanceMethods.showValidationMessage
+JsConfirm.prototype.resetValidationMessage = instanceMethods.resetValidationMessage
+JsConfirm.prototype.close = instanceMethods.close
+JsConfirm.prototype.closePopup = instanceMethods.closePopup
+JsConfirm.prototype.closeModal = instanceMethods.closeModal
+JsConfirm.prototype.closeToast = instanceMethods.closeToast
+JsConfirm.prototype.rejectPromise = instanceMethods.rejectPromise
+JsConfirm.prototype.update = instanceMethods.update
+JsConfirm.prototype._destroy = instanceMethods._destroy
 
 // Assign static methods from src/staticMethods/*.js to constructor
-Object.assign(SweetAlert, staticMethods)
+Object.assign(JsConfirm, staticMethods)
 
 // Proxy to instance methods to constructor, for now, for backwards compatibility
 Object.keys(instanceMethods).forEach((key) => {
@@ -285,7 +285,7 @@ Object.keys(instanceMethods).forEach((key) => {
    * @param {...any} args
    * @returns {any | undefined}
    */
-  SweetAlert[key] = function (...args) {
+  JsConfirm[key] = function (...args) {
     if (currentInstance && currentInstance[key]) {
       return currentInstance[key](...args)
     }
@@ -293,8 +293,8 @@ Object.keys(instanceMethods).forEach((key) => {
   }
 })
 
-SweetAlert.DismissReason = DismissReason
+JsConfirm.DismissReason = DismissReason
 
-SweetAlert.version = '11.7.28'
+JsConfirm.version = '11.7.28'
 
-export default SweetAlert
+export default JsConfirm

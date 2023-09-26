@@ -3,14 +3,14 @@ import { removeKeydownHandler } from '../keydown-handler.js'
 import privateMethods from '../privateMethods.js'
 import privateProps from '../privateProps.js'
 import { unsetAriaHidden } from '../utils/aria.js'
-import { swalClasses } from '../utils/classes.js'
+import { jscClasses } from '../utils/classes.js'
 import * as dom from '../utils/dom/index.js'
 import { undoIOSfix } from '../utils/iosFix.js'
 import { undoReplaceScrollbarWithPadding } from '../utils/scrollbar.js'
 import { isSafariOrIOS } from '../utils/iosFix.js'
 
 /**
- * @param {SweetAlert} instance
+ * @param {JsConfirm} instance
  * @param {HTMLElement} container
  * @param {boolean} returnFocus
  * @param {Function} didClose
@@ -48,7 +48,7 @@ function removePopupAndResetState(instance, container, returnFocus, didClose) {
 function removeBodyClasses() {
   dom.removeClass(
     [document.documentElement, document.body],
-    [swalClasses.shown, swalClasses['height-auto'], swalClasses['no-backdrop'], swalClasses['toast-shown']]
+    [jscClasses.shown, jscClasses['height-auto'], jscClasses['no-backdrop'], jscClasses['toast-shown']]
   )
 }
 
@@ -113,7 +113,7 @@ export function rejectPromise(error) {
 }
 
 /**
- * @param {SweetAlert} instance
+ * @param {JsConfirm} instance
  */
 export const handleAwaitingPromise = (instance) => {
   if (instance.isAwaitingPromise) {
@@ -127,7 +127,7 @@ export const handleAwaitingPromise = (instance) => {
 
 /**
  * @param {any} resolveValue
- * @returns {SweetAlertResult}
+ * @returns {JsConfirmResult}
  */
 const prepareResolveValue = (resolveValue) => {
   // When user calls Swal.close()
@@ -150,9 +150,9 @@ const prepareResolveValue = (resolveValue) => {
 }
 
 /**
- * @param {SweetAlert} instance
+ * @param {JsConfirm} instance
  * @param {HTMLElement} popup
- * @param {SweetAlertOptions} innerParams
+ * @param {JsConfirmOptions} innerParams
  */
 const handlePopupAnimation = (instance, popup, innerParams) => {
   const container = dom.getContainer()
@@ -172,7 +172,7 @@ const handlePopupAnimation = (instance, popup, innerParams) => {
 }
 
 /**
- * @param {SweetAlert} instance
+ * @param {JsConfirm} instance
  * @param {HTMLElement} popup
  * @param {HTMLElement} container
  * @param {boolean} returnFocus
@@ -198,7 +198,7 @@ const animatePopup = (instance, popup, container, returnFocus, didClose) => {
 }
 
 /**
- * @param {SweetAlert} instance
+ * @param {JsConfirm} instance
  * @param {Function} didClose
  */
 const triggerDidCloseAndDispose = (instance, didClose) => {

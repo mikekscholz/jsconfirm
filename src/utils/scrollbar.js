@@ -1,4 +1,4 @@
-import { swalClasses } from './classes.js'
+import { jscClasses } from './classes.js'
 
 /**
  * Measure scrollbar width for padding body during modal show/hide
@@ -8,7 +8,7 @@ import { swalClasses } from './classes.js'
  */
 export const measureScrollbar = () => {
   const scrollDiv = document.createElement('div')
-  scrollDiv.classList.add(swalClasses['scrollbar-measure'])
+  scrollDiv.classList.add(jscClasses['scrollbar-measure'])
   document.body.appendChild(scrollDiv)
   const scrollbarWidth = scrollDiv.getBoundingClientRect().width - scrollDiv.clientWidth
   document.body.removeChild(scrollDiv)

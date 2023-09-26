@@ -4,8 +4,8 @@ import { capitalizeFirstLetter, warn } from './utils.js'
 const swalStringParams = ['swal-title', 'swal-html', 'swal-footer']
 
 /**
- * @param {SweetAlertOptions} params
- * @returns {SweetAlertOptions}
+ * @param {JsConfirmOptions} params
+ * @returns {JsConfirmOptions}
  */
 export const getTemplateParams = (params) => {
   /** @type {HTMLTemplateElement} */
@@ -32,7 +32,7 @@ export const getTemplateParams = (params) => {
 
 /**
  * @param {DocumentFragment} templateContent
- * @returns {SweetAlertOptions}
+ * @returns {JsConfirmOptions}
  */
 const getSwalParams = (templateContent) => {
   const result = {}
@@ -55,7 +55,7 @@ const getSwalParams = (templateContent) => {
 
 /**
  * @param {DocumentFragment} templateContent
- * @returns {SweetAlertOptions}
+ * @returns {JsConfirmOptions}
  */
 const getSwalFunctionParams = (templateContent) => {
   const result = {}
@@ -71,7 +71,7 @@ const getSwalFunctionParams = (templateContent) => {
 
 /**
  * @param {DocumentFragment} templateContent
- * @returns {SweetAlertOptions}
+ * @returns {JsConfirmOptions}
  */
 const getSwalButtons = (templateContent) => {
   const result = {}
@@ -94,7 +94,7 @@ const getSwalButtons = (templateContent) => {
 
 /**
  * @param {DocumentFragment} templateContent
- * @returns {SweetAlertOptions}
+ * @returns {JsConfirmOptions}
  */
 const getSwalImage = (templateContent) => {
   const result = {}
@@ -120,7 +120,7 @@ const getSwalImage = (templateContent) => {
 
 /**
  * @param {DocumentFragment} templateContent
- * @returns {SweetAlertOptions}
+ * @returns {JsConfirmOptions}
  */
 const getSwalIcon = (templateContent) => {
   const result = {}
@@ -129,7 +129,7 @@ const getSwalIcon = (templateContent) => {
   if (icon) {
     showWarningsForAttributes(icon, ['type', 'color'])
     if (icon.hasAttribute('type')) {
-      /** @type {SweetAlertIcon} */
+      /** @type {JsConfirmIcon} */
       // @ts-ignore
       result.icon = icon.getAttribute('type')
     }
@@ -143,7 +143,7 @@ const getSwalIcon = (templateContent) => {
 
 /**
  * @param {DocumentFragment} templateContent
- * @returns {SweetAlertOptions}
+ * @returns {JsConfirmOptions}
  */
 const getSwalInput = (templateContent) => {
   const result = {}
@@ -151,7 +151,7 @@ const getSwalInput = (templateContent) => {
   const input = templateContent.querySelector('swal-input')
   if (input) {
     showWarningsForAttributes(input, ['type', 'label', 'placeholder', 'value'])
-    /** @type {SweetAlertInput} */
+    /** @type {JsConfirmInput} */
     // @ts-ignore
     result.input = input.getAttribute('type') || 'text'
     if (input.hasAttribute('label')) {
@@ -181,7 +181,7 @@ const getSwalInput = (templateContent) => {
 /**
  * @param {DocumentFragment} templateContent
  * @param {string[]} paramNames
- * @returns {SweetAlertOptions}
+ * @returns {JsConfirmOptions}
  */
 const getSwalStringParams = (templateContent, paramNames) => {
   const result = {}

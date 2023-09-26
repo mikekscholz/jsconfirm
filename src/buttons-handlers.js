@@ -8,7 +8,7 @@ import { getInputValue } from './utils/dom/inputUtils.js'
 import { asPromise, capitalizeFirstLetter, error } from './utils/utils.js'
 
 /**
- * @param {SweetAlert} instance
+ * @param {JsConfirm} instance
  */
 export const handleConfirmButtonClick = (instance) => {
   const innerParams = privateProps.innerParams.get(instance)
@@ -21,7 +21,7 @@ export const handleConfirmButtonClick = (instance) => {
 }
 
 /**
- * @param {SweetAlert} instance
+ * @param {JsConfirm} instance
  */
 export const handleDenyButtonClick = (instance) => {
   const innerParams = privateProps.innerParams.get(instance)
@@ -34,7 +34,7 @@ export const handleDenyButtonClick = (instance) => {
 }
 
 /**
- * @param {SweetAlert} instance
+ * @param {JsConfirm} instance
  * @param {Function} dismissWith
  */
 export const handleCancelButtonClick = (instance, dismissWith) => {
@@ -43,7 +43,7 @@ export const handleCancelButtonClick = (instance, dismissWith) => {
 }
 
 /**
- * @param {SweetAlert} instance
+ * @param {JsConfirm} instance
  * @param {'confirm' | 'deny'} type
  */
 const handleConfirmOrDenyWithInput = (instance, type) => {
@@ -67,8 +67,8 @@ const handleConfirmOrDenyWithInput = (instance, type) => {
 }
 
 /**
- * @param {SweetAlert} instance
- * @param {SweetAlertInputValue} inputValue
+ * @param {JsConfirm} instance
+ * @param {JsConfirmInputValue} inputValue
  * @param {'confirm' | 'deny'} type
  */
 const handleInputValidator = (instance, inputValue, type) => {
@@ -91,7 +91,7 @@ const handleInputValidator = (instance, inputValue, type) => {
 }
 
 /**
- * @param {SweetAlert} instance
+ * @param {JsConfirm} instance
  * @param {any} value
  */
 const deny = (instance, value) => {
@@ -122,7 +122,7 @@ const deny = (instance, value) => {
 }
 
 /**
- * @param {SweetAlert} instance
+ * @param {JsConfirm} instance
  * @param {any} value
  */
 const succeedWith = (instance, value) => {
@@ -131,7 +131,7 @@ const succeedWith = (instance, value) => {
 
 /**
  *
- * @param {SweetAlert} instance
+ * @param {JsConfirm} instance
  * @param {string} error
  */
 const rejectWith = (instance, error) => {
@@ -140,7 +140,7 @@ const rejectWith = (instance, error) => {
 
 /**
  *
- * @param {SweetAlert} instance
+ * @param {JsConfirm} instance
  * @param {any} value
  */
 const confirm = (instance, value) => {

@@ -1,18 +1,18 @@
 import privateProps from '../privateProps.js'
-import { swalClasses } from '../utils/classes.js'
+import { jscClasses } from '../utils/classes.js'
 import * as dom from '../utils/dom/index.js'
 
 /**
  * Show block with validation message
  *
  * @param {string} error
- * @this {SweetAlert}
+ * @this {JsConfirm}
  */
 export function showValidationMessage(error) {
   const domCache = privateProps.domCache.get(this)
   const params = privateProps.innerParams.get(this)
   dom.setInnerHtml(domCache.validationMessage, error)
-  domCache.validationMessage.classList.add(swalClasses['validation-message'])
+  domCache.validationMessage.classList.add(jscClasses['validation-message'])
   if (params.customClass && params.customClass.validationMessage) {
     dom.addClass(domCache.validationMessage, params.customClass.validationMessage)
   }
@@ -21,16 +21,16 @@ export function showValidationMessage(error) {
   const input = this.getInput()
   if (input) {
     input.setAttribute('aria-invalid', 'true')
-    input.setAttribute('aria-describedby', swalClasses['validation-message'])
+    input.setAttribute('aria-describedby', jscClasses['validation-message'])
     dom.focusInput(input)
-    dom.addClass(input, swalClasses.inputerror)
+    dom.addClass(input, jscClasses.inputerror)
   }
 }
 
 /**
  * Hide block with validation message
  *
- * @this {SweetAlert}
+ * @this {JsConfirm}
  */
 export function resetValidationMessage() {
   const domCache = privateProps.domCache.get(this)
@@ -42,6 +42,6 @@ export function resetValidationMessage() {
   if (input) {
     input.removeAttribute('aria-invalid')
     input.removeAttribute('aria-describedby')
-    dom.removeClass(input, swalClasses.inputerror)
+    dom.removeClass(input, jscClasses.inputerror)
   }
 }

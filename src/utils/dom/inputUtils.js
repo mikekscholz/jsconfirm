@@ -1,12 +1,12 @@
 import { showLoading } from '../../staticMethods/showLoading.js'
-import { swalClasses } from '../classes.js'
+import { jscClasses } from '../classes.js'
 import { asPromise, error, hasToPromiseFn, isPromise } from '../utils.js'
 import { getDirectChildByClass } from './domUtils.js'
 import * as dom from './index.js'
 
 /**
- * @param {SweetAlert} instance
- * @param {SweetAlertOptions} params
+ * @param {JsConfirm} instance
+ * @param {JsConfirmOptions} params
  */
 export const handleInputOptionsAndValue = (instance, params) => {
   if (params.input === 'select' || params.input === 'radio') {
@@ -21,9 +21,9 @@ export const handleInputOptionsAndValue = (instance, params) => {
 }
 
 /**
- * @param {SweetAlert} instance
- * @param {SweetAlertOptions} innerParams
- * @returns {SweetAlertInputValue}
+ * @param {JsConfirm} instance
+ * @param {JsConfirmOptions} innerParams
+ * @returns {JsConfirmInputValue}
  */
 export const getInputValue = (instance, innerParams) => {
   const input = instance.getInput()
@@ -62,8 +62,8 @@ const getFileValue = (input) =>
   input.files && input.files.length ? (input.getAttribute('multiple') !== null ? input.files : input.files[0]) : null
 
 /**
- * @param {SweetAlert} instance
- * @param {SweetAlertOptions} params
+ * @param {JsConfirm} instance
+ * @param {JsConfirmOptions} params
  */
 const handleInputOptions = (instance, params) => {
   const popup = dom.getPopup()
@@ -94,8 +94,8 @@ const handleInputOptions = (instance, params) => {
 }
 
 /**
- * @param {SweetAlert} instance
- * @param {SweetAlertOptions} params
+ * @param {JsConfirm} instance
+ * @param {JsConfirmOptions} params
  */
 const handleInputValue = (instance, params) => {
   const input = instance.getInput()
@@ -122,10 +122,10 @@ const handleInputValue = (instance, params) => {
 /**
  * @param {HTMLElement} popup
  * @param {InputOptionFlattened[]} inputOptions
- * @param {SweetAlertOptions} params
+ * @param {JsConfirmOptions} params
  */
 function populateSelectOptions(popup, inputOptions, params) {
-  const select = getDirectChildByClass(popup, swalClasses.select)
+  const select = getDirectChildByClass(popup, jscClasses.select)
   if (!select) {
     return
   }
@@ -166,10 +166,10 @@ function populateSelectOptions(popup, inputOptions, params) {
 /**
  * @param {HTMLElement} popup
  * @param {InputOptionFlattened[]} inputOptions
- * @param {SweetAlertOptions} params
+ * @param {JsConfirmOptions} params
  */
 function populateRadioOptions(popup, inputOptions, params) {
-  const radio = getDirectChildByClass(popup, swalClasses.radio)
+  const radio = getDirectChildByClass(popup, jscClasses.radio)
   if (!radio) {
     return
   }
@@ -179,14 +179,14 @@ function populateRadioOptions(popup, inputOptions, params) {
     const radioInput = document.createElement('input')
     const radioLabelElement = document.createElement('label')
     radioInput.type = 'radio'
-    radioInput.name = swalClasses.radio
+    radioInput.name = jscClasses.radio
     radioInput.value = radioValue
     if (isSelected(radioValue, params.inputValue)) {
       radioInput.checked = true
     }
     const label = document.createElement('span')
     dom.setInnerHtml(label, radioLabel)
-    label.classList.add(swalClasses.label)
+    label.classList.add(jscClasses.label)
     radioLabelElement.appendChild(radioInput)
     radioLabelElement.appendChild(label)
     radio.appendChild(radioLabelElement)
@@ -231,7 +231,7 @@ const formatInputOptions = (inputOptions) => {
 
 /**
  * @param {string} optionValue
- * @param {SweetAlertInputValue} inputValue
+ * @param {JsConfirmInputValue} inputValue
  * @returns {boolean}
  */
 const isSelected = (optionValue, inputValue) => {

@@ -17,7 +17,7 @@ export const removeKeydownHandler = (globalState) => {
 
 /**
  * @param {GlobalState} globalState
- * @param {SweetAlertOptions} innerParams
+ * @param {JsConfirmOptions} innerParams
  * @param {*} dismissWith
  */
 export const addKeydownHandler = (globalState, innerParams, dismissWith) => {
@@ -64,7 +64,7 @@ const arrowKeysNextButton = ['ArrowRight', 'ArrowDown']
 const arrowKeysPreviousButton = ['ArrowLeft', 'ArrowUp']
 
 /**
- * @param {SweetAlertOptions} innerParams
+ * @param {JsConfirmOptions} innerParams
  * @param {KeyboardEvent} event
  * @param {Function} dismissWith
  */
@@ -108,7 +108,7 @@ const keydownHandler = (innerParams, event, dismissWith) => {
 
 /**
  * @param {KeyboardEvent} event
- * @param {SweetAlertOptions} innerParams
+ * @param {JsConfirmOptions} innerParams
  */
 const handleEnter = (event, innerParams) => {
   // https://github.com/sweetalert2/sweetalert2/issues/2386
@@ -194,7 +194,7 @@ const handleArrows = (key) => {
 
 /**
  * @param {KeyboardEvent} event
- * @param {SweetAlertOptions} innerParams
+ * @param {JsConfirmOptions} innerParams
  * @param {Function} dismissWith
  */
 const handleEsc = (event, innerParams, dismissWith) => {
