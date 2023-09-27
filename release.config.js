@@ -17,12 +17,12 @@ module.exports = {
       '@semantic-release/github',
       {
         assets: [
-          { path: 'dist/sweetalert2.all.js' },
-          { path: 'dist/sweetalert2.all.min.js' },
-          { path: 'dist/sweetalert2.css' },
-          { path: 'dist/sweetalert2.js' },
-          { path: 'dist/sweetalert2.min.css' },
-          { path: 'dist/sweetalert2.min.js' },
+          { path: 'dist/jsconfirm.all.js' },
+          { path: 'dist/jsconfirm.all.min.js' },
+          { path: 'dist/jsconfirm.css' },
+          { path: 'dist/jsconfirm.js' },
+          { path: 'dist/jsconfirm.min.css' },
+          { path: 'dist/jsconfirm.min.js' },
         ],
       },
     ],

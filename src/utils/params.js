@@ -163,7 +163,7 @@ export const isValidParameter = (paramName) => {
 }
 
 /**
- * Is valid parameter for Swal.update() method
+ * Is valid parameter for Jsc.update() method
  *
  * @param {string} paramName
  * @returns {boolean}

@@ -4,7 +4,7 @@ const clickHandlers = {}
 /**
  * @param {string} attr
  */
-export function bindClickHandler(attr = 'data-swal-template') {
+export function bindClickHandler(attr = 'data-jsc-template') {
   clickHandlers[attr] = this
 
   if (!bodyClickListenerAdded) {

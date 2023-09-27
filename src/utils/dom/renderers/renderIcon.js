@@ -76,7 +76,7 @@ const applyStyles = (icon, params) => {
 //   }
 //   const popupBackgroundColor = window.getComputedStyle(modalBody).getPropertyValue('background-color')
 //   /** @type {NodeListOf<HTMLElement>} */
-//   const successIconParts = popup.querySelectorAll('[class^=swal2-success-circular-line], .swal2-success-fix')
+//   const successIconParts = popup.querySelectorAll('[class^=jsc2-success-circular-line], .jsc2-success-fix')
 //   for (let i = 0; i < successIconParts.length; i++) {
 //     successIconParts[i].style.backgroundColor = popupBackgroundColor
 //   }
@@ -147,14 +147,14 @@ const setColor = (icon, params) => {
   icon.style.color = params.iconColor
   icon.style.borderColor = params.iconColor
   for (const sel of [
-    '.swal2-success-line-tip',
-    '.swal2-success-line-long',
-    '.swal2-x-mark-line-left',
-    '.swal2-x-mark-line-right',
+    '.jsc2-success-line-tip',
+    '.jsc2-success-line-long',
+    '.jsc2-x-mark-line-left',
+    '.jsc2-x-mark-line-right',
   ]) {
     dom.setStyle(icon, sel, 'backgroundColor', params.iconColor)
   }
-  dom.setStyle(icon, '.swal2-success-ring', 'borderColor', params.iconColor)
+  dom.setStyle(icon, '.jsc2-success-ring', 'borderColor', params.iconColor)
 }
 
 /**

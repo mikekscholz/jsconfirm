@@ -48,13 +48,13 @@ export const openPopup = (params) => {
 /**
  * @param {AnimationEvent} event
  */
-const swalOpenAnimationFinished = (event) => {
+const jscOpenAnimationFinished = (event) => {
   const popup = dom.getPopup()
   if (event.target !== popup || !dom.animationEndEvent) {
     return
   }
   const container = dom.getContainer()
-  popup.removeEventListener(dom.animationEndEvent, swalOpenAnimationFinished)
+  popup.removeEventListener(dom.animationEndEvent, jscOpenAnimationFinished)
   popup.classList.remove('jsconfirm-show')
   // container.style.overflowY = 'auto'
 }
@@ -66,7 +66,7 @@ const swalOpenAnimationFinished = (event) => {
 const setScrollingVisibility = (container, popup) => {
   if (dom.animationEndEvent && dom.hasCssAnimation(popup)) {
     // container.style.overflowY = 'hidden'
-    popup.addEventListener(dom.animationEndEvent, swalOpenAnimationFinished)
+    popup.addEventListener(dom.animationEndEvent, jscOpenAnimationFinished)
   } else {
     // container.style.overflowY = 'auto'
   }

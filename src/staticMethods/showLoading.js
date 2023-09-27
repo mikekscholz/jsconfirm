@@ -1,4 +1,4 @@
-import Jsc from '../sweetalert2.js'
+import Jsc from '../jsconfirm.js'
 import { jscClasses } from '../utils/classes.js'
 import * as dom from '../utils/dom/index.js'
 

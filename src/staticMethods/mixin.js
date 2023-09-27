@@ -1,16 +1,16 @@
 /**
- * Returns an extended version of `Swal` containing `params` as defaults.
- * Useful for reusing Swal configuration.
+ * Returns an extended version of `Jsc` containing `params` as defaults.
+ * Useful for reusing Jsc configuration.
  *
  * For example:
  *
  * Before:
  * const textPromptOptions = { input: 'text', showCancelButton: true }
- * const {value: firstName} = await Swal.fire({ ...textPromptOptions, title: 'What is your first name?' })
- * const {value: lastName} = await Swal.fire({ ...textPromptOptions, title: 'What is your last name?' })
+ * const {value: firstName} = await Jsc.fire({ ...textPromptOptions, title: 'What is your first name?' })
+ * const {value: lastName} = await Jsc.fire({ ...textPromptOptions, title: 'What is your last name?' })
  *
  * After:
- * const TextPrompt = Swal.mixin({ input: 'text', showCancelButton: true })
+ * const TextPrompt = Jsc.mixin({ input: 'text', showCancelButton: true })
  * const {value: firstName} = await TextPrompt('What is your first name?')
  * const {value: lastName} = await TextPrompt('What is your last name?')
  *
@@ -18,11 +18,11 @@
  * @returns {JsConfirm}
  */
 export function mixin(mixinParams) {
-  class MixinSwal extends this {
+  class MixinJsc extends this {
     _main(params, priorityMixinParams) {
       return super._main(params, Object.assign({}, mixinParams, priorityMixinParams))
     }
   }
   // @ts-ignore
-  return MixinSwal
+  return MixinJsc
 }

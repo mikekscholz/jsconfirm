@@ -1,5 +1,5 @@
 /**
- * This module contains `WeakMap`s for each effectively-"private  property" that a `Swal` has.
+ * This module contains `WeakMap`s for each effectively-"private  property" that a `Jsc` has.
  * For example, to set the private property "foo" of `this` to "bar", you can `privateProps.foo.set(this, 'bar')`
  * This is the approach that Babel will probably take to implement private methods/fields
  *   https://github.com/tc39/proposal-private-methods
@@ -9,6 +9,6 @@
  */
 
 export default {
-  swalPromiseResolve: new WeakMap(),
-  swalPromiseReject: new WeakMap(),
+  jscPromiseResolve: new WeakMap(),
+  jscPromiseReject: new WeakMap(),
 }

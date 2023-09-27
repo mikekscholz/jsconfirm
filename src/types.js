@@ -1,5 +1,5 @@
 /**
- * @typedef { import('./SweetAlert').JsConfirm } JsConfirm
+ * @typedef { import('./jsconfirm').JsConfirm } JsConfirm
  * @typedef { import('jsconfirm').JsConfirmOptions } JsConfirmOptions
  * @typedef { import('jsconfirm').JsConfirmIcon } JsConfirmIcon
  * @typedef { import('jsconfirm').JsConfirmInput } JsConfirmInput
@@ -21,7 +21,7 @@
  * @property {HTMLElement | (Window & typeof globalThis)} [keydownTarget]
  * @property {boolean} [keydownHandlerAdded]
  * @property {boolean} [keydownListenerCapture]
- * @property {Function} [swalCloseEventFinishedCallback]
+ * @property {Function} [jscCloseEventFinishedCallback]
  */
 
 /**

@@ -11,45 +11,45 @@ const banner = `/*!
 */`
 
 const footer = `\
-if (typeof this !== 'undefined' && this.Sweetalert2){\
-this.swal = this.sweetAlert = this.Swal = this.SweetAlert = this.Sweetalert2\
+if (typeof this !== 'undefined' && this.jsconfirm){\
+this.jsc = this.jsconfirm = this.Jsc = this.jsConfirm = this.JsConfirm\
 }`
 
 const output = {
-  format: 'umd',
-  name: 'Sweetalert2',
-  file: 'dist/sweetalert2.js',
-  banner,
-  footer,
+	format: 'umd',
+	name: 'JsConfirm',
+	file: 'dist/jsconfirm.js',
+	banner,
+	footer,
 }
 
 export default {
-  plugins: [
-    babel({
-      babelHelpers: 'bundled',
-      presets: [
-        [
-          '@babel/preset-env',
-          {
-            targets: '> 0.25%, last 2 versions, Firefox ESR, not dead',
-          },
-        ],
-      ],
-    }),
-  ],
-  input: 'src/sweetalert2.js',
-  output: [
-    output,
-    {
-      ...output,
-      file: 'dist/sweetalert2.min.js',
-      plugins: [terser()],
-    },
-  ],
-  // https://github.com/rollup/rollup/issues/2271
-  onwarn(warning, rollupWarn) {
-    if (warning.code !== 'CIRCULAR_DEPENDENCY' && warning.code !== 'THIS_IS_UNDEFINED') {
-      rollupWarn(warning)
-    }
-  },
+	plugins: [
+		babel({
+			babelHelpers: 'bundled',
+			presets: [
+				[
+					'@babel/preset-env',
+					{
+						targets: '> 0.25%, last 2 versions, Firefox ESR, not dead',
+					},
+				],
+			],
+		}),
+	],
+	input: 'src/jsconfirm.js',
+	output: [
+		output,
+		{
+			...output,
+			file: 'dist/jsconfirm.min.js',
+			plugins: [terser()],
+		},
+	],
+	// https://github.com/rollup/rollup/issues/2271
+	onwarn(warning, rollupWarn) {
+		if (warning.code !== 'CIRCULAR_DEPENDENCY' && warning.code !== 'THIS_IS_UNDEFINED') {
+			rollupWarn(warning)
+		}
+	},
 }

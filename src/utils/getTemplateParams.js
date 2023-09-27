@@ -1,7 +1,7 @@
 import defaultParams from './params.js'
 import { capitalizeFirstLetter, warn } from './utils.js'
 
-const swalStringParams = ['swal-title', 'swal-html', 'swal-footer']
+const jscStringParams = ['jsc-title', 'jsc-html', 'jsc-footer']
 
 /**
  * @param {JsConfirmOptions} params
@@ -19,13 +19,13 @@ export const getTemplateParams = (params) => {
   showWarningsForElements(templateContent)
 
   const result = Object.assign(
-    getSwalParams(templateContent),
-    getSwalFunctionParams(templateContent),
-    getSwalButtons(templateContent),
-    getSwalImage(templateContent),
-    getSwalIcon(templateContent),
-    getSwalInput(templateContent),
-    getSwalStringParams(templateContent, swalStringParams)
+    getJscParams(templateContent),
+    getJscFunctionParams(templateContent),
+    getJscButtons(templateContent),
+    getJscImage(templateContent),
+    getJscIcon(templateContent),
+    getJscInput(templateContent),
+    getJscStringParams(templateContent, jscStringParams)
   )
   return result
 }
@@ -34,11 +34,11 @@ export const getTemplateParams = (params) => {
  * @param {DocumentFragment} templateContent
  * @returns {JsConfirmOptions}
  */
-const getSwalParams = (templateContent) => {
+const getJscParams = (templateContent) => {
   const result = {}
   /** @type {HTMLElement[]} */
-  const swalParams = Array.from(templateContent.querySelectorAll('swal-param'))
-  swalParams.forEach((param) => {
+  const jscParams = Array.from(templateContent.querySelectorAll('jsc-param'))
+  jscParams.forEach((param) => {
     showWarningsForAttributes(param, ['name', 'value'])
     const paramName = param.getAttribute('name')
     const value = param.getAttribute('value')
@@ -57,11 +57,11 @@ const getSwalParams = (templateContent) => {
  * @param {DocumentFragment} templateContent
  * @returns {JsConfirmOptions}
  */
-const getSwalFunctionParams = (templateContent) => {
+const getJscFunctionParams = (templateContent) => {
   const result = {}
   /** @type {HTMLElement[]} */
-  const swalFunctions = Array.from(templateContent.querySelectorAll('swal-function-param'))
-  swalFunctions.forEach((param) => {
+  const jscFunctions = Array.from(templateContent.querySelectorAll('jsc-function-param'))
+  jscFunctions.forEach((param) => {
     const paramName = param.getAttribute('name')
     const value = param.getAttribute('value')
     result[paramName] = new Function(`return ${value}`)()
@@ -73,11 +73,11 @@ const getSwalFunctionParams = (templateContent) => {
  * @param {DocumentFragment} templateContent
  * @returns {JsConfirmOptions}
  */
-const getSwalButtons = (templateContent) => {
+const getJscButtons = (templateContent) => {
   const result = {}
   /** @type {HTMLElement[]} */
-  const swalButtons = Array.from(templateContent.querySelectorAll('swal-button'))
-  swalButtons.forEach((button) => {
+  const jscButtons = Array.from(templateContent.querySelectorAll('jsc-button'))
+  jscButtons.forEach((button) => {
     showWarningsForAttributes(button, ['type', 'color', 'aria-label'])
     const type = button.getAttribute('type')
     result[`${type}ButtonText`] = button.innerHTML
@@ -96,10 +96,10 @@ const getSwalButtons = (templateContent) => {
  * @param {DocumentFragment} templateContent
  * @returns {JsConfirmOptions}
  */
-const getSwalImage = (templateContent) => {
+const getJscImage = (templateContent) => {
   const result = {}
   /** @type {HTMLElement} */
-  const image = templateContent.querySelector('swal-image')
+  const image = templateContent.querySelector('jsc-image')
   if (image) {
     showWarningsForAttributes(image, ['src', 'width', 'height', 'alt'])
     if (image.hasAttribute('src')) {
@@ -122,10 +122,10 @@ const getSwalImage = (templateContent) => {
  * @param {DocumentFragment} templateContent
  * @returns {JsConfirmOptions}
  */
-const getSwalIcon = (templateContent) => {
+const getJscIcon = (templateContent) => {
   const result = {}
   /** @type {HTMLElement} */
-  const icon = templateContent.querySelector('swal-icon')
+  const icon = templateContent.querySelector('jsc-icon')
   if (icon) {
     showWarningsForAttributes(icon, ['type', 'color'])
     if (icon.hasAttribute('type')) {
@@ -145,10 +145,10 @@ const getSwalIcon = (templateContent) => {
  * @param {DocumentFragment} templateContent
  * @returns {JsConfirmOptions}
  */
-const getSwalInput = (templateContent) => {
+const getJscInput = (templateContent) => {
   const result = {}
   /** @type {HTMLElement} */
-  const input = templateContent.querySelector('swal-input')
+  const input = templateContent.querySelector('jsc-input')
   if (input) {
     showWarningsForAttributes(input, ['type', 'label', 'placeholder', 'value'])
     /** @type {JsConfirmInput} */
@@ -165,7 +165,7 @@ const getSwalInput = (templateContent) => {
     }
   }
   /** @type {HTMLElement[]} */
-  const inputOptions = Array.from(templateContent.querySelectorAll('swal-input-option'))
+  const inputOptions = Array.from(templateContent.querySelectorAll('jsc-input-option'))
   if (inputOptions.length) {
     result.inputOptions = {}
     inputOptions.forEach((option) => {
@@ -183,7 +183,7 @@ const getSwalInput = (templateContent) => {
  * @param {string[]} paramNames
  * @returns {JsConfirmOptions}
  */
-const getSwalStringParams = (templateContent, paramNames) => {
+const getJscStringParams = (templateContent, paramNames) => {
   const result = {}
   for (const i in paramNames) {
     const paramName = paramNames[i]
@@ -191,7 +191,7 @@ const getSwalStringParams = (templateContent, paramNames) => {
     const tag = templateContent.querySelector(paramName)
     if (tag) {
       showWarningsForAttributes(tag, [])
-      result[paramName.replace(/^swal-/, '')] = tag.innerHTML.trim()
+      result[paramName.replace(/^jsc-/, '')] = tag.innerHTML.trim()
     }
   }
   return result
@@ -201,14 +201,14 @@ const getSwalStringParams = (templateContent, paramNames) => {
  * @param {DocumentFragment} templateContent
  */
 const showWarningsForElements = (templateContent) => {
-  const allowedElements = swalStringParams.concat([
-    'swal-param',
-    'swal-function-param',
-    'swal-button',
-    'swal-image',
-    'swal-icon',
-    'swal-input',
-    'swal-input-option',
+  const allowedElements = jscStringParams.concat([
+    'jsc-param',
+    'jsc-function-param',
+    'jsc-button',
+    'jsc-image',
+    'jsc-icon',
+    'jsc-input',
+    'jsc-input-option',
   ])
   Array.from(templateContent.children).forEach((el) => {
     const tagName = el.tagName.toLowerCase()

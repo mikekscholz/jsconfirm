@@ -60,19 +60,19 @@ function removeBodyClasses() {
 export function close(resolveValue) {
   resolveValue = prepareResolveValue(resolveValue)
 
-  const swalPromiseResolve = privateMethods.swalPromiseResolve.get(this)
+  const jscPromiseResolve = privateMethods.jscPromiseResolve.get(this)
 
   const didClose = triggerClosePopup(this)
 
   if (this.isAwaitingPromise) {
-    // A swal awaiting for a promise (after a click on Confirm or Deny) cannot be dismissed anymore #2335
+    // A jsc awaiting for a promise (after a click on Confirm or Deny) cannot be dismissed anymore #2335
     if (!resolveValue.isDismissed) {
       handleAwaitingPromise(this)
-      swalPromiseResolve(resolveValue)
+      jscPromiseResolve(resolveValue)
     }
   } else if (didClose) {
-    // Resolve Swal promise
-    swalPromiseResolve(resolveValue)
+    // Resolve Jsc promise
+    jscPromiseResolve(resolveValue)
   }
 }
 
@@ -104,10 +104,10 @@ const triggerClosePopup = (instance) => {
  * @param {any} error
  */
 export function rejectPromise(error) {
-  const rejectPromise = privateMethods.swalPromiseReject.get(this)
+  const rejectPromise = privateMethods.jscPromiseReject.get(this)
   handleAwaitingPromise(this)
   if (rejectPromise) {
-    // Reject Swal promise
+    // Reject Jsc promise
     rejectPromise(error)
   }
 }
@@ -130,7 +130,7 @@ export const handleAwaitingPromise = (instance) => {
  * @returns {JsConfirmResult}
  */
 const prepareResolveValue = (resolveValue) => {
-  // When user calls Swal.close()
+  // When user calls Jsc.close()
   if (typeof resolveValue === 'undefined') {
     return {
       isConfirmed: false,
@@ -182,7 +182,7 @@ const animatePopup = (instance, popup, container, returnFocus, didClose) => {
   if (!dom.animationEndEvent) {
     return
   }
-  globalState.swalCloseEventFinishedCallback = removePopupAndResetState.bind(
+  globalState.jscCloseEventFinishedCallback = removePopupAndResetState.bind(
     null,
     instance,
     container,
@@ -191,8 +191,8 @@ const animatePopup = (instance, popup, container, returnFocus, didClose) => {
   )
   popup.addEventListener(dom.animationEndEvent, function (e) {
     if (e.target === popup) {
-      globalState.swalCloseEventFinishedCallback()
-      delete globalState.swalCloseEventFinishedCallback
+      globalState.jscCloseEventFinishedCallback()
+      delete globalState.jscCloseEventFinishedCallback
     }
   })
 }

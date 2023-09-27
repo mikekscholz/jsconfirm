@@ -1,3 +1,3 @@
-import Swal from 'sweetalert2/src/sweetalert2.js'
+import Jsc from '../../src/jsconfirm.js'
 
-Swal.fire()
+Jsc.fire()

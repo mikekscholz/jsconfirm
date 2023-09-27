@@ -1,5 +1,5 @@
-import Swal from 'sweetalert2'
+import Jsc from 'jsconfirm'
 
-Swal.fire()
+Jsc.fire()
 
-Swal.showLoading(Swal.getConfirmButton())
+Jsc.showLoading(Jsc.getConfirmButton())

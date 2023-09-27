@@ -6,40 +6,41 @@ import * as dom from '../../dom/index.js'
  * @param {JsConfirmOptions} params
  */
 export const renderPopup = (instance, params) => {
-  const container = dom.getContainer()
-  const popup = dom.getPopup()
-  if (!container || !popup) {
-    return
-  }
+	const container = dom.getContainer()
+	const popup = dom.getPopup()
+	const body = dom.getBody()
+	if (!container || !popup) {
+		return
+	}
 
-  // Width
-  // https://github.com/sweetalert2/sweetalert2/issues/2170
-  if (params.toast) {
-    dom.applyNumericalStyle(container, 'width', params.width)
-    popup.style.width = '100%'
-    const loader = dom.getLoader()
-    loader && popup.insertBefore(loader, dom.getIcon())
-  } else {
-    dom.applyNumericalStyle(popup, 'width', params.width)
-  }
+	// Width
+	// https://github.com/sweetalert2/sweetalert2/issues/2170
+	if (params.toast) {
+		dom.applyNumericalStyle(container, 'width', params.width)
+		popup.style.width = '100%'
+		const loader = dom.getLoader()
+		loader && popup.insertBefore(loader, dom.getIcon())
+	} else {
+		dom.applyNumericalStyle(popup, 'width', params.width)
+	}
 
-  // Padding
-  dom.applyNumericalStyle(popup, 'padding', params.padding)
+	// Padding
+	dom.applyNumericalStyle(body, 'padding', params.padding)
 
-  // Color
-  if (params.color) {
-    popup.style.color = params.color
-  }
+	// Color
+	if (params.color) {
+		popup.style.color = params.color
+	}
 
-  // Background
-  if (params.background) {
-    popup.style.background = params.background
-  }
+	// Background
+	if (params.background) {
+		body.style.background = params.background
+	}
 
-  dom.hide(dom.getValidationMessage())
+	dom.hide(dom.getValidationMessage())
 
-  // Classes
-  addClasses(popup, params)
+	// Classes
+	addClasses(popup, params)
 }
 
 /**
@@ -47,28 +48,28 @@ export const renderPopup = (instance, params) => {
  * @param {JsConfirmOptions} params
  */
 const addClasses = (popup, params) => {
-  const showClass = params.showClass || {}
-  // Default Class + showClass when updating Swal.update({})
-  // popup.className = `${jscClasses.popup} ${dom.isVisible(popup) ? showClass.popup : ''}`
-  popup.classList.add(jscClasses.popup)
-  // popup.classList.add(`${dom.isVisible(popup) ? showClass.popup : ''}`)
-  
+	const showClass = params.showClass || {}
+	// Default Class + showClass when updating Jsc.update({})
+	// popup.className = `${jscClasses.popup} ${dom.isVisible(popup) ? showClass.popup : ''}`
+	popup.classList.add(jscClasses.popup)
+	// popup.classList.add(`${dom.isVisible(popup) ? showClass.popup : ''}`)
+	
 console.log(jscClasses.popup)
-  if (params.toast) {
-    dom.addClass([document.documentElement, document.body], jscClasses['toast-shown'])
-    dom.addClass(popup, jscClasses.toast)
-  } else {
-    dom.addClass(popup, jscClasses.modal)
-  }
+	if (params.toast) {
+		dom.addClass([document.documentElement, document.body], jscClasses['toast-shown'])
+		dom.addClass(popup, jscClasses.toast)
+	} else {
+		dom.addClass(popup, jscClasses.modal)
+	}
 
-  // Custom class
-  dom.applyCustomClass(popup, params, 'popup')
-  if (typeof params.customClass === 'string') {
-    dom.addClass(popup, params.customClass)
-  }
+	// Custom class
+	dom.applyCustomClass(popup, params, 'popup')
+	if (typeof params.customClass === 'string') {
+		dom.addClass(popup, params.customClass)
+	}
 
-  // Icon class (#1842)
-  if (params.icon) {
-    dom.addClass(popup, jscClasses[`icon-${params.icon}`])
-  }
+	// Icon class (#1842)
+	if (params.icon) {
+		dom.addClass(popup, jscClasses[`icon-${params.icon}`])
+	}
 }

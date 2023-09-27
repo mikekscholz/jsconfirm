@@ -1,3 +1,3 @@
-import Swal from '../../dist/sweetalert2.all.js'
+import Jsc from '../../dist/jsconfirm.all.js'
 
-Swal.fire('hello world')
+Jsc.fire('hello world')

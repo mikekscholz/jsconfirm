@@ -14,22 +14,22 @@ export function _destroy() {
     return // This instance has already been destroyed
   }
 
-  // Check if there is another Swal closing
-  if (domCache.popup && globalState.swalCloseEventFinishedCallback) {
-    globalState.swalCloseEventFinishedCallback()
-    delete globalState.swalCloseEventFinishedCallback
+  // Check if there is another Jsc closing
+  if (domCache.popup && globalState.jscCloseEventFinishedCallback) {
+    globalState.jscCloseEventFinishedCallback()
+    delete globalState.jscCloseEventFinishedCallback
   }
 
   if (typeof innerParams.didDestroy === 'function') {
     innerParams.didDestroy()
   }
-  disposeSwal(this)
+  disposeJsc(this)
 }
 
 /**
  * @param {JsConfirm} instance
  */
-const disposeSwal = (instance) => {
+const disposeJsc = (instance) => {
   disposeWeakMaps(instance)
   // Unset this.params so GC will dispose it (#1569)
   delete instance.params
