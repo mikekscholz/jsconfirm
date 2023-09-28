@@ -1,54 +1,54 @@
 /// <reference types="cypress" />
 
-import { Swal } from '../../utils'
+import { Jsc } from '../../utils'
 
 describe('padding', () => {
   it('padding should allow 0', () => {
-    Swal.fire({
+    Jsc.fire({
       padding: 0,
     })
-    expect(Swal.getPopup().style.padding).to.equal('0px')
+    expect(Jsc.getPopup().style.padding).to.equal('0px')
   })
 
   it('padding should allow a number', () => {
-    Swal.fire({
+    Jsc.fire({
       padding: 15,
     })
-    expect(Swal.getPopup().style.padding).to.equal('15px')
+    expect(Jsc.getPopup().style.padding).to.equal('15px')
   })
 
   it('padding should allow a string', () => {
-    Swal.fire({
+    Jsc.fire({
       padding: '2rem',
     })
-    expect(Swal.getPopup().style.padding).to.equal('2rem')
+    expect(Jsc.getPopup().style.padding).to.equal('2rem')
   })
 
   it('padding should be empty with undefined', () => {
-    Swal.fire({
+    Jsc.fire({
       padding: undefined,
     })
-    expect(Swal.getPopup().style.padding).to.equal('')
+    expect(Jsc.getPopup().style.padding).to.equal('')
   })
 
   it('padding should be empty with an object', () => {
-    Swal.fire({
+    Jsc.fire({
       padding: {},
     })
-    expect(Swal.getPopup().style.padding).to.equal('')
+    expect(Jsc.getPopup().style.padding).to.equal('')
   })
 
   it('padding should be empty with an array', () => {
-    Swal.fire({
+    Jsc.fire({
       padding: [],
     })
-    expect(Swal.getPopup().style.padding).to.equal('')
+    expect(Jsc.getPopup().style.padding).to.equal('')
   })
 
   it('padding should be empty with `true`', () => {
-    Swal.fire({
+    Jsc.fire({
       padding: true,
     })
-    expect(Swal.getPopup().style.padding).to.equal('')
+    expect(Jsc.getPopup().style.padding).to.equal('')
   })
 })

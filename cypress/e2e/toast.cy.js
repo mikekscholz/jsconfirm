@@ -1,18 +1,18 @@
 /// <reference types="cypress" />
 
-import { Swal, SwalWithoutAnimation } from '../utils'
+import { Jsc, JscWithoutAnimation } from '../utils'
 
-const Toast = SwalWithoutAnimation.mixin({ toast: true })
-const ToastWithoutAnimation = SwalWithoutAnimation.mixin({ toast: true })
+const Toast = JscWithoutAnimation.mixin({ toast: true })
+const ToastWithoutAnimation = JscWithoutAnimation.mixin({ toast: true })
 
 describe('Toast', () => {
-  it('.swal2-toast-shown', () => {
+  it('.jsc-toast-shown', () => {
     Toast.fire()
-    expect(document.body.classList.contains('swal2-toast-shown')).to.be.true
-    expect(document.documentElement.classList.contains('swal2-toast-shown')).to.be.true
-    Swal.fire()
-    expect(document.body.classList.contains('swal2-toast-shown')).to.be.false
-    expect(document.documentElement.classList.contains('swal2-toast-shown')).to.be.false
+    expect(document.body.classList.contains('jsc-toast-shown')).to.be.true
+    expect(document.documentElement.classList.contains('jsc-toast-shown')).to.be.true
+    Jsc.fire()
+    expect(document.body.classList.contains('jsc-toast-shown')).to.be.false
+    expect(document.documentElement.classList.contains('jsc-toast-shown')).to.be.false
   })
 
   it('should throw console warnings for incompatible parameters', () => {
@@ -22,7 +22,7 @@ describe('Toast', () => {
     Toast.fire({
       allowOutsideClick: true,
     })
-    expect(spy.calledWith('SweetAlert2: The parameter "allowOutsideClick" is incompatible with toasts')).to.be.true
+    expect(spy.calledWith('JsConfirm: The parameter "allowOutsideClick" is incompatible with toasts')).to.be.true
 
     console.warn = _consoleWarn
   })
@@ -73,8 +73,8 @@ describe('Toast', () => {
         Toast.close()
       },
       didClose: () => {
-        expect(document.body.classList.contains('swal2-shown')).to.be.false
-        expect(document.body.classList.contains('swal2-toast-shown')).to.be.false
+        expect(document.body.classList.contains('jsc-shown')).to.be.false
+        expect(document.body.classList.contains('jsc-toast-shown')).to.be.false
         done()
       },
     })
@@ -91,17 +91,17 @@ describe('Toast', () => {
       width: '50%',
     })
 
-    Swal.getContainer().style.position = 'absolute'
-    expect(window.getComputedStyle(Swal.getContainer()).width).to.equal('150px')
+    Jsc.getContainer().style.position = 'absolute'
+    expect(window.getComputedStyle(Jsc.getContainer()).width).to.equal('150px')
   })
 
   it('Should be possible to reverse buttons', () => {
-    Swal.fire({
+    Jsc.fire({
       toast: true,
       showCancelButton: true,
       reverseButtons: true,
     })
-    expect(Swal.getCancelButton().nextElementSibling.innerText).to.equal('No')
-    expect(Swal.getCancelButton().nextElementSibling.nextElementSibling.innerText).to.equal('OK')
+    expect(Jsc.getCancelButton().nextElementSibling.innerText).to.equal('No')
+    expect(Jsc.getCancelButton().nextElementSibling.nextElementSibling.innerText).to.equal('OK')
   })
 })

@@ -25,7 +25,7 @@ export {
 } from '../utils/dom/index.js'
 
 /*
- * Global function to determine if SweetAlert2 popup is shown
+ * Global function to determine if JsConfirm popup is shown
  */
 export const isVisible = () => {
   return domUtils.isVisible(dom.getPopup())

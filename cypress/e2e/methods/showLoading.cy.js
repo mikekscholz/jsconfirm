@@ -1,58 +1,58 @@
 /// <reference types="cypress" />
 
 import { isVisible } from '../../../src/utils/dom'
-import { $, Swal, ensureClosed, isHidden } from '../../utils'
+import { $, Jsc, ensureClosed, isHidden } from '../../utils'
 
 describe('showLoading() and hideLoading()', () => {
   it('showLoading() and hideLoading()', () => {
-    Swal.showLoading()
-    expect(Swal.getActions().classList.contains('swal2-loading')).to.be.true
+    Jsc.showLoading()
+    expect(Jsc.getActions().classList.contains('jsc-loading')).to.be.true
 
-    Swal.hideLoading()
-    expect(Swal.getActions().classList.contains('swal2-loading')).to.be.false
+    Jsc.hideLoading()
+    expect(Jsc.getActions().classList.contains('jsc-loading')).to.be.false
 
-    Swal.fire({
+    Jsc.fire({
       title: 'test loading state',
       showConfirmButton: false,
     })
 
-    Swal.showLoading()
-    expect(isVisible(Swal.getActions())).to.be.true
-    expect(Swal.getActions().classList.contains('swal2-loading')).to.be.true
+    Jsc.showLoading()
+    expect(isVisible(Jsc.getActions())).to.be.true
+    expect(Jsc.getActions().classList.contains('jsc-loading')).to.be.true
 
-    Swal.hideLoading()
-    expect(isVisible(Swal.getActions())).to.be.false
-    expect(Swal.getActions().classList.contains('swal2-loading')).to.be.false
+    Jsc.hideLoading()
+    expect(isVisible(Jsc.getActions())).to.be.false
+    expect(Jsc.getActions().classList.contains('jsc-loading')).to.be.false
   })
 
   it('hideLoading()', () => {
     ensureClosed()
-    Swal.hideLoading()
-    expect(Swal.isVisible()).to.be.false
+    Jsc.hideLoading()
+    expect(Jsc.isVisible()).to.be.false
   })
 
   it('should open an empty popup with loader', () => {
     ensureClosed()
-    Swal.showLoading()
-    expect(Swal.isVisible()).to.be.true
-    expect(Swal.getActions().classList.contains('swal2-loading')).to.be.true
-    expect(isVisible($('.swal2-loader'))).to.be.true
-    expect($('.swal2-loader').innerHTML).to.equal('')
+    Jsc.showLoading()
+    expect(Jsc.isVisible()).to.be.true
+    expect(Jsc.getActions().classList.contains('jsc-loading')).to.be.true
+    expect(isVisible($('.jsc-loader'))).to.be.true
+    expect($('.jsc-loader').innerHTML).to.equal('')
   })
 
   it('showConfirmButton: false + showLoading()', (done) => {
-    Swal.fire({
+    Jsc.fire({
       showConfirmButton: false,
       loaderHtml: '<i>hi</i>',
       didOpen: () => {
-        expect(isHidden(Swal.getActions())).to.be.true
-        Swal.showLoading()
-        expect(isVisible(Swal.getActions())).to.be.true
-        expect(Swal.getActions().classList.contains('swal2-loading')).to.be.true
-        expect(isVisible($('.swal2-loader'))).to.be.true
-        expect($('.swal2-loader').innerHTML).to.equal('<i>hi</i>')
-        expect(isHidden(Swal.getConfirmButton())).to.be.true
-        expect(isHidden(Swal.getCancelButton())).to.be.true
+        expect(isHidden(Jsc.getActions())).to.be.true
+        Jsc.showLoading()
+        expect(isVisible(Jsc.getActions())).to.be.true
+        expect(Jsc.getActions().classList.contains('jsc-loading')).to.be.true
+        expect(isVisible($('.jsc-loader'))).to.be.true
+        expect($('.jsc-loader').innerHTML).to.equal('<i>hi</i>')
+        expect(isHidden(Jsc.getConfirmButton())).to.be.true
+        expect(isHidden(Jsc.getCancelButton())).to.be.true
         done()
       },
     })

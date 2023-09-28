@@ -1,5 +1,5 @@
 /**
- * Main method to create a new SweetAlert2 popup
+ * Main method to create a new JsConfirm popup
  *
  * @param  {...JsConfirmOptions} args
  * @returns {Promise<JsConfirmResult>}

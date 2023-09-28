@@ -1,39 +1,39 @@
 /// <reference types="cypress" />
 
-import { Swal, SwalWithoutAnimation } from '../../utils'
+import { Jsc, JscWithoutAnimation } from '../../utils'
 
 describe('preConfirm', () => {
   it('preConfirm return false', () => {
-    SwalWithoutAnimation.fire({
+    JscWithoutAnimation.fire({
       preConfirm: () => false,
     })
-    Swal.clickConfirm()
-    expect(Swal.isVisible()).to.be.true
+    Jsc.clickConfirm()
+    expect(Jsc.isVisible()).to.be.true
   })
 
   it('preConfirm custom value', (done) => {
-    SwalWithoutAnimation.fire({
+    JscWithoutAnimation.fire({
       preConfirm: () => 'Some data from preConfirm',
     }).then((result) => {
       expect(result.value).to.equal('Some data from preConfirm')
       done()
     })
-    Swal.clickConfirm()
+    Jsc.clickConfirm()
   })
 
   it('preConfirm returns 0', (done) => {
-    SwalWithoutAnimation.fire({
+    JscWithoutAnimation.fire({
       preConfirm: () => 0,
     }).then((result) => {
       expect(result.value).to.equal(0)
       done()
     })
-    Swal.clickConfirm()
+    Jsc.clickConfirm()
   })
 
   it('preConfirm returns object containing toPromise', (done) => {
-    SwalWithoutAnimation.fire({
-      didOpen: () => Swal.clickConfirm(),
+    JscWithoutAnimation.fire({
+      didOpen: () => Jsc.clickConfirm(),
       preConfirm: () => ({
         toPromise: () => Promise.resolve(0),
       }),
@@ -46,7 +46,7 @@ describe('preConfirm', () => {
   it('preConfirm promise is rejected', (done) => {
     let thenTriggered = false
     const errorMsg = 'message1'
-    SwalWithoutAnimation.fire({
+    JscWithoutAnimation.fire({
       preConfirm: () => {
         return Promise.reject(new Error(errorMsg))
       },
@@ -59,21 +59,21 @@ describe('preConfirm', () => {
         expect(result.message).to.equal(errorMsg)
         done()
       })
-    Swal.clickConfirm()
-    expect(Swal.isVisible()).to.be.true
+    Jsc.clickConfirm()
+    expect(Jsc.isVisible()).to.be.true
   })
 
-  it('preConfirm promise is rejected with a swal chain inside preConfirm', (done) => {
+  it('preConfirm promise is rejected with a jsc chain inside preConfirm', (done) => {
     let thenTriggered = false
     const errorMsg = 'message1'
-    SwalWithoutAnimation.fire({
+    JscWithoutAnimation.fire({
       preConfirm: () => {
-        return SwalWithoutAnimation.fire({
+        return JscWithoutAnimation.fire({
           preConfirm: () => {
             return Promise.reject(new Error(errorMsg))
           },
           didOpen: () => {
-            Swal.clickConfirm()
+            Jsc.clickConfirm()
           },
         }).then(() => {
           thenTriggered = true
@@ -88,22 +88,22 @@ describe('preConfirm', () => {
         expect(result.message).to.equal(errorMsg)
         done()
       })
-    Swal.clickConfirm()
-    expect(Swal.isVisible()).to.be.true
+    Jsc.clickConfirm()
+    expect(Jsc.isVisible()).to.be.true
   })
 
   it('should complete the promise when calling showValidationMessage() inside preConfirm', (done) => {
-    Swal.fire({
+    Jsc.fire({
       showCancelButton: true,
       preConfirm: () => {
-        Swal.showValidationMessage('Now click the cancel button')
+        Jsc.showValidationMessage('Now click the cancel button')
       },
       didOpen: () => {
-        Swal.clickConfirm()
+        Jsc.clickConfirm()
       },
     }).then(() => {
       done()
     })
-    Swal.clickCancel()
+    Jsc.clickCancel()
   })
 })

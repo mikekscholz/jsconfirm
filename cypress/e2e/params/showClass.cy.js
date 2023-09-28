@@ -1,10 +1,10 @@
 /// <reference types="cypress" />
 
-import { Swal } from '../../utils'
+import { Jsc } from '../../utils'
 
 describe('showClass', () => {
   it('showClass + hideClass', (done) => {
-    Swal.fire({
+    Jsc.fire({
       title: 'Custom animation with Animate.css',
       showClass: {
         popup: 'animated fadeInDown faster',
@@ -13,10 +13,10 @@ describe('showClass', () => {
         popup: 'animated fadeOutUp faster',
       },
       didClose: () => {
-        expect(Swal.isVisible()).to.be.false
+        expect(Jsc.isVisible()).to.be.false
         done()
       },
     })
-    Swal.close()
+    Jsc.close()
   })
 })

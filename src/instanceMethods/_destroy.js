@@ -3,7 +3,7 @@ import privateMethods from '../privateMethods.js'
 import privateProps from '../privateProps.js'
 
 /**
- * Dispose the current SweetAlert2 instance
+ * Dispose the current JsConfirm instance
  */
 export function _destroy() {
   const domCache = privateProps.domCache.get(this)

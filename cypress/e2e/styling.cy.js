@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import { Swal } from '../utils'
+import { Jsc } from '../utils'
 
 describe('Styling', () => {
   it('overriding styles with customClass', (done) => {
@@ -56,10 +56,10 @@ describe('Styling', () => {
       }
     `
     document.head.prepend(style)
-    Swal.fire({
+    Jsc.fire({
       title: 'title',
       icon: 'success',
-      imageUrl: '/assets/swal2-logo.png',
+      imageUrl: '/assets/jsc-logo.png',
       input: 'text',
       inputLabel: 'inputLabel',
       showDenyButton: true,
@@ -86,24 +86,24 @@ describe('Styling', () => {
         timerProgressBar: 'my-timer-progress-bar',
       },
       didOpen: () => {
-        expect(window.getComputedStyle(Swal.getContainer()).zIndex).to.equal('9999')
-        expect(window.getComputedStyle(Swal.getPopup()).width).to.equal('500px')
-        expect(window.getComputedStyle(Swal.getTitle()).fontSize).to.equal('10px')
-        expect(window.getComputedStyle(Swal.getCloseButton()).fontSize).to.equal('11px')
-        expect(window.getComputedStyle(Swal.getIcon()).width).to.equal('12px')
-        expect(window.getComputedStyle(Swal.getImage()).maxWidth).to.equal('13px')
-        expect(window.getComputedStyle(Swal.getInput()).fontSize).to.equal('14px')
-        expect(window.getComputedStyle(Swal.getInputLabel()).margin).to.equal('0px')
-        Swal.showValidationMessage('validationMessage')
-        expect(window.getComputedStyle(Swal.getValidationMessage()).padding).to.equal('0px')
-        expect(window.getComputedStyle(Swal.getActions()).padding).to.equal('1px')
-        expect(window.getComputedStyle(Swal.getConfirmButton()).padding).to.equal('2px')
-        expect(window.getComputedStyle(Swal.getDenyButton()).padding).to.equal('3px')
-        expect(window.getComputedStyle(Swal.getCancelButton()).padding).to.equal('4px')
-        Swal.showLoading()
-        expect(window.getComputedStyle(Swal.getLoader()).borderWidth).to.equal('7px')
-        expect(window.getComputedStyle(Swal.getFooter()).padding).to.equal('8px')
-        expect(window.getComputedStyle(Swal.getTimerProgressBar()).height).to.equal('9px')
+        expect(window.getComputedStyle(Jsc.getContainer()).zIndex).to.equal('9999')
+        expect(window.getComputedStyle(Jsc.getPopup()).width).to.equal('500px')
+        expect(window.getComputedStyle(Jsc.getTitle()).fontSize).to.equal('10px')
+        expect(window.getComputedStyle(Jsc.getCloseButton()).fontSize).to.equal('11px')
+        expect(window.getComputedStyle(Jsc.getIcon()).width).to.equal('12px')
+        expect(window.getComputedStyle(Jsc.getImage()).maxWidth).to.equal('13px')
+        expect(window.getComputedStyle(Jsc.getInput()).fontSize).to.equal('14px')
+        expect(window.getComputedStyle(Jsc.getInputLabel()).margin).to.equal('0px')
+        Jsc.showValidationMessage('validationMessage')
+        expect(window.getComputedStyle(Jsc.getValidationMessage()).padding).to.equal('0px')
+        expect(window.getComputedStyle(Jsc.getActions()).padding).to.equal('1px')
+        expect(window.getComputedStyle(Jsc.getConfirmButton()).padding).to.equal('2px')
+        expect(window.getComputedStyle(Jsc.getDenyButton()).padding).to.equal('3px')
+        expect(window.getComputedStyle(Jsc.getCancelButton()).padding).to.equal('4px')
+        Jsc.showLoading()
+        expect(window.getComputedStyle(Jsc.getLoader()).borderWidth).to.equal('7px')
+        expect(window.getComputedStyle(Jsc.getFooter()).padding).to.equal('8px')
+        expect(window.getComputedStyle(Jsc.getTimerProgressBar()).height).to.equal('9px')
         done()
       },
     })
@@ -114,10 +114,10 @@ describe('Styling', () => {
     link.rel = 'stylesheet'
     link.href = 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css'
     document.head.appendChild(link)
-    Swal.fire({
+    Jsc.fire({
       title: 'title',
       icon: 'success',
-      imageUrl: '/assets/swal2-logo.png',
+      imageUrl: '/assets/jsc-logo.png',
       input: 'text',
       inputLabel: 'inputLabel',
       showDenyButton: true,
@@ -126,24 +126,24 @@ describe('Styling', () => {
       timer: 1000,
       timerProgressBar: true,
       didOpen: () => {
-        expect(window.getComputedStyle(Swal.getContainer()).zIndex).to.equal('1060')
-        expect(window.getComputedStyle(Swal.getPopup()).width).to.equal('512px')
-        expect(window.getComputedStyle(Swal.getTitle()).fontSize).to.equal('30px')
-        expect(window.getComputedStyle(Swal.getCloseButton()).fontSize).to.equal('40px')
-        expect(window.getComputedStyle(Swal.getIcon()).width).to.equal('80px')
-        expect(window.getComputedStyle(Swal.getImage()).maxWidth).to.equal('100%')
-        expect(window.getComputedStyle(Swal.getInput()).fontSize).to.equal('18px')
-        expect(window.getComputedStyle(Swal.getInputLabel()).marginTop).to.equal('16px')
-        Swal.showValidationMessage('validationMessage')
-        expect(window.getComputedStyle(Swal.getValidationMessage()).padding).to.equal('10px')
-        expect(window.getComputedStyle(Swal.getActions()).padding).to.equal('0px')
-        expect(window.getComputedStyle(Swal.getConfirmButton()).paddingTop).to.equal('10px')
-        expect(window.getComputedStyle(Swal.getDenyButton()).paddingLeft).to.equal('17.6px')
-        expect(window.getComputedStyle(Swal.getCancelButton()).paddingBottom).to.equal('10px')
-        Swal.showLoading()
-        expect(window.getComputedStyle(Swal.getLoader()).borderWidth).to.equal('4px')
-        expect(window.getComputedStyle(Swal.getFooter()).paddingTop).to.equal('16px')
-        expect(window.getComputedStyle(Swal.getTimerProgressBar()).height).to.equal('4px')
+        expect(window.getComputedStyle(Jsc.getContainer()).zIndex).to.equal('1060')
+        expect(window.getComputedStyle(Jsc.getPopup()).width).to.equal('512px')
+        expect(window.getComputedStyle(Jsc.getTitle()).fontSize).to.equal('30px')
+        expect(window.getComputedStyle(Jsc.getCloseButton()).fontSize).to.equal('40px')
+        expect(window.getComputedStyle(Jsc.getIcon()).width).to.equal('80px')
+        expect(window.getComputedStyle(Jsc.getImage()).maxWidth).to.equal('100%')
+        expect(window.getComputedStyle(Jsc.getInput()).fontSize).to.equal('18px')
+        expect(window.getComputedStyle(Jsc.getInputLabel()).marginTop).to.equal('16px')
+        Jsc.showValidationMessage('validationMessage')
+        expect(window.getComputedStyle(Jsc.getValidationMessage()).padding).to.equal('10px')
+        expect(window.getComputedStyle(Jsc.getActions()).padding).to.equal('0px')
+        expect(window.getComputedStyle(Jsc.getConfirmButton()).paddingTop).to.equal('10px')
+        expect(window.getComputedStyle(Jsc.getDenyButton()).paddingLeft).to.equal('17.6px')
+        expect(window.getComputedStyle(Jsc.getCancelButton()).paddingBottom).to.equal('10px')
+        Jsc.showLoading()
+        expect(window.getComputedStyle(Jsc.getLoader()).borderWidth).to.equal('4px')
+        expect(window.getComputedStyle(Jsc.getFooter()).paddingTop).to.equal('16px')
+        expect(window.getComputedStyle(Jsc.getTimerProgressBar()).height).to.equal('4px')
         done()
       },
     })

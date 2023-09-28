@@ -1,31 +1,31 @@
 /// <reference types="cypress" />
 
-import { Swal } from '../../utils'
+import { Jsc } from '../../utils'
 
 describe('target', () => {
   it('target', () => {
     console.warn = () => true // Suppress the warnings
-    Swal.fire('Default target')
-    expect(document.body).to.equal(Swal.getContainer().parentNode)
-    Swal.close()
+    Jsc.fire('Default target')
+    expect(document.body).to.equal(Jsc.getContainer().parentNode)
+    Jsc.close()
 
     const dummyTargetElement = Object.assign(document.createElement('div'), { id: 'dummy-target' })
     document.body.appendChild(dummyTargetElement)
 
-    Swal.fire({ title: 'Custom valid target (string)', target: '#dummy-target' }) // switch targets
-    expect(Swal.getContainer().parentNode).to.equal(dummyTargetElement)
-    Swal.close()
+    Jsc.fire({ title: 'Custom valid target (string)', target: '#dummy-target' }) // switch targets
+    expect(Jsc.getContainer().parentNode).to.equal(dummyTargetElement)
+    Jsc.close()
 
-    Swal.fire({ title: 'Custom invalid target (string)', target: 'lorem_ipsum' }) // switch targets
-    expect(Swal.getContainer().parentNode).to.equal(document.body)
-    Swal.close()
+    Jsc.fire({ title: 'Custom invalid target (string)', target: 'lorem_ipsum' }) // switch targets
+    expect(Jsc.getContainer().parentNode).to.equal(document.body)
+    Jsc.close()
 
-    Swal.fire({ title: 'Custom valid target (element)', target: dummyTargetElement })
-    expect(Swal.getContainer().parentNode).to.equal(dummyTargetElement)
-    Swal.close()
+    Jsc.fire({ title: 'Custom valid target (element)', target: dummyTargetElement })
+    expect(Jsc.getContainer().parentNode).to.equal(dummyTargetElement)
+    Jsc.close()
 
-    Swal.fire({ title: 'Custom invalid target (element)', target: true })
-    expect(document.body).to.equal(Swal.getContainer().parentNode)
-    Swal.close()
+    Jsc.fire({ title: 'Custom invalid target (element)', target: true })
+    expect(document.body).to.equal(Jsc.getContainer().parentNode)
+    Jsc.close()
   })
 })

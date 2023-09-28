@@ -1,17 +1,17 @@
 /// <reference types="cypress" />
 
-import { $, Swal } from '../../utils'
+import { $, Jsc } from '../../utils'
 
 describe('getIcon()', () => {
   it('getIcon()', () => {
-    Swal.fire({ icon: 'success' })
-    expect(Swal.getIcon()).to.equal($('.swal2-success'))
+    Jsc.fire({ icon: 'success' })
+    expect(Jsc.getIcon()).to.equal($('.jsc-success'))
   })
 
   it('getIconContent()', () => {
-    Swal.fire({ icon: 'success', iconHtml: 'hey' })
-    expect(Swal.getIcon()).to.equal($('.swal2-success'))
-    expect(Swal.getIconContent()).to.equal($('.swal2-success .swal2-icon-content'))
-    expect(Swal.getIconContent().innerHTML).to.equal('hey')
+    Jsc.fire({ icon: 'success', iconHtml: 'hey' })
+    expect(Jsc.getIcon()).to.equal($('.jsc-success'))
+    expect(Jsc.getIconContent()).to.equal($('.jsc-success .jsc-icon-content'))
+    expect(Jsc.getIconContent().innerHTML).to.equal('hey')
   })
 })

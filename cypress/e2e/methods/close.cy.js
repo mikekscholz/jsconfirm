@@ -1,21 +1,21 @@
 /// <reference types="cypress" />
 
-import { Swal, SwalWithoutAnimation } from '../../utils'
+import { Jsc, JscWithoutAnimation } from '../../utils'
 
 describe('close()', () => {
-  it('should add .swal2-hide to popup', (done) => {
-    Swal.fire({
-      title: 'Swal.close() test',
+  it('should add .jsc-hide to popup', (done) => {
+    Jsc.fire({
+      title: 'Jsc.close() test',
       willClose: () => {
-        expect(Swal.getPopup().classList.contains('swal2-hide')).to.be.true
+        expect(Jsc.getPopup().classList.contains('jsc-hide')).to.be.true
         done()
       },
     })
-    Swal.close()
+    Jsc.close()
   })
 
-  it('resolves when calling Swal.close()', (done) => {
-    Swal.fire().then((result) => {
+  it('resolves when calling Jsc.close()', (done) => {
+    Jsc.fire().then((result) => {
       expect(result).to.be.eql({
         isConfirmed: false,
         isDenied: false,
@@ -23,54 +23,54 @@ describe('close()', () => {
       })
       done()
     })
-    Swal.close()
+    Jsc.close()
   })
 
   it('should trigger willClose', (done) => {
-    Swal.fire({
+    Jsc.fire({
       willClose: () => {
-        expect(Swal.isVisible()).to.be.true
+        expect(Jsc.isVisible()).to.be.true
         done()
       },
     })
-    Swal.close()
+    Jsc.close()
   })
 
   it('should trigger didClose', (done) => {
-    SwalWithoutAnimation.fire({
+    JscWithoutAnimation.fire({
       didClose: () => {
-        expect(Swal.isVisible()).to.be.false
+        expect(Jsc.isVisible()).to.be.false
         done()
       },
     })
-    Swal.close()
+    Jsc.close()
   })
 
-  it('should not fail when calling Swal.fire() inside didClose', (done) => {
-    SwalWithoutAnimation.fire({
+  it('should not fail when calling Jsc.fire() inside didClose', (done) => {
+    JscWithoutAnimation.fire({
       didClose: () => {
-        expect(Swal.isVisible()).to.be.false
-        SwalWithoutAnimation.fire({
+        expect(Jsc.isVisible()).to.be.false
+        JscWithoutAnimation.fire({
           input: 'text',
           didOpen: () => {
-            expect(Swal.getInput()).to.not.be.null
+            expect(Jsc.getInput()).to.not.be.null
             done()
           },
         })
-        expect(Swal.isVisible()).to.be.true
+        expect(Jsc.isVisible()).to.be.true
       },
     })
-    Swal.close()
+    Jsc.close()
   })
 
   it('should not fail inside didClose', (done) => {
-    Swal.fire({
+    Jsc.fire({
       didClose: () => {
-        Swal.close()
-        expect(Swal.isVisible()).to.be.false
+        Jsc.close()
+        expect(Jsc.isVisible()).to.be.false
         done()
       },
     })
-    Swal.close()
+    Jsc.close()
   })
 })

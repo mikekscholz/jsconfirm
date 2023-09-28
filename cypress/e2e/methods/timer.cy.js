@@ -1,15 +1,15 @@
 /// <reference types="cypress" />
 
 import { isVisible } from '../../../src/utils/dom'
-import { $, Swal, SwalWithoutAnimation } from '../../utils'
+import { $, Jsc, JscWithoutAnimation } from '../../utils'
 
 describe('getTimerLeft()', () => {
   it('should return time left', (done) => {
-    Swal.fire({
+    Jsc.fire({
       timer: 1000,
     })
     setTimeout(() => {
-      const timerLeft = Swal.getTimerLeft()
+      const timerLeft = Jsc.getTimerLeft()
       expect(timerLeft > 0).to.be.true
       expect(timerLeft < 1000).to.be.true
       done()
@@ -17,80 +17,80 @@ describe('getTimerLeft()', () => {
   })
 
   it('should return undefined if popup does not have timer', () => {
-    Swal.fire({
+    Jsc.fire({
       timer: 1000,
     })
-    Swal.fire('I do not have timer, I should reset timer')
-    const timerLeft = Swal.getTimerLeft()
+    Jsc.fire('I do not have timer, I should reset timer')
+    const timerLeft = Jsc.getTimerLeft()
     expect(timerLeft).to.equal(undefined)
   })
 })
 
 describe('increaseTimer()', () => {
   it('should increase timer', (done) => {
-    SwalWithoutAnimation.fire({
+    JscWithoutAnimation.fire({
       timer: 500,
     })
-    expect(Swal.increaseTimer(400) > 0).to.be.true
+    expect(Jsc.increaseTimer(400) > 0).to.be.true
     setTimeout(() => {
-      expect(Swal.isVisible()).to.be.true
+      expect(Jsc.isVisible()).to.be.true
     }, 700)
     setTimeout(() => {
-      expect(Swal.isVisible()).to.be.false
+      expect(Jsc.isVisible()).to.be.false
       done()
     }, 1000)
   })
 
   it('should increase stopped timer', (done) => {
-    SwalWithoutAnimation.fire({
+    JscWithoutAnimation.fire({
       timer: 500,
     })
-    const remainingTime = Swal.stopTimer()
-    Swal.increaseTimer(10)
+    const remainingTime = Jsc.stopTimer()
+    Jsc.increaseTimer(10)
     setTimeout(() => {
-      expect(Swal.getTimerLeft()).to.equal(remainingTime + 10)
+      expect(Jsc.getTimerLeft()).to.equal(remainingTime + 10)
       done()
     }, 100)
   })
 })
 
 it('isTimerRunning() method', (done) => {
-  SwalWithoutAnimation.fire({
+  JscWithoutAnimation.fire({
     timer: 200,
   })
   setTimeout(() => {
-    expect(Swal.isTimerRunning()).to.be.true
-    Swal.stopTimer()
-    expect(!Swal.isTimerRunning()).to.be.true
+    expect(Jsc.isTimerRunning()).to.be.true
+    Jsc.stopTimer()
+    expect(!Jsc.isTimerRunning()).to.be.true
     done()
   }, 100)
 })
 
 describe('resumeTimer()', () => {
   it('should resume timer', (done) => {
-    SwalWithoutAnimation.fire({
+    JscWithoutAnimation.fire({
       timer: 100,
     })
-    Swal.stopTimer()
+    Jsc.stopTimer()
     setTimeout(() => {
-      expect(Swal.isVisible()).to.be.true
-      Swal.resumeTimer()
+      expect(Jsc.isVisible()).to.be.true
+      Jsc.resumeTimer()
     }, 200)
     setTimeout(() => {
-      expect(Swal.isVisible()).to.be.false
+      expect(Jsc.isVisible()).to.be.false
       done()
     }, 700)
   })
 
   it('should not fail when called twice', (done) => {
-    SwalWithoutAnimation.fire({
+    JscWithoutAnimation.fire({
       timer: 500,
     })
-    Swal.resumeTimer()
-    Swal.resumeTimer()
-    Swal.stopTimer()
+    Jsc.resumeTimer()
+    Jsc.resumeTimer()
+    Jsc.stopTimer()
     setTimeout(() => {
-      expect(Swal.isVisible()).to.be.true
+      expect(Jsc.isVisible()).to.be.true
       done()
     }, 1000)
   })
@@ -98,84 +98,84 @@ describe('resumeTimer()', () => {
 
 describe('stopTimer()', () => {
   it('should stop timer', (done) => {
-    SwalWithoutAnimation.fire({
+    JscWithoutAnimation.fire({
       timer: 500,
     })
     setTimeout(() => {
-      expect(Swal.stopTimer() > 0).to.be.true
+      expect(Jsc.stopTimer() > 0).to.be.true
     }, 50)
     setTimeout(() => {
-      expect(Swal.isVisible()).to.be.true
+      expect(Jsc.isVisible()).to.be.true
       done()
     }, 750)
   })
 
   it('should not fail when called twice', (done) => {
-    SwalWithoutAnimation.fire({
+    JscWithoutAnimation.fire({
       timer: 500,
     })
-    const remainingTime = Swal.stopTimer()
+    const remainingTime = Jsc.stopTimer()
     setTimeout(() => {
-      expect(Swal.stopTimer()).to.equal(remainingTime)
+      expect(Jsc.stopTimer()).to.equal(remainingTime)
       done()
     }, 100)
   })
 })
 
 it('toggleTimer() method', (done) => {
-  SwalWithoutAnimation.fire({
+  JscWithoutAnimation.fire({
     timer: 500,
   })
-  Swal.toggleTimer()
+  Jsc.toggleTimer()
   setTimeout(() => {
-    expect(Swal.isVisible()).to.be.true
-    Swal.toggleTimer()
+    expect(Jsc.isVisible()).to.be.true
+    Jsc.toggleTimer()
   }, 700)
   setTimeout(() => {
-    expect(Swal.isVisible()).to.be.false
+    expect(Jsc.isVisible()).to.be.false
     done()
   }, 2000)
 })
 
 it('getTimerProgressBar() method', () => {
-  SwalWithoutAnimation.fire({
+  JscWithoutAnimation.fire({
     timer: 500,
     timerProgressBar: true,
   })
-  expect(Swal.getTimerProgressBar()).to.equal($('.swal2-timer-progress-bar'))
+  expect(Jsc.getTimerProgressBar()).to.equal($('.jsc-timer-progress-bar'))
 })
 
 describe('timerProgressBar', () => {
   it('should show timer progress bar', () => {
-    SwalWithoutAnimation.fire({
+    JscWithoutAnimation.fire({
       timer: 10,
       timerProgressBar: true,
     })
 
-    const progressBar = document.querySelector('.swal2-timer-progress-bar')
+    const progressBar = document.querySelector('.jsc-timer-progress-bar')
     expect(isVisible(progressBar)).to.be.true
   })
 
   it('should stop the animation of timer progress bar when timer is stopped', (done) => {
-    SwalWithoutAnimation.fire({
+    JscWithoutAnimation.fire({
       timer: 100,
       timerProgressBar: true,
     })
-    Swal.stopTimer()
+    Jsc.stopTimer()
     setTimeout(() => {
-      expect(Swal.getTimerProgressBar().style.transition).to.equal('')
+      expect(Jsc.getTimerProgressBar().style.transition).to.equal('')
       done()
     }, 20)
   })
 
   it('should stop the animation of timer progress bar when timer is stopped in didOpen', (done) => {
-    SwalWithoutAnimation.fire({
+    JscWithoutAnimation.fire({
       timer: 100,
       timerProgressBar: true,
-      didOpen: Swal.stopTimer,
+      didOpen: Jsc.stopTimer,
     })
     setTimeout(() => {
-      expect(Swal.getTimerProgressBar().style.transition).to.equal('')
+      expect(Jsc.getTimerProgressBar().style.transition).to.equal('')
       done()
     }, 20)
   })

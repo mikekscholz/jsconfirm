@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import { $, Swal, SwalWithoutAnimation } from '../../utils'
+import { $, Jsc, JscWithoutAnimation } from '../../utils'
 import { isVisible } from '../../../src/utils/dom'
 import { defaultParams, updatableParams } from '../../../src/utils/params'
 
@@ -15,15 +15,15 @@ describe('update()', () => {
   })
 
   it('update() method', () => {
-    SwalWithoutAnimation.fire({
+    JscWithoutAnimation.fire({
       icon: 'success',
       input: 'text',
       showConfirmButton: false,
-      imageUrl: '/assets/swal2-logo.png',
+      imageUrl: '/assets/jsc-logo.png',
       preConfirm: () => console.log('1'), // eslint-disable-line no-console
     })
 
-    Swal.update({
+    Jsc.update({
       background: 'green',
       title: 'New title',
       html: 'New content',
@@ -34,48 +34,48 @@ describe('update()', () => {
       showCancelButton: true,
       denyButtonText: 'New deny button text',
       cancelButtonText: 'New cancel button text',
-      imageUrl: '/assets/swal2-logo.png',
+      imageUrl: '/assets/jsc-logo.png',
       showCloseButton: true,
       preConfirm: () => console.log('2'), // eslint-disable-line no-console
     })
 
-    expect(window.getComputedStyle(Swal.getPopup()).backgroundColor).to.equal('rgb(0, 128, 0)')
+    expect(window.getComputedStyle(Jsc.getPopup()).backgroundColor).to.equal('rgb(0, 128, 0)')
 
-    expect(Swal.getTitle().textContent).to.equal('New title')
-    expect(Swal.getHtmlContainer().textContent).to.equal('New content')
+    expect(Jsc.getTitle().textContent).to.equal('New title')
+    expect(Jsc.getHtmlContainer().textContent).to.equal('New content')
 
-    expect(isVisible(Swal.getIcon())).to.be.true
-    expect(Swal.getIcon()).to.equal($('.swal2-success'))
-    expect(Swal.getIcon().style.color).to.equal('blue')
-    expect(Swal.getIcon().style.borderColor).to.equal('blue')
+    expect(isVisible(Jsc.getIcon())).to.be.true
+    expect(Jsc.getIcon()).to.equal($('.jsc-success'))
+    expect(Jsc.getIcon().style.color).to.equal('blue')
+    expect(Jsc.getIcon().style.borderColor).to.equal('blue')
 
-    expect(isVisible(Swal.getImage())).to.be.true
-    expect(Swal.getImage().src.indexOf('/assets/swal2-logo.png') > 0).to.be.true
+    expect(isVisible(Jsc.getImage())).to.be.true
+    expect(Jsc.getImage().src.indexOf('/assets/jsc-logo.png') > 0).to.be.true
 
-    expect(isVisible(Swal.getConfirmButton())).to.be.true
-    expect(isVisible(Swal.getCancelButton())).to.be.true
-    expect(isVisible(Swal.getDenyButton())).to.be.true
-    expect(Swal.getCancelButton().textContent).to.equal('New cancel button text')
-    expect(Swal.getDenyButton().textContent).to.equal('New deny button text')
+    expect(isVisible(Jsc.getConfirmButton())).to.be.true
+    expect(isVisible(Jsc.getCancelButton())).to.be.true
+    expect(isVisible(Jsc.getDenyButton())).to.be.true
+    expect(Jsc.getCancelButton().textContent).to.equal('New cancel button text')
+    expect(Jsc.getDenyButton().textContent).to.equal('New deny button text')
 
-    expect(isVisible(Swal.getCloseButton())).to.be.true
+    expect(isVisible(Jsc.getCloseButton())).to.be.true
 
     setTimeout(() => {
       const spy = cy.spy(console, 'warn')
-      Swal.clickConfirm()
+      Jsc.clickConfirm()
       expect(spy.calledWith('1')).to.be.false
       expect(spy.calledWith('2')).to.be.true
     })
   })
 
   it('update customClass', () => {
-    SwalWithoutAnimation.fire({
+    JscWithoutAnimation.fire({
       icon: 'success',
-      imageUrl: '/assets/swal2-logo.png',
+      imageUrl: '/assets/jsc-logo.png',
       input: 'text',
     })
 
-    Swal.update({
+    Jsc.update({
       customClass: {
         container: 'container-class',
         popup: 'popup-class',
@@ -94,7 +94,7 @@ describe('update()', () => {
     })
 
     // new custom classnames should be added, and the previous custom classnames should be removed
-    Swal.update({
+    Jsc.update({
       customClass: {
         container: 'container-class-NEW',
         popup: 'popup-class-NEW',
@@ -112,49 +112,49 @@ describe('update()', () => {
       },
     })
 
-    expect(Swal.getContainer().classList.contains('container-class')).to.be.false
-    expect(Swal.getPopup().classList.contains('popup-class')).to.be.false
-    expect(Swal.getTitle().classList.contains('title-class')).to.be.false
-    expect(Swal.getCloseButton().classList.contains('close-button-class')).to.be.false
-    expect(Swal.getIcon().classList.contains('icon-class')).to.be.false
-    expect(Swal.getImage().classList.contains('image-class')).to.be.false
-    expect(Swal.getHtmlContainer().classList.contains('html-container-class')).to.be.false
-    expect(Swal.getInput().classList.contains('input-class')).to.be.false
-    expect(Swal.getActions().classList.contains('actions-class')).to.be.false
-    expect(Swal.getConfirmButton().classList.contains('confirm-button-class')).to.be.false
-    expect(Swal.getDenyButton().classList.contains('deny-button-class')).to.be.false
-    expect(Swal.getCancelButton().classList.contains('cancel-button-class')).to.be.false
-    expect(Swal.getFooter().classList.contains('footer-class')).to.be.false
+    expect(Jsc.getContainer().classList.contains('container-class')).to.be.false
+    expect(Jsc.getPopup().classList.contains('popup-class')).to.be.false
+    expect(Jsc.getTitle().classList.contains('title-class')).to.be.false
+    expect(Jsc.getCloseButton().classList.contains('close-button-class')).to.be.false
+    expect(Jsc.getIcon().classList.contains('icon-class')).to.be.false
+    expect(Jsc.getImage().classList.contains('image-class')).to.be.false
+    expect(Jsc.getHtmlContainer().classList.contains('html-container-class')).to.be.false
+    expect(Jsc.getInput().classList.contains('input-class')).to.be.false
+    expect(Jsc.getActions().classList.contains('actions-class')).to.be.false
+    expect(Jsc.getConfirmButton().classList.contains('confirm-button-class')).to.be.false
+    expect(Jsc.getDenyButton().classList.contains('deny-button-class')).to.be.false
+    expect(Jsc.getCancelButton().classList.contains('cancel-button-class')).to.be.false
+    expect(Jsc.getFooter().classList.contains('footer-class')).to.be.false
 
-    expect(Swal.getContainer().classList.contains('container-class-NEW')).to.be.true
-    expect(Swal.getPopup().classList.contains('popup-class-NEW')).to.be.true
-    expect(Swal.getTitle().classList.contains('title-class-NEW')).to.be.true
-    expect(Swal.getCloseButton().classList.contains('close-button-class-NEW')).to.be.true
-    expect(Swal.getIcon().classList.contains('icon-class-NEW')).to.be.true
-    expect(Swal.getImage().classList.contains('image-class-NEW')).to.be.true
-    expect(Swal.getHtmlContainer().classList.contains('html-container-class-NEW')).to.be.true
-    expect(Swal.getInput().classList.contains('input-class-NEW')).to.be.true
-    expect(Swal.getActions().classList.contains('actions-class-NEW')).to.be.true
-    expect(Swal.getConfirmButton().classList.contains('confirm-button-class-NEW')).to.be.true
-    expect(Swal.getDenyButton().classList.contains('deny-button-class-NEW')).to.be.true
-    expect(Swal.getCancelButton().classList.contains('cancel-button-class-NEW')).to.be.true
-    expect(Swal.getFooter().classList.contains('footer-class-NEW')).to.be.true
+    expect(Jsc.getContainer().classList.contains('container-class-NEW')).to.be.true
+    expect(Jsc.getPopup().classList.contains('popup-class-NEW')).to.be.true
+    expect(Jsc.getTitle().classList.contains('title-class-NEW')).to.be.true
+    expect(Jsc.getCloseButton().classList.contains('close-button-class-NEW')).to.be.true
+    expect(Jsc.getIcon().classList.contains('icon-class-NEW')).to.be.true
+    expect(Jsc.getImage().classList.contains('image-class-NEW')).to.be.true
+    expect(Jsc.getHtmlContainer().classList.contains('html-container-class-NEW')).to.be.true
+    expect(Jsc.getInput().classList.contains('input-class-NEW')).to.be.true
+    expect(Jsc.getActions().classList.contains('actions-class-NEW')).to.be.true
+    expect(Jsc.getConfirmButton().classList.contains('confirm-button-class-NEW')).to.be.true
+    expect(Jsc.getDenyButton().classList.contains('deny-button-class-NEW')).to.be.true
+    expect(Jsc.getCancelButton().classList.contains('cancel-button-class-NEW')).to.be.true
+    expect(Jsc.getFooter().classList.contains('footer-class-NEW')).to.be.true
   })
 
   it('isUpdatableParameter() method', () => {
-    expect(Swal.isUpdatableParameter('title')).to.be.true
-    expect(Swal.isUpdatableParameter('willOpen')).to.be.false
+    expect(Jsc.isUpdatableParameter('title')).to.be.true
+    expect(Jsc.isUpdatableParameter('willOpen')).to.be.false
   })
 
   it("should update instance's params", () => {
-    const swal = Swal.fire({ icon: 'error' })
-    expect(swal.params.icon).to.equal('error')
-    swal.update({ icon: 'warning' })
-    expect(swal.params.icon).to.equal('warning')
+    const jsc = Jsc.fire({ icon: 'error' })
+    expect(jsc.params.icon).to.equal('error')
+    jsc.update({ icon: 'warning' })
+    expect(jsc.params.icon).to.equal('warning')
   })
 
   it('should not affect input', () => {
-    Swal.fire({
+    Jsc.fire({
       input: 'select',
       inputOptions: {
         uno: 'uno',
@@ -162,31 +162,31 @@ describe('update()', () => {
         tres: 'tres',
       },
     })
-    Swal.getInput().value = 'dos'
-    Swal.update({ html: 'hi' })
-    expect(Swal.getInput().value).to.equal('dos')
+    Jsc.getInput().value = 'dos'
+    Jsc.update({ html: 'hi' })
+    expect(Jsc.getInput().value).to.equal('dos')
   })
 
   it('should not affect showClass', (done) => {
-    Swal.fire({
+    Jsc.fire({
       icon: 'success',
       didOpen: () => {
-        Swal.update({})
-        expect(Swal.getContainer().classList.contains('swal2-backdrop-show')).to.be.true
-        expect(Swal.getPopup().classList.contains('swal2-show')).to.be.true
-        expect(Swal.getIcon().classList.contains('swal2-icon-show')).to.be.true
+        Jsc.update({})
+        expect(Jsc.getContainer().classList.contains('jsc-backdrop-show')).to.be.true
+        expect(Jsc.getPopup().classList.contains('jsc-show')).to.be.true
+        expect(Jsc.getIcon().classList.contains('jsc-icon-show')).to.be.true
         done()
       },
     })
   })
 
   it('should not re-render the same success icon', (done) => {
-    SwalWithoutAnimation.fire({
+    JscWithoutAnimation.fire({
       icon: 'success',
       didOpen: () => {
-        const oldIcon = Swal.getIcon().querySelector('.swal2-success-ring')
-        Swal.update({})
-        const newIcon = Swal.getIcon().querySelector('.swal2-success-ring')
+        const oldIcon = Jsc.getIcon().querySelector('.jsc-success-ring')
+        Jsc.update({})
+        const newIcon = Jsc.getIcon().querySelector('.jsc-success-ring')
         expect(newIcon).to.equal(oldIcon)
         done()
       },
@@ -194,12 +194,12 @@ describe('update()', () => {
   })
 
   it('should not re-render the same error icon', (done) => {
-    SwalWithoutAnimation.fire({
+    JscWithoutAnimation.fire({
       icon: 'success',
       didOpen: () => {
-        const oldIcon = Swal.getIcon().querySelector('.swal2-x-mark')
-        Swal.update({})
-        const newIcon = Swal.getIcon().querySelector('.swal2-x-mark')
+        const oldIcon = Jsc.getIcon().querySelector('.jsc-x-mark')
+        Jsc.update({})
+        const newIcon = Jsc.getIcon().querySelector('.jsc-x-mark')
         expect(newIcon).to.equal(oldIcon)
         done()
       },
@@ -207,12 +207,12 @@ describe('update()', () => {
   })
 
   it('should not re-render the same info icon', (done) => {
-    SwalWithoutAnimation.fire({
+    JscWithoutAnimation.fire({
       icon: 'info',
       didOpen: () => {
-        const oldIcon = Swal.getIcon().querySelector('.swal2-icon-content')
-        Swal.update({})
-        const newIcon = Swal.getIcon().querySelector('.swal2-icon-content')
+        const oldIcon = Jsc.getIcon().querySelector('.jsc-icon-content')
+        Jsc.update({})
+        const newIcon = Jsc.getIcon().querySelector('.jsc-icon-content')
         expect(newIcon).to.equal(oldIcon)
         done()
       },
@@ -220,13 +220,13 @@ describe('update()', () => {
   })
 
   it('should not re-render the same icon with a custom content', (done) => {
-    SwalWithoutAnimation.fire({
+    JscWithoutAnimation.fire({
       icon: 'success',
       iconHtml: '<span>custom content</span>',
       didOpen: () => {
-        const oldIcon = Swal.getIcon().querySelector('.swal2-icon-content')
-        Swal.update({})
-        const newIcon = Swal.getIcon().querySelector('.swal2-icon-content')
+        const oldIcon = Jsc.getIcon().querySelector('.jsc-icon-content')
+        Jsc.update({})
+        const newIcon = Jsc.getIcon().querySelector('.jsc-icon-content')
         expect(newIcon).to.equal(oldIcon)
         done()
       },
@@ -235,15 +235,15 @@ describe('update()', () => {
 
   it('update() method should throw a warning when attempting to update the closing popup', (done) => {
     const spy = cy.spy(console, 'warn')
-    Swal.fire().then(() => {
-      Swal.update()
+    Jsc.fire().then(() => {
+      Jsc.update()
       expect(
         spy.calledWith(
-          `SweetAlert2: You're trying to update the closed or closing popup, that won't work. Use the update() method in preConfirm parameter or show a new popup.`
+          `JsConfirm: You're trying to update the closed or closing popup, that won't work. Use the update() method in preConfirm parameter or show a new popup.`
         )
       ).to.be.true
       done()
     })
-    Swal.clickConfirm()
+    Jsc.clickConfirm()
   })
 })

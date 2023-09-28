@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import { Swal, SwalWithoutAnimation } from '../../utils'
+import { Jsc, JscWithoutAnimation } from '../../utils'
 
 class PositionChecker {
   constructor(container, offset) {
@@ -76,13 +76,13 @@ describe('position', () => {
     const checkPosition = new PositionChecker(window, 10)
 
     allowedPostions.forEach((position) => {
-      SwalWithoutAnimation.fire({ position: position })
-      const swalRect = document.querySelector('.swal2-popup').getBoundingClientRect()
+      JscWithoutAnimation.fire({ position: position })
+      const jscRect = document.querySelector('.jsc-popup').getBoundingClientRect()
       expect(
-        checkPosition.check(position, swalRect),
-        `modal position: ${position} \n Swal: (${swalRect.top}, ${swalRect.right}, ${swalRect.bottom}, ${swalRect.left})x(${swalRect.height}, ${swalRect.width})\n Window: (${window.innerHeight} ${window.innerWidth})`
+        checkPosition.check(position, jscRect),
+        `modal position: ${position} \n Jsc: (${jscRect.top}, ${jscRect.right}, ${jscRect.bottom}, ${jscRect.left})x(${jscRect.height}, ${jscRect.width})\n Window: (${window.innerHeight} ${window.innerWidth})`
       ).to.be.true
-      Swal.close()
+      Jsc.close()
     })
   })
 
@@ -92,13 +92,13 @@ describe('position', () => {
     const checkPosition = new PositionChecker(window, 0)
 
     allowedPostions.forEach((position) => {
-      SwalWithoutAnimation.fire({ toast: 'true', position: position })
-      const swalRect = document.querySelector('.swal2-container').getBoundingClientRect()
+      JscWithoutAnimation.fire({ toast: 'true', position: position })
+      const jscRect = document.querySelector('.jsc-container').getBoundingClientRect()
       expect(
-        checkPosition.check(position, swalRect),
-        `toast position:: ${position} \n Swal: (${swalRect.top}, ${swalRect.right}, ${swalRect.bottom}, ${swalRect.left})x(${swalRect.height}, ${swalRect.width})\n Window: (${window.innerHeight} ${window.innerWidth})`
+        checkPosition.check(position, jscRect),
+        `toast position:: ${position} \n Jsc: (${jscRect.top}, ${jscRect.right}, ${jscRect.bottom}, ${jscRect.left})x(${jscRect.height}, ${jscRect.width})\n Window: (${window.innerHeight} ${window.innerWidth})`
       ).to.be.true
-      Swal.close()
+      Jsc.close()
     })
   })
 
@@ -121,17 +121,17 @@ describe('position', () => {
     const checkPosition = new PositionChecker(dummyTargetElement, 10)
 
     allowedPostions.forEach((position) => {
-      SwalWithoutAnimation.fire({
+      JscWithoutAnimation.fire({
         target: '#dummy-target',
         customClass: { container: 'position-absolute' },
         position: position,
       })
-      const swalRect = document.querySelector('.swal2-popup').getBoundingClientRect()
+      const jscRect = document.querySelector('.jsc-popup').getBoundingClientRect()
       expect(
-        checkPosition.check(position, swalRect),
-        `modal position with target: ${position} \n Swal: (${swalRect.top}, ${swalRect.right}, ${swalRect.bottom}, ${swalRect.left})x(${swalRect.height}, ${swalRect.width})`
+        checkPosition.check(position, jscRect),
+        `modal position with target: ${position} \n Jsc: (${jscRect.top}, ${jscRect.right}, ${jscRect.bottom}, ${jscRect.left})x(${jscRect.height}, ${jscRect.width})`
       ).to.be.true
-      Swal.close()
+      Jsc.close()
     })
 
     dummyTargetElement.remove() // Remove target element before next test
@@ -154,18 +154,18 @@ describe('position', () => {
     const checkPosition = new PositionChecker(dummyTargetElement, 0)
 
     allowedPostions.forEach((position) => {
-      SwalWithoutAnimation.fire({
+      JscWithoutAnimation.fire({
         target: '#dummy-target',
         customClass: { container: 'position-absolute' },
         toast: 'true',
         position: position,
       })
-      const swalRect = document.querySelector('.swal2-container').getBoundingClientRect()
+      const jscRect = document.querySelector('.jsc-container').getBoundingClientRect()
       expect(
-        checkPosition.check(position, swalRect),
-        `toast position with target: ${position}\n Swal: (${swalRect.top}, ${swalRect.right}, ${swalRect.bottom}, ${swalRect.left})x(${swalRect.height}, ${swalRect.width})`
+        checkPosition.check(position, jscRect),
+        `toast position with target: ${position}\n Jsc: (${jscRect.top}, ${jscRect.right}, ${jscRect.bottom}, ${jscRect.left})x(${jscRect.height}, ${jscRect.width})`
       ).to.be.true
-      Swal.close()
+      Jsc.close()
     })
 
     dummyTargetElement.remove() // Remove target element before next test

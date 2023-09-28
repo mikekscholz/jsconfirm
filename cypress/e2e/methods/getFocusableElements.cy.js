@@ -1,10 +1,10 @@
 /// <reference types="cypress" />
 
-import { Swal } from '../../utils'
+import { Jsc } from '../../utils'
 
 describe('getFocusableElements() method', () => {
   it('getFocusableElements', () => {
-    Swal.fire({
+    Jsc.fire({
       input: 'text',
       html: `
         <button tabindex="-1"> tabindex -1 </button>
@@ -18,17 +18,17 @@ describe('getFocusableElements() method', () => {
       showCancelButton: true,
       showCloseButton: true,
     })
-    const focusableElements = Swal.getFocusableElements()
+    const focusableElements = Jsc.getFocusableElements()
     expect(focusableElements.length).to.equal(10)
     expect(focusableElements[0].textContent).to.equal('tabindex 1')
     expect(focusableElements[1].textContent).to.equal('tabindex 2.1')
     expect(focusableElements[2].textContent).to.equal('tabindex 2.2')
     expect(focusableElements[3].textContent).to.equal('tabindex 3')
-    expect(focusableElements[4]).to.equal(Swal.getCloseButton())
+    expect(focusableElements[4]).to.equal(Jsc.getCloseButton())
     expect(focusableElements[5].textContent).to.equal('tabindex 0')
-    expect(focusableElements[6]).to.equal(Swal.getInput())
-    expect(focusableElements[7]).to.equal(Swal.getConfirmButton())
-    expect(focusableElements[8]).to.equal(Swal.getDenyButton())
-    expect(focusableElements[9]).to.equal(Swal.getCancelButton())
+    expect(focusableElements[6]).to.equal(Jsc.getInput())
+    expect(focusableElements[7]).to.equal(Jsc.getConfirmButton())
+    expect(focusableElements[8]).to.equal(Jsc.getDenyButton())
+    expect(focusableElements[9]).to.equal(Jsc.getCancelButton())
   })
 })

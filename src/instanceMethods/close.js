@@ -43,7 +43,7 @@ function removePopupAndResetState(instance, container, returnFocus, didClose) {
 }
 
 /**
- * Remove SweetAlert2 classes from body
+ * Remove JsConfirm classes from body
  */
 function removeBodyClasses() {
   dom.removeClass(

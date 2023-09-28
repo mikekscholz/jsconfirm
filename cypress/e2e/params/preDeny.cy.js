@@ -1,22 +1,22 @@
 /// <reference types="cypress" />
 
-import { Swal, SwalWithoutAnimation } from '../../utils'
+import { Jsc, JscWithoutAnimation } from '../../utils'
 
 describe('preDeny', () => {
   it('preDeny return false', () => {
-    SwalWithoutAnimation.fire({
+    JscWithoutAnimation.fire({
       showDenyButton: true,
       preDeny: (value) => {
         expect(value).to.be.false
         return false
       },
     })
-    Swal.clickDeny()
-    expect(Swal.isVisible()).to.be.true
+    Jsc.clickDeny()
+    expect(Jsc.isVisible()).to.be.true
   })
 
   it('preDeny custom value', (done) => {
-    SwalWithoutAnimation.fire({
+    JscWithoutAnimation.fire({
       showDenyButton: true,
       input: 'text',
       inputValue: 'Initial input value',
@@ -26,24 +26,24 @@ describe('preDeny', () => {
       expect(result.value).to.equal('Initial input value + Some data from preDeny')
       done()
     })
-    Swal.clickDeny()
+    Jsc.clickDeny()
   })
 
   it('preDeny returns 0', (done) => {
-    SwalWithoutAnimation.fire({
+    JscWithoutAnimation.fire({
       showDenyButton: true,
       preDeny: () => 0,
     }).then((result) => {
       expect(result.value).to.equal(0)
       done()
     })
-    Swal.clickDeny()
+    Jsc.clickDeny()
   })
 
   it('preDeny returns object containing toPromise', (done) => {
-    SwalWithoutAnimation.fire({
+    JscWithoutAnimation.fire({
       showDenyButton: true,
-      didOpen: () => Swal.clickDeny(),
+      didOpen: () => Jsc.clickDeny(),
       preDeny: () => ({
         toPromise: () => Promise.resolve(0),
       }),
@@ -56,7 +56,7 @@ describe('preDeny', () => {
   it('preDeny promise is rejected', (done) => {
     let thenTriggered = false
     const errorMsg = 'message1'
-    SwalWithoutAnimation.fire({
+    JscWithoutAnimation.fire({
       preDeny: () => {
         return Promise.reject(new Error(errorMsg))
       },
@@ -69,21 +69,21 @@ describe('preDeny', () => {
         expect(result.message).to.equal(errorMsg)
         done()
       })
-    Swal.clickDeny()
-    expect(Swal.isVisible()).to.be.true
+    Jsc.clickDeny()
+    expect(Jsc.isVisible()).to.be.true
   })
 
-  it('preDeny promise is rejected with a swal chain inside preDeny', (done) => {
+  it('preDeny promise is rejected with a jsc chain inside preDeny', (done) => {
     let thenTriggered = false
     const errorMsg = 'message1'
-    SwalWithoutAnimation.fire({
+    JscWithoutAnimation.fire({
       preDeny: () => {
-        return SwalWithoutAnimation.fire({
+        return JscWithoutAnimation.fire({
           preDeny: () => {
             return Promise.reject(new Error(errorMsg))
           },
           didOpen: () => {
-            Swal.clickDeny()
+            Jsc.clickDeny()
           },
         }).then(() => {
           thenTriggered = true
@@ -98,7 +98,7 @@ describe('preDeny', () => {
         expect(result.message).to.equal(errorMsg)
         done()
       })
-    Swal.clickDeny()
-    expect(Swal.isVisible()).to.be.true
+    Jsc.clickDeny()
+    expect(Jsc.isVisible()).to.be.true
   })
 })

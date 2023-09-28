@@ -1,16 +1,16 @@
 /// <reference types="cypress" />
 
-import { Swal } from '../../utils'
+import { Jsc } from '../../utils'
 
 describe('grow', () => {
   it('grow row', () => {
-    Swal.fire({
+    Jsc.fire({
       grow: 'row',
     })
-    const containerStyles = window.getComputedStyle(Swal.getContainer())
-    expect(Swal.getPopup().clientWidth).to.equal(
+    const containerStyles = window.getComputedStyle(Jsc.getContainer())
+    expect(Jsc.getPopup().clientWidth).to.equal(
       parseInt(
-        Swal.getContainer().clientWidth -
+        Jsc.getContainer().clientWidth -
           parseFloat(containerStyles.paddingLeft) -
           parseFloat(containerStyles.paddingRight)
       )
@@ -18,31 +18,31 @@ describe('grow', () => {
   })
 
   it('grow column', () => {
-    Swal.fire({
+    Jsc.fire({
       grow: 'column',
     })
-    const containerStyles = window.getComputedStyle(Swal.getContainer())
-    expect(Swal.getPopup().clientHeight).to.equal(
-      parseInt(Swal.getContainer().clientHeight - parseFloat(containerStyles.paddingTop) * 2)
+    const containerStyles = window.getComputedStyle(Jsc.getContainer())
+    expect(Jsc.getPopup().clientHeight).to.equal(
+      parseInt(Jsc.getContainer().clientHeight - parseFloat(containerStyles.paddingTop) * 2)
     )
   })
 
   it('grow fullscreen', () => {
-    Swal.fire({
+    Jsc.fire({
       grow: 'fullscreen',
     })
-    const containerStyles = window.getComputedStyle(Swal.getContainer())
+    const containerStyles = window.getComputedStyle(Jsc.getContainer())
 
-    expect(Swal.getPopup().clientWidth).to.equal(
+    expect(Jsc.getPopup().clientWidth).to.equal(
       parseInt(
-        Swal.getContainer().clientWidth -
+        Jsc.getContainer().clientWidth -
           parseFloat(containerStyles.paddingLeft) -
           parseFloat(containerStyles.paddingRight)
       )
     )
 
-    expect(Swal.getPopup().clientHeight).to.equal(
-      parseInt(Swal.getContainer().clientHeight - parseFloat(containerStyles.paddingTop) * 2)
+    expect(Jsc.getPopup().clientHeight).to.equal(
+      parseInt(Jsc.getContainer().clientHeight - parseFloat(containerStyles.paddingTop) * 2)
     )
   })
 })

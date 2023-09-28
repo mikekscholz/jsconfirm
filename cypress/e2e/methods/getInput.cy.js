@@ -1,28 +1,28 @@
 /// <reference types="cypress" />
 
-import { Swal, SwalWithoutAnimation, TIMEOUT } from '../../utils'
+import { Jsc, JscWithoutAnimation, TIMEOUT } from '../../utils'
 
 describe('getInput()', () => {
-  it('Swal.getInput() should return null when a popup is disposed', (done) => {
-    SwalWithoutAnimation.fire({
+  it('Jsc.getInput() should return null when a popup is disposed', (done) => {
+    JscWithoutAnimation.fire({
       input: 'text',
       didClose: () => {
         setTimeout(() => {
-          expect(Swal.getInput()).to.be.null
+          expect(Jsc.getInput()).to.be.null
           done()
         }, TIMEOUT)
       },
     })
-    Swal.close()
+    Jsc.close()
   })
 
-  it('Swal.getInput() should be available in .then()', (done) => {
-    SwalWithoutAnimation.fire({
+  it('Jsc.getInput() should be available in .then()', (done) => {
+    JscWithoutAnimation.fire({
       input: 'text',
     }).then(() => {
-      expect(Swal.getInput()).to.not.be.null
+      expect(Jsc.getInput()).to.not.be.null
       done()
     })
-    Swal.close()
+    Jsc.close()
   })
 })

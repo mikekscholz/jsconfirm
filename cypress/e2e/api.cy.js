@@ -1,46 +1,46 @@
 /// <reference types="cypress" />
 
-import { Swal } from '../utils'
+import { Jsc } from '../utils'
 
 describe('API', () => {
-  it('properties of `Swal` class are consistent', (done) => {
+  it('properties of `Jsc` class are consistent', (done) => {
     const assertConsistent = (postfix) => {
-      const currentSwalPropNames = Object.keys(Swal)
-      // const extraPropNames = currentSwalPropNames.filter(key => !initialSwalPropNames.includes(key))
+      const currentJscPropNames = Object.keys(Jsc)
+      // const extraPropNames = currentJscPropNames.filter(key => !initialJscPropNames.includes(key))
       // expect(extraPropNames.length, 0).to.be.eql(`# of extra properties ${postfix}`)
       // expect(extraPropNames.join(','), '').to.be.eql(`extra property names ${postfix}`)
-      const missingProps = currentSwalPropNames.filter((key) => !currentSwalPropNames.includes(key))
+      const missingProps = currentJscPropNames.filter((key) => !currentJscPropNames.includes(key))
       expect(missingProps.length).to.equal(0, `# of missing properties ${postfix}`)
       expect(missingProps.join(',')).to.equal('', `missing property names ${postfix}`)
     }
-    assertConsistent('before first swal')
-    Swal.fire({
+    assertConsistent('before first jsc')
+    Jsc.fire({
       title: 'test',
       didOpen: () => {
-        assertConsistent('after opening first swal')
-        Swal.clickConfirm()
+        assertConsistent('after opening first jsc')
+        Jsc.clickConfirm()
       },
     }).then(() => {
-      assertConsistent('after closing first swal')
+      assertConsistent('after closing first jsc')
       done()
     })
   })
 
   it('ways to instantiate', () => {
-    expect(new Swal('foo') instanceof Swal).to.be.true
-    expect(Swal.fire('foo') instanceof Swal).to.be.true
+    expect(new Jsc('foo') instanceof Jsc).to.be.true
+    expect(Jsc.fire('foo') instanceof Jsc).to.be.true
   })
 
   it('instance properties and methods', () => {
     const params = { input: 'text', inputValue: 'foo' }
-    const swal = Swal.fire(params)
-    expect(Object.keys(swal)).contain.members(['params'])
-    expect(swal.params).to.be.eql(params)
-    expect(swal.getInput().value).to.equal('foo')
+    const jsc = Jsc.fire(params)
+    expect(Object.keys(jsc)).contain.members(['params'])
+    expect(jsc.params).to.be.eql(params)
+    expect(jsc.getInput().value).to.equal('foo')
   })
 
-  it('extending swal', (done) => {
-    const MySwal = class extends Swal {
+  it('extending jsc', (done) => {
+    const MyJsc = class extends Jsc {
       static argsToParams(args) {
         expect(args).to.be.eql(['arg'])
         return { title: 'title' }
@@ -52,7 +52,7 @@ describe('API', () => {
           ._main({
             input: 'text',
             inputValue: 'inputValue',
-            didOpen: () => MySwal.clickConfirm(),
+            didOpen: () => MyJsc.clickConfirm(),
           })
           .then((result) => {
             expect(result).to.be.eql({
@@ -65,7 +65,7 @@ describe('API', () => {
           })
       }
     }
-    MySwal.fire('arg').then((result) => {
+    MyJsc.fire('arg').then((result) => {
       expect(result).to.equal('result')
       done()
     })

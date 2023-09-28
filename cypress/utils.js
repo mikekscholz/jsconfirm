@@ -1,7 +1,7 @@
-import Swal from '../src/jsconfirm'
+import Jsc from '../src/jsconfirm'
 import { isVisible } from '../src/utils/dom'
 
-export { default as Swal } from '../src/jsconfirm'
+export { default as Jsc } from '../src/jsconfirm'
 
 export const $ = document.querySelector.bind(document)
 
@@ -9,8 +9,8 @@ export const isHidden = (elem) => !isVisible(elem)
 
 export const TIMEOUT = 10
 
-// We *only* access `Swal` through this module, so that we can be sure `initialSwalPropNames` is set properly
-export const SwalWithoutAnimation = Swal.mixin({
+// We *only* access `Jsc` through this module, so that we can be sure `initialJscPropNames` is set properly
+export const JscWithoutAnimation = Jsc.mixin({
   showClass: {
     container: '',
     popup: '',
@@ -47,6 +47,6 @@ export const triggerKeydownEvent = (target, key, params = {}) => {
 }
 
 export const ensureClosed = () => {
-  SwalWithoutAnimation.fire()
-  SwalWithoutAnimation.close()
+  JscWithoutAnimation.fire()
+  JscWithoutAnimation.close()
 }

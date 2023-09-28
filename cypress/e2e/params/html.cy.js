@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import { Swal } from '../../utils'
+import { Jsc } from '../../utils'
 
 describe('html', () => {
   it('HTMLElement as html', () => {
@@ -10,19 +10,19 @@ describe('html', () => {
     div.appendChild(document.createElement('input'))
     form.appendChild(div)
 
-    Swal.fire({
+    Jsc.fire({
       html: form,
     })
-    expect(Swal.getHtmlContainer().innerHTML).to.equal('<form><div><label></label><input></div></form>')
+    expect(Jsc.getHtmlContainer().innerHTML).to.equal('<form><div><label></label><input></div></form>')
   })
 
   it('Error as html', () => {
     const error = new Error()
     error.message = 'something is broken'
 
-    Swal.fire({
+    Jsc.fire({
       html: error,
     })
-    expect(Swal.getHtmlContainer().innerHTML).to.equal('Error: something is broken')
+    expect(Jsc.getHtmlContainer().innerHTML).to.equal('Error: something is broken')
   })
 })

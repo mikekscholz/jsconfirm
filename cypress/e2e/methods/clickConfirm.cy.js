@@ -1,10 +1,10 @@
 /// <reference types="cypress" />
 
-import { $, Swal, SwalWithoutAnimation } from '../../utils'
+import { $, Jsc, JscWithoutAnimation } from '../../utils'
 
 describe('clickConfirm()', () => {
   it('clickConfirm() should click the confirm button', (done) => {
-    Swal.fire({
+    Jsc.fire({
       input: 'radio',
       inputOptions: {
         one: 'one',
@@ -19,14 +19,14 @@ describe('clickConfirm()', () => {
       })
       done()
     })
-    $('.swal2-radio').querySelector('input[value="two"]').checked = true
-    Swal.clickConfirm()
+    $('.jsc-radio').querySelector('input[value="two"]').checked = true
+    Jsc.clickConfirm()
   })
 
   it('clickConfirm() should not fail if a popup is not visible', () => {
-    SwalWithoutAnimation.fire()
-    Swal.close()
-    expect(Swal.isVisible()).to.be.false
-    Swal.clickConfirm()
+    JscWithoutAnimation.fire()
+    Jsc.close()
+    expect(Jsc.isVisible()).to.be.false
+    Jsc.clickConfirm()
   })
 })

@@ -27,12 +27,15 @@
 
 <body>
 	<div class="jsconfirm-actions" style="height: 100%; justify-content: center; align-items: center;">
+	<div style="background-color: #444; display: flex; flex-wrap: nowrap; gap: 10px; padding: 10px; border-radius: 16px; box-shadow: 0 0 20px 10px #0009;">
+		
 		<button id="error" class="btn-red">Error</button>
 		<button id="warning" class="btn-yellow">Warning</button>
 		<button id="success" class="btn-green">Success</button>
 		<button id="question" class="btn-blue">Question</button>
 		<button id="info" class="btn-light">Info</button>
 		<button id="default" class="btn-dark">Default</button>
+	</div>
 	</div>
 	<!-- <script src="../dist/sweetalert2.min.js"></script> -->
 	<script type="module">
@@ -147,7 +150,7 @@
 			Jsc.fire({
 				title: 'Success',
 				html: 'custom <strong>content</strong>',
-				// input: 'text',
+				input: 'select',
 				// icon: 'error',
 				// icon: 'question',
 				// icon: 'info',

@@ -1,20 +1,20 @@
 /// <reference types="cypress" />
 
-import { Swal, SwalWithoutAnimation, ensureClosed } from '../utils'
+import { Jsc, JscWithoutAnimation, ensureClosed } from '../utils'
 import { measureScrollbar } from '../../src/utils/scrollbar'
 import { SHOW_CLASS_TIMEOUT } from '../../src/utils/openPopup'
 
 describe('Vertical scrollbar', () => {
   it('should be visible on container and it should be scrolled to top', (done) => {
-    SwalWithoutAnimation.fire({
+    JscWithoutAnimation.fire({
       imageUrl: 'https://placeholder.pics/svg/300x1500',
       imageHeight: 1500,
       imageAlt: 'A tall image',
       didOpen: () => {
-        expect(Swal.getContainer().scrollTop).to.equal(0)
+        expect(Jsc.getContainer().scrollTop).to.equal(0)
         setTimeout(() => {
-          expect(Swal.getContainer().style.overflowY).to.equal('auto')
-          Swal.close()
+          expect(Jsc.getContainer().style.overflowY).to.equal('auto')
+          Jsc.close()
           done()
         }, SHOW_CLASS_TIMEOUT)
       },
@@ -30,7 +30,7 @@ describe('Vertical scrollbar', () => {
 
     const scrollbarWidth = measureScrollbar()
 
-    SwalWithoutAnimation.fire({
+    JscWithoutAnimation.fire({
       title: 'The body has visible scrollbar, I will hide it and adjust padding-right on body',
       didClose: () => {
         expect(bodyStyles.paddingRight).to.equal('30px')
@@ -42,7 +42,7 @@ describe('Vertical scrollbar', () => {
     const bodyStyles = window.getComputedStyle(document.body)
     expect(bodyStyles.paddingRight).to.equal(`${scrollbarWidth + 30}px`)
     expect(bodyStyles.overflow).to.equal('hidden')
-    Swal.close()
+    Jsc.close()
   })
 
   it('scrollbarPadding disabled', () => {
@@ -51,7 +51,7 @@ describe('Vertical scrollbar', () => {
     document.body.appendChild(talltDiv)
     document.body.style.paddingRight = '30px'
 
-    SwalWithoutAnimation.fire({
+    JscWithoutAnimation.fire({
       title: 'Padding right adjustment disabled',
       scrollbarPadding: false,
       didClose: () => {
@@ -61,7 +61,7 @@ describe('Vertical scrollbar', () => {
 
     const bodyStyles = window.getComputedStyle(document.body)
     expect(bodyStyles.paddingRight).to.equal('30px')
-    Swal.close()
+    Jsc.close()
   })
 
   it('should adjust body padding if overflow-y: scroll is set on body', () => {
@@ -71,7 +71,7 @@ describe('Vertical scrollbar', () => {
 
     const scrollbarWidth = measureScrollbar()
 
-    SwalWithoutAnimation.fire({
+    JscWithoutAnimation.fire({
       title: 'no padding right adjustment when overflow-y: scroll is set on body',
       didClose: () => {
         document.body.removeChild(talltDiv)
@@ -88,10 +88,10 @@ describe('Vertical scrollbar', () => {
     document.body.appendChild(talltDiv)
     document.body.style.paddingRight = '30px'
 
-    SwalWithoutAnimation.fire({
+    JscWithoutAnimation.fire({
       title: 'The body has visible scrollbar, I will hide it and adjust padding-right on body',
     }).then(() => {
-      Swal.fire({
+      Jsc.fire({
         text: 'Body padding-right should be restored',
         toast: true,
         didOpen: () => {
@@ -103,7 +103,7 @@ describe('Vertical scrollbar', () => {
     })
 
     const bodyStyles = window.getComputedStyle(document.body)
-    Swal.close()
+    Jsc.close()
   })
 
   it('should not add body padding if body has overflow-y: hidden', () => {
@@ -113,11 +113,11 @@ describe('Vertical scrollbar', () => {
     document.body.style.paddingRight = '0px'
     document.body.style.overflowY = 'hidden'
 
-    SwalWithoutAnimation.fire()
+    JscWithoutAnimation.fire()
 
     const bodyStyles = window.getComputedStyle(document.body)
     expect(bodyStyles.paddingRight).to.equal('0px')
     document.body.removeChild(talltDiv)
-    Swal.close()
+    Jsc.close()
   })
 })

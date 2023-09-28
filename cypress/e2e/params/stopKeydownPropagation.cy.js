@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import { SwalWithoutAnimation, triggerKeydownEvent } from '../../utils'
+import { JscWithoutAnimation, triggerKeydownEvent } from '../../utils'
 
 describe('progressSteps', () => {
   it('stopKeydownPropagation', (done) => {
@@ -9,9 +9,9 @@ describe('progressSteps', () => {
       done()
     })
 
-    SwalWithoutAnimation.fire({
+    JscWithoutAnimation.fire({
       title: 'Esc me and I will propagate keydown',
-      didOpen: () => triggerKeydownEvent(SwalWithoutAnimation.getPopup(), 'Escape'),
+      didOpen: () => triggerKeydownEvent(JscWithoutAnimation.getPopup(), 'Escape'),
       stopKeydownPropagation: false,
     })
   })
