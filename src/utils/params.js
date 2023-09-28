@@ -51,7 +51,7 @@ export const defaultParams = {
   focusDeny: false,
   focusCancel: false,
   returnFocus: true,
-  showCloseButton: false,
+  showCloseButton: true,
   closeButtonHtml: undefined,
   closeButtonAriaLabel: 'Close this dialog',
   loaderHtml: '',
