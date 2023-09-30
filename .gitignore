@@ -1,5 +1,5 @@
 node_modules
-dist
+cypress
 cypress/fixtures
 cypress/screenshots
 .idea
