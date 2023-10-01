@@ -6,6 +6,7 @@ export const defaultParams = {
   text: '',
   html: '',
   footer: '',
+  type: undefined,
   icon: undefined,
   iconColor: undefined,
   iconHtml: undefined,

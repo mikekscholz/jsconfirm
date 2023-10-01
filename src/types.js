@@ -26,6 +26,7 @@
 
 /**
  * @typedef DomCache
+ * @property {HTMLElement} body
  * @property {HTMLElement} popup
  * @property {HTMLElement} container
  * @property {HTMLElement} actions

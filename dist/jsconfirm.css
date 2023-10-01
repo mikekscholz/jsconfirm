@@ -881,30 +881,56 @@ div:where(.jsconfirm-icon).jsconfirm-warning {
   border-color: transparent;
   color: #FFC107;
 }
-div:where(.jsconfirm-icon).jsconfirm-warning.jsconfirm-icon-show {
-  animation: animate-warning-icon 1.5s;
-  transform-origin: 50% 0%;
+div:where(.jsconfirm-icon).jsconfirm-warning.jsconfirm-icon-show .warning-triangle {
+  animation: animate-warning-triangle 1.5s ease both;
+  transform-origin: 50% 50%;
+  stroke-dasharray: 1 1;
 }
-@keyframes animate-warning-icon {
+div:where(.jsconfirm-icon).jsconfirm-warning.jsconfirm-icon-show .warning-exclamation-point {
+  animation: animate-warning-exclamation-point 2s both;
+  transform-origin: 50% 50%;
+  stroke-dasharray: 1 1;
+}
+div:where(.jsconfirm-icon).jsconfirm-warning.jsconfirm-icon-show .warning-exclamation-point-stroke {
+  animation: animate-warning-exclamation-point-stroke 2s both;
+  transform-origin: 50% 50%;
+  stroke-dasharray: 1 1;
+}
+div:where(.jsconfirm-icon).jsconfirm-warning.jsconfirm-icon-show .warning-exclamation-point-dot {
+  animation: animate-warning-exclamation-point-dot 2s both;
+  transform-origin: 50% 50%;
+  stroke-dasharray: 1 1;
+}
+@keyframes animate-warning-triangle {
   0%, 33.3% {
-    transform: rotateX(100deg) rotateZ(45deg);
-    opacity: 0;
-  }
-  50.05% {
-    transform: rotateX(60deg) rotateZ(-25deg);
-    opacity: 0.4;
-  }
-  66.7% {
-    transform: rotateX(40deg) rotateZ(15deg);
-    opacity: 0.8;
-  }
-  83.35% {
-    transform: rotateX(20deg) rotateZ(-5deg);
-    opacity: 1;
+    stroke-dashoffset: -1;
   }
   100% {
-    transform: rotateX(0deg) rotateZ(0deg);
-    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes animate-warning-exclamation-point {
+  0%, 60% {
+    transform: translateY(12%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes animate-warning-exclamation-point-stroke {
+  0%, 60% {
+    stroke-dashoffset: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes animate-warning-exclamation-point-dot {
+  0%, 60% {
+    stroke-width: 0;
+  }
+  100% {
+    stroke-width: 50;
   }
 }
 div:where(.jsconfirm-icon).jsconfirm-info {

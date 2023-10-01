@@ -1,1 +1,45 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" height="100%"><style type="text/css">.warning-icon {animation: wobble 1.5s;transform-origin: 50% 0%;}@keyframes wobble {0%, 33.3% {transform: rotateX(100deg) rotateZ(45deg);opacity: 0;}50.05% {transform: rotateX(60deg) rotateZ(-25deg);opacity: .4;}66.7% {transform: rotateX(40deg) rotateZ(15deg);opacity: .8;}83.35% {transform: rotateX(20deg) rotateZ(-5deg);opacity: 1;}100% {transform: rotateX(0deg) rotateZ(0deg);opacity: 1;}}</style><path class="warning-icon" d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480H40c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24V296c0 13.3 10.7 24 24 24s24-10.7 24-24V184c0-13.3-10.7-24-24-24zm32 224c0-17.7-14.3-32-32-32s-32 14.3-32 32s14.3 32 32 32s32-14.3 32-32z" /></svg>
+<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="50">
+<style type="text/css">
+	.warning-triangle {
+		animation: animate-warning-triangle 1.5s ease both;
+		transform-origin: 50% 50%;
+		stroke-dasharray: 1 1;
+	}
+	.warning-exclamation-point {
+		animation: animate-warning-exclamation-point 2s both;
+		transform-origin: 50% 50%;
+		stroke-dasharray: 1 1;
+	}
+	.warning-exclamation-point-stroke {
+		animation: animate-warning-exclamation-point-stroke 2s both;
+		transform-origin: 50% 50%;
+		stroke-dasharray: 1 1;
+	}
+	.warning-exclamation-point-dot {
+		animation: animate-warning-exclamation-point-dot 2s both;
+		transform-origin: 50% 50%;
+		stroke-dasharray: 1 1;
+	}
+	@keyframes animate-warning-triangle {
+		0%, 33.3% {stroke-dashoffset: -1;}
+		100% {stroke-dashoffset: 0;}
+	}
+	@keyframes animate-warning-exclamation-point {
+		0%, 60% {transform: translateY(12%);}
+		100% {transform: translateY(0);}
+	}
+	@keyframes animate-warning-exclamation-point-stroke {
+		0%, 60% {stroke-dashoffset: 1;}
+		100% {stroke-dashoffset: 0;}
+	}
+	@keyframes animate-warning-exclamation-point-dot {
+		0%, 60% {stroke-width: 0;}
+		100% {stroke-width: 50;}
+	}
+</style>
+<path class="warning-triangle" d="m256 460.8-177.46-0.1c-41.36 0-67.2-44.3-46.49-79.7l177.45-303.95c20.7-35.39 72.3-35.39 93 0.01l177.5 304.04c20.7 35.5-5.2 79.8-46.6 79.7h-177.4" pathLength="1"/>
+<g class="warning-exclamation-point">
+<path class="warning-exclamation-point-stroke" d="m256 290v-110" pathLength="1"/>
+<path class="warning-exclamation-point-dot" d="m256 380v-1" pathLength="1"/>
+</g>
+</svg>

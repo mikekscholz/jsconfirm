@@ -167,6 +167,7 @@ const prepareParams = (userParams, mixinParams) => {
  */
 const populateDomCache = (instance) => {
 	const domCache = {
+		body: dom.getBody(),
 		popup: dom.getPopup(),
 		container: dom.getContainer(),
 		actions: dom.getActions(),

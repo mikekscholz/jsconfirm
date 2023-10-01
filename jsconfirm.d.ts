@@ -87,9 +87,14 @@ declare module 'jsconfirm' {
 		function getContainer(): HTMLElement | null
 
 		/**
-		 * Gets the popup.
+		 * Gets the popup outer wrapper.
 		 */
 		function getPopup(): HTMLElement | null
+
+		/**
+		 * Gets the popup inner body.
+		 */
+		function getBody(): HTMLElement | null
 
 		/**
 		 * Gets the popup title.
@@ -348,6 +353,13 @@ declare module 'jsconfirm' {
 
 	type SyncOrAsync<T> = T | Promise<T> | { toPromise: () => T }
 
+	/** In computer programming, a thunk is a subroutine used to 
+	 * inject a calculation into another subroutine. Thunks are 
+	 * primarily used to delay a calculation until its result is 
+	 * needed, or to insert operations at the beginning or end of 
+	 * the other subroutine. https://en.wikipedia.org/wiki/Thunk
+	 */
+	
 	type ValueOrThunk<T> = T | (() => T)
 
 	export type JsConfirmArrayOptions = readonly [string?, string?, JsConfirmIcon?]
@@ -359,6 +371,8 @@ declare module 'jsconfirm' {
 	export type JsConfirmShowClass = Readonly<JsConfirmHideShowClass>
 
 	export type JsConfirmIcon = 'success' | 'error' | 'warning' | 'info' | 'question'
+
+	export type JsConfirmType = 'success' | 'error' | 'warning' | 'info' | 'question'
 
 	export type JsConfirmInput =
 		| 'text'
