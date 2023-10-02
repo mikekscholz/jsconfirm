@@ -110,18 +110,18 @@ export const getInput = (popup, inputClass) => {
     case 'select':
     case 'textarea':
     case 'file':
-      return popup.querySelector(`.${jscClasses.popup} > .${jscClasses[inputClass]}`)
+      return popup.querySelector(`.${jscClasses.body} > .${jscClasses[inputClass]}`)
     case 'checkbox':
-      return popup.querySelector(`.${jscClasses.popup} > .${jscClasses.checkbox} input`)
+      return popup.querySelector(`.${jscClasses.body} > .${jscClasses.checkbox} input`)
     case 'radio':
       return (
-        popup.querySelector(`.${jscClasses.popup} > .${jscClasses.radio} input:checked`) ||
-        popup.querySelector(`.${jscClasses.popup} > .${jscClasses.radio} input:first-child`)
+        popup.querySelector(`.${jscClasses.body} > .${jscClasses.radio} input:checked`) ||
+        popup.querySelector(`.${jscClasses.body} > .${jscClasses.radio} input:first-child`)
       )
     case 'range':
-      return popup.querySelector(`.${jscClasses.popup} > .${jscClasses.range} input`)
+      return popup.querySelector(`.${jscClasses.body} > .${jscClasses.range} input`)
     default:
-      return popup.querySelector(`.${jscClasses.popup} > .${jscClasses.input}`)
+      return popup.querySelector(`.${jscClasses.body} > .${jscClasses.input}`)
   }
 }
 

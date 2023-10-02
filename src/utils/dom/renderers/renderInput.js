@@ -84,7 +84,7 @@ const showInput = (params) => {
 const removeAttributes = (input) => {
 	for (let i = 0; i < input.attributes.length; i++) {
 		const attrName = input.attributes[i].name
-		if (!['id', 'type', 'value', 'style'].includes(attrName)) {
+		if (!['id', 'type', 'value', 'style', 'oninput'].includes(attrName)) {
 			input.removeAttribute(attrName)
 		}
 	}
@@ -206,10 +206,12 @@ renderInputType.file = (input, params) => {
  */
 renderInputType.range = (range, params) => {
 	const rangeInput = range.querySelector('input')
-	const rangeOutput = range.querySelector('output')
+	range.style.setProperty('--min', params.inputAttributes.min)
+	range.style.setProperty('--max', params.inputAttributes.max)
+	range.style.setProperty('--value', `${params.inputValue}`)
+	range.style.setProperty('--text-value', `"${params.inputValue}"`)
 	checkAndSetInputValue(rangeInput, params.inputValue)
 	rangeInput.type = params.input
-	checkAndSetInputValue(rangeOutput, params.inputValue)
 	setInputLabel(rangeInput, range, params)
 	return range
 }
@@ -222,12 +224,14 @@ renderInputType.range = (range, params) => {
 renderInputType.select = (select, params) => {
 	select.textContent = ''
 	if (params.inputPlaceholder) {
-		const placeholder = document.createElement('option')
-		dom.setInnerHtml(placeholder, params.inputPlaceholder)
-		placeholder.value = ''
-		placeholder.disabled = true
-		placeholder.selected = true
-		select.appendChild(placeholder)
+		select.setAttribute('placeholder', params.inputPlaceholder)
+		const defaultOption = document.createElement('option')
+		dom.setInnerHtml(defaultOption, params.inputPlaceholder)
+		defaultOption.value = ''
+		// placeholder.disabled = true
+		defaultOption.selected = true
+		select.appendChild(defaultOption)
+		dom.addClass(select, 'wide')
 	}
 	setInputLabel(select, select, params)
 	return select

@@ -18,8 +18,9 @@ const jscTemplate = `
 		<input class="${jscClasses.input}" id="${jscClasses.input}" />
 		<input type="file" class="${jscClasses.file}" />
 		<div class="${jscClasses.range}">
-			<input type="range" />
+			<input type="range" oninput="this.parentNode.style.setProperty('--value',this.value); this.parentNode.style.setProperty('--text-value', JSON.stringify(this.value))"/>
 			<output></output>
+			<div class='jsconfirm-range__progress'></div>
 		</div>
 		<select class="${jscClasses.select}" id="${jscClasses.select}"></select>
 		<div class="${jscClasses.radio}"></div>
@@ -90,15 +91,15 @@ const addInputChangeListeners = () => {
 	checkbox.onchange = resetValidationMessage
 	textarea.oninput = resetValidationMessage
 
-	range.oninput = () => {
-		resetValidationMessage()
-		rangeOutput.value = range.value
-	}
+	// range.oninput = () => {
+	// 	resetValidationMessage()
+	// 	// rangeOutput.value = range.value
+	// }
 
-	range.onchange = () => {
-		resetValidationMessage()
-		rangeOutput.value = range.value
-	}
+	// range.onchange = () => {
+	// 	resetValidationMessage()
+	// 	// rangeOutput.value = range.value
+	// }
 }
 
 /**

@@ -59,12 +59,13 @@
 	}
 }
 
-.modal-animated .jsconfirm-body {
+.jsconfirm-animated .jsconfirm-body {
 	animation-duration: 2s;
 	animation-iteration-count: infinite;
 }
 
-.modal-blue {
+.jsconfirm-blue {
+	--jsconfirm-primary: #{$blue};
 	.jsconfirm-body {
 		border-top: solid 7px $blue;
 		animation-name: type-blue;
@@ -81,7 +82,8 @@
 	}
 }
 
-.modal-green {
+.jsconfirm-green {
+	--jsconfirm-primary: #{$green};
 	.jsconfirm-body {
 		border-top: solid 7px $green;
 		animation-name: type-green;
@@ -98,7 +100,8 @@
 	}
 }
 
-.modal-red {
+.jsconfirm-red {
+	--jsconfirm-primary: #{$red};
 	.jsconfirm-body {
 		border-top: solid 7px $red;
 		animation-name: type-red;
@@ -115,7 +118,8 @@
 	}
 }
 
-.modal-yellow {
+.jsconfirm-yellow {
+	--jsconfirm-primary: #{$yellow};
 	.jsconfirm-body {
 		border-top: solid 7px $yellow;
 		animation-name: type-yellow;
@@ -132,7 +136,8 @@
 	}
 }
 
-.modal-purple {
+.jsconfirm-purple {
+	--jsconfirm-primary: #{$purple};
 	.jsconfirm-body {
 		border-top: solid 7px $purple;
 		animation-name: type-purple;
@@ -149,7 +154,8 @@
 	}
 }
 
-.modal-dark {
+.jsconfirm-dark {
+	--jsconfirm-primary: #{$dark};
 	.jsconfirm-body {
 		border-top: solid 7px $dark;
 		animation-name: type-dark;
@@ -166,7 +172,8 @@
 	}
 }
 
-.modal-light {
+.jsconfirm-light {
+	--jsconfirm-primary: #{$light};
 	.jsconfirm-body {
 		border-top: solid 7px $light;
 		animation-name: type-light;
@@ -202,8 +209,9 @@
 .jsconfirm-clip {
 	// clip-path: polygon(calc(100% - 70px) 0px, calc(100% - 70px) 36px, 101% 36px, 101% 101%, 0% 101%, 0% 0%);
 	// clip-path: polygon(calc(100% - 70px) -2%, calc(100% - 70px) 35px, 102% 35px, 102% calc(102% + 150px), -2% calc(102% + 150px), -2% -2%);
+	clip-path: polygon(calc(100% - 70px) 0, calc(100% - 70px) 35px, 100% 35px, 100% 100%, 0 100%, 0 0);
 	// clip-path: polygon(calc(100% - 70px) -2%, calc(100% - 70px) 23px, calc(100% - 69px) 26px, calc(100% - 68px) 28px, calc(100% - 67px) 29px, calc(100% - 66px) 30px, calc(100% - 65px) 31px, calc(100% - 64px) 32px, calc(100% - 63px) 33px, calc(100% - 61px) 34px, calc(100% - 58px) 35px, 102% 35px, 102% calc(102% + 150px), -2% calc(102% + 150px), -2% -2%);
-	clip-path: polygon(calc(100% - 70px) -2%, calc(100% - 70px) 19px, calc(100% - 69px) 25px, calc(100% - 68px) 27px, calc(100% - 67px) 29px, calc(100% - 66px) 30px, calc(100% - 65px) 31px, calc(100% - 64px) 32px, calc(100% - 62px) 33px, calc(100% - 60px) 34px, calc(100% - 54px) 35px, 102% 35px, 102% calc(102% + 150px), -2% calc(102% + 150px), -2% -2%);
+	// clip-path: polygon(calc(100% - 70px) -2%, calc(100% - 70px) 19px, calc(100% - 69px) 25px, calc(100% - 68px) 27px, calc(100% - 67px) 29px, calc(100% - 66px) 30px, calc(100% - 65px) 31px, calc(100% - 64px) 32px, calc(100% - 62px) 33px, calc(100% - 60px) 34px, calc(100% - 54px) 35px, 102% 35px, 102% calc(102% + 150px), -2% calc(102% + 150px), -2% -2%);
 }
 
 
@@ -410,7 +418,7 @@
 div:where(.jsconfirm-container) {
 	display: grid;
 	position: fixed;
-	z-index: 1060;
+	// z-index: 1060;
 	inset: 0;
 	box-sizing: border-box;
 	grid-template-areas:
@@ -808,29 +816,29 @@ textarea:where(.jsconfirm-textarea) {
 	}
 }
 
-.jsconfirm-range {
-	margin: $jsconfirm-input-margin;
-	background: $jsconfirm-background;
+// .jsconfirm-range {
+// 	margin: $jsconfirm-input-margin;
+// 	background: $jsconfirm-background;
 
-	input {
-		width: 80%;
-	}
+// 	input {
+// 		width: 80%;
+// 	}
 
-	output {
-		width: 20%;
-		color: $jsconfirm-input-color;
-		font-weight: 600;
-		text-align: center;
-	}
+// 	output {
+// 		width: 20%;
+// 		color: $jsconfirm-input-color;
+// 		font-weight: 600;
+// 		text-align: center;
+// 	}
 
-	input,
-	output {
-		height: $jsconfirm-input-height;
-		padding: 0;
-		font-size: $jsconfirm-input-font-size;
-		line-height: $jsconfirm-input-height;
-	}
-}
+// 	input,
+// 	output {
+// 		height: $jsconfirm-input-height;
+// 		padding: 0;
+// 		font-size: $jsconfirm-input-font-size;
+// 		line-height: $jsconfirm-input-height;
+// 	}
+// }
 
 .jsconfirm-input {
 	height: $jsconfirm-input-height;

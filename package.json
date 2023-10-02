@@ -29,8 +29,9 @@
 		"src",
 		"jsconfirm.d.ts"
 	],
-	"author": "Limon Monte (https://limonte.github.io)",
+	"author": "Michael Scholz (https://github.com/mikekscholz)",
 	"contributors": [
+		"Limon Monte (https://limonte.github.io)",
 		"Matthew Francis Brunetti <zenflow87@gmail.com> (https://github.com/zenflow)",
 		"Morgan Touverey-Quilling <mtouverey@alembic-dev.com> (https://github.com/toverux)",
 		"Giuseppe Verni (https://github.com/gverni)",
@@ -62,5 +63,8 @@
 		"trailingComma": "es5"
 	},
 	"bugs": "https://github.com/mikekscholz/jsconfirm/issues",
-	"license": "MIT"
+	"license": "MIT",
+	"dependencies": {
+		"nice-select2": "github:mikekscholz/nice-select2"
+	}
 }

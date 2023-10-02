@@ -3,7 +3,7 @@ import { jscClasses } from '../classes.js'
 import { asPromise, error, hasToPromiseFn, isPromise } from '../utils.js'
 import { getDirectChildByClass } from './domUtils.js'
 import * as dom from './index.js'
-
+import NiceSelect from "nice-select2";
 /**
  * @param {JsConfirm} instance
  * @param {JsConfirmOptions} params
@@ -160,6 +160,7 @@ function populateSelectOptions(popup, inputOptions, params) {
       renderOption(select, optionLabel, optionValue)
     }
   })
+  new NiceSelect(select, { searchable: false, showSelectedItems: true, offset: 6, availableHeight: true, sameWidth: true });
   select.focus()
 }
 

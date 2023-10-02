@@ -58,7 +58,7 @@ $jsconfirm-backdrop-transition: backdrop-filter 500ms, background-color 500ms;
 $jsconfirm-backdrop-filter: blur(8px);
 
 // ICONS
-$jsconfirm-icon-size: 35px !default;
+$jsconfirm-icon-size: 36px !default;
 $jsconfirm-icon-animations: true !default;
 $jsconfirm-icon-margin: 0 !default;
 // $jsconfirm-icon-margin: 2.5em auto 0.6em !default;
@@ -129,7 +129,7 @@ $jsconfirm-textarea-height: 6.75em !default;
 $jsconfirm-textarea-padding: 0.75em !default;
 
 // INPUT LABEL
-$jsconfirm-input-label-margin: 1em auto 0 !default;
+$jsconfirm-input-label-margin: 0 !default;
 $jsconfirm-input-label-justify-content: center !default;
 
 // VALIDATION MESSAGE

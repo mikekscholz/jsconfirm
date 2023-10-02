@@ -372,7 +372,7 @@ declare module 'jsconfirm' {
 
 	export type JsConfirmIcon = 'success' | 'error' | 'warning' | 'info' | 'question'
 
-	export type JsConfirmType = 'success' | 'error' | 'warning' | 'info' | 'question'
+	export type JsConfirmType = 'red' | 'yellow' | 'green' | 'blue' | 'light' | 'dark' | 'default'
 
 	export type JsConfirmInput =
 		| 'text'
@@ -520,6 +520,23 @@ declare module 'jsconfirm' {
 		 */
 		icon?: JsConfirmIcon
 
+		/**
+		 * The type of the popup.
+		 * JsConfirm comes with 7 built-in types which will show a corresponding accent color:
+		 * `'warning'`, `'error'`, `'success'`, `'info'` and `'question'`.
+		 * It can either be put to the object under the key `type` or passed as the fourth parameter of `Jsc.fire()`.
+		 *
+		 * @default 'default'
+		 */
+		type?: JsConfirmType
+
+		/**
+		 * Use this to enable popup and icon animations.
+		 *
+		 * @default false
+		 */
+		animated?: boolean
+		
 		/**
 		 * Use this to change the color of the icon.
 		 *

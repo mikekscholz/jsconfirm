@@ -2,7 +2,8 @@ export const jscPrefix = 'jsconfirm-'
 
 /**
  * @typedef
- * { | 'container'
+ * { | 'animated'
+ *   | 'container'
  *   | 'shown'
  *   | 'height-auto'
  *   | 'iosfix'
@@ -83,8 +84,14 @@ export const jscPrefix = 'jsconfirm-'
  * @typedef {Record<JscIcon, string>} JscIcons
  */
 
+/**
+ * @typedef {'red' | 'yellow' | 'green' | 'blue' | 'light' | 'dark' | 'default'} JscType
+ * @typedef {Record<JscType, string>} JsConfirmType
+ */
+
 /** @type {JscClass[]} */
 const classNames = [
+	'animated',
 	'container',
 	'shown',
 	'height-auto',
@@ -170,4 +177,12 @@ const icons = ['success', 'warning', 'info', 'question', 'error']
 export const iconTypes = icons.reduce((acc, icon) => {
 	acc[icon] = jscPrefix + icon
 	return acc
-}, /** @type {JscIcons} */ ({}))
+}, /** @type {JsConfirmIcon} */ ({}))
+
+/** @type {JscType[]} */
+const types = ['red', 'yellow', 'green', 'blue', 'light', 'dark', 'default']
+
+export const popupTypes = types.reduce((acc, type) => {
+	acc[type] = jscPrefix + type
+	return acc
+}, /** @type {JsConfirmType} */ ({}))

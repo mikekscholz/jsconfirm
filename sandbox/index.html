@@ -16,7 +16,9 @@
 		}
 		
 		body {
-			background: url(./citynight.jpg);
+			/* background: url(./citynight.jpg); */
+			background-image:  repeating-radial-gradient(circle at -300px 0, transparent 0, #222222 32px), repeating-linear-gradient(#00445c, #640034);
+background-color: #2e2e2e;
 			width: 100dvw;
 			height: 100dvh;
 			margin: 0;
@@ -51,6 +53,7 @@
 				html: 'custom <strong>content</strong>',
 				// input: 'text',
 				icon: 'error',
+				type: 'red',
 				// icon: 'question',
 				// icon: 'info',
 				// icon: 'success',
@@ -58,7 +61,7 @@
 				// iconColor: '#ff3311',
 				customClass: {
 					container: '',
-					popup: 'modal-red',
+					popup: '',
 					header: '',
 					title: '',
 					closeButton: '',
@@ -107,10 +110,12 @@
 				// icon: 'info',
 				// icon: 'success',
 				icon: 'warning',
+				type: 'yellow',
+				animated: true,
 				// iconColor: '#ff3311',
 				customClass: {
 					container: '',
-					popup: 'modal-yellow',
+					popup: '',
 					header: '',
 					title: '',
 					closeButton: '',
@@ -151,16 +156,24 @@
 			Jsc.fire({
 				title: 'Success',
 				html: 'custom <strong>content</strong>',
-				input: 'select',
+				input: 'range',
+  inputLabel: 'Your age',
+  inputAttributes: {
+    min: 10,
+    max: 120,
+    step: 1
+  },
+  inputValue: 25,
 				// icon: 'error',
 				// icon: 'question',
 				// icon: 'info',
 				icon: 'success',
+				type: 'green',
 				// icon: 'warning',
 				// iconColor: '#ff3311',
 				customClass: {
 					container: '',
-					popup: 'modal-green',
+					popup: '',
 					header: '',
 					title: '',
 					closeButton: '',
@@ -201,16 +214,32 @@
 			Jsc.fire({
 				title: 'Test modal with input',
 				html: 'custom <strong>content</strong>',
-				// input: 'text',
+				input: 'select',
+				inputOptions: {
+    'Fruits': {
+      apples: 'Apples',
+      bananas: 'Bananas',
+      grapes: 'Grapes',
+      oranges: 'Oranges'
+    },
+    'Vegetables': {
+      potato: 'Potato',
+      broccoli: 'Broccoli',
+      carrot: 'Carrot'
+    },
+    'icecream': 'Ice cream'
+  },
+  inputPlaceholder: 'Select a fruit',
 				// icon: 'error',
 				icon: 'question',
+				type: 'blue',
 				// icon: 'info',
 				// icon: 'success',
 				// icon: 'warning',
 				// iconColor: '#ff3311',
 				customClass: {
 					container: '',
-					popup: 'modal-blue',
+					popup: '',
 					header: '',
 					title: '',
 					closeButton: '',
@@ -255,12 +284,13 @@
 				// icon: 'error',
 				// icon: 'question',
 				icon: 'info',
+				type: 'light',
 				// icon: 'success',
 				// icon: 'warning',
 				// iconColor: '#ff3311',
 				customClass: {
 					container: '',
-					popup: 'modal-light',
+					popup: '',
 					header: '',
 					title: '',
 					closeButton: '',

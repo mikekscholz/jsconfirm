@@ -296,7 +296,7 @@
     border-color: $green;
   }
   50% {
-    border-color: mix(black, $green, 20%);
+    border-color: mix(black, $green, 30%);
   }
 }
 
@@ -305,7 +305,7 @@
     border-color: $red;
   }
   50% {
-    border-color: mix(black, $red, 20%);
+    border-color: mix(black, $red, 30%);
   }
 }
 
@@ -314,7 +314,7 @@
     border-color: $yellow;
   }
   50% {
-    border-color: mix(black, $yellow, 20%);
+    border-color: mix(black, $yellow, 40%);
   }
 }
 
@@ -323,7 +323,7 @@
     border-color: $purple;
   }
   50% {
-    border-color: mix(black, $purple, 20%);
+    border-color: mix(black, $purple, 30%);
   }
 }
 

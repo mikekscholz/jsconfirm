@@ -47,7 +47,42 @@ div:where(.jsconfirm-icon) {
 		// Warning icon animation
 		&.jsconfirm-icon-show {
 			@if $jsconfirm-icon-animations {
-				.warning-triangle {animation: animate-warning-triangle 1.5s ease both;transform-origin: 50% 50%;stroke-dasharray: 1 1;}.warning-exclamation-point {animation: animate-warning-exclamation-point 2s both;transform-origin: 50% 50%;stroke-dasharray: 1 1;}.warning-exclamation-point-stroke {animation: animate-warning-exclamation-point-stroke 2s both;transform-origin: 50% 50%;stroke-dasharray: 1 1;}.warning-exclamation-point-dot {animation: animate-warning-exclamation-point-dot 2s both;transform-origin: 50% 50%;stroke-dasharray: 1 1;}@keyframes animate-warning-triangle {0%, 33.3% {stroke-dashoffset: -1;}100% {stroke-dashoffset: 0;}}@keyframes animate-warning-exclamation-point {0%, 60% {transform: translateY(12%);}100% {transform: translateY(0);}}@keyframes animate-warning-exclamation-point-stroke {0%, 60% {stroke-dashoffset: 1;}100% {stroke-dashoffset: 0;}}@keyframes animate-warning-exclamation-point-dot {0%, 60% {stroke-width: 0;}100% {stroke-width: 50;}}
+				.warning-triangle {
+					animation: animate-warning-triangle 1s both;
+					transform-origin: 50% 50%;
+					stroke-dasharray: 1 1;
+				}
+				.warning-exclamation-point {
+					animation: animate-warning-exclamation-point 1.5s both;
+					transform-origin: 50% 50%;
+					stroke-dasharray: 1 1;
+				}
+				.warning-exclamation-point-stroke {
+					animation: animate-warning-exclamation-point-stroke 1.5s both;
+					transform-origin: 50% 50%;
+					stroke-dasharray: 1 1;
+				}
+				.warning-exclamation-point-dot {
+					animation: animate-warning-exclamation-point-dot 1.5s both;
+					transform-origin: 50% 50%;
+					stroke-dasharray: 1 1;
+				}
+				@keyframes animate-warning-triangle {
+					0%, 50% {stroke-dashoffset: -1;}
+					100% {stroke-dashoffset: 0;}
+				}
+				@keyframes animate-warning-exclamation-point {
+					0%, 70% {transform: translateY(12%);}
+					100% {transform: translateY(0);}
+				}
+				@keyframes animate-warning-exclamation-point-stroke {
+					0%, 70% {stroke-dashoffset: 1;}
+					100% {stroke-dashoffset: 0;}
+				}
+				@keyframes animate-warning-exclamation-point-dot {
+					0%, 70% {stroke-width: 0;}
+					100% {stroke-width: 50;}
+				}
 			}
 		}
 	}
