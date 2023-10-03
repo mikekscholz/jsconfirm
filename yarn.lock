@@ -2347,7 +2347,7 @@
   "version" "2.6.2"
 
 "nice-select2@github:mikekscholz/nice-select2":
-  "resolved" "git+ssh://git@github.com/mikekscholz/nice-select2.git#bfeb654175743d8334283529e912d954811782b4"
+  "resolved" "git+ssh://git@github.com/mikekscholz/nice-select2.git#dc9bd44a6320413836ebda61f28ee70121f205bf"
   "version" "2.2.0"
   dependencies:
     "@floating-ui/dom" "^1.5.1"

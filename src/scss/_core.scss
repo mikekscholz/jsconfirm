@@ -417,7 +417,7 @@
 // }
 div:where(.jsconfirm-container) {
 	display: grid;
-	position: fixed;
+	position: absolute;
 	// z-index: 1060;
 	inset: 0;
 	box-sizing: border-box;
@@ -429,7 +429,7 @@ div:where(.jsconfirm-container) {
 	// height: 100%; // Safari
 	width: 100dvw;
 	height: 100dvh;
-	padding: $jsconfirm-container-padding;
+	// padding: $jsconfirm-container-padding;
 	backdrop-filter: none;
 	overflow-x: hidden;
 	overflow: hidden;
