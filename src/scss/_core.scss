@@ -901,21 +901,25 @@ div:where(.jsconfirm-validation-message) {
 	color: $jsconfirm-validation-message-color;
 	font-size: $jsconfirm-validation-message-font-size;
 	font-weight: $jsconfirm-validation-message-font-weight;
+	border: $jsconfirm-validation-message-border;
+	border-radius: $jsconfirm-validation-message-border-radius;
 
 	&::before {
 		content: '!';
 		display: inline-block;
-		width: 1.5em;
-		min-width: 1.5em;
-		height: 1.5em;
+		width: 1em;
+		min-width: 1em;
+		height: 1em;
 		margin: 0 0.625em;
 		zoom: $jsconfirm-validation-message-icon-zoom;
 		border-radius: 50%;
 		background-color: $jsconfirm-validation-message-icon-background;
+		border: 2px solid $jsconfirm-validation-message-icon-border;
 		color: $jsconfirm-validation-message-icon-color;
-		font-weight: 600;
-		line-height: 1.5em;
+		font-weight: 800;
+		line-height: 1.1em;
 		text-align: center;
+		font-size: 20px;
 	}
 }
 

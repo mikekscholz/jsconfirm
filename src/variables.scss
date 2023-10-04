@@ -101,28 +101,22 @@ $jsconfirm-html-container-word-wrap: break-word !default;
 $jsconfirm-html-container-word-break: break-word !default;
 
 // INPUT
-$jsconfirm-input-margin: 1em 2em 3px !default;
-$jsconfirm-input-width: auto !default;
-$jsconfirm-input-height: 2.625em !default;
-$jsconfirm-input-padding: 0 0.75em !default;
-$jsconfirm-input-border: 1px solid lighten($jsconfirm-black, 85) !default;
-$jsconfirm-input-border-radius: 0.1875em !default;
-$jsconfirm-input-box-shadow:
-  inset 0 1px 1px rgba($jsconfirm-black, 0.06),
-  0 0 0 3px transparent !default;
-$jsconfirm-input-font-size: 1.125em !default;
-$jsconfirm-input-background: transparent !default;
+$jsconfirm-input-margin: 0 !default;
+$jsconfirm-input-width: 100% !default;
+$jsconfirm-input-height: 30px !default;
+$jsconfirm-input-padding: 0 8px !default;
+$jsconfirm-input-border: 1px solid #111 !default;
+$jsconfirm-input-border-radius: 6px !default;
+$jsconfirm-input-box-shadow: none !default;
+$jsconfirm-input-font-size: 14px !default;
+$jsconfirm-input-background: #222 !default;
 $jsconfirm-input-color: inherit !default;
-$jsconfirm-input-transition:
-  border-color 0.1s,
-  box-shadow 0.1s !default;
+$jsconfirm-input-transition: border-color 0.4s !default;
 
 // INPUT:FOCUS
-$jsconfirm-input-focus-border: 1px solid #b4dbed !default;
+$jsconfirm-input-focus-border: 1px solid #fff !default;
 $jsconfirm-input-focus-outline: none !default;
-$jsconfirm-input-focus-box-shadow:
-  inset 0 1px 1px rgba($jsconfirm-black, 0.06),
-  0 0 0 3px $jsconfirm-outline-color !default;
+$jsconfirm-input-focus-box-shadow: none !default;
 
 // TEXTAREA SPECIFIC VARIABLES
 $jsconfirm-textarea-height: 6.75em !default;
@@ -135,15 +129,18 @@ $jsconfirm-input-label-justify-content: center !default;
 // VALIDATION MESSAGE
 $jsconfirm-validation-message-align-items: center !default;
 $jsconfirm-validation-message-justify-content: center !default;
-$jsconfirm-validation-message-margin: 1em 0 0 !default;
-$jsconfirm-validation-message-padding: 0.625em !default;
-$jsconfirm-validation-message-background: lighten($jsconfirm-black, 94) !default;
-$jsconfirm-validation-message-color: lighten($jsconfirm-black, 40) !default;
+$jsconfirm-validation-message-margin: 0 !default;
+$jsconfirm-validation-message-padding: 0.25em !default;
+$jsconfirm-validation-message-background: $gray-900 !default;
+$jsconfirm-validation-message-color: $light !default;
 $jsconfirm-validation-message-font-size: 1em !default;
-$jsconfirm-validation-message-font-weight: 300 !default;
-$jsconfirm-validation-message-icon-background: $jsconfirm-error !default;
-$jsconfirm-validation-message-icon-color: $jsconfirm-white !default;
+$jsconfirm-validation-message-font-weight: 400 !default;
+$jsconfirm-validation-message-icon-background: none !default;
+$jsconfirm-validation-message-icon-border: $red !default;
+$jsconfirm-validation-message-icon-color: $red !default;
 $jsconfirm-validation-message-icon-zoom: null !default;
+$jsconfirm-validation-message-border: 1px solid transparent !default;
+$jsconfirm-validation-message-border-radius: 6px !default;
 
 // PROGRESS STEPS
 $jsconfirm-progress-steps-flex-wrap: wrap !default;
