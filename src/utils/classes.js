@@ -9,7 +9,7 @@ export const jscPrefix = 'jsconfirm-'
  *   | 'iosfix'
  *   | 'popup'
  *   | 'body'
- *   | 'header-row'
+ *   | 'header'
  *   | 'clip'
  *   | 'modal'
  *   | 'no-backdrop'
@@ -98,7 +98,7 @@ const classNames = [
 	'iosfix',
 	'popup',
 	'body',
-	'header-row',
+	'header',
 	'clip',
 	'modal',
 	'no-backdrop',

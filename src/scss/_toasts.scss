@@ -4,11 +4,15 @@
     grid-column: 1/4 !important;
     grid-row: 1/4 !important;
     grid-template-columns: min-content auto min-content;
-    padding: $jsconfirm-toast-padding;
     overflow-y: hidden;
-    background: $jsconfirm-toast-background;
-    box-shadow: $jsconfirm-toast-box-shadow;
     pointer-events: all;
+    margin: $jsconfirm-toast-padding;
+    
+    .jsconfirm-body {
+      background: $jsconfirm-toast-background;
+      box-shadow: $jsconfirm-toast-box-shadow;
+      
+    }
 
     > * {
       grid-column: 2;

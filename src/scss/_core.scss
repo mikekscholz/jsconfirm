@@ -18,7 +18,7 @@
 .jsconfirm-body {
 	border-radius: 16px 16px 0 0;
 	position: relative;
-	background-color: #333;
+	background-color: $jsconfirm-background;
 	display: flex;
 	flex-wrap: nowrap;
 	flex-direction: column;
@@ -215,7 +215,7 @@
 }
 
 
-.jsconfirm-header-row {
+.jsconfirm-header {
 	display: flex;
 	align-items: center;
 	gap: 10px;

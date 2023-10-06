@@ -10,6 +10,7 @@ export const renderPopup = (instance, params) => {
 	const container = dom.getContainer()
 	const popup = dom.getPopup()
 	const body = dom.getBody()
+	const header = dom.getHeader()
 	if (!container || !popup) {
 		return
 	}
@@ -20,7 +21,7 @@ export const renderPopup = (instance, params) => {
 		dom.applyNumericalStyle(container, 'width', params.width)
 		popup.style.width = '100%'
 		const loader = dom.getLoader()
-		loader && popup.insertBefore(loader, dom.getIcon())
+		loader && header.insertBefore(loader, dom.getIcon())
 	} else {
 		dom.applyNumericalStyle(popup, 'width', params.width)
 	}

@@ -96,7 +96,10 @@ const fixScrollContainer = (container, scrollbarPadding, initialBodyOverflow) =>
  * @param {JsConfirmOptions} params
  */
 const addClasses = (container, popup, params) => {
-	dom.addClass(container, params.showClass.backdrop)
+	if (!params.toast) {
+		
+		dom.addClass(container, params.showClass.backdrop)
+	}
 	// this workaround with opacity is needed for https://github.com/sweetalert2/sweetalert2/issues/2059
 	popup.style.setProperty('opacity', '0', 'important')
 	dom.show(popup, 'grid')

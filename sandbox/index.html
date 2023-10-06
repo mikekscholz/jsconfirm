@@ -14,11 +14,11 @@
 		* {
 			font-family: 'Nunito', sans-serif;
 		}
-		
+
 		body {
 			/* background: url(./citynight.jpg); */
-			background-image:  repeating-radial-gradient(circle at -300px 0, transparent 0, #222222 32px), repeating-linear-gradient(#00445c, #640034);
-background-color: #2e2e2e;
+			background-image: repeating-radial-gradient(circle at -300px 0, transparent 0, #222222 32px), repeating-linear-gradient(#00445c, #640034);
+			background-color: #2e2e2e;
 			width: 100dvw;
 			height: 100dvh;
 			margin: 0;
@@ -29,15 +29,24 @@ background-color: #2e2e2e;
 
 <body>
 	<div class="jsconfirm-actions" style="height: 100%; justify-content: center; align-items: center;">
-	<div style="background-color: #444; display: flex; flex-wrap: nowrap; gap: 10px; padding: 10px; border-radius: 16px; box-shadow: 0 0 20px 10px #0009;">
-		
-		<button id="error" class="btn-red">Error</button>
-		<button id="warning" class="btn-yellow">Warning</button>
-		<button id="success" class="btn-green">Success</button>
-		<button id="question" class="btn-blue">Question</button>
-		<button id="info" class="btn-light">Info</button>
-		<button id="default" class="btn-dark">Default</button>
-	</div>
+		<div style="background-color: #444; display: flex; flex-wrap: nowrap; gap: 10px; padding: 10px; border-radius: 16px; box-shadow: 0 0 20px 10px #0009;">
+
+			<button id="error" class="btn-red">Error</button>
+			<button id="warning" class="btn-yellow">Warning</button>
+			<button id="success" class="btn-green">Success</button>
+			<button id="question" class="btn-blue">Question</button>
+			<button id="info" class="btn-light">Info</button>
+			<button id="default" class="btn-dark">Default</button>
+		</div>
+		<div style="background-color: #444; display: flex; flex-wrap: nowrap; gap: 10px; padding: 10px; border-radius: 16px; box-shadow: 0 0 20px 10px #0009;">
+
+			<button id="errorToast" class="btn-red">Error Toast</button>
+			<button id="warningToast" class="btn-yellow">Warning Toast</button>
+			<button id="successToast" class="btn-green">Success Toast</button>
+			<button id="questionToast" class="btn-blue">Question Toast</button>
+			<button id="infoToast" class="btn-light">Info Toast</button>
+			<button id="defaultToast" class="btn-dark">Default Toast</button>
+		</div>
 	</div>
 	<!-- <script src="../dist/sweetalert2.min.js"></script> -->
 	<script type="module">
@@ -157,13 +166,13 @@ background-color: #2e2e2e;
 				title: 'Success',
 				html: 'custom <strong>content</strong>',
 				input: 'range',
-  inputLabel: 'Your age',
-  inputAttributes: {
-    min: 10,
-    max: 120,
-    step: 1
-  },
-  inputValue: 25,
+				inputLabel: 'Your age',
+				inputAttributes: {
+					min: 10,
+					max: 120,
+					step: 1
+				},
+				inputValue: 25,
 				// icon: 'error',
 				// icon: 'question',
 				// icon: 'info',
@@ -217,15 +226,15 @@ background-color: #2e2e2e;
 				input: 'select',
 				inputOptions: {
 					'Fruits': {
-					apples: 'Apples',
-					bananas: 'Bananas',
-					grapes: 'Grapes',
-					oranges: 'Oranges'
+						apples: 'Apples',
+						bananas: 'Bananas',
+						grapes: 'Grapes',
+						oranges: 'Oranges'
 					},
 					'Vegetables': {
-					potato: 'Potato',
-					broccoli: 'Broccoli',
-					carrot: 'Carrot'
+						potato: 'Potato',
+						broccoli: 'Broccoli',
+						carrot: 'Carrot'
 					},
 					'icecream': 'Ice cream'
 				},
@@ -376,6 +385,65 @@ background-color: #2e2e2e;
 			}).then((result) => {
 				console.log(result)
 			})
+		})
+		
+		document.querySelector('#errorToast').addEventListener('click', () => {
+			Jsc.fire({
+				title: 'Error',
+				// html: 'custom <strong>content</strong>',
+				// input: 'text',
+				icon: 'error',
+				type: 'red',
+				toast: true,
+				position: 'top-end',
+				backdrop: false,
+				// icon: 'question',
+				// icon: 'info',
+				// icon: 'success',
+				// icon: 'warning',
+				// iconColor: '#ff3311',
+				customClass: {
+					container: '',
+					popup: '',
+					header: '',
+					title: '',
+					closeButton: '',
+					icon: '',
+					image: '',
+					htmlContainer: '',
+					input: '',
+					inputLabel: '',
+					validationMessage: '',
+					actions: '',
+					confirmButton: 'btn-red',
+					denyButton: '',
+					cancelButton: 'btn-dark',
+					loader: '',
+					footer: '',
+					timerProgressBar: '',
+				},
+				showCloseButton: false,
+				showConfirmButton: false,
+				showCancelButton: false,
+				showDenyButton: false,
+				buttonsStyling: false,
+				// allowOutsideClick: false,
+				width: '301px',
+				timer: 300000,
+				timerProgressBar: true,
+				// closeButtonHtml: '',
+				// inputValidator: (value) => {
+				// 	if (!value) {
+				// 		return 'Should not be empty!'
+				// 	}
+				// },
+				didOpen: (modal) => {
+					console.log(modal)
+				},
+			})
+			// .then((result) => {
+				// console.log(result)
+			// })
 		})
 	</script>
 </body>

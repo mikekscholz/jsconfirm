@@ -3,10 +3,10 @@
 * Released under the MIT License.
 */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-  typeof define === 'function' && define.amd ? define(['exports'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.JsConfirm = {}));
-})(this, (function (exports) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('nice-select2')) :
+  typeof define === 'function' && define.amd ? define(['exports', 'nice-select2'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.JsConfirm = {}, global.NiceSelect));
+})(this, (function (exports, NiceSelect) { 'use strict';
 
   function _classPrivateFieldGet(receiver, privateMap) {
     var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get");
@@ -88,13 +88,14 @@
 
   /**
    * @typedef
-   * { | 'container'
+   * { | 'animated'
+   *   | 'container'
    *   | 'shown'
    *   | 'height-auto'
    *   | 'iosfix'
    *   | 'popup'
    *   | 'body'
-   *   | 'header-row'
+   *   | 'header'
    *   | 'clip'
    *   | 'modal'
    *   | 'no-backdrop'
@@ -169,8 +170,13 @@
    * @typedef {Record<JscIcon, string>} JscIcons
    */
 
+  /**
+   * @typedef {'red' | 'yellow' | 'green' | 'blue' | 'light' | 'dark' | 'default'} JscType
+   * @typedef {Record<JscType, string>} JsConfirmType
+   */
+
   /** @type {JscClass[]} */
-  const classNames = ['container', 'shown', 'height-auto', 'iosfix', 'popup', 'body', 'header-row', 'clip', 'modal', 'no-backdrop', 'no-transition', 'toast', 'toast-shown', 'show', 'hide', 'close', 'title', 'html-container', 'actions', 'confirm', 'deny', 'cancel', 'default-outline', 'footer', 'icon', 'icon-content', 'image', 'input', 'file', 'range', 'select', 'radio', 'checkbox', 'label', 'textarea', 'inputerror', 'input-label', 'validation-message', 'progress-steps', 'active-progress-step', 'progress-step', 'progress-step-line', 'loader', 'loading', 'styled', 'top', 'top-start', 'top-end', 'top-left', 'top-right', 'center', 'center-start', 'center-end', 'center-left', 'center-right', 'bottom', 'bottom-start', 'bottom-end', 'bottom-left', 'bottom-right', 'grow-row', 'grow-column', 'grow-fullscreen', 'rtl', 'timer-progress-bar', 'timer-progress-bar-container', 'scrollbar-measure', 'icon-success', 'icon-warning', 'icon-info', 'icon-question', 'icon-error'];
+  const classNames = ['animated', 'container', 'shown', 'height-auto', 'iosfix', 'popup', 'body', 'header', 'clip', 'modal', 'no-backdrop', 'no-transition', 'toast', 'toast-shown', 'show', 'hide', 'close', 'title', 'html-container', 'actions', 'confirm', 'deny', 'cancel', 'default-outline', 'footer', 'icon', 'icon-content', 'image', 'input', 'file', 'range', 'select', 'radio', 'checkbox', 'label', 'textarea', 'inputerror', 'input-label', 'validation-message', 'progress-steps', 'active-progress-step', 'progress-step', 'progress-step-line', 'loader', 'loading', 'styled', 'top', 'top-start', 'top-end', 'top-left', 'top-right', 'center', 'center-start', 'center-end', 'center-left', 'center-right', 'bottom', 'bottom-start', 'bottom-end', 'bottom-left', 'bottom-right', 'grow-row', 'grow-column', 'grow-fullscreen', 'rtl', 'timer-progress-bar', 'timer-progress-bar-container', 'scrollbar-measure', 'icon-success', 'icon-warning', 'icon-info', 'icon-question', 'icon-error'];
   const jscClasses = classNames.reduce((acc, className) => {
     acc[className] = jscPrefix + className;
     return acc;
@@ -181,7 +187,14 @@
   const iconTypes = icons.reduce((acc, icon) => {
     acc[icon] = jscPrefix + icon;
     return acc;
-  }, /** @type {JscIcons} */{});
+  }, /** @type {JsConfirmIcon} */{});
+
+  /** @type {JscType[]} */
+  const types = ['red', 'yellow', 'green', 'blue', 'light', 'dark', 'default'];
+  const popupTypes = types.reduce((acc, type) => {
+    acc[type] = jscPrefix + type;
+    return acc;
+  }, /** @type {JsConfirmType} */{});
 
   const consolePrefix = 'JsConfirm:';
 
@@ -301,6 +314,11 @@
    * @returns {HTMLElement | null}
    */
   const getBody = () => elementByClass(jscClasses.body);
+
+  /**
+   * @returns {HTMLElement | null}
+   */
+  const getHeader = () => elementByClass(jscClasses.header);
 
   /**
    * @returns {HTMLElement | null}
@@ -538,15 +556,15 @@
       case 'select':
       case 'textarea':
       case 'file':
-        return popup.querySelector(".".concat(jscClasses.popup, " > .").concat(jscClasses[inputClass]));
+        return popup.querySelector(".".concat(jscClasses.body, " > .").concat(jscClasses[inputClass]));
       case 'checkbox':
-        return popup.querySelector(".".concat(jscClasses.popup, " > .").concat(jscClasses.checkbox, " input"));
+        return popup.querySelector(".".concat(jscClasses.body, " > .").concat(jscClasses.checkbox, " input"));
       case 'radio':
-        return popup.querySelector(".".concat(jscClasses.popup, " > .").concat(jscClasses.radio, " input:checked")) || popup.querySelector(".".concat(jscClasses.popup, " > .").concat(jscClasses.radio, " input:first-child"));
+        return popup.querySelector(".".concat(jscClasses.body, " > .").concat(jscClasses.radio, " input:checked")) || popup.querySelector(".".concat(jscClasses.body, " > .").concat(jscClasses.radio, " input:first-child"));
       case 'range':
-        return popup.querySelector(".".concat(jscClasses.popup, " > .").concat(jscClasses.range, " input"));
+        return popup.querySelector(".".concat(jscClasses.body, " > .").concat(jscClasses.range, " input"));
       default:
-        return popup.querySelector(".".concat(jscClasses.popup, " > .").concat(jscClasses.input));
+        return popup.querySelector(".".concat(jscClasses.body, " > .").concat(jscClasses.input));
     }
   };
 
@@ -753,7 +771,7 @@
    */
   const isNodeEnv = () => typeof window === 'undefined' || typeof document === 'undefined';
 
-  const jscTemplate = "\n<div aria-labelledby=\"".concat(jscClasses.title, "\" aria-describedby=\"").concat(jscClasses['html-container'], "\" class=\"").concat(jscClasses.popup, "\" tabindex=\"-1\">\n\t<div class=\"").concat(jscClasses.body, "\">\n\t\t<ul class=\"").concat(jscClasses['progress-steps'], "\"></ul>\n\t\t<div class=\"").concat(jscClasses['header-row'], "\">\n\t\t\t<div class=\"").concat(jscClasses.icon, "\"></div>\n\t\t\t<h2 class=\"").concat(jscClasses.title, "\" id=\"").concat(jscClasses.title, "\"></h2>\n\t\t</div>\n\t\t<img class=\"").concat(jscClasses.image, "\" />\n\t\t<div class=\"").concat(jscClasses['html-container'], "\" id=\"").concat(jscClasses['html-container'], "\"></div>\n\t\t<input class=\"").concat(jscClasses.input, "\" id=\"").concat(jscClasses.input, "\" />\n\t\t<input type=\"file\" class=\"").concat(jscClasses.file, "\" />\n\t\t<div class=\"").concat(jscClasses.range, "\">\n\t\t\t<input type=\"range\" />\n\t\t\t<output></output>\n\t\t</div>\n\t\t<select class=\"").concat(jscClasses.select, "\" id=\"").concat(jscClasses.select, "\"></select>\n\t\t<div class=\"").concat(jscClasses.radio, "\"></div>\n\t\t<label class=\"").concat(jscClasses.checkbox, "\">\n\t\t\t<input type=\"checkbox\" id=\"").concat(jscClasses.checkbox, "\" />\n\t\t\t<span class=\"").concat(jscClasses.label, "\"></span>\n\t\t</label>\n\t\t<textarea class=\"").concat(jscClasses.textarea, "\" id=\"").concat(jscClasses.textarea, "\"></textarea>\n\t\t<div class=\"").concat(jscClasses['validation-message'], "\" id=\"").concat(jscClasses['validation-message'], "\"></div>\n\t\t<div class=\"").concat(jscClasses.actions, "\">\n\t\t\t<div class=\"").concat(jscClasses.loader, "\"></div>\n\t\t\t<button type=\"button\" class=\"").concat(jscClasses.confirm, "\"></button>\n\t\t\t<button type=\"button\" class=\"").concat(jscClasses.deny, "\"></button>\n\t\t\t<button type=\"button\" class=\"").concat(jscClasses.cancel, "\"></button>\n\t\t</div>\n\t\t<div class=\"").concat(jscClasses.footer, "\"></div>\n\t\t<div class=\"").concat(jscClasses['timer-progress-bar-container'], "\">\n\t\t\t<div class=\"").concat(jscClasses['timer-progress-bar'], "\"></div>\n\t\t</div>\n\t</div>\n\t<button type=\"button\" class=\"").concat(jscClasses.close, "\"></button>\n </div>\n").replace(/(^|\n)\s*/g, '');
+  const jscTemplate = "\n<div aria-labelledby=\"".concat(jscClasses.title, "\" aria-describedby=\"").concat(jscClasses['html-container'], "\" class=\"").concat(jscClasses.popup, "\" tabindex=\"-1\">\n\t<div class=\"").concat(jscClasses.body, "\">\n\t\t<ul class=\"").concat(jscClasses['progress-steps'], "\"></ul>\n\t\t<div class=\"").concat(jscClasses['header'], "\">\n\t\t\t<div class=\"").concat(jscClasses.icon, "\"></div>\n\t\t\t<h2 class=\"").concat(jscClasses.title, "\" id=\"").concat(jscClasses.title, "\"></h2>\n\t\t</div>\n\t\t<img class=\"").concat(jscClasses.image, "\" />\n\t\t<div class=\"").concat(jscClasses['html-container'], "\" id=\"").concat(jscClasses['html-container'], "\"></div>\n\t\t<input class=\"").concat(jscClasses.input, "\" id=\"").concat(jscClasses.input, "\" />\n\t\t<input type=\"file\" class=\"").concat(jscClasses.file, "\" />\n\t\t<div class=\"").concat(jscClasses.range, "\">\n\t\t\t<input type=\"range\" oninput=\"this.parentNode.style.setProperty('--value',this.value); this.parentNode.style.setProperty('--text-value', JSON.stringify(this.value))\"/>\n\t\t\t<output></output>\n\t\t\t<div class='jsconfirm-range__progress'></div>\n\t\t</div>\n\t\t<select class=\"").concat(jscClasses.select, "\" id=\"").concat(jscClasses.select, "\"></select>\n\t\t<div class=\"").concat(jscClasses.radio, "\"></div>\n\t\t<label class=\"").concat(jscClasses.checkbox, "\">\n\t\t\t<input type=\"checkbox\" id=\"").concat(jscClasses.checkbox, "\" />\n\t\t\t<span class=\"").concat(jscClasses.label, "\"></span>\n\t\t</label>\n\t\t<textarea class=\"").concat(jscClasses.textarea, "\" id=\"").concat(jscClasses.textarea, "\"></textarea>\n\t\t<div class=\"").concat(jscClasses['validation-message'], "\" id=\"").concat(jscClasses['validation-message'], "\"></div>\n\t\t<div class=\"").concat(jscClasses.actions, "\">\n\t\t\t<div class=\"").concat(jscClasses.loader, "\"></div>\n\t\t\t<button type=\"button\" class=\"").concat(jscClasses.confirm, "\"></button>\n\t\t\t<button type=\"button\" class=\"").concat(jscClasses.deny, "\"></button>\n\t\t\t<button type=\"button\" class=\"").concat(jscClasses.cancel, "\"></button>\n\t\t</div>\n\t\t<div class=\"").concat(jscClasses.footer, "\"></div>\n\t\t<div class=\"").concat(jscClasses['timer-progress-bar-container'], "\">\n\t\t\t<div class=\"").concat(jscClasses['timer-progress-bar'], "\"></div>\n\t\t</div>\n\t</div>\n\t<button type=\"button\" class=\"").concat(jscClasses.close, "\"></button>\n </div>\n").replace(/(^|\n)\s*/g, '');
 
   /**
    * @returns {boolean}
@@ -778,9 +796,9 @@
     /** @type {HTMLInputElement} */
     const file = popup.querySelector(".".concat(jscClasses.file));
     /** @type {HTMLInputElement} */
-    const range = popup.querySelector(".".concat(jscClasses.range, " input"));
+    popup.querySelector(".".concat(jscClasses.range, " input"));
     /** @type {HTMLOutputElement} */
-    const rangeOutput = popup.querySelector(".".concat(jscClasses.range, " output"));
+    popup.querySelector(".".concat(jscClasses.range, " output"));
     /** @type {HTMLInputElement} */
     const select = popup.querySelector(".".concat(jscClasses.select));
     /** @type {HTMLInputElement} */
@@ -792,14 +810,16 @@
     select.onchange = resetValidationMessage$1;
     checkbox.onchange = resetValidationMessage$1;
     textarea.oninput = resetValidationMessage$1;
-    range.oninput = () => {
-      resetValidationMessage$1();
-      rangeOutput.value = range.value;
-    };
-    range.onchange = () => {
-      resetValidationMessage$1();
-      rangeOutput.value = range.value;
-    };
+
+    // range.oninput = () => {
+    // 	resetValidationMessage()
+    // 	// rangeOutput.value = range.value
+    // }
+
+    // range.onchange = () => {
+    // 	resetValidationMessage()
+    // 	// rangeOutput.value = range.value
+    // }
   };
 
   /**
@@ -1044,7 +1064,7 @@
 
     // Custom class
     applyCustomClass(closeButton, params, 'closeButton');
-    if (!params.closeButtonHtml) {
+    if (!params.closeButtonHtml && params.showCloseButton) {
       document.querySelector('.jsconfirm-body').classList.add('jsconfirm-clip');
     } else {
       document.querySelector('.jsconfirm-body').classList.remove('jsconfirm-clip');
@@ -1194,7 +1214,7 @@
   const removeAttributes = input => {
     for (let i = 0; i < input.attributes.length; i++) {
       const attrName = input.attributes[i].name;
-      if (!['id', 'type', 'value', 'style'].includes(attrName)) {
+      if (!['id', 'type', 'value', 'style', 'oninput'].includes(attrName)) {
         input.removeAttribute(attrName);
       }
     }
@@ -1308,10 +1328,12 @@
    */
   renderInputType.range = (range, params) => {
     const rangeInput = range.querySelector('input');
-    const rangeOutput = range.querySelector('output');
+    range.style.setProperty('--min', params.inputAttributes.min);
+    range.style.setProperty('--max', params.inputAttributes.max);
+    range.style.setProperty('--value', "".concat(params.inputValue));
+    range.style.setProperty('--text-value', "\"".concat(params.inputValue, "\""));
     checkAndSetInputValue(rangeInput, params.inputValue);
     rangeInput.type = params.input;
-    checkAndSetInputValue(rangeOutput, params.inputValue);
     setInputLabel(rangeInput, range, params);
     return range;
   };
@@ -1324,12 +1346,14 @@
   renderInputType.select = (select, params) => {
     select.textContent = '';
     if (params.inputPlaceholder) {
-      const placeholder = document.createElement('option');
-      setInnerHtml(placeholder, params.inputPlaceholder);
-      placeholder.value = '';
-      placeholder.disabled = true;
-      placeholder.selected = true;
-      select.appendChild(placeholder);
+      select.setAttribute('placeholder', params.inputPlaceholder);
+      const defaultOption = document.createElement('option');
+      setInnerHtml(defaultOption, params.inputPlaceholder);
+      defaultOption.value = '';
+      // placeholder.disabled = true
+      defaultOption.selected = true;
+      select.appendChild(defaultOption);
+      addClass(select, 'wide');
     }
     setInputLabel(select, select, params);
     return select;
@@ -1624,6 +1648,7 @@
     const container = getContainer();
     const popup = getPopup();
     const body = getBody();
+    const header = getHeader();
     if (!container || !popup) {
       return;
     }
@@ -1634,7 +1659,7 @@
       applyNumericalStyle(container, 'width', params.width);
       popup.style.width = '100%';
       const loader = getLoader();
-      loader && popup.insertBefore(loader, getIcon());
+      loader && header.insertBefore(loader, getIcon());
     } else {
       applyNumericalStyle(popup, 'width', params.width);
     }
@@ -1651,6 +1676,7 @@
     if (params.background) {
       body.style.background = params.background;
     }
+    console.log(popupTypes);
     hide(getValidationMessage());
 
     // Classes
@@ -1685,6 +1711,19 @@
     // Icon class (#1842)
     if (params.icon) {
       addClass(popup, jscClasses["icon-".concat(params.icon)]);
+    }
+    if (params.type) {
+      if (Object.keys(popupTypes).indexOf(params.type) === -1) {
+        error("Unknown type! Expected \"red\", \"yellow\", \"green\", \"blue\", \"light\", \"dark\", \"default\", got \"".concat(params.type, "\""));
+        addClass(popup, popupTypes['default']);
+      } else {
+        addClass(popup, popupTypes[params.type]);
+      }
+    } else {
+      addClass(popup, popupTypes['default']);
+    }
+    if (params.animated) {
+      addClass(popup, jscClasses.animated);
     }
   };
 
@@ -2590,6 +2629,13 @@
         renderOption(select, optionLabel, optionValue);
       }
     });
+    new NiceSelect(select, {
+      searchable: false,
+      showSelectedItems: true,
+      offset: 6,
+      availableHeight: true,
+      sameWidth: true
+    });
     select.focus();
   }
 
@@ -2987,7 +3033,8 @@
     text: '',
     html: '',
     footer: '',
-    type: undefined,
+    type: 'default',
+    animated: false,
     icon: undefined,
     iconColor: undefined,
     iconHtml: undefined,
@@ -3963,7 +4010,9 @@
    * @param {JsConfirmOptions} params
    */
   const addClasses = (container, popup, params) => {
-    addClass(container, params.showClass.backdrop);
+    if (!params.toast) {
+      addClass(container, params.showClass.backdrop);
+    }
     // this workaround with opacity is needed for https://github.com/sweetalert2/sweetalert2/issues/2059
     popup.style.setProperty('opacity', '0', 'important');
     show(popup, 'grid');
@@ -3972,6 +4021,8 @@
       addClass(popup, params.showClass.popup);
       // and remove the opacity workaround
       popup.style.removeProperty('opacity');
+
+      // dom.applyNumericalStyle(popup, "height", popup.clientHeight)
     }, SHOW_CLASS_TIMEOUT); // 10ms in order to fix #2062
 
     addClass([document.documentElement, document.body], jscClasses.shown);

@@ -14,7 +14,7 @@ export const renderCloseButton = (instance, params) => {
 
 	// Custom class
 	dom.applyCustomClass(closeButton, params, 'closeButton')
-	if (!params.closeButtonHtml) {
+	if (!params.closeButtonHtml && params.showCloseButton) {
 		document.querySelector('.jsconfirm-body').classList.add('jsconfirm-clip')
 	} else {
 		document.querySelector('.jsconfirm-body').classList.remove('jsconfirm-clip')

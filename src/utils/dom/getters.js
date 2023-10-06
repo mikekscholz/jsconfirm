@@ -38,6 +38,11 @@ export const getBody = () => elementByClass(jscClasses.body)
 /**
  * @returns {HTMLElement | null}
  */
+export const getHeader = () => elementByClass(jscClasses.header)
+
+/**
+ * @returns {HTMLElement | null}
+ */
 export const getIcon = () => elementByClass(jscClasses.icon)
 
 /**

@@ -9,7 +9,7 @@ const jscTemplate = `
 <div aria-labelledby="${jscClasses.title}" aria-describedby="${jscClasses['html-container']}" class="${jscClasses.popup}" tabindex="-1">
 	<div class="${jscClasses.body}">
 		<ul class="${jscClasses['progress-steps']}"></ul>
-		<div class="${jscClasses['header-row']}">
+		<div class="${jscClasses['header']}">
 			<div class="${jscClasses.icon}"></div>
 			<h2 class="${jscClasses.title}" id="${jscClasses.title}"></h2>
 		</div>
