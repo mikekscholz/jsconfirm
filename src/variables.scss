@@ -39,7 +39,7 @@ $jsconfirm-padding: 0 !default;
 $jsconfirm-border: none !default;
 $jsconfirm-color: #fff !default;
 $jsconfirm-border-radius: 5px !default;
-$jsconfirm-box-shadow: #d9d9d9 !default;
+$jsconfirm-box-shadow: 0 0 20px 10px #0009, inset 1px -1px 0 1px #0009 !default;
 
 // ANIMATIONS
 $jsconfirm-show-animation: jsconfirm-show 0.5s !default;
@@ -272,7 +272,8 @@ $jsconfirm-toast-box-shadow:
   1px 2px 4px hsl(0deg 0% 0% / 0.075),
   1px 3px 8px hsl(0deg 0% 0% / 0.075),
   2px 4px 16px hsl(0deg 0% 0% / 0.075) !default;
-$jsconfirm-toast-background: #333 !default;
+$jsconfirm-toast-background: #3333 !default;
+$jsconfirm-toast-backdrop-filter: blur(8px);
 $jsconfirm-toast-close-button-width: 0.8em !default;
 $jsconfirm-toast-close-button-height: 0.8em !default;
 $jsconfirm-toast-close-button-margin: 0 !default;

@@ -7,11 +7,13 @@
     overflow-y: hidden;
     pointer-events: all;
     // margin: $jsconfirm-toast-padding;
+    box-shadow: $jsconfirm-box-shadow;
     
     .jsconfirm-body {
+      border-radius: 10px;
+      padding: 8px;
       background: $jsconfirm-toast-background;
-      box-shadow: $jsconfirm-toast-box-shadow;
-      
+      backdrop-filter: $jsconfirm-toast-backdrop-filter;
     }
 
     > * {

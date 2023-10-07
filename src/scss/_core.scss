@@ -1,7 +1,7 @@
 @use 'sass:math';
 
-.jsconfirm-popup {
-	box-shadow: 0 0 20px 10px #0009, inset 1px -1px 0 1px #0009;
+.jsconfirm-popup.jsconfirm-modal {
+	box-shadow: $jsconfirm-box-shadow;
 	border-radius: 16px;
 	position: relative;
 	width: 401px;
@@ -13,51 +13,51 @@
 	// outline-offset: -1px;
 	// background-color: #222a;
 	// overflow: hidden;
-}
-
-.jsconfirm-body {
-	border-radius: 16px 16px 0 0;
-	position: relative;
-	background-color: $jsconfirm-background;
-	display: flex;
-	flex-wrap: nowrap;
-	flex-direction: column;
-	gap: 10px;
-	justify-content: flex-start;
-	padding: 10px;
-	// box-shadow: 0 0 20px 10px #0009;
-	z-index: 4;
-	max-height: 80dvh;
-}
-
-.jsconfirm-close {
-	background-color: $glow-white;
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 70px;
-	height: 35px;
-	border-bottom-left-radius: 16px;
-	border-top-right-radius: 16px;
-	box-shadow: -6px 6px 0 6px #333333;
-	transition: background-color 400ms ease-in-out, color 400ms ease-in-out;
-	align-items: center;
-	justify-content: center;
-	appearance: none;
-	color: #FFF;
-	border-width: 0;
-
-	&:hover {
-		background-color: $red;
+	.jsconfirm-body {
+		border-radius: 16px 16px 0 0;
+		position: relative;
+		background-color: $jsconfirm-background;
+		display: flex;
+		flex-wrap: nowrap;
+		flex-direction: column;
+		gap: 10px;
+		justify-content: flex-start;
+		padding: 10px;
+		// box-shadow: 0 0 20px 10px #0009;
+		z-index: 4;
+		max-height: 80dvh;
 	}
-
-	&:focus,
-	&:focus-visible,
-	&::-moz-focus-inner {
-		outline: none;
-		background-color: $red;
+	
+	.jsconfirm-close {
+		background-color: $glow-white;
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 70px;
+		height: 35px;
+		border-bottom-left-radius: 16px;
+		border-top-right-radius: 16px;
+		box-shadow: -6px 6px 0 6px #333333;
+		transition: background-color 400ms ease-in-out, color 400ms ease-in-out;
+		align-items: center;
+		justify-content: center;
+		appearance: none;
+		color: #FFF;
+		border-width: 0;
+	
+		&:hover {
+			background-color: $red;
+		}
+	
+		&:focus,
+		&:focus-visible,
+		&::-moz-focus-inner {
+			outline: none;
+			background-color: $red;
+		}
 	}
 }
+
 
 .jsconfirm-animated .jsconfirm-body {
 	animation-duration: 2s;
