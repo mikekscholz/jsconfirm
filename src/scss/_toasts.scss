@@ -6,7 +6,7 @@
     grid-template-columns: min-content auto min-content;
     overflow-y: hidden;
     pointer-events: all;
-    margin: $jsconfirm-toast-padding;
+    // margin: $jsconfirm-toast-padding;
     
     .jsconfirm-body {
       background: $jsconfirm-toast-background;
