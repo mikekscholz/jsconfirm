@@ -1,24 +1,32 @@
-<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="50">
+<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor">
 <style type="text/css">
 	.warning-triangle {
 		animation: animate-warning-triangle 1s both;
 		transform-origin: 50% 50%;
 		stroke-dasharray: 1 1;
+		stroke-width: 50;
+		stroke-linejoin: round;
+		stroke-linecap: round;
 	}
 	.warning-exclamation-point {
 		animation: animate-warning-exclamation-point 1.5s both;
 		transform-origin: 50% 50%;
-		stroke-dasharray: 1 1;
 	}
 	.warning-exclamation-point-stroke {
 		animation: animate-warning-exclamation-point-stroke 1.5s both;
 		transform-origin: 50% 50%;
 		stroke-dasharray: 1 1;
+		stroke-width: 50;
+		stroke-linejoin: round;
+		stroke-linecap: round;
 	}
 	.warning-exclamation-point-dot {
 		animation: animate-warning-exclamation-point-dot 1.5s both;
 		transform-origin: 50% 50%;
 		stroke-dasharray: 1 1;
+		stroke-width: 50;
+		stroke-linejoin: round;
+		stroke-linecap: round;
 	}
 	@keyframes animate-warning-triangle {
 		0%, 50% {stroke-dashoffset: -1;}
