@@ -9,8 +9,8 @@ import { error } from '../../utils.js'
 export const renderPopup = (instance, params) => {
 	const container = dom.getContainer()
 	const popup = dom.getPopup()
-	const body = dom.getBody()
-	const header = dom.getHeader()
+	const popupInner = dom.getPopupInner()
+	// const header = dom.getHeader()
 	if (!container || !popup) {
 		return
 	}
@@ -18,16 +18,16 @@ export const renderPopup = (instance, params) => {
 	// Width
 	// https://github.com/sweetalert2/sweetalert2/issues/2170
 	if (params.toast) {
-		dom.applyNumericalStyle(container, 'width', params.width)
-		popup.style.width = '100%'
+		dom.applyNumericalStyle(popup, 'width', params.width)
+		// popup.style.width = '100%'
 		const loader = dom.getLoader()
-		loader && header.insertBefore(loader, dom.getIcon())
+		loader && popupInner.insertBefore(loader, dom.getIcon())
 	} else {
 		dom.applyNumericalStyle(popup, 'width', params.width)
 	}
 
 	// Padding
-	dom.applyNumericalStyle(body, 'padding', params.padding)
+	dom.applyNumericalStyle(popupInner, 'padding', params.padding)
 
 	// Color
 	if (params.color) {
@@ -36,7 +36,7 @@ export const renderPopup = (instance, params) => {
 
 	// Background
 	if (params.background) {
-		body.style.background = params.background
+		popupInner.style.background = params.background
 	}
 console.log(popupTypes)
 

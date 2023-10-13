@@ -18,10 +18,12 @@
   --min-max-opacity: .3;
   --min-max-x-offset: 50%; // 50% to center
 
-  --thumb-size: 20px;
+  --thumb-height: 20px;
+  --thumb-width: 20px;
+  --thumb-radius: 10px;
   --thumb-color: var(--primary-color);
   --thumb-shadow: 0 0 3px #00000099;
-  --thumb-shadow-active: 0 0 5px 3px var(--primary-color);
+  --thumb-shadow-active: 0 0 0 8px var(--jsconfirm-alpha);
   // --thumb-shadow: 0 0 0 3px #fff inset, 0 0 3px rgba(0,0,0,.6), 0 0 0 99px var(--thumb-color) inset;
   // --thumb-shadow-active: 0 0 0 1px #fff, inset 0 0 0 2px #fff, 0 0 0 99px var(--thumb-color) inset, 0 0 5px 3px #00ccff;
 
@@ -35,12 +37,12 @@
   // ⚠️ BELOW VARIABLES SHOULD NOT BE CHANGED
   --step: 5;
   --ticks-count: (var(--max) - var(--min)) / var(--step);
-  --maxTicksAllowed: 30;
+  --maxTicksAllowed: 28;
   --too-many-ticks: Min(1, Max(var(--ticks-count) - var(--maxTicksAllowed), 0));
   --x-step: Max( var(--step), var(--too-many-ticks) * (var(--max) - var(--min)) ); // manipulate the number of steps if too many ticks exist, so there would only be 2
   // --tickInterval: 100/((var(--max) - var(--min)) / var(--step)) * var(--tickEvery, 1);
   --tickIntervalPerc_1: Calc( (var(--max) - var(--min)) / var(--x-step) );
-  --tickIntervalPerc: calc(  (100% - var(--thumb-size))/var(--tickIntervalPerc_1) * var(--tickEvery, 1)  );
+  --tickIntervalPerc: calc(  (100% - var(--thumb-width))/var(--tickIntervalPerc_1) * var(--tickEvery, 1)  );
 
   --value-a: Clamp(var(--min), var(--value, 0), var(--max)); // default value ("--value" is used in single-range markup)
   --value-b: var(--value, 0); // default value
@@ -67,8 +69,8 @@
   @mixin thumb{
     appearance: none;
     border: 2px solid #fff;
-    height: var(--thumb-size);
-    width: var(--thumb-size);
+    height: var(--thumb-height);
+    width: var(--thumb-width);
     transform: var(--thumb-transform);
     border-radius: var(--thumb-radius, 50%);
     background: var(--thumb-color);
@@ -80,11 +82,11 @@
   width: 100%;
   box-sizing: content-box;
   display: inline-block;
-  height: Max(var(--track-height), var(--thumb-size));
+  height: Max(var(--track-height), var(--thumb-height));
   // margin: calc((var(--thumb-size) - var(--track-height)) * -.25) var(--thumb-size) 0;
   background: linear-gradient(to right, var(--ticks-color) var(--ticks-thickness), transparent 1px) repeat-x;
   background-size: var(--tickIntervalPerc) var(--ticks-height);
-  background-position-x: calc(var(--thumb-size)/2 - var(--ticks-thickness)/2);
+  background-position-x: calc(var(--thumb-width)/2 - var(--ticks-thickness)/2);
   background-position-y: var(--flip-y, bottom);
 
   padding-bottom: var(--flip-y, var(--ticks-gap));
@@ -100,7 +102,7 @@
   // mix/max texts
   &::before,
   &::after {
-    --offset: calc(var(--thumb-size)/2);
+    --offset: calc(var(--thumb-width)/2);
     content: counter(x);
     display: var(--show-min-max, block);
     font: var(--min-max-font);
@@ -158,7 +160,7 @@
     position: absolute;
     left: var(--start-end);
     right: var(--start-end);
-    top: calc(var(--ticks-gap) * var(--flip-y,0) + var(--thumb-size)/2 - var(--track-height)/2);
+    top: calc(var(--ticks-gap) * var(--flip-y,0) + var(--thumb-height)/2 - var(--track-height)/2);
   //  transform: var(--flip-y, translateY(-50%) translateZ(0));
     height: calc(var(--track-height));
     background: var(--progress-background, #EEE);
@@ -197,11 +199,11 @@
   & > input {
     appearance: none;
     width: 100%;
-    height: var(--thumb-size);
+    height: var(--thumb-height);
     margin: 0;
     position: absolute;
     left: 0;
-    top: calc(50% - Max(var(--track-height), var(--thumb-size))/2 + calc(var(--ticks-gap)/2 * var(--flip-y, -1)));
+    top: calc(50% - Max(var(--track-height), var(--thumb-height))/2 + calc(var(--ticks-gap)/2 * var(--flip-y, -1)));
     cursor: -webkit-grab;
     cursor: grab;
     outline: none;

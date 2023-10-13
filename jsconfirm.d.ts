@@ -1224,6 +1224,14 @@ declare module 'jsconfirm' {
 		 */
 		scrollbarPadding?: boolean
 	}
+	declare global {
+		interface HTMLElement {
+			NiceSelect: instance
+		}
+		interface Element {
+			focus(): void
+		}
+	}
 
 	export default Jsc
 }
@@ -1246,3 +1254,4 @@ declare module 'jsconfirm/*/jsconfirm.all.js' {
  */
 
 interface JQuery {}
+

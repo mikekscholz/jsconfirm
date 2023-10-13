@@ -18,6 +18,7 @@ const inputClasses = ['input', 'file', 'range', 'select', 'radio', 'checkbox', '
  */
 export const renderInput = (instance, params) => {
 	const popup = dom.getPopup()
+	const popupInner = dom.getPopupInner()
 	if (!popup) {
 		return
 	}
@@ -25,8 +26,8 @@ export const renderInput = (instance, params) => {
 	const rerender = !innerParams || params.input !== innerParams.input
 
 	inputClasses.forEach((inputClass) => {
-		const inputContainer = dom.getDirectChildByClass(popup, jscClasses[inputClass])
-
+		const inputContainer = dom.getDirectChildByClass(popupInner, jscClasses[inputClass])
+console.log(inputContainer)
 		if (!inputContainer) {
 			return
 		}
@@ -151,7 +152,7 @@ const setInputLabel = (input, prependTo, params) => {
  * @returns {HTMLElement}
  */
 const getInputContainer = (inputType) => {
-	return dom.getDirectChildByClass(dom.getPopup(), jscClasses[inputType] || jscClasses.input)
+	return dom.getDirectChildByClass(dom.getPopupInner(), jscClasses[inputType] || jscClasses.input)
 }
 
 /**
@@ -161,6 +162,7 @@ const getInputContainer = (inputType) => {
 const checkAndSetInputValue = (input, inputValue) => {
 	if (['string', 'number'].includes(typeof inputValue)) {
 		input.value = `${inputValue}`
+		input.focus()
 	} else if (!isPromise(inputValue)) {
 		warn(`Unexpected type of inputValue! Expected "string", "number" or "Promise", got "${typeof inputValue}"`)
 	}
@@ -205,6 +207,7 @@ renderInputType.file = (input, params) => {
  * @returns {HTMLInputElement}
  */
 renderInputType.range = (range, params) => {
+	console.log(range)
 	const rangeInput = range.querySelector('input')
 	range.style.setProperty('--min', params.inputAttributes.min)
 	range.style.setProperty('--max', params.inputAttributes.max)

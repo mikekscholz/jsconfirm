@@ -16,8 +16,8 @@
 		}
 
 		body {
-			/* background: url(./citynight.jpg); */
-			background-image: repeating-radial-gradient(circle at -300px 0, transparent 0, #222222 32px), repeating-linear-gradient(#00445c, #640034);
+			background: url(./citynight.jpg);
+			/* background-image: repeating-radial-gradient(circle at -300px 0, transparent 0, #222222 32px), repeating-linear-gradient(#00445c, #640034); */
 			background-color: #2e2e2e;
 			width: 100dvw;
 			height: 100dvh;
@@ -28,7 +28,8 @@
 </head>
 
 <body>
-	<div class="jsconfirm-actions" style="height: 100%; justify-content: center; align-items: center;">
+	<div class="jsconfirm-actions" style="height: 100%; justify-content: center; align-items: center; flex-direction: column;">
+		<h2>Modals</h2>
 		<div style="background-color: #444; display: flex; flex-wrap: nowrap; gap: 10px; padding: 10px; border-radius: 16px; box-shadow: 0 0 20px 10px #0009;">
 
 			<button id="error" class="btn-red">Error</button>
@@ -38,14 +39,15 @@
 			<button id="info" class="btn-light">Info</button>
 			<button id="default" class="btn-dark">Default</button>
 		</div>
+		<h2>Toasts</h2>
 		<div style="background-color: #444; display: flex; flex-wrap: nowrap; gap: 10px; padding: 10px; border-radius: 16px; box-shadow: 0 0 20px 10px #0009;">
 
-			<button id="errorToast" class="btn-red">Error Toast</button>
-			<button id="warningToast" class="btn-yellow">Warning Toast</button>
-			<button id="successToast" class="btn-green">Success Toast</button>
-			<button id="questionToast" class="btn-blue">Question Toast</button>
-			<button id="infoToast" class="btn-light">Info Toast</button>
-			<button id="defaultToast" class="btn-dark">Default Toast</button>
+			<button id="errorToast" class="btn-red">Error</button>
+			<button id="warningToast" class="btn-yellow">Warning</button>
+			<button id="successToast" class="btn-green">Success</button>
+			<button id="questionToast" class="btn-blue">Question</button>
+			<button id="infoToast" class="btn-light">Info</button>
+			<button id="defaultToast" class="btn-dark">Default</button>
 		</div>
 	</div>
 	<!-- <script src="../dist/sweetalert2.min.js"></script> -->
@@ -81,7 +83,7 @@
 					inputLabel: '',
 					validationMessage: '',
 					actions: '',
-					confirmButton: 'btn-red',
+					confirmButton: '',
 					denyButton: '',
 					cancelButton: 'btn-dark',
 					loader: '',
@@ -91,9 +93,12 @@
 				showCloseButton: true,
 				showCancelButton: true,
 				showDenyButton: true,
-				buttonsStyling: false,
+				buttonsStyling: true,
 				allowOutsideClick: false,
 				width: '301px',
+				confirmButtonColor: '#00d8f5',
+				denyButtonColor: '#111',
+				
 				// timer: 3000,
 				// timerProgressBar: true,
 				// closeButtonHtml: '',
@@ -204,6 +209,7 @@
 				showCancelButton: true,
 				buttonsStyling: false,
 				allowOutsideClick: false,
+				focusConfirm: false,
 				// timer: 3000,
 				// timerProgressBar: true,
 				// closeButtonHtml: '',
@@ -270,6 +276,7 @@
 				showCancelButton: true,
 				buttonsStyling: false,
 				allowOutsideClick: false,
+				focusConfirm: false,
 				// timer: 3000,
 				// timerProgressBar: true,
 				// closeButtonHtml: '',
@@ -340,10 +347,13 @@
 			Jsc.fire({
 				title: 'Default',
 				html: 'custom <strong>content</strong>',
+				imageUrl: 'https://unsplash.it/400/200',
+				imageWidth: 400,
+				imageHeight: 200,
 				// input: 'text',
 				// icon: 'error',
 				// icon: 'question',
-				// icon: 'info',
+				icon: 'info',
 				// icon: 'success',
 				// icon: 'warning',
 				// iconColor: '#ff3311',
@@ -390,16 +400,135 @@
 		document.querySelector('#errorToast').addEventListener('click', () => {
 			Jsc.fire({
 				title: 'Error',
-				// html: 'custom <strong>content</strong>',
+				html: 'custom <strong>content</strong>',
 				// input: 'text',
 				icon: 'error',
 				type: 'red',
 				toast: true,
 				position: 'top-end',
-				backdrop: false,
+				// backdrop: false,
+				color: '#fff',
 				// icon: 'question',
 				// icon: 'info',
 				// icon: 'success',
+				// icon: 'warning',
+				// iconColor: '#ff3311',
+				customClass: {
+					container: '',
+					popup: '',
+					header: '',
+					title: '',
+					closeButton: '',
+					icon: '',
+					image: '',
+					htmlContainer: '',
+					input: '',
+					inputLabel: '',
+					validationMessage: '',
+					actions: '',
+					confirmButton: 'btn-red',
+					denyButton: '',
+					cancelButton: 'btn-dark',
+					loader: '',
+					footer: '',
+					timerProgressBar: '',
+				},
+				showCloseButton: true,
+				showConfirmButton: false,
+				showCancelButton: false,
+				showDenyButton: false,
+				buttonsStyling: false,
+				// allowOutsideClick: false,
+				// width: '301px',
+				timer: 10000,
+				timerProgressBar: true,
+				// closeButtonHtml: '',
+				// inputValidator: (value) => {
+				// 	if (!value) {
+				// 		return 'Should not be empty!'
+				// 	}
+				// },
+				didOpen: (modal) => {
+					console.log(modal)
+					modal.addEventListener('mouseenter', Jsc.stopTimer)
+					modal.addEventListener('mouseleave', Jsc.resumeTimer)
+				},
+			})
+			// .then((result) => {
+				// console.log(result)
+			// })
+		})
+		
+		document.querySelector('#warningToast').addEventListener('click', () => {
+			new Jsc({
+				title: 'Warning',
+				html: 'custom <strong>content</strong>',
+				// input: 'text',
+				// icon: 'error',
+				type: 'yellow',
+				toast: true,
+				position: 'top-end',
+				color: '#fff',
+				// backdrop: false,
+				// icon: 'question',
+				// icon: 'info',
+				// icon: 'success',
+				icon: 'warning',
+				// iconColor: '#ff3311',
+				customClass: {
+					container: '',
+					popup: '',
+					header: '',
+					title: '',
+					closeButton: '',
+					icon: '',
+					image: '',
+					htmlContainer: '',
+					input: '',
+					inputLabel: '',
+					validationMessage: '',
+					actions: '',
+					confirmButton: 'btn-red',
+					denyButton: '',
+					cancelButton: 'btn-dark',
+					loader: '',
+					footer: '',
+					timerProgressBar: '',
+				},
+				showCloseButton: true,
+				showConfirmButton: false,
+				showCancelButton: false,
+				showDenyButton: false,
+				buttonsStyling: false,
+				// allowOutsideClick: false,
+				// width: '301px',
+				timer: 600000,
+				timerProgressBar: true,
+				// closeButtonHtml: '',
+				// inputValidator: (value) => {
+				// 	if (!value) {
+				// 		return 'Should not be empty!'
+				// 	}
+				// },
+				didOpen: (modal) => {
+					console.log(modal)
+				},
+			})
+		})
+		document.querySelector('#successToast').addEventListener('click', () => {
+			new Jsc({
+				title: 'Success',
+				html: 'custom <strong>content</strong>',
+				// input: 'text',
+				// icon: 'error',
+				type: 'green',
+				toast: true,
+				position: 'top-end',
+				color: '#fff',
+				// backdrop: false,
+				// icon: 'question',
+				// icon: 'info',
+				icon: 'success',
 				// icon: 'warning',
 				// iconColor: '#ff3311',
 				customClass: {
@@ -428,8 +557,8 @@
 				showDenyButton: false,
 				buttonsStyling: false,
 				// allowOutsideClick: false,
-				width: '301px',
-				timer: 300000,
+				width: '401px',
+				timer: 100000,
 				timerProgressBar: true,
 				// closeButtonHtml: '',
 				// inputValidator: (value) => {
@@ -441,22 +570,19 @@
 					console.log(modal)
 				},
 			})
-			// .then((result) => {
-				// console.log(result)
-			// })
 		})
-		
-		document.querySelector('#warningToast').addEventListener('click', () => {
+		document.querySelector('#questionToast').addEventListener('click', () => {
 			new Jsc({
-				title: 'Error',
-				// html: 'custom <strong>content</strong>',
+				title: 'Question',
+				html: 'custom <strong>content</strong>',
 				// input: 'text',
-				icon: 'error',
-				type: 'red',
+				// icon: 'error',
+				type: 'blue',
 				toast: true,
 				position: 'top-end',
-				backdrop: false,
-				// icon: 'question',
+				color: '#fff',
+				// backdrop: false,
+				icon: 'question',
 				// icon: 'info',
 				// icon: 'success',
 				// icon: 'warning',
@@ -488,7 +614,63 @@
 				buttonsStyling: false,
 				// allowOutsideClick: false,
 				// width: '301px',
-				timer: 300000,
+				timer: 100000,
+				timerProgressBar: true,
+				// closeButtonHtml: '',
+				// inputValidator: (value) => {
+				// 	if (!value) {
+				// 		return 'Should not be empty!'
+				// 	}
+				// },
+				didOpen: (modal) => {
+					console.log(modal)
+				},
+			})
+		})
+		document.querySelector('#infoToast').addEventListener('click', () => {
+			new Jsc({
+				title: 'Info',
+				html: 'custom <strong>content</strong>',
+				// input: 'text',
+				// icon: 'error',
+				type: 'light',
+				toast: true,
+				position: 'top-end',
+				color: '#fff',
+				// backdrop: false,
+				// icon: 'question',
+				icon: 'info',
+				// icon: 'success',
+				// icon: 'warning',
+				// iconColor: '#ff3311',
+				customClass: {
+					container: '',
+					popup: '',
+					header: '',
+					title: '',
+					closeButton: '',
+					icon: '',
+					image: '',
+					htmlContainer: '',
+					input: '',
+					inputLabel: '',
+					validationMessage: '',
+					actions: '',
+					confirmButton: 'btn-red',
+					denyButton: '',
+					cancelButton: 'btn-dark',
+					loader: '',
+					footer: '',
+					timerProgressBar: '',
+				},
+				showCloseButton: false,
+				showConfirmButton: false,
+				showCancelButton: false,
+				showDenyButton: false,
+				buttonsStyling: false,
+				// allowOutsideClick: false,
+				// width: '301px',
+				timer: 100000,
 				timerProgressBar: true,
 				// closeButtonHtml: '',
 				// inputValidator: (value) => {

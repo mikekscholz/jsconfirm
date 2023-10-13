@@ -3,6 +3,7 @@
 
 @import 'scss/theming';
 @import 'scss/animations';
+@import 'nice-select2';
 
 body {
   @include jsconfirm-body();

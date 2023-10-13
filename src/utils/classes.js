@@ -4,6 +4,7 @@ export const jscPrefix = 'jsconfirm-'
  * @typedef
  * { | 'animated'
  *   | 'container'
+ *   | 'toast-container'
  *   | 'shown'
  *   | 'height-auto'
  *   | 'iosfix'
@@ -69,6 +70,9 @@ export const jscPrefix = 'jsconfirm-'
  *   | 'rtl'
  *   | 'timer-progress-bar'
  *   | 'timer-progress-bar-container'
+ *   | 'timer-progress-circle-fill'
+ *   | 'timer-progress-circle-track'
+ *   | 'timer-progress-circle-container'
  *   | 'scrollbar-measure'
  *   | 'icon-success'
  *   | 'icon-warning'
@@ -93,6 +97,7 @@ export const jscPrefix = 'jsconfirm-'
 const classNames = [
 	'animated',
 	'container',
+	'toast-container',
 	'shown',
 	'height-auto',
 	'iosfix',
@@ -158,6 +163,9 @@ const classNames = [
 	'rtl',
 	'timer-progress-bar',
 	'timer-progress-bar-container',
+	'timer-progress-circle-fill',
+	'timer-progress-circle-track',
+	'timer-progress-circle-container',
 	'scrollbar-measure',
 	'icon-success',
 	'icon-warning',

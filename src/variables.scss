@@ -10,35 +10,35 @@ $pink:        #E83E8C !default;
 $red:         #e90000 !default;
 $orange:      #FF7300 !default;
 $yellow:      #FFC107 !default;
-$green:       #66f500 !default;
+$green:       #48ff00 !default;
 $blue:        #00e1ff !default;
 $light:         $gray-100 !default;
 $dark:          #222222 !default;
-$blueHover:     mix(black, $blue, 20%) !default;
-$greenHover:    mix(black, $green, 20%) !default;
-$redHover:      mix(black, $red, 20%) !default;
-$yellowHover:   mix(black, $yellow, 20%) !default;
-$purpleHover:   mix(black, $purple, 20%) !default;
+$blueHover:     mix(white, $blue, 15%) !default;
+$greenHover:    mix(white, $green, 15%) !default;
+$redHover:      mix(white, $red, 15%) !default;
+$yellowHover:   mix(white, $yellow, 15%) !default;
+$purpleHover:   mix(white, $purple, 15%) !default;
 $lightHover:    mix(black, $light, 20%) !default;
 $darkHover:     mix(black, $dark, 50%) !default;
-$blueAlpha:     transparentize($blueHover, 0.4) !default;
-$greenAlpha:    transparentize($greenHover, 0.4) !default;
-$redAlpha:      transparentize($redHover, 0.4) !default;
-$yellowAlpha:   transparentize($yellowHover, 0.4) !default;
-$purpleAlpha:   transparentize($purpleHover, 0.4) !default;
-$lightAlpha:    transparentize($lightHover, 0.4) !default;
-$darkAlpha:     transparentize($darkHover, 0.4) !default;
+$blueAlpha:     transparentize($blueHover, 0.5) !default;
+$greenAlpha:    transparentize($greenHover, 0.5) !default;
+$redAlpha:      transparentize($redHover, 0.5) !default;
+$yellowAlpha:   transparentize($yellowHover, 0.5) !default;
+$purpleAlpha:   transparentize($purpleHover, 0.5) !default;
+$lightAlpha:    transparentize($light, 0.5) !default;
+$darkAlpha:     transparentize($dark, 0.5) !default;
 
 $glow-white: rgba(255, 255, 255, 0.3);
 // CONTAINER
-$jsconfirm-container-padding: 0.625em !default;
+$jsconfirm-container-padding: 0 !default;
 
 // POPUP
-$jsconfirm-width: 32em !default;
-$jsconfirm-padding: 0 !default;
+$jsconfirm-width: 400px !default;
+$jsconfirm-padding: 10px !default;
 $jsconfirm-border: none !default;
 $jsconfirm-color: #fff !default;
-$jsconfirm-border-radius: 5px !default;
+$jsconfirm-border-radius: 16px !default;
 $jsconfirm-box-shadow: 0 0 20px 10px #0009, inset 1px -1px 0 1px #0009 !default;
 
 // ANIMATIONS
@@ -50,7 +50,7 @@ $jsconfirm-background: #333 !default;
 
 // TYPOGRAPHY
 $jsconfirm-font: inherit !default;
-$jsconfirm-font-size: 1rem !default;
+$jsconfirm-font-size: 14px !default;
 
 // BACKDROP
 $jsconfirm-backdrop: #18181899 !default;
@@ -58,7 +58,7 @@ $jsconfirm-backdrop-transition: backdrop-filter 500ms, background-color 500ms;
 $jsconfirm-backdrop-filter: blur(8px);
 
 // ICONS
-$jsconfirm-icon-size: 36px !default;
+$jsconfirm-icon-size: 35px !default;
 $jsconfirm-icon-animations: true !default;
 $jsconfirm-icon-margin: 0 !default;
 // $jsconfirm-icon-margin: 2.5em auto 0.6em !default;
@@ -81,10 +81,10 @@ $jsconfirm-title-position: relative !default;
 $jsconfirm-title-max-width: 100% !default;
 $jsconfirm-title-margin: 0 !default;
 $jsconfirm-title-padding: 0 80px 0 0 !default;
-$jsconfirm-title-color: inherit !default;
+$jsconfirm-title-color: #fff !default;
 $jsconfirm-title-font-size: 22px !default;
 $jsconfirm-title-font-weight: 500 !default;
-$jsconfirm-title-text-align: center !default;
+$jsconfirm-title-text-align: left !default;
 
 // HTML CONTAINER
 $jsconfirm-html-container-justify-content: left !default;
@@ -95,7 +95,7 @@ $jsconfirm-html-container-overflow: auto !default;
 $jsconfirm-html-container-color: inherit !default;
 $jsconfirm-html-container-font-size: 16px !default;
 $jsconfirm-html-container-font-weight: 400 !default;
-$jsconfirm-html-container-line-height: normal !default;
+$jsconfirm-html-container-line-height: 23px !default;
 $jsconfirm-html-container-text-align: left !default;
 $jsconfirm-html-container-word-wrap: break-word !default;
 $jsconfirm-html-container-word-break: break-word !default;
@@ -109,6 +109,7 @@ $jsconfirm-input-border: 1px solid #111 !default;
 $jsconfirm-input-border-radius: 6px !default;
 $jsconfirm-input-box-shadow: none !default;
 $jsconfirm-input-font-size: 14px !default;
+$jsconfirm-input-font-weight: 500 !default;
 $jsconfirm-input-background: #222 !default;
 $jsconfirm-input-color: inherit !default;
 $jsconfirm-input-transition: border-color 0.4s !default;
@@ -124,7 +125,9 @@ $jsconfirm-textarea-padding: 0.75em !default;
 
 // INPUT LABEL
 $jsconfirm-input-label-margin: 0 !default;
-$jsconfirm-input-label-justify-content: center !default;
+$jsconfirm-input-label-justify-content: left !default;
+$jsconfirm-input-label-font-size: 16px !default;
+$jsconfirm-input-label-font-weight: 600 !default;
 
 // VALIDATION MESSAGE
 $jsconfirm-validation-message-align-items: center !default;
@@ -168,8 +171,14 @@ $jsconfirm-footer-font-size: 1em !default;
 $jsconfirm-footer-text-align: center !default;
 
 // TIMER POGRESS BAR
-$jsconfirm-timer-progress-bar-height: 0.25em;
-$jsconfirm-timer-progress-bar-background: rgba($jsconfirm-black, 0.2) !default;
+$jsconfirm-timer-progress-bar-height: 5px;
+$jsconfirm-timer-progress-bar-track: transparent !default;
+$jsconfirm-timer-progress-bar-fill: var(--jsconfirm-primary) !default;
+
+// TIMER POGRESS CIRCLE
+$jsconfirm-timer-progress-circle-track: #FFF3 !default;
+// $jsconfirm-timer-progress-circle-fill: var(--jsconfirm-primary) !default;
+$jsconfirm-timer-progress-circle-fill: #FFF9 !default;
 
 // CLOSE BUTTON
 $jsconfirm-close-button-justify-self: end !default;
@@ -204,7 +213,7 @@ $jsconfirm-close-button-focus-box-shadow: inset 0 0 0 3px $jsconfirm-outline-col
 // ACTIONS
 $jsconfirm-actions-flex-wrap: wrap !default;
 $jsconfirm-actions-align-items: center !default;
-$jsconfirm-actions-justify-content: center !default;
+$jsconfirm-actions-justify-content: end !default;
 $jsconfirm-actions-width: auto !default;
 $jsconfirm-actions-margin: 0 !default;
 // $jsconfirm-actions-margin: 1.25em auto 0 !default;
@@ -266,27 +275,24 @@ $jsconfirm-loader-border-color: #2778c4 transparent #2778c4 transparent !default
 $jsconfirm-toast-show-animation: jsconfirm-toast-show 0.5s !default;
 $jsconfirm-toast-hide-animation: jsconfirm-toast-hide 0.1s forwards !default;
 $jsconfirm-toast-border: none !default;
-$jsconfirm-toast-box-shadow:
-  0 0 1px hsl(0deg 0% 0% / 0.075),
-  0 1px 2px hsl(0deg 0% 0% / 0.075),
-  1px 2px 4px hsl(0deg 0% 0% / 0.075),
-  1px 3px 8px hsl(0deg 0% 0% / 0.075),
-  2px 4px 16px hsl(0deg 0% 0% / 0.075) !default;
-$jsconfirm-toast-background: #3333 !default;
-$jsconfirm-toast-backdrop-filter: blur(8px);
-$jsconfirm-toast-close-button-width: 0.8em !default;
-$jsconfirm-toast-close-button-height: 0.8em !default;
+$jsconfirm-toast-border-radius: 8px !default;
+$jsconfirm-toast-box-shadow: 0 0 10px 2px #0009 !default;
+$jsconfirm-toast-background: #333 !default;
+$jsconfirm-toast-backdrop-filter: none !default;
+$jsconfirm-toast-close-button-width: 100% !default;
+$jsconfirm-toast-close-button-height: 100% !default;
+$jsconfirm-toast-close-button-color: #fff !default;
 $jsconfirm-toast-close-button-margin: 0 !default;
-$jsconfirm-toast-close-button-font-size: 2em !default;
-$jsconfirm-toast-width: 360px !default;
-$jsconfirm-toast-padding: 1em !default;
-$jsconfirm-toast-title-margin: 0.5em 1em !default;
+$jsconfirm-toast-close-button-font-size: 18px !default;
+$jsconfirm-toast-width: initial !default;
+$jsconfirm-toast-padding: 20px !default;
+$jsconfirm-toast-title-margin: 0 !default;
 $jsconfirm-toast-title-padding: 0 !default;
-$jsconfirm-toast-title-font-size: 1em !default;
-$jsconfirm-toast-icon-font-size: 1.8em !default;
-$jsconfirm-toast-html-container-margin: 0.5em 1em !default;
+$jsconfirm-toast-title-font-size: 16px !default;
+$jsconfirm-toast-icon-font-size: 25px !default;
+$jsconfirm-toast-html-container-margin: 0 !default;
 $jsconfirm-toast-html-container-padding: 0 !default;
-$jsconfirm-toast-html-container-font-size: 1em !default;
+$jsconfirm-toast-html-container-font-size: 14px !default;
 $jsconfirm-toast-input-height: 2em !default;
 $jsconfirm-toast-input-margin: 0.5em !default;
 $jsconfirm-toast-input-font-size: 1em !default;

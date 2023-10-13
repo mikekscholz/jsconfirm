@@ -1,195 +1,245 @@
 @use 'sass:math';
 
-.jsconfirm-popup.jsconfirm-modal {
-	box-shadow: $jsconfirm-box-shadow;
-	border-radius: 16px;
-	position: relative;
-	width: 401px;
-	overflow: hidden;
-	min-width: max-content;
-	// outline: #0001;
-	// outline-width: 1px;
-	// outline-style: solid;
-	// outline-offset: -1px;
-	// background-color: #222a;
-	// overflow: hidden;
-	.jsconfirm-body {
-		border-radius: 16px 16px 0 0;
-		position: relative;
-		background-color: $jsconfirm-background;
-		display: flex;
-		flex-wrap: nowrap;
-		flex-direction: column;
-		gap: 10px;
-		justify-content: flex-start;
-		padding: 10px;
-		// box-shadow: 0 0 20px 10px #0009;
-		z-index: 4;
-		max-height: 80dvh;
-	}
-	
-	.jsconfirm-close {
-		background-color: $glow-white;
-		position: absolute;
-		top: 0;
-		right: 0;
-		width: 70px;
-		height: 35px;
-		border-bottom-left-radius: 16px;
-		border-top-right-radius: 16px;
-		box-shadow: -6px 6px 0 6px #333333;
-		transition: background-color 400ms ease-in-out, color 400ms ease-in-out;
-		align-items: center;
-		justify-content: center;
-		appearance: none;
-		color: #FFF;
-		border-width: 0;
-	
-		&:hover {
-			background-color: $red;
-		}
-	
-		&:focus,
-		&:focus-visible,
-		&::-moz-focus-inner {
-			outline: none;
-			background-color: $red;
-		}
-	}
+// .jsconfirm-popup.jsconfirm-modal {
+// 	box-shadow: $jsconfirm-box-shadow;
+// 	border-radius: $jsconfirm-border-radius;
+// 	position: relative;
+// 	width: $jsconfirm-width;
+// 	overflow: hidden;
+// 	min-width: max-content;
+
+
+// 	.jsconfirm-body {
+// 		// border-radius: 16px 16px 0 0;
+// 		position: relative;
+// 		background-color: $jsconfirm-background;
+// 		padding: $jsconfirm-padding;
+// 		border: $jsconfirm-border;
+// 		border-radius: $jsconfirm-border-radius;
+// 		color: $jsconfirm-color;
+// 		font-family: $jsconfirm-font;
+// 		font-size: $jsconfirm-font-size;
+// 		grid-template-rows: minmax(0, 100%);
+// 		grid-template-columns: $jsconfirm-icon-size minmax(0, 100%);
+// 		display: none;
+// 		// flex-wrap: nowrap;
+// 		// flex-direction: column;
+// 		gap: 10px;
+// 		// justify-content: flex-start;
+// 		// box-shadow: 0 0 20px 10px #0009;
+// 		z-index: 4;
+// 		max-height: 80dvh;
+
+// 		> * {
+// 		grid-column: 1/3;
+// 		}
+// 	}
+
+// 	.jsconfirm-close {
+// 		background-color: $glow-white;
+// 		position: absolute;
+// 		top: 0;
+// 		right: 0;
+// 		width: 70px;
+// 		height: 35px;
+// 		border-bottom-left-radius: 16px;
+// 		border-top-right-radius: 16px;
+// 		box-shadow: -6px 6px 0 6px #333333;
+// 		transition: background-color 400ms ease-in-out, color 400ms ease-in-out;
+// 		align-items: center;
+// 		justify-content: center;
+// 		appearance: none;
+// 		color: #FFF;
+// 		border-width: 0;
+// 		perspective: 400px;
+// 		transform: translateZ(0px);
+
+// 		&:hover {
+// 			background-color: $red;
+// 		}
+
+// 		&:focus,
+// 		&:focus-visible,
+// 		&::-moz-focus-inner {
+// 			outline: none;
+// 			background-color: $red;
+// 		}
+// 	}
+// 	&.jsconfirm-blue {
+// 		--jsconfirm-primary: #{$blue};
+// 		.jsconfirm-body {
+// 			border-top: solid 7px $blue;
+// 			animation-name: type-blue;
+// 		}
+
+// 		.jsconfirm-close {
+
+// 			&:hover,
+// 			&:focus,
+// 			&:focus-visible {
+// 				outline: none;
+// 				background-color: $blue;
+// 			}
+// 		}
+// 	}
+
+// 	&.jsconfirm-green {
+// 		--jsconfirm-primary: #{$green};
+// 		.jsconfirm-body {
+// 			border-top: solid 7px $green;
+// 			animation-name: type-green;
+// 		}
+
+// 		.jsconfirm-close {
+
+// 			&:hover,
+// 			&:focus,
+// 			&:focus-visible {
+// 				outline: none;
+// 				background-color: $green;
+// 			}
+// 		}
+// 	}
+
+// 	&.jsconfirm-red {
+// 		--jsconfirm-primary: #{$red};
+// 		.jsconfirm-body {
+// 			border-top: solid 7px $red;
+// 			animation-name: type-red;
+// 		}
+
+// 		.jsconfirm-close {
+
+// 			&:hover,
+// 			&:focus,
+// 			&:focus-visible {
+// 				outline: none;
+// 				background-color: $red;
+// 			}
+// 		}
+// 	}
+
+// 	&.jsconfirm-yellow {
+// 		--jsconfirm-primary: #{$yellow};
+// 		.jsconfirm-body {
+// 			border-top: solid 7px $yellow;
+// 			animation-name: type-yellow;
+// 		}
+
+// 		.jsconfirm-close {
+
+// 			&:hover,
+// 			&:focus,
+// 			&:focus-visible {
+// 				outline: none;
+// 				background-color: $yellow;
+// 			}
+// 		}
+// 	}
+
+// 	&.jsconfirm-purple {
+// 		--jsconfirm-primary: #{$purple};
+// 		.jsconfirm-body {
+// 			border-top: solid 7px $purple;
+// 			animation-name: type-purple;
+// 		}
+
+// 		.jsconfirm-close {
+
+// 			&:hover,
+// 			&:focus,
+// 			&:focus-visible {
+// 				outline: none;
+// 				background-color: $purple;
+// 			}
+// 		}
+// 	}
+
+// 	&.jsconfirm-dark {
+// 		--jsconfirm-primary: #{$dark};
+// 		.jsconfirm-body {
+// 			border-top: solid 7px $dark;
+// 			animation-name: type-dark;
+// 		}
+
+// 		.jsconfirm-close {
+
+// 			&:hover,
+// 			&:focus,
+// 			&:focus-visible {
+// 				outline: none;
+// 				background-color: $dark;
+// 			}
+// 		}
+// 	}
+
+// 	&.jsconfirm-light {
+// 		--jsconfirm-primary: #{$light};
+// 		.jsconfirm-body {
+// 			border-top: solid 7px $light;
+// 			animation-name: type-light;
+// 		}
+
+// 		.jsconfirm-close {
+
+// 			&:hover,
+// 			&:focus,
+// 			&:focus-visible {
+// 				outline: none;
+// 				background-color: $light;
+// 				color: $dark;
+// 			}
+// 		}
+// 	}
+// }
+
+.jsconfirm-blue {
+	--jsconfirm-primary: #{$blue};
+	--jsconfirm-hover: #{$blueHover};
+	--jsconfirm-alpha: #{$blueAlpha};
 }
 
+.jsconfirm-green {
+	--jsconfirm-primary: #{$green};
+	--jsconfirm-hover: #{$greenHover};
+	--jsconfirm-alpha: #{$greenAlpha};
+}
+
+.jsconfirm-red {
+	--jsconfirm-primary: #{$red};
+	--jsconfirm-hover: #{$redHover};
+	--jsconfirm-alpha: #{$redAlpha};
+}
+
+.jsconfirm-yellow {
+	--jsconfirm-primary: #{$yellow};
+	--jsconfirm-hover: #{$yellowHover};
+	--jsconfirm-alpha: #{$yellowAlpha};
+}
+
+.jsconfirm-purple {
+	--jsconfirm-primary: #{$purple};
+	--jsconfirm-hover: #{$purpleHover};
+	--jsconfirm-alpha: #{$purpleAlpha};
+}
+
+.jsconfirm-dark {
+	--jsconfirm-primary: #{$dark};
+	--jsconfirm-hover: #{$darkHover};
+	--jsconfirm-alpha: #{$darkAlpha};
+}
+
+.jsconfirm-light {
+	--jsconfirm-primary: #{$light};
+	--jsconfirm-hover: #{$lightHover};
+	--jsconfirm-alpha: #{$lightAlpha};
+}
 
 .jsconfirm-animated .jsconfirm-body {
 	animation-duration: 2s;
 	animation-iteration-count: infinite;
 }
 
-.jsconfirm-blue {
-	--jsconfirm-primary: #{$blue};
-	.jsconfirm-body {
-		border-top: solid 7px $blue;
-		animation-name: type-blue;
-	}
-
-	.jsconfirm-close {
-
-		&:hover,
-		&:focus,
-		&:focus-visible {
-			outline: none;
-			background-color: $blue;
-		}
-	}
-}
-
-.jsconfirm-green {
-	--jsconfirm-primary: #{$green};
-	.jsconfirm-body {
-		border-top: solid 7px $green;
-		animation-name: type-green;
-	}
-
-	.jsconfirm-close {
-
-		&:hover,
-		&:focus,
-		&:focus-visible {
-			outline: none;
-			background-color: $green;
-		}
-	}
-}
-
-.jsconfirm-red {
-	--jsconfirm-primary: #{$red};
-	.jsconfirm-body {
-		border-top: solid 7px $red;
-		animation-name: type-red;
-	}
-
-	.jsconfirm-close {
-
-		&:hover,
-		&:focus,
-		&:focus-visible {
-			outline: none;
-			background-color: $red;
-		}
-	}
-}
-
-.jsconfirm-yellow {
-	--jsconfirm-primary: #{$yellow};
-	.jsconfirm-body {
-		border-top: solid 7px $yellow;
-		animation-name: type-yellow;
-	}
-
-	.jsconfirm-close {
-
-		&:hover,
-		&:focus,
-		&:focus-visible {
-			outline: none;
-			background-color: $yellow;
-		}
-	}
-}
-
-.jsconfirm-purple {
-	--jsconfirm-primary: #{$purple};
-	.jsconfirm-body {
-		border-top: solid 7px $purple;
-		animation-name: type-purple;
-	}
-
-	.jsconfirm-close {
-
-		&:hover,
-		&:focus,
-		&:focus-visible {
-			outline: none;
-			background-color: $purple;
-		}
-	}
-}
-
-.jsconfirm-dark {
-	--jsconfirm-primary: #{$dark};
-	.jsconfirm-body {
-		border-top: solid 7px $dark;
-		animation-name: type-dark;
-	}
-
-	.jsconfirm-close {
-
-		&:hover,
-		&:focus,
-		&:focus-visible {
-			outline: none;
-			background-color: $dark;
-		}
-	}
-}
-
-.jsconfirm-light {
-	--jsconfirm-primary: #{$light};
-	.jsconfirm-body {
-		border-top: solid 7px $light;
-		animation-name: type-light;
-	}
-
-	.jsconfirm-close {
-
-		&:hover,
-		&:focus,
-		&:focus-visible {
-			outline: none;
-			background-color: $light;
-			color: $dark;
-		}
-	}
-}
 
 .modal-shake {
 	animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both !important;
@@ -210,6 +260,7 @@
 	// clip-path: polygon(calc(100% - 70px) 0px, calc(100% - 70px) 36px, 101% 36px, 101% 101%, 0% 101%, 0% 0%);
 	// clip-path: polygon(calc(100% - 70px) -2%, calc(100% - 70px) 35px, 102% 35px, 102% calc(102% + 150px), -2% calc(102% + 150px), -2% -2%);
 	clip-path: polygon(calc(100% - 70px) 0, calc(100% - 70px) 35px, 100% 35px, 100% 100%, 0 100%, 0 0);
+	// clip-path: polygon(calc(100% - 70px) -1px, calc(100% - 70px) 35px, calc(100% + 1px) 35px, calc(100% + 1px) calc(100% + 1px), -1px calc(100% + 1px), -1px -1px);
 	// clip-path: polygon(calc(100% - 70px) -2%, calc(100% - 70px) 23px, calc(100% - 69px) 26px, calc(100% - 68px) 28px, calc(100% - 67px) 29px, calc(100% - 66px) 30px, calc(100% - 65px) 31px, calc(100% - 64px) 32px, calc(100% - 63px) 33px, calc(100% - 61px) 34px, calc(100% - 58px) 35px, 102% 35px, 102% calc(102% + 150px), -2% calc(102% + 150px), -2% -2%);
 	// clip-path: polygon(calc(100% - 70px) -2%, calc(100% - 70px) 19px, calc(100% - 69px) 25px, calc(100% - 68px) 27px, calc(100% - 67px) 29px, calc(100% - 66px) 30px, calc(100% - 65px) 31px, calc(100% - 64px) 32px, calc(100% - 62px) 33px, calc(100% - 60px) 34px, calc(100% - 54px) 35px, 102% 35px, 102% calc(102% + 150px), -2% calc(102% + 150px), -2% -2%);
 }
@@ -263,8 +314,9 @@
 			&:focus,
 			&:focus-visible {
 				outline: none;
-				box-shadow: 0 0 0 1px currentColor, 0 0 0 3px $blue;
-				border: 1px solid currentColor;
+				box-shadow: 0 0 0 5px $blueAlpha, 0 0 0 1px currentColor;
+				// box-shadow: inset 0 0 0 2px currentColor, 0 0 0 1px $blue;
+				// border: 1px solid currentColor;
 			}
 		}
 
@@ -282,8 +334,9 @@
 			&:focus,
 			&:focus-visible {
 				outline: none;
-				box-shadow: 0 0 0 1px currentColor, 0 0 0 3px $green;
-				border: 1px solid currentColor;
+				box-shadow: 0 0 0 5px $greenAlpha, 0 0 0 1px currentColor;
+				// box-shadow: inset 0 0 0 2px currentColor, 0 0 0 1px $green;
+				// border: 1px solid currentColor;
 			}
 		}
 
@@ -301,8 +354,9 @@
 			&:focus,
 			&:focus-visible {
 				outline: none;
-				box-shadow: 0 0 0 1px currentColor, 0 0 0 3px $red;
-				border: 1px solid currentColor;
+				box-shadow: 0 0 0 5px $redAlpha, 0 0 0 1px currentColor;
+				// box-shadow: inset 0 0 0 2px currentColor, 0 0 0 1px $red;
+				// border: 1px solid currentColor;
 			}
 		}
 
@@ -320,8 +374,9 @@
 			&:focus,
 			&:focus-visible {
 				outline: none;
-				box-shadow: 0 0 0 1px currentColor, 0 0 0 3px $yellow;
-				border: 1px solid currentColor;
+				box-shadow: 0 0 0 5px $yellowAlpha, 0 0 0 1px currentColor;
+				// box-shadow: inset 0 0 0 2px currentColor, 0 0 0 1px $yellow;
+				// border: 1px solid currentColor;
 			}
 		}
 
@@ -350,8 +405,9 @@
 			&:focus,
 			&:focus-visible {
 				outline: none;
-				box-shadow: 0 0 0 1px currentColor, 0 0 0 3px $purple;
-				border: 1px solid currentColor;
+				box-shadow: 0 0 0 5px $purpleAlpha, 0 0 0 1px currentColor;
+				// box-shadow: inset 0 0 0 2px currentColor, 0 0 0 1px $purple;
+				// border: 1px solid currentColor;
 			}
 		}
 
@@ -369,8 +425,9 @@
 			&:focus,
 			&:focus-visible {
 				outline: none;
-				box-shadow: 0 0 0 1px currentColor, 0 0 0 3px $dark;
-				border: 1px solid currentColor;
+				box-shadow: 0 0 0 5px $darkAlpha, 0 0 0 1px currentColor;
+				// box-shadow: inset 0 0 0 2px currentColor, 0 0 0 1px $dark;
+				// border: 1px solid currentColor;
 			}
 		}
 
@@ -388,12 +445,14 @@
 			&:focus,
 			&:focus-visible {
 				outline: none;
-				box-shadow: 0 0 0 1px currentColor, 0 0 0 3px $light;
-				border: 1px solid currentColor;
+				box-shadow: 0 0 0 5px $lightAlpha, 0 0 0 1px currentColor;
+				// box-shadow: inset 0 0 0 2px currentColor, 0 0 0 1px $light;
+				// border: 1px solid currentColor;
 			}
 		}
 	}
 }
+
 // .modalBackdrop {
 // 	position: absolute;
 // 	top: 0;
@@ -415,11 +474,13 @@
 // 	overflow: hidden;
 // 	scrollbar-width: none;
 // }
-div:where(.jsconfirm-container) {
+.jsconfirm-container {
 	display: grid;
 	position: absolute;
 	// z-index: 1060;
-	inset: 0;
+	// inset: 0;
+	top: 0;
+	left: 0;
 	box-sizing: border-box;
 	grid-template-areas:
 		'top-start     top            top-end'
@@ -429,7 +490,7 @@ div:where(.jsconfirm-container) {
 	// height: 100%; // Safari
 	width: 100dvw;
 	height: 100dvh;
-	// padding: $jsconfirm-container-padding;
+	padding: $jsconfirm-container-padding;
 	backdrop-filter: none;
 	overflow-x: hidden;
 	overflow: hidden;
@@ -545,22 +606,18 @@ div:where(.jsconfirm-container) {
 		transition: none !important;
 	}
 
-	div:where(.jsconfirm-popup) {
+	.jsconfirm-popup.jsconfirm-modal {
 		display: none;
 		position: relative;
 		box-sizing: border-box;
-		grid-template-columns: minmax(0, 100%);
-		width: $jsconfirm-width;
-		max-width: 100%;
-		padding: $jsconfirm-padding;
-		border: $jsconfirm-border;
+		box-shadow: $jsconfirm-box-shadow;
 		border-radius: $jsconfirm-border-radius;
-		background: $jsconfirm-background;
-		color: $jsconfirm-color;
-		font-family: $jsconfirm-font;
-		font-size: $jsconfirm-font-size;
-		transform: translate3d(0,0,0);
-		
+		overflow: hidden;
+		max-width: 100%;
+		min-width: max-content;
+		width: $jsconfirm-width;
+		transform: translate3d(0, 0, 0);
+
 		&:focus {
 			outline: none;
 		}
@@ -568,409 +625,634 @@ div:where(.jsconfirm-container) {
 		&.jsconfirm-loading {
 			overflow-y: hidden;
 		}
-	}
 
-	h2:where(.jsconfirm-title) {
-		position: $jsconfirm-title-position;
-		max-width: $jsconfirm-title-max-width;
-		margin: $jsconfirm-title-margin;
-		padding: $jsconfirm-title-padding;
-		color: $jsconfirm-title-color;
-		font-size: $jsconfirm-title-font-size;
-		font-weight: $jsconfirm-title-font-weight;
-		text-align: $jsconfirm-title-text-align;
-		text-transform: none;
-		word-wrap: break-word;
-	}
+		.jsconfirm-body {
+			// border-radius: 16px 16px 0 0;
+			position: relative;
+			background-color: $jsconfirm-background;
+			padding: $jsconfirm-padding;
+			border: $jsconfirm-border;
+			border-radius: $jsconfirm-border-radius;
+			color: $jsconfirm-color;
+			font-family: $jsconfirm-font;
+			font-size: $jsconfirm-font-size;
+			grid-template-rows: minmax(0, 100%);
+			grid-template-columns: $jsconfirm-icon-size minmax(0, 100%);
+			display: none;
+			// flex-wrap: nowrap;
+			// flex-direction: column;
+			gap: 10px;
+			// justify-content: flex-start;
+			// box-shadow: 0 0 20px 10px #0009;
+			z-index: 4;
+			max-height: 80dvh;
 
-	div:where(.jsconfirm-actions) {
-		display: flex;
-		z-index: 1; // prevent success icon from overlapping buttons
-		box-sizing: border-box;
-		flex-wrap: $jsconfirm-actions-flex-wrap;
-		align-items: $jsconfirm-actions-align-items;
-		justify-content: $jsconfirm-actions-justify-content;
-		width: $jsconfirm-actions-width;
-		margin: $jsconfirm-actions-margin;
-		padding: $jsconfirm-actions-padding;
+			> * {
+				grid-column: 1/3;
+			}
 
-		&:not(.jsconfirm-loading) {
-			.jsconfirm-styled {
-				&[disabled] {
-					opacity: 0.4;
+			h2:where(.jsconfirm-title) {
+				position: $jsconfirm-title-position;
+				max-width: $jsconfirm-title-max-width;
+				margin: $jsconfirm-title-margin;
+				padding: $jsconfirm-title-padding;
+				color: $jsconfirm-title-color;
+				font-size: $jsconfirm-title-font-size;
+				font-weight: $jsconfirm-title-font-weight;
+				text-align: $jsconfirm-title-text-align;
+				text-transform: none;
+				word-wrap: break-word;
+				grid-row: 1/2;
+				grid-column: 2/3;
+				align-self: center;
+			}
+
+			div:where(.jsconfirm-actions) {
+				display: flex;
+				z-index: 1; // prevent success icon from overlapping buttons
+				box-sizing: border-box;
+				flex-wrap: $jsconfirm-actions-flex-wrap;
+				align-items: $jsconfirm-actions-align-items;
+				justify-content: $jsconfirm-actions-justify-content;
+				width: $jsconfirm-actions-width;
+				margin: $jsconfirm-actions-margin;
+				padding: $jsconfirm-actions-padding;
+				grid-column: 1/3;
+
+				&:not(.jsconfirm-loading) {
+					.jsconfirm-styled {
+						&[disabled] {
+							opacity: 0.4;
+						}
+
+						&:hover {
+							background-image: linear-gradient($jsconfirm-button-darken-hover, $jsconfirm-button-darken-hover);
+						}
+
+						&:active {
+							background-image: linear-gradient($jsconfirm-button-darken-active, $jsconfirm-button-darken-active);
+						}
+					}
+				}
+			}
+
+			div:where(.jsconfirm-loader) {
+				display: none;
+				align-items: $jsconfirm-loader-align-items;
+				justify-content: $jsconfirm-loader-justify-content;
+				width: $jsconfirm-loader-width;
+				height: $jsconfirm-loader-height;
+				margin: $jsconfirm-loader-margin;
+				animation: $jsconfirm-loader-animation;
+				border-width: $jsconfirm-loader-border-width;
+				border-style: $jsconfirm-loader-border-style;
+				border-radius: $jsconfirm-loader-border-radius;
+				border-color: $jsconfirm-loader-border-color;
+			}
+
+			// button:where(.jsconfirm-styled) {
+			// 	margin: $jsconfirm-button-margin;
+			// 	padding: $jsconfirm-button-padding;
+			// 	transition: $jsconfirm-button-transition;
+			// 	box-shadow: $jsconfirm-button-box-shadow;
+			// 	font-weight: $jsconfirm-button-font-weight;
+
+			// 	&:not([disabled]) {
+			// 		cursor: pointer;
+			// 	}
+
+			// 	&.jsconfirm-confirm {
+			// 		order: $jsconfirm-confirm-button-order;
+			// 		border: $jsconfirm-confirm-button-border;
+			// 		border-radius: $jsconfirm-confirm-button-border-radius;
+			// 		background: initial;
+			// 		background-color: $jsconfirm-confirm-button-background-color;
+			// 		color: $jsconfirm-confirm-button-color;
+			// 		font-size: $jsconfirm-confirm-button-font-size;
+
+			// 		&:focus {
+			// 			box-shadow: $jsconfirm-confirm-button-focus-box-shadow;
+			// 		}
+			// 	}
+
+			// 	&.jsconfirm-deny {
+			// 		order: $jsconfirm-deny-button-order;
+			// 		border: $jsconfirm-deny-button-border;
+			// 		border-radius: $jsconfirm-deny-button-border-radius;
+			// 		background: initial;
+			// 		background-color: $jsconfirm-deny-button-background-color;
+			// 		color: $jsconfirm-deny-button-color;
+			// 		font-size: $jsconfirm-deny-button-font-size;
+
+			// 		&:focus {
+			// 			box-shadow: $jsconfirm-deny-button-focus-box-shadow;
+			// 		}
+			// 	}
+
+			// 	&.jsconfirm-cancel {
+			// 		order: $jsconfirm-cancel-button-order;
+			// 		border: $jsconfirm-cancel-button-border;
+			// 		border-radius: $jsconfirm-cancel-button-border-radius;
+			// 		background: initial;
+			// 		background-color: $jsconfirm-cancel-button-background-color;
+			// 		color: $jsconfirm-cancel-button-color;
+			// 		font-size: $jsconfirm-cancel-button-font-size;
+
+			// 		&:focus {
+			// 			box-shadow: $jsconfirm-cancel-button-focus-box-shadow;
+			// 		}
+			// 	}
+
+				.jsconfirm-default-outline {
+					&:focus,
+					&:focus-visible {
+						outline: none;
+						box-shadow: 0 0 0 5px var(--alpha-color), 0 0 0 1px currentColor;
+						// border: 1px solid currentColor;
+					}
+					&:hover {
+						background-color: var(--accent-color);
+						color: var(--contrast-color);
+						&:focus,
+						&:focus-visible {
+							outline: none;
+							box-shadow: 0 0 0 5px var(--alpha-color), 0 0 0 1px currentColor;
+							// border: 1px solid currentColor;
+						}
+					}
+					&::-moz-focus-inner {
+						border: 0;
+					}
 				}
 
-				&:hover {
-					background-image: linear-gradient($jsconfirm-button-darken-hover, $jsconfirm-button-darken-hover);
-				}
+				// &:focus {
+				// 	outline: $jsconfirm-button-focus-outline;
+				// }
 
-				&:active {
-					background-image: linear-gradient($jsconfirm-button-darken-active, $jsconfirm-button-darken-active);
+		// }
+
+		div:where(.jsconfirm-footer) {
+			margin: $jsconfirm-footer-margin;
+			padding: $jsconfirm-footer-padding;
+			border-top: 1px solid $jsconfirm-footer-border-color;
+			color: $jsconfirm-footer-color;
+			font-size: $jsconfirm-footer-font-size;
+			text-align: $jsconfirm-footer-text-align;
+			grid-column: 1/3;
+		}
+
+		.jsconfirm-timer-progress-bar-container {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			grid-column: auto !important;
+			overflow: hidden;
+			background: $jsconfirm-timer-progress-bar-track;
+			border-bottom-right-radius: $jsconfirm-border-radius;
+			border-bottom-left-radius: $jsconfirm-border-radius;
+		}
+		
+		div:where(.jsconfirm-timer-progress-bar) {
+			width: 100%;
+			height: $jsconfirm-timer-progress-bar-height;
+			background: $jsconfirm-timer-progress-bar-fill;
+		}
+		
+		.jsconfirm-timer-progress-circle-container {
+			position: absolute;
+			display: none;
+		}
+
+		img:where(.jsconfirm-image) {
+			max-width: 100%;
+			margin: $jsconfirm-image-margin;
+			grid-column: 1/3;
+		}
+
+		// button:where(.jsconfirm-close) {
+		// 	position: $jsconfirm-close-button-position;
+		// 	z-index: 2; // sweetalert2/issues/1617
+		// 	align-items: $jsconfirm-close-button-align-items;
+		// 	justify-content: $jsconfirm-close-button-justify-content;
+		// 	width: $jsconfirm-close-button-width;
+		// 	height: $jsconfirm-close-button-height;
+		// 	margin-top: $jsconfirm-close-button-gap;
+		// 	margin-right: $jsconfirm-close-button-gap;
+		// 	margin-bottom: -$jsconfirm-close-button-height;
+		// 	padding: $jsconfirm-close-button-padding;
+		// 	overflow: hidden;
+		// 	transition: $jsconfirm-close-button-transition;
+		// 	border: $jsconfirm-close-button-border;
+		// 	border-radius: $jsconfirm-close-button-border-radius;
+		// 	outline: $jsconfirm-close-button-outline;
+		// 	background: $jsconfirm-close-button-background;
+		// 	color: $jsconfirm-close-button-color;
+		// 	font-family: $jsconfirm-close-button-font-family;
+		// 	font-size: $jsconfirm-close-button-font-size;
+		// 	cursor: pointer;
+		// 	justify-self: $jsconfirm-close-button-justify-self;
+
+		// 	&:hover {
+		// 		transform: $jsconfirm-close-button-hover-transform;
+		// 		background: $jsconfirm-close-button-hover-background;
+		// 		color: $jsconfirm-close-button-hover-color;
+		// 	}
+
+		// 	&:focus {
+		// 		outline: $jsconfirm-close-button-focus-outline;
+		// 		box-shadow: $jsconfirm-close-button-focus-box-shadow;
+		// 	}
+
+		// 	&::-moz-focus-inner {
+		// 		border: 0;
+		// 	}
+		// }
+
+		.jsconfirm-html-container {
+			z-index: 1; // prevent sucess icon overlapping the content
+			justify-content: $jsconfirm-html-container-justify-content;
+			margin: $jsconfirm-html-container-margin;
+			padding: $jsconfirm-html-container-padding;
+			overflow: $jsconfirm-html-container-overflow;
+			color: $jsconfirm-html-container-color;
+			font-size: $jsconfirm-html-container-font-size;
+			font-weight: $jsconfirm-html-container-font-weight;
+			line-height: $jsconfirm-html-container-line-height;
+			text-align: $jsconfirm-html-container-text-align;
+			word-wrap: $jsconfirm-html-container-word-wrap;
+			word-break: $jsconfirm-html-container-word-break;
+			grid-column: 1/3;
+		}
+
+		input:where(.jsconfirm-input),
+		input:where(.jsconfirm-file),
+		textarea:where(.jsconfirm-textarea),
+		select:where(.jsconfirm-select),
+		div:where(.jsconfirm-radio),
+		label:where(.jsconfirm-checkbox) {
+			margin: $jsconfirm-input-margin;
+		}
+
+		input:where(.jsconfirm-input),
+		input:where(.jsconfirm-file),
+		textarea:where(.jsconfirm-textarea) {
+			box-sizing: border-box;
+			width: $jsconfirm-input-width;
+			transition: $jsconfirm-input-transition;
+			border: $jsconfirm-input-border;
+			border-radius: $jsconfirm-input-border-radius;
+			background: $jsconfirm-input-background;
+			box-shadow: $jsconfirm-input-box-shadow;
+			color: $jsconfirm-input-color;
+			font-size: $jsconfirm-input-font-size;
+
+			&.jsconfirm-inputerror {
+				border-color: $jsconfirm-error !important;
+				box-shadow: 0 0 2px $jsconfirm-error !important;
+			}
+
+			&:focus {
+				border: $jsconfirm-input-focus-border;
+				outline: $jsconfirm-input-focus-outline;
+				box-shadow: $jsconfirm-input-focus-box-shadow;
+			}
+
+			&::placeholder {
+				color: #ccc;
+			}
+		}
+
+		// .jsconfirm-range {
+		// 	margin: $jsconfirm-input-margin;
+		// 	background: $jsconfirm-background;
+
+		// 	input {
+		// 		width: 80%;
+		// 	}
+
+		// 	output {
+		// 		width: 20%;
+		// 		color: $jsconfirm-input-color;
+		// 		font-weight: 600;
+		// 		text-align: center;
+		// 	}
+
+		// 	input,
+		// 	output {
+		// 		height: $jsconfirm-input-height;
+		// 		padding: 0;
+		// 		font-size: $jsconfirm-input-font-size;
+		// 		line-height: $jsconfirm-input-height;
+		// 	}
+		// }
+
+		.jsconfirm-input {
+			height: $jsconfirm-input-height;
+			padding: $jsconfirm-input-padding;
+		}
+
+		.jsconfirm-file {
+			width: 75%;
+			margin-right: auto;
+			margin-left: auto;
+			background: $jsconfirm-input-background;
+			font-size: $jsconfirm-input-font-size;
+		}
+
+		.jsconfirm-textarea {
+			height: $jsconfirm-textarea-height;
+			padding: $jsconfirm-textarea-padding;
+		}
+
+		.jsconfirm-select {
+			min-width: 50%;
+			max-width: 100%;
+			padding: 0px 32px 0px 8px;
+			background: $jsconfirm-input-background;
+			color: $jsconfirm-input-color;
+			font-size: $jsconfirm-input-font-size;
+		}
+
+		.jsconfirm-radio,
+		.jsconfirm-checkbox {
+			align-items: center;
+			justify-content: center;
+			background: $jsconfirm-background;
+			color: $jsconfirm-input-color;
+
+			label {
+				margin: 0 0.6em;
+				font-size: $jsconfirm-input-font-size;
+			}
+
+			input {
+				flex-shrink: 0;
+				margin: 0 0.4em;
+			}
+		}
+
+		label:where(.jsconfirm-input-label) {
+			display: flex;
+			justify-content: $jsconfirm-input-label-justify-content;
+			margin: $jsconfirm-input-label-margin;
+			font-size: $jsconfirm-input-label-font-size;
+			font-weight: $jsconfirm-input-label-font-weight;
+			line-height: 23px;
+		}
+
+		div:where(.jsconfirm-validation-message) {
+			align-items: $jsconfirm-validation-message-align-items;
+			justify-content: $jsconfirm-validation-message-justify-content;
+			margin: $jsconfirm-validation-message-margin;
+			padding: $jsconfirm-validation-message-padding;
+			overflow: hidden;
+			background: $jsconfirm-validation-message-background;
+			color: $jsconfirm-validation-message-color;
+			font-size: $jsconfirm-validation-message-font-size;
+			font-weight: $jsconfirm-validation-message-font-weight;
+			border: $jsconfirm-validation-message-border;
+			border-radius: $jsconfirm-validation-message-border-radius;
+
+			&::before {
+				content: '!';
+				display: inline-block;
+				width: 1em;
+				min-width: 1em;
+				height: 1em;
+				margin: 0 0.625em;
+				zoom: $jsconfirm-validation-message-icon-zoom;
+				border-radius: 50%;
+				background-color: $jsconfirm-validation-message-icon-background;
+				border: 2px solid $jsconfirm-validation-message-icon-border;
+				color: $jsconfirm-validation-message-icon-color;
+				font-weight: 800;
+				line-height: 1.1em;
+				text-align: center;
+				font-size: 20px;
+			}
+		}
+
+		.jsconfirm-progress-steps {
+			flex-wrap: $jsconfirm-progress-steps-flex-wrap;
+			align-items: $jsconfirm-progress-steps-align-items;
+			max-width: $jsconfirm-progress-steps-max-width;
+			margin: $jsconfirm-progress-steps-margin;
+			padding: $jsconfirm-progress-steps-padding;
+			background: $jsconfirm-progress-steps-background;
+			font-weight: $jsconfirm-progress-steps-font-weight;
+
+			li {
+				display: inline-block;
+				position: relative;
+			}
+
+			.jsconfirm-progress-step {
+				z-index: 20;
+				flex-shrink: 0;
+				width: $jsconfirm-progress-step-width;
+				height: $jsconfirm-progress-step-height;
+				border-radius: $jsconfirm-progress-step-border-radius;
+				background: $jsconfirm-active-step-background;
+				color: $jsconfirm-active-step-color;
+				line-height: $jsconfirm-progress-step-height;
+				text-align: center;
+
+				&.jsconfirm-active-progress-step {
+					background: $jsconfirm-active-step-background;
+
+					~ .jsconfirm-progress-step {
+						background: $jsconfirm-progress-step-background;
+						color: $jsconfirm-progress-step-color;
+					}
+
+					~ .jsconfirm-progress-step-line {
+						background: $jsconfirm-progress-step-background;
+					}
+				}
+			}
+
+			.jsconfirm-progress-step-line {
+				z-index: 10;
+				flex-shrink: 0;
+				width: $jsconfirm-progress-steps-distance;
+				height: 0.4em;
+				margin: 0 -1px;
+				background: $jsconfirm-active-step-background;
+			}
+		}
+
+		}
+
+		.jsconfirm-close {
+			background-color: $glow-white;
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 70px;
+			height: 35px;
+			border-bottom-left-radius: 16px;
+			border-top-right-radius: 16px;
+			box-shadow: -6px 6px 0 6px #333333;
+			transition: background-color 400ms ease-in-out, color 400ms ease-in-out;
+			align-items: center;
+			justify-content: center;
+			appearance: none;
+			color: #FFF;
+			border-width: 0;
+			perspective: 400px;
+			transform: translateZ(0px);
+
+			&:hover {
+				background-color: $red;
+			}
+
+			&:focus,
+			&:focus-visible,
+			&::-moz-focus-inner {
+				outline: none;
+				background-color: $red;
+			}
+		}
+
+		&.jsconfirm-blue {
+			--jsconfirm-primary: #{$blue};
+
+			.jsconfirm-body {
+				border-top: solid 7px $blue;
+				animation-name: type-blue;
+			}
+
+			.jsconfirm-close {
+
+				&:hover,
+				&:focus,
+				&:focus-visible {
+					outline: none;
+					background-color: $blue;
+				}
+			}
+		}
+
+		&.jsconfirm-green {
+			--jsconfirm-primary: #{$green};
+
+			.jsconfirm-body {
+				border-top: solid 7px $green;
+				animation-name: type-green;
+			}
+
+			.jsconfirm-close {
+
+				&:hover,
+				&:focus,
+				&:focus-visible {
+					outline: none;
+					background-color: $green;
+				}
+			}
+		}
+
+		&.jsconfirm-red {
+			--jsconfirm-primary: #{$red};
+
+			.jsconfirm-body {
+				border-top: solid 7px $red;
+				animation-name: type-red;
+			}
+
+			.jsconfirm-close {
+
+				&:hover,
+				&:focus,
+				&:focus-visible {
+					outline: none;
+					background-color: $red;
+				}
+			}
+		}
+
+		&.jsconfirm-yellow {
+			--jsconfirm-primary: #{$yellow};
+
+			.jsconfirm-body {
+				border-top: solid 7px $yellow;
+				animation-name: type-yellow;
+			}
+
+			.jsconfirm-close {
+
+				&:hover,
+				&:focus,
+				&:focus-visible {
+					outline: none;
+					background-color: $yellow;
+				}
+			}
+		}
+
+		&.jsconfirm-purple {
+			--jsconfirm-primary: #{$purple};
+
+			.jsconfirm-body {
+				border-top: solid 7px $purple;
+				animation-name: type-purple;
+			}
+
+			.jsconfirm-close {
+
+				&:hover,
+				&:focus,
+				&:focus-visible {
+					outline: none;
+					background-color: $purple;
+				}
+			}
+		}
+
+		&.jsconfirm-dark {
+			--jsconfirm-primary: #{$dark};
+
+			.jsconfirm-body {
+				border-top: solid 7px $dark;
+				animation-name: type-dark;
+			}
+
+			.jsconfirm-close {
+
+				&:hover,
+				&:focus,
+				&:focus-visible {
+					outline: none;
+					background-color: $dark;
+				}
+			}
+		}
+
+		&.jsconfirm-light {
+			--jsconfirm-primary: #{$light};
+
+			.jsconfirm-body {
+				border-top: solid 7px $light;
+				animation-name: type-light;
+			}
+
+			.jsconfirm-close {
+
+				&:hover,
+				&:focus,
+				&:focus-visible {
+					outline: none;
+					background-color: $light;
+					color: $dark;
 				}
 			}
 		}
 	}
 
-	div:where(.jsconfirm-loader) {
-		display: none;
-		align-items: $jsconfirm-loader-align-items;
-		justify-content: $jsconfirm-loader-justify-content;
-		width: $jsconfirm-loader-width;
-		height: $jsconfirm-loader-height;
-		margin: $jsconfirm-loader-margin;
-		animation: $jsconfirm-loader-animation;
-		border-width: $jsconfirm-loader-border-width;
-		border-style: $jsconfirm-loader-border-style;
-		border-radius: $jsconfirm-loader-border-radius;
-		border-color: $jsconfirm-loader-border-color;
-	}
-
-	// button:where(.jsconfirm-styled) {
-	// 	margin: $jsconfirm-button-margin;
-	// 	padding: $jsconfirm-button-padding;
-	// 	transition: $jsconfirm-button-transition;
-	// 	box-shadow: $jsconfirm-button-box-shadow;
-	// 	font-weight: $jsconfirm-button-font-weight;
-
-	// 	&:not([disabled]) {
-	// 		cursor: pointer;
-	// 	}
-
-	// 	&.jsconfirm-confirm {
-	// 		order: $jsconfirm-confirm-button-order;
-	// 		border: $jsconfirm-confirm-button-border;
-	// 		border-radius: $jsconfirm-confirm-button-border-radius;
-	// 		background: initial;
-	// 		background-color: $jsconfirm-confirm-button-background-color;
-	// 		color: $jsconfirm-confirm-button-color;
-	// 		font-size: $jsconfirm-confirm-button-font-size;
-
-	// 		&:focus {
-	// 			box-shadow: $jsconfirm-confirm-button-focus-box-shadow;
-	// 		}
-	// 	}
-
-	// 	&.jsconfirm-deny {
-	// 		order: $jsconfirm-deny-button-order;
-	// 		border: $jsconfirm-deny-button-border;
-	// 		border-radius: $jsconfirm-deny-button-border-radius;
-	// 		background: initial;
-	// 		background-color: $jsconfirm-deny-button-background-color;
-	// 		color: $jsconfirm-deny-button-color;
-	// 		font-size: $jsconfirm-deny-button-font-size;
-
-	// 		&:focus {
-	// 			box-shadow: $jsconfirm-deny-button-focus-box-shadow;
-	// 		}
-	// 	}
-
-	// 	&.jsconfirm-cancel {
-	// 		order: $jsconfirm-cancel-button-order;
-	// 		border: $jsconfirm-cancel-button-border;
-	// 		border-radius: $jsconfirm-cancel-button-border-radius;
-	// 		background: initial;
-	// 		background-color: $jsconfirm-cancel-button-background-color;
-	// 		color: $jsconfirm-cancel-button-color;
-	// 		font-size: $jsconfirm-cancel-button-font-size;
-
-	// 		&:focus {
-	// 			box-shadow: $jsconfirm-cancel-button-focus-box-shadow;
-	// 		}
-	// 	}
-
-	// 	&.jsconfirm-default-outline {
-	// 		&:focus {
-	// 			box-shadow: $jsconfirm-button-focus-box-shadow;
-	// 		}
-	// 	}
-
-	// 	&:focus {
-	// 		outline: $jsconfirm-button-focus-outline;
-	// 	}
-
-	&::-moz-focus-inner {
-		border: 0;
-	}
 }
 
-div:where(.jsconfirm-footer) {
-	margin: $jsconfirm-footer-margin;
-	padding: $jsconfirm-footer-padding;
-	border-top: 1px solid $jsconfirm-footer-border-color;
-	color: $jsconfirm-footer-color;
-	font-size: $jsconfirm-footer-font-size;
-	text-align: $jsconfirm-footer-text-align;
-}
 
-.jsconfirm-timer-progress-bar-container {
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	grid-column: auto !important;
-	overflow: hidden;
-	border-bottom-right-radius: $jsconfirm-border-radius;
-	border-bottom-left-radius: $jsconfirm-border-radius;
-}
-
-div:where(.jsconfirm-timer-progress-bar) {
-	width: 100%;
-	height: $jsconfirm-timer-progress-bar-height;
-	background: $jsconfirm-timer-progress-bar-background;
-}
-
-img:where(.jsconfirm-image) {
-	max-width: 100%;
-	margin: $jsconfirm-image-margin;
-}
-
-// button:where(.jsconfirm-close) {
-// 	position: $jsconfirm-close-button-position;
-// 	z-index: 2; // sweetalert2/issues/1617
-// 	align-items: $jsconfirm-close-button-align-items;
-// 	justify-content: $jsconfirm-close-button-justify-content;
-// 	width: $jsconfirm-close-button-width;
-// 	height: $jsconfirm-close-button-height;
-// 	margin-top: $jsconfirm-close-button-gap;
-// 	margin-right: $jsconfirm-close-button-gap;
-// 	margin-bottom: -$jsconfirm-close-button-height;
-// 	padding: $jsconfirm-close-button-padding;
-// 	overflow: hidden;
-// 	transition: $jsconfirm-close-button-transition;
-// 	border: $jsconfirm-close-button-border;
-// 	border-radius: $jsconfirm-close-button-border-radius;
-// 	outline: $jsconfirm-close-button-outline;
-// 	background: $jsconfirm-close-button-background;
-// 	color: $jsconfirm-close-button-color;
-// 	font-family: $jsconfirm-close-button-font-family;
-// 	font-size: $jsconfirm-close-button-font-size;
-// 	cursor: pointer;
-// 	justify-self: $jsconfirm-close-button-justify-self;
-
-// 	&:hover {
-// 		transform: $jsconfirm-close-button-hover-transform;
-// 		background: $jsconfirm-close-button-hover-background;
-// 		color: $jsconfirm-close-button-hover-color;
-// 	}
-
-// 	&:focus {
-// 		outline: $jsconfirm-close-button-focus-outline;
-// 		box-shadow: $jsconfirm-close-button-focus-box-shadow;
-// 	}
-
-// 	&::-moz-focus-inner {
-// 		border: 0;
-// 	}
-// }
-
-.jsconfirm-html-container {
-	z-index: 1; // prevent sucess icon overlapping the content
-	justify-content: $jsconfirm-html-container-justify-content;
-	margin: $jsconfirm-html-container-margin;
-	padding: $jsconfirm-html-container-padding;
-	overflow: $jsconfirm-html-container-overflow;
-	color: $jsconfirm-html-container-color;
-	font-size: $jsconfirm-html-container-font-size;
-	font-weight: $jsconfirm-html-container-font-weight;
-	line-height: $jsconfirm-html-container-line-height;
-	text-align: $jsconfirm-html-container-text-align;
-	word-wrap: $jsconfirm-html-container-word-wrap;
-	word-break: $jsconfirm-html-container-word-break;
-}
-
-input:where(.jsconfirm-input),
-input:where(.jsconfirm-file),
-textarea:where(.jsconfirm-textarea),
-select:where(.jsconfirm-select),
-div:where(.jsconfirm-radio),
-label:where(.jsconfirm-checkbox) {
-	margin: $jsconfirm-input-margin;
-}
-
-input:where(.jsconfirm-input),
-input:where(.jsconfirm-file),
-textarea:where(.jsconfirm-textarea) {
-	box-sizing: border-box;
-	width: $jsconfirm-input-width;
-	transition: $jsconfirm-input-transition;
-	border: $jsconfirm-input-border;
-	border-radius: $jsconfirm-input-border-radius;
-	background: $jsconfirm-input-background;
-	box-shadow: $jsconfirm-input-box-shadow;
-	color: $jsconfirm-input-color;
-	font-size: $jsconfirm-input-font-size;
-
-	&.jsconfirm-inputerror {
-		border-color: $jsconfirm-error !important;
-		box-shadow: 0 0 2px $jsconfirm-error !important;
-	}
-
-	&:focus {
-		border: $jsconfirm-input-focus-border;
-		outline: $jsconfirm-input-focus-outline;
-		box-shadow: $jsconfirm-input-focus-box-shadow;
-	}
-
-	&::placeholder {
-		color: #ccc;
-	}
-}
-
-// .jsconfirm-range {
-// 	margin: $jsconfirm-input-margin;
-// 	background: $jsconfirm-background;
-
-// 	input {
-// 		width: 80%;
-// 	}
-
-// 	output {
-// 		width: 20%;
-// 		color: $jsconfirm-input-color;
-// 		font-weight: 600;
-// 		text-align: center;
-// 	}
-
-// 	input,
-// 	output {
-// 		height: $jsconfirm-input-height;
-// 		padding: 0;
-// 		font-size: $jsconfirm-input-font-size;
-// 		line-height: $jsconfirm-input-height;
-// 	}
-// }
-
-.jsconfirm-input {
-	height: $jsconfirm-input-height;
-	padding: $jsconfirm-input-padding;
-}
-
-.jsconfirm-file {
-	width: 75%;
-	margin-right: auto;
-	margin-left: auto;
-	background: $jsconfirm-input-background;
-	font-size: $jsconfirm-input-font-size;
-}
-
-.jsconfirm-textarea {
-	height: $jsconfirm-textarea-height;
-	padding: $jsconfirm-textarea-padding;
-}
-
-.jsconfirm-select {
-	min-width: 50%;
-	max-width: 100%;
-	padding: 0.375em 0.625em;
-	background: $jsconfirm-input-background;
-	color: $jsconfirm-input-color;
-	font-size: $jsconfirm-input-font-size;
-}
-
-.jsconfirm-radio,
-.jsconfirm-checkbox {
-	align-items: center;
-	justify-content: center;
-	background: $jsconfirm-background;
-	color: $jsconfirm-input-color;
-
-	label {
-		margin: 0 0.6em;
-		font-size: $jsconfirm-input-font-size;
-	}
-
-	input {
-		flex-shrink: 0;
-		margin: 0 0.4em;
-	}
-}
-
-label:where(.jsconfirm-input-label) {
-	display: flex;
-	justify-content: $jsconfirm-input-label-justify-content;
-	margin: $jsconfirm-input-label-margin;
-}
-
-div:where(.jsconfirm-validation-message) {
-	align-items: $jsconfirm-validation-message-align-items;
-	justify-content: $jsconfirm-validation-message-justify-content;
-	margin: $jsconfirm-validation-message-margin;
-	padding: $jsconfirm-validation-message-padding;
-	overflow: hidden;
-	background: $jsconfirm-validation-message-background;
-	color: $jsconfirm-validation-message-color;
-	font-size: $jsconfirm-validation-message-font-size;
-	font-weight: $jsconfirm-validation-message-font-weight;
-	border: $jsconfirm-validation-message-border;
-	border-radius: $jsconfirm-validation-message-border-radius;
-
-	&::before {
-		content: '!';
-		display: inline-block;
-		width: 1em;
-		min-width: 1em;
-		height: 1em;
-		margin: 0 0.625em;
-		zoom: $jsconfirm-validation-message-icon-zoom;
-		border-radius: 50%;
-		background-color: $jsconfirm-validation-message-icon-background;
-		border: 2px solid $jsconfirm-validation-message-icon-border;
-		color: $jsconfirm-validation-message-icon-color;
-		font-weight: 800;
-		line-height: 1.1em;
-		text-align: center;
-		font-size: 20px;
-	}
-}
-
-.jsconfirm-progress-steps {
-	flex-wrap: $jsconfirm-progress-steps-flex-wrap;
-	align-items: $jsconfirm-progress-steps-align-items;
-	max-width: $jsconfirm-progress-steps-max-width;
-	margin: $jsconfirm-progress-steps-margin;
-	padding: $jsconfirm-progress-steps-padding;
-	background: $jsconfirm-progress-steps-background;
-	font-weight: $jsconfirm-progress-steps-font-weight;
-
-	li {
-		display: inline-block;
-		position: relative;
-	}
-
-	.jsconfirm-progress-step {
-		z-index: 20;
-		flex-shrink: 0;
-		width: $jsconfirm-progress-step-width;
-		height: $jsconfirm-progress-step-height;
-		border-radius: $jsconfirm-progress-step-border-radius;
-		background: $jsconfirm-active-step-background;
-		color: $jsconfirm-active-step-color;
-		line-height: $jsconfirm-progress-step-height;
-		text-align: center;
-
-		&.jsconfirm-active-progress-step {
-			background: $jsconfirm-active-step-background;
-
-			~ .jsconfirm-progress-step {
-				background: $jsconfirm-progress-step-background;
-				color: $jsconfirm-progress-step-color;
-			}
-
-			~ .jsconfirm-progress-step-line {
-				background: $jsconfirm-progress-step-background;
-			}
-		}
-	}
-
-	.jsconfirm-progress-step-line {
-		z-index: 10;
-		flex-shrink: 0;
-		width: $jsconfirm-progress-steps-distance;
-		height: 0.4em;
-		margin: 0 -1px;
-		background: $jsconfirm-active-step-background;
-	}
-}
 
 // }
 

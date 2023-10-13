@@ -6,7 +6,14 @@ import { hasClass, isVisible } from './domUtils.js'
  *
  * @returns {HTMLElement | null}
  */
-export const getContainer = () => document.body.querySelector(`.${jscClasses.container}`)
+export const getContainer = () => document.body.querySelector(`.${jscClasses['container']}`)
+
+/**
+ * Gets the popup container which contains the backdrop and the popup itself.
+ *
+ * @returns {HTMLElement | null}
+ */
+export const getToastContainer = () => document.body.querySelector(`.${jscClasses['toast-container']}`)
 
 /**
  * @param {string} selectorString
@@ -33,7 +40,7 @@ export const getPopup = () => elementByClass(jscClasses.popup)
 /**
  * @returns {HTMLElement | null}
  */
-export const getBody = () => elementByClass(jscClasses.body)
+export const getPopupInner = () => elementByClass(jscClasses.body)
 
 /**
  * @returns {HTMLElement | null}
@@ -117,6 +124,16 @@ export const getFooter = () => elementByClass(jscClasses.footer)
  * @returns {HTMLElement | null}
  */
 export const getTimerProgressBar = () => elementByClass(jscClasses['timer-progress-bar'])
+
+/**
+ * @returns {HTMLElement | null}
+ */
+export const getTimerProgressCircle = () => elementByClass(jscClasses['timer-progress-circle-fill'])
+
+/**
+ * @returns {HTMLElement | null}
+ */
+export const getTimerProgressCircleContainer = () => elementByClass(jscClasses['timer-progress-circle-container'])
 
 /**
  * @returns {HTMLElement | null}

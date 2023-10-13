@@ -17,6 +17,8 @@ import defaultParams, { showWarningsForParams } from './utils/params.js'
 import setParameters from './utils/setParameters.js'
 import { callIfFunction } from './utils/utils.js'
 
+import './jsconfirm.scss'
+
 /** @type {JsConfirm} */
 let currentInstance
 
@@ -167,8 +169,8 @@ const prepareParams = (userParams, mixinParams) => {
  */
 const populateDomCache = (instance) => {
 	const domCache = {
-		body: dom.getBody(),
 		popup: dom.getPopup(),
+		popupInner: dom.getPopupInner(),
 		container: dom.getContainer(),
 		actions: dom.getActions(),
 		confirmButton: dom.getConfirmButton(),
@@ -191,19 +193,32 @@ const populateDomCache = (instance) => {
  */
 const setupTimer = (globalState, innerParams, dismissWith) => {
 	const timerProgressBar = dom.getTimerProgressBar()
+	const timerProgressCircle = dom.getTimerProgressCircle()
+	const timerProgressCircleContainer = dom.getTimerProgressCircleContainer()
 	dom.hide(timerProgressBar)
+	dom.hide(timerProgressCircleContainer)
 	if (innerParams.timer) {
 		globalState.timeout = new Timer(() => {
 			dismissWith('timer')
 			delete globalState.timeout
 		}, innerParams.timer)
-		if (innerParams.timerProgressBar) {
+		if (innerParams.timerProgressBar && !innerParams.toast) {
 			dom.show(timerProgressBar)
 			dom.applyCustomClass(timerProgressBar, innerParams, 'timerProgressBar')
 			setTimeout(() => {
 				if (globalState.timeout && globalState.timeout.running) {
 					// timer can be already stopped or unset at this point
 					dom.animateTimerProgressBar(innerParams.timer)
+				}
+			})
+		}
+		else if (innerParams.timerProgressBar && innerParams.toast) {
+			dom.show(timerProgressCircleContainer)
+			dom.applyCustomClass(timerProgressCircle, innerParams, 'timerProgressBar')
+			setTimeout(() => {
+				if (globalState.timeout && globalState.timeout.running) {
+					// timer can be already stopped or unset at this point
+					dom.animateTimerProgressCircle(innerParams.timer)
 				}
 			})
 		}

@@ -66,7 +66,7 @@ const getFileValue = (input) =>
  * @param {JsConfirmOptions} params
  */
 const handleInputOptions = (instance, params) => {
-  const popup = dom.getPopup()
+  const popup = dom.getPopupInner()
   if (!popup) {
     return
   }
@@ -97,7 +97,7 @@ const handleInputOptions = (instance, params) => {
  * @param {JsConfirm} instance
  * @param {JsConfirmOptions} params
  */
-const handleInputValue = (instance, params) => {
+export const handleInputValue = (instance, params) => {
   const input = instance.getInput()
   if (!input) {
     return
@@ -125,7 +125,8 @@ const handleInputValue = (instance, params) => {
  * @param {JsConfirmOptions} params
  */
 function populateSelectOptions(popup, inputOptions, params) {
-  const select = getDirectChildByClass(popup, jscClasses.select)
+  const popupInner = dom.getPopupInner()
+  const select = getDirectChildByClass(popupInner, jscClasses.select)
   if (!select) {
     return
   }
@@ -160,7 +161,9 @@ function populateSelectOptions(popup, inputOptions, params) {
       renderOption(select, optionLabel, optionValue)
     }
   })
-  new NiceSelect(select, { searchable: false, showSelectedItems: true, offset: 6, availableHeight: true, sameWidth: true });
+  let containerPadding = parseInt(window.getComputedStyle(dom.getContainer()).padding)
+  let floatPadding = containerPadding - 1 >= 0 ? containerPadding - 1 : 0
+  select.NiceSelect = new NiceSelect(select, { searchable: false, showSelectedItems: true, offset: 3, floatPadding: floatPadding, availableHeight: true, sameWidth: true })
   select.focus()
 }
 
@@ -170,7 +173,8 @@ function populateSelectOptions(popup, inputOptions, params) {
  * @param {JsConfirmOptions} params
  */
 function populateRadioOptions(popup, inputOptions, params) {
-  const radio = getDirectChildByClass(popup, jscClasses.radio)
+  const popupInner = dom.getPopupInner()
+  const radio = getDirectChildByClass(popupInner, jscClasses.radio)
   if (!radio) {
     return
   }

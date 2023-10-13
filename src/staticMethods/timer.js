@@ -1,5 +1,5 @@
 import globalState from '../globalState.js'
-import { animateTimerProgressBar, stopTimerProgressBar } from '../utils/dom/domUtils.js'
+import { animateTimerProgressBar, stopTimerProgressBar, animateTimerProgressCircle, stopTimerProgressCircle } from '../utils/dom/domUtils.js'
 
 /**
  * If `timer` parameter is set, returns number of milliseconds of timer remained.
@@ -20,6 +20,7 @@ export const getTimerLeft = () => {
 export const stopTimer = () => {
   if (globalState.timeout) {
     stopTimerProgressBar()
+    stopTimerProgressCircle()
     return globalState.timeout.stop()
   }
 }
@@ -34,6 +35,7 @@ export const resumeTimer = () => {
   if (globalState.timeout) {
     const remaining = globalState.timeout.start()
     animateTimerProgressBar(remaining)
+    animateTimerProgressCircle(remaining)
     return remaining
   }
 }

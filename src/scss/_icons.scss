@@ -2,25 +2,21 @@
 @function strip-units($number) {
 	@return math.div($number, ($number * 0 + 1));
 }
+
 $icon-zoom: math.div(strip-units($jsconfirm-icon-size), 5);
 
 div:where(.jsconfirm-icon) {
 	position: relative;
 	box-sizing: content-box;
-	justify-content: center;
-	// width: 100%;
 	height: $jsconfirm-icon-size;
 	margin: $jsconfirm-icon-margin;
 	zoom: $jsconfirm-icon-zoom;
-	// border: #{0.25em * $icon-zoom} solid transparent;
-	// border-radius: 50%;
-	// border-color: $jsconfirm-icon-border-color;
-	// font-family: $jsconfirm-icon-font-family;
-	// line-height: $jsconfirm-icon-size;
 	cursor: default;
 	user-select: none;
 	transform: translateZ(0);
 	perspective: 400px;
+	grid-row: 1/2;
+	grid-column: 1/2;
 
 	.jsconfirm-icon-content {
 		display: flex;
@@ -29,19 +25,25 @@ div:where(.jsconfirm-icon) {
 	}
 
 	&.jsconfirm-error {
-		border-color: transparent;
 		color: $jsconfirm-error;
 
 		// Error icon animation
 		&.jsconfirm-icon-show {
 			@if $jsconfirm-icon-animations {
-				.error-circle {animation: animate-error-circle 1s;transform-origin: 50% 50%;}.x-mark {animation: animate-error-x-mark 1.5s;transform-origin: 50% 50%;}@keyframes animate-error-circle {0%, 50% {transform: rotateX(100deg);opacity: 0;}100% {transform: rotateX(0deg);opacity: 1;}}@keyframes animate-error-x-mark {0% {transform: scale(0.4) translateY(30%);opacity: 0;}66.6% {transform: scale(0.4) translateY(30%);opacity: 0;}86.58% {transform: scale(1.15) translateY(-4%);}100% {transform: scale(1) translateY(0);opacity: 1;}}
+				.error-circle {
+					animation: animate-error-circle 1s;
+					transform-origin: 50% 50%;
+				}
+
+				.error-x-mark {
+					animation: animate-error-x-mark 1.5s;
+					transform-origin: 50% 50%;
+				}
 			}
 		}
 	}
 
 	&.jsconfirm-warning {
-		border-color: transparent;
 		color: $jsconfirm-warning;
 
 		// Warning icon animation
@@ -52,99 +54,97 @@ div:where(.jsconfirm-icon) {
 					transform-origin: 50% 50%;
 					stroke-dasharray: 1 1;
 				}
+
 				.warning-exclamation-point {
 					animation: animate-warning-exclamation-point 1.5s both;
 					transform-origin: 50% 50%;
-					stroke-dasharray: 1 1;
 				}
+
 				.warning-exclamation-point-stroke {
-					animation: animate-warning-exclamation-point-stroke 1.5s both;
+					animation: animate-warning-exclamation-point-stroke 1.7s both;
 					transform-origin: 50% 50%;
-					stroke-dasharray: 1 1;
+					stroke-dasharray: 10 10;
 				}
+
 				.warning-exclamation-point-dot {
 					animation: animate-warning-exclamation-point-dot 1.5s both;
 					transform-origin: 50% 50%;
 					stroke-dasharray: 1 1;
 				}
-				@keyframes animate-warning-triangle {
-					0%, 50% {stroke-dashoffset: -1;}
-					100% {stroke-dashoffset: 0;}
-				}
-				@keyframes animate-warning-exclamation-point {
-					0%, 70% {transform: translateY(12%);}
-					100% {transform: translateY(0);}
-				}
-				@keyframes animate-warning-exclamation-point-stroke {
-					0%, 70% {stroke-dashoffset: 1;}
-					100% {stroke-dashoffset: 0;}
-				}
-				@keyframes animate-warning-exclamation-point-dot {
-					0%, 70% {stroke-width: 0;}
-					100% {stroke-width: 50;}
-				}
 			}
 		}
 	}
 
-	// &.jsconfirm-warning {
-	//   border-color: transparent;
-	//   color: $jsconfirm-warning;
-
-	//   // Warning icon animation
-	//   &.jsconfirm-icon-show {
-	//     @if $jsconfirm-icon-animations {
-	//       // .warning-icon {
-	//         animation: animate-warning-icon 1.5s;transform-origin: 50% 0%;}@keyframes animate-warning-icon {0%, 33.3% {transform: rotateX(100deg) rotateZ(45deg);opacity: 0;}50.05% {transform: rotateX(60deg) rotateZ(-25deg);opacity: .4;}66.7% {transform: rotateX(40deg) rotateZ(15deg);opacity: .8;}83.35% {transform: rotateX(20deg) rotateZ(-5deg);opacity: 1;}100% {transform: rotateX(0deg) rotateZ(0deg);opacity: 1;}
-	//       // }
-	//     }
-	//   }
-	// }
-
 	&.jsconfirm-info {
-		border-color: transparent;
 		color: $jsconfirm-info;
 
 		// Info icon animation
 		&.jsconfirm-icon-show {
 			@if $jsconfirm-icon-animations {
-				.info-circle {animation: animate-info-circle 1s;transform-origin: 50% 50%;}.i-mark {animation: animate-i-mark 1.5s;transform-origin: 50% 50%;}@keyframes animate-info-circle {0%, 50% {transform: rotateX(100deg);opacity: 0;}100% {transform: rotateX(0deg);opacity: 1;}}@keyframes animate-i-mark {0%, 33.3% {transform: rotateZ(45deg);opacity: 0;}50.05% {transform: rotateZ(-25deg);opacity: 0.4;}66.7% {transform: rotateZ(15deg);opacity: 0.8;}83.35% {transform: rotateZ(-5deg);opacity: 1;}100% {transform: rotateZ(0);opacity: 1;}}
+				.info-circle {
+					animation: animate-info-circle 1s;
+					transform-origin: 50% 50%;
+				}
+
+				.info-i-mark {
+					animation: animate-info-i-mark 1.5s;
+					transform-origin: 50% 50%;
+				}
+
+
 			}
 		}
 	}
 
 	&.jsconfirm-question {
-		border-color: transparent;
-		// border-color: lighten($jsconfirm-question, 20);
 		color: $jsconfirm-question;
-		// backface-visibility: visible;
 
 		// Question icon animation
 		&.jsconfirm-icon-show {
 			@if $jsconfirm-icon-animations {
-				.question-circle {animation: animate-question-circle 1s;transform-origin: 50% 50%;}.question-mark {animation: animate-question-mark 2s;transform-origin: 50% 50%;}@keyframes animate-question-circle {0%, 50% {transform: rotateX(100deg);opacity: 0;}100% {transform: rotateX(0deg);opacity: 1;}}@keyframes animate-question-mark {0%, 33.3% {opacity: 0;transform: rotateY(-540deg);}100% {opacity: 1;transform: rotateY(0);}}
+				.question-circle {
+					animation: animate-question-circle 1s;
+					transform-origin: 50% 50%;
+				}
+
+				.question-mark {
+					animation: animate-question-mark 2s;
+					transform-origin: 50% 50%;
+				}
+
+
 			}
 		}
 	}
 
 	&.jsconfirm-success {
-		border-color: transparent;
 		color: $jsconfirm-success;
 		backface-visibility: hidden;
+
 		.success-circle {
 			stroke-dasharray: 1 1;
 			stroke-dashoffset: -1;
 			stroke-width: 50;
 		}
-		.check-mark {
+
+		.success-check-mark {
 			stroke-dasharray: 10 12;
 			stroke-dashoffset: -12;
 			stroke-width: 50;
 		}
+
 		// Success icon animation
 		&.jsconfirm-icon-show {
 			@if $jsconfirm-icon-animations {
-				.success-circle {animation: animate-success-circle 1s both;transform-origin: 50% 50%;}.check-mark {animation: animate-success-check-mark 2s both;transform-origin: 50% 50%;}@keyframes animate-success-circle {0%, 50% {stroke-dashoffset: -1;}100% {stroke-dashoffset: 0;}}@keyframes animate-success-check-mark {0%, 66.7% {stroke-dashoffset: -12;}73.36% {stroke-dashoffset: 0;}80.02% {stroke-dashoffset: -1.8;}86.68% {stroke-dashoffset: -0.6;}93.34% {stroke-dashoffset: -1;}100% {stroke-dashoffset: -0.8;}}
+				.success-circle {
+					animation: animate-success-circle 1s both;
+					animation-timing-function: cubic-bezier(0.5, 0, 0.5, 1);
+				}
+
+				.success-check-mark {
+					animation: animate-success-check-mark 2s both;
+					animation-timing-function: cubic-bezier(0.5, 0, 0.5, 1);
+				}
 			}
 		}
 	}

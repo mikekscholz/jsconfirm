@@ -1,210 +1,252 @@
 .jsconfirm-popup {
-  &.jsconfirm-toast {
-    box-sizing: border-box;
-    grid-column: 1/4 !important;
-    grid-row: 1/4 !important;
-    grid-template-columns: min-content auto min-content;
-    overflow-y: hidden;
-    pointer-events: all;
-    // margin: $jsconfirm-toast-padding;
-    box-shadow: $jsconfirm-box-shadow;
-    
-    .jsconfirm-body {
-      border-radius: 10px;
-      padding: 8px;
-      background: $jsconfirm-toast-background;
-      backdrop-filter: $jsconfirm-toast-backdrop-filter;
-    }
+	&.jsconfirm-toast {
+		box-sizing: border-box;
+		overflow-y: hidden;
+		pointer-events: all;
+		// margin: $jsconfirm-toast-padding;
+		box-shadow: $jsconfirm-toast-box-shadow;
+		border-radius: $jsconfirm-toast-border-radius;
+		
+		.jsconfirm-body {
+			grid-column: 1/4 !important;
+			grid-row: 1/4 !important;
+			grid-template-columns: min-content auto min-content min-content;
+			border-radius: $jsconfirm-toast-border-radius;
+			padding: 8px;
+			background: $jsconfirm-toast-background;
+			backdrop-filter: $jsconfirm-toast-backdrop-filter;
+			position: relative;
+			gap: 0 10px;
+			
+			> * {
+				grid-column: 2;
+			}
+			
+			.jsconfirm-title {
+			margin: $jsconfirm-toast-title-margin;
+			padding: $jsconfirm-toast-title-padding;
+			font-size: $jsconfirm-toast-title-font-size;
+			text-align: initial;
+		}
 
-    > * {
-      grid-column: 2;
-    }
+		.jsconfirm-loading {
+			justify-content: center;
+		}
 
-    .jsconfirm-title {
-      margin: $jsconfirm-toast-title-margin;
-      padding: $jsconfirm-toast-title-padding;
-      font-size: $jsconfirm-toast-title-font-size;
-      text-align: initial;
-    }
+		.jsconfirm-input {
+			height: $jsconfirm-toast-input-height;
+			margin: $jsconfirm-toast-input-margin;
+			font-size: $jsconfirm-toast-input-font-size;
+		}
 
-    .jsconfirm-loading {
-      justify-content: center;
-    }
+		.jsconfirm-validation-message {
+			font-size: $jsconfirm-toast-validation-font-size;
+		}
 
-    .jsconfirm-input {
-      height: $jsconfirm-toast-input-height;
-      margin: $jsconfirm-toast-input-margin;
-      font-size: $jsconfirm-toast-input-font-size;
-    }
+		.jsconfirm-footer {
+			margin: $jsconfirm-toast-footer-margin;
+			padding: $jsconfirm-toast-footer-margin;
+			font-size: $jsconfirm-toast-footer-font-size;
+		}
+		
+		.jsconfirm-timer-progress-bar-container {
+			position: absolute;
+			// display: none;
+		}
+		.jsconfirm-timer-progress-bar-container {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			grid-column: auto !important;
+			overflow: hidden;
+			background: $jsconfirm-timer-progress-bar-track;
+			border-bottom-right-radius: $jsconfirm-border-radius;
+			border-bottom-left-radius: $jsconfirm-border-radius;
+		}
+		
+		div:where(.jsconfirm-timer-progress-bar) {
+			width: 100%;
+			height: $jsconfirm-timer-progress-bar-height;
+			background: $jsconfirm-timer-progress-bar-fill;
+		}
+		
+		.jsconfirm-toast-divider {
+			grid-row: 1/99!important;
+			grid-column: 3/4;
+			align-self: center;
+			height: 42px;
+			width: 3px;
+			border-radius: 10px;
+			background-color: currentColor;
+			opacity: 0.2;
+			margin: 0 10px 0 10px;
+		}
+		.jsconfirm-timer-progress-circle-container {
+			grid-row: 1/99!important;
+			grid-column: 4/5;
+			align-self: center;
+			height: 35px;
+			overflow: hidden;
+			stroke-width: 50;
+			stroke-linecap: round;
+			fill: none;
+			rotate: -90deg;
+			pointer-events: none;
+			.jsconfirm-timer-progress-circle-track {
+				stroke: $jsconfirm-timer-progress-circle-track;
+			}
+			.jsconfirm-timer-progress-circle-fill {
+				stroke: $jsconfirm-timer-progress-circle-fill;
+				stroke-dasharray: 100;
+				stroke-dashoffset: 0;
+			}
+		}
 
-    .jsconfirm-validation-message {
-      font-size: $jsconfirm-toast-validation-font-size;
-    }
+		// .jsconfirm-timer-progress-circle {
+		// 	height: 100%;
+		// 	// height: $jsconfirm-timer-progress-bar-height;
+		// 	// background: ;
+		// }
+		
+		.jsconfirm-close {
+			grid-column: 4/5;
+			grid-row: 1/99;
+			align-self: center;
+			appearance: none;
+			border: none;
+			background: none;
+			align-items: center;
+			justify-content: center;
+			color: $jsconfirm-toast-close-button-color;
+			width: $jsconfirm-toast-close-button-width;
+			height: $jsconfirm-toast-close-button-height;
+			margin: $jsconfirm-toast-close-button-margin;
+			font-size: $jsconfirm-toast-close-button-font-size;
+			svg {
+				height: $jsconfirm-toast-close-button-font-size;
+			}
+		}
 
-    .jsconfirm-footer {
-      margin: $jsconfirm-toast-footer-margin;
-      padding: $jsconfirm-toast-footer-margin;
-      font-size: $jsconfirm-toast-footer-font-size;
-    }
+		.jsconfirm-html-container {
+			margin: $jsconfirm-toast-html-container-margin;
+			padding: $jsconfirm-toast-html-container-padding;
+			overflow: initial;
+			font-size: $jsconfirm-toast-html-container-font-size;
+			text-align: initial;
+			
+			&:empty {
+				padding: 0;
+			}
+		}
 
-    .jsconfirm-close {
-      grid-column: 3/3;
-      grid-row: 1/99;
-      align-self: center;
-      width: $jsconfirm-toast-close-button-width;
-      height: $jsconfirm-toast-close-button-height;
-      margin: $jsconfirm-toast-close-button-margin;
-      font-size: $jsconfirm-toast-close-button-font-size;
-    }
+		.jsconfirm-loader {
+			grid-column: 1;
+			grid-row: 1/99;
+			align-self: center;
+			width: 2em;
+			height: 2em;
+			margin: 0.25em;
+		}
 
-    .jsconfirm-html-container {
-      margin: $jsconfirm-toast-html-container-margin;
-      padding: $jsconfirm-toast-html-container-padding;
-      overflow: initial;
-      font-size: $jsconfirm-toast-html-container-font-size;
-      text-align: initial;
+		.jsconfirm-icon {
+			grid-column: 1;
+			grid-row: 1/99;
+			align-self: center;
+			height: 35px;
+			margin: 0;
+			
+			.jsconfirm-icon-content {
+				display: flex;
+				align-items: center;
+				font-size: $jsconfirm-toast-icon-font-size;
+				font-weight: bold;
+			}
+		}
 
-      &:empty {
-        padding: 0;
-      }
-    }
+		.jsconfirm-actions {
+			justify-content: flex-start;
+			height: auto;
+			margin: 0;
+			margin-top: 0.5em;
+			padding: 0 0.5em;
+		}
 
-    .jsconfirm-loader {
-      grid-column: 1;
-      grid-row: 1/99;
-      align-self: center;
-      width: 2em;
-      height: 2em;
-      margin: 0.25em;
-    }
+		.jsconfirm-styled {
+			margin: 0.25em 0.5em;
+			padding: 0.4em 0.6em;
+			font-size: $jsconfirm-toast-buttons-font-size;
+		}
+	}
 
-    .jsconfirm-icon {
-      grid-column: 1;
-      grid-row: 1/99;
-      align-self: center;
-      width: 2em;
-      min-width: 2em;
-      height: 2em;
-      margin: 0 0.5em 0 0;
+		&.jsconfirm-show {
+			animation: $jsconfirm-toast-show-animation;
+		}
 
-      .jsconfirm-icon-content {
-        display: flex;
-        align-items: center;
-        font-size: $jsconfirm-toast-icon-font-size;
-        font-weight: bold;
-      }
+		&.jsconfirm-hide {
+			animation: $jsconfirm-toast-hide-animation;
+		}
+		&.jsconfirm-blue {
+			--jsconfirm-primary: #{$blue};
 
-      &.jsconfirm-success {
-        .jsconfirm-success-ring {
-          width: 2em;
-          height: 2em;
-        }
-      }
+			.jsconfirm-body {
+				border-left: solid 4px $blue;
+				animation-name: type-blue;
+			}
+		}
 
-      &.jsconfirm-error {
-        [class^='jsconfirm-x-mark-line'] {
-          top: 0.875em;
-          width: 1.375em;
+		&.jsconfirm-green {
+			--jsconfirm-primary: #{$green};
 
-          &[class$='left'] {
-            left: 0.3125em;
-          }
+			.jsconfirm-body {
+				border-left: solid 4px $green;
+				animation-name: type-green;
+			}
+		}
 
-          &[class$='right'] {
-            right: 0.3125em;
-          }
-        }
-      }
-    }
+		&.jsconfirm-red {
+			--jsconfirm-primary: #{$red};
 
-    .jsconfirm-actions {
-      justify-content: flex-start;
-      height: auto;
-      margin: 0;
-      margin-top: 0.5em;
-      padding: 0 0.5em;
-    }
+			.jsconfirm-body {
+				border-left: solid 4px $red;
+				animation-name: type-red;
+			}
+		}
 
-    .jsconfirm-styled {
-      margin: 0.25em 0.5em;
-      padding: 0.4em 0.6em;
-      font-size: $jsconfirm-toast-buttons-font-size;
-    }
+		&.jsconfirm-yellow {
+			--jsconfirm-primary: #{$yellow};
 
-    .jsconfirm-success {
-      border-color: $jsconfirm-success;
+			.jsconfirm-body {
+				border-left: solid 4px $yellow;
+				animation-name: type-yellow;
+			}
+		}
 
-      [class^='jsconfirm-success-circular-line'] {
-        // Emulate moving circular line
-        position: absolute;
-        width: 1.6em;
-        height: 3em;
-        transform: rotate(45deg);
-        border-radius: 50%;
+		&.jsconfirm-purple {
+			--jsconfirm-primary: #{$purple};
 
-        &[class$='left'] {
-          top: -0.8em;
-          left: -0.5em;
-          transform: rotate(-45deg);
-          transform-origin: 2em 2em;
-          border-radius: 4em 0 0 4em;
-        }
+			.jsconfirm-body {
+				border-left: solid 4px $purple;
+				animation-name: type-purple;
+			}
+		}
 
-        &[class$='right'] {
-          top: -0.25em;
-          left: 0.9375em;
-          transform-origin: 0 1.5em;
-          border-radius: 0 4em 4em 0;
-        }
-      }
+		&.jsconfirm-dark {
+			--jsconfirm-primary: #{$dark};
 
-      .jsconfirm-success-ring {
-        width: 2em;
-        height: 2em;
-      }
+			.jsconfirm-body {
+				border-left: solid 4px $dark;
+				animation-name: type-dark;
+			}
+		}
 
-      .jsconfirm-success-fix {
-        top: 0;
-        left: 0.4375em;
-        width: 0.4375em;
-        height: 2.6875em;
-      }
+		&.jsconfirm-light {
+			--jsconfirm-primary: #{$light};
 
-      [class^='jsconfirm-success-line'] {
-        height: 0.3125em;
-
-        &[class$='tip'] {
-          top: 1.125em;
-          left: 0.1875em;
-          width: 0.75em;
-        }
-
-        &[class$='long'] {
-          top: 0.9375em;
-          right: 0.1875em;
-          width: 1.375em;
-        }
-      }
-
-      &.jsconfirm-icon-show {
-        @if $jsconfirm-icon-animations {
-          .jsconfirm-success-line-tip {
-            animation: jsconfirm-toast-animate-success-line-tip 0.75s;
-          }
-
-          .jsconfirm-success-line-long {
-            animation: jsconfirm-toast-animate-success-line-long 0.75s;
-          }
-        }
-      }
-    }
-
-    &.jsconfirm-show {
-      animation: $jsconfirm-toast-show-animation;
-    }
-
-    &.jsconfirm-hide {
-      animation: $jsconfirm-toast-hide-animation;
-    }
-  }
+			.jsconfirm-body {
+				border-left: solid 4px $light;
+				animation-name: type-light;
+			}
+		}
+	}
 }
