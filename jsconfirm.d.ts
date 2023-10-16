@@ -465,6 +465,7 @@ declare module 'jsconfirm' {
 		loader?: string | readonly string[]
 		footer?: string | readonly string[]
 		timerProgressBar?: string | readonly string[]
+		timerProgressCircle?: string | readonly string[]
 	}
 
 	export interface JsConfirmResult<T = any> {
@@ -742,12 +743,20 @@ declare module 'jsconfirm' {
 		timer?: number
 
 		/**
-		 * If set to `true`, the timer will have a progress bar at the bottom of a popup.
+		 * If set to `true`, the timer will have a linear progress bar at the bottom of a popup.
 		 * Mostly, this feature is useful with toasts.
 		 *
 		 * @default false
 		 */
 		timerProgressBar?: boolean
+
+		/**
+		 * If set to `true`, the timer will have a circular progress bar at the bottom of a popup.
+		 * Mostly, this feature is useful with toasts.
+		 *
+		 * @default false
+		 */
+		timerProgressCircle?: boolean
 
 		/**
 		 * By default, JsConfirm sets html's and body's CSS `height` to `auto !important`.
@@ -921,6 +930,13 @@ declare module 'jsconfirm' {
 		 * @default false
 		 */
 		focusCancel?: boolean
+
+		/**
+		 * Set to `true` if you want to focus the "Close" button by default.
+		 *
+		 * @default false
+		 */
+		focusClose?: boolean
 
 		/**
 		 * Set to `false` if you don't want to return the focus to the element that invoked the modal

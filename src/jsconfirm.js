@@ -202,7 +202,7 @@ const setupTimer = (globalState, innerParams, dismissWith) => {
 			dismissWith('timer')
 			delete globalState.timeout
 		}, innerParams.timer)
-		if (innerParams.timerProgressBar && !innerParams.toast) {
+		if (innerParams.timerProgressBar) {
 			dom.show(timerProgressBar)
 			dom.applyCustomClass(timerProgressBar, innerParams, 'timerProgressBar')
 			setTimeout(() => {
@@ -212,7 +212,7 @@ const setupTimer = (globalState, innerParams, dismissWith) => {
 				}
 			})
 		}
-		else if (innerParams.timerProgressBar && innerParams.toast) {
+		else if (innerParams.timerProgressCircle) {
 			dom.show(timerProgressCircleContainer)
 			dom.applyCustomClass(timerProgressCircle, innerParams, 'timerProgressBar')
 			setTimeout(() => {

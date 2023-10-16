@@ -380,27 +380,27 @@
 	}
 }
 
-@keyframes type-dark {
+@keyframes type-dark-gray {
 
 	0%,
 	100% {
-		border-color: $dark;
+		border-color: $dark-gray;
 	}
 
 	50% {
-		border-color: mix(white, $dark, 20%);
+		border-color: mix(white, $dark-gray, 20%);
 	}
 }
 
-@keyframes type-light {
+@keyframes type-light-gray {
 
 	0%,
 	100% {
-		border-color: $light;
+		border-color: $light-gray;
 	}
 
 	50% {
-		border-color: mix(black, $light, 20%);
+		border-color: mix(black, $light-gray, 20%);
 	}
 }
 

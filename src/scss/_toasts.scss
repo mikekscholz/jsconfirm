@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 .jsconfirm-popup {
 	&.jsconfirm-toast {
 		box-sizing: border-box;
@@ -6,178 +8,185 @@
 		// margin: $jsconfirm-toast-padding;
 		box-shadow: $jsconfirm-toast-box-shadow;
 		border-radius: $jsconfirm-toast-border-radius;
-		
+
 		.jsconfirm-body {
-			grid-column: 1/4 !important;
-			grid-row: 1/4 !important;
-			grid-template-columns: min-content auto min-content min-content;
+			grid-template-columns: min-content auto;
+			grid-template-rows: 1fr 1fr;
+			grid-auto-columns: min-content;
 			border-radius: $jsconfirm-toast-border-radius;
-			padding: 8px;
+			padding: 4px 12px;
 			background: $jsconfirm-toast-background;
 			backdrop-filter: $jsconfirm-toast-backdrop-filter;
 			position: relative;
 			gap: 0 10px;
-			
+
 			> * {
 				grid-column: 2;
 			}
-			
+
 			.jsconfirm-title {
-			margin: $jsconfirm-toast-title-margin;
-			padding: $jsconfirm-toast-title-padding;
-			font-size: $jsconfirm-toast-title-font-size;
-			text-align: initial;
-		}
-
-		.jsconfirm-loading {
-			justify-content: center;
-		}
-
-		.jsconfirm-input {
-			height: $jsconfirm-toast-input-height;
-			margin: $jsconfirm-toast-input-margin;
-			font-size: $jsconfirm-toast-input-font-size;
-		}
-
-		.jsconfirm-validation-message {
-			font-size: $jsconfirm-toast-validation-font-size;
-		}
-
-		.jsconfirm-footer {
-			margin: $jsconfirm-toast-footer-margin;
-			padding: $jsconfirm-toast-footer-margin;
-			font-size: $jsconfirm-toast-footer-font-size;
-		}
-		
-		.jsconfirm-timer-progress-bar-container {
-			position: absolute;
-			// display: none;
-		}
-		.jsconfirm-timer-progress-bar-container {
-			position: absolute;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			grid-column: auto !important;
-			overflow: hidden;
-			background: $jsconfirm-timer-progress-bar-track;
-			border-bottom-right-radius: $jsconfirm-border-radius;
-			border-bottom-left-radius: $jsconfirm-border-radius;
-		}
-		
-		div:where(.jsconfirm-timer-progress-bar) {
-			width: 100%;
-			height: $jsconfirm-timer-progress-bar-height;
-			background: $jsconfirm-timer-progress-bar-fill;
-		}
-		
-		.jsconfirm-toast-divider {
-			grid-row: 1/99!important;
-			grid-column: 3/4;
-			align-self: center;
-			height: 42px;
-			width: 3px;
-			border-radius: 10px;
-			background-color: currentColor;
-			opacity: 0.2;
-			margin: 0 10px 0 10px;
-		}
-		.jsconfirm-timer-progress-circle-container {
-			grid-row: 1/99!important;
-			grid-column: 4/5;
-			align-self: center;
-			height: 35px;
-			overflow: hidden;
-			stroke-width: 50;
-			stroke-linecap: round;
-			fill: none;
-			rotate: -90deg;
-			pointer-events: none;
-			.jsconfirm-timer-progress-circle-track {
-				stroke: $jsconfirm-timer-progress-circle-track;
+				margin: $jsconfirm-toast-title-margin;
+				padding: $jsconfirm-toast-title-padding;
+				font-size: $jsconfirm-toast-title-font-size;
+				font-weight: $jsconfirm-toast-title-font-weight;
+				text-align: initial;
+				line-height: $jsconfirm-toast-title-font-size;
+				grid-row: 1/2;
+				align-self: center;
 			}
-			.jsconfirm-timer-progress-circle-fill {
-				stroke: $jsconfirm-timer-progress-circle-fill;
-				stroke-dasharray: 100;
-				stroke-dashoffset: 0;
+
+			.jsconfirm-loading {
+				justify-content: center;
 			}
-		}
 
-		// .jsconfirm-timer-progress-circle {
-		// 	height: 100%;
-		// 	// height: $jsconfirm-timer-progress-bar-height;
-		// 	// background: ;
-		// }
-		
-		.jsconfirm-close {
-			grid-column: 4/5;
-			grid-row: 1/99;
-			align-self: center;
-			appearance: none;
-			border: none;
-			background: none;
-			align-items: center;
-			justify-content: center;
-			color: $jsconfirm-toast-close-button-color;
-			width: $jsconfirm-toast-close-button-width;
-			height: $jsconfirm-toast-close-button-height;
-			margin: $jsconfirm-toast-close-button-margin;
-			font-size: $jsconfirm-toast-close-button-font-size;
-			svg {
-				height: $jsconfirm-toast-close-button-font-size;
+			.jsconfirm-input {
+				height: $jsconfirm-toast-input-height;
+				margin: $jsconfirm-toast-input-margin;
+				font-size: $jsconfirm-toast-input-font-size;
 			}
-		}
 
-		.jsconfirm-html-container {
-			margin: $jsconfirm-toast-html-container-margin;
-			padding: $jsconfirm-toast-html-container-padding;
-			overflow: initial;
-			font-size: $jsconfirm-toast-html-container-font-size;
-			text-align: initial;
-			
-			&:empty {
-				padding: 0;
+			.jsconfirm-validation-message {
+				font-size: $jsconfirm-toast-validation-font-size;
 			}
-		}
 
-		.jsconfirm-loader {
-			grid-column: 1;
-			grid-row: 1/99;
-			align-self: center;
-			width: 2em;
-			height: 2em;
-			margin: 0.25em;
-		}
+			.jsconfirm-footer {
+				margin: $jsconfirm-toast-footer-margin;
+				padding: $jsconfirm-toast-footer-margin;
+				font-size: $jsconfirm-toast-footer-font-size;
+			}
 
-		.jsconfirm-icon {
-			grid-column: 1;
-			grid-row: 1/99;
-			align-self: center;
-			height: 35px;
-			margin: 0;
-			
-			.jsconfirm-icon-content {
-				display: flex;
+			.jsconfirm-timer-progress-bar-container {
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				grid-column: auto !important;
+				overflow: hidden;
+				background: $jsconfirm-timer-progress-bar-track;
+				border-bottom-right-radius: $jsconfirm-toast-border-radius;
+				border-bottom-left-radius: $jsconfirm-toast-border-radius;
+			}
+
+			div:where(.jsconfirm-timer-progress-bar) {
+				width: 100%;
+				height: $jsconfirm-toast-timer-progress-bar-height;
+				background: $jsconfirm-timer-progress-bar-fill;
+			}
+
+			.jsconfirm-toast-divider {
+				grid-row: 1/-1 !important;
+				grid-column: -1;
+				align-self: center;
+				height: 36px;
+				width: 3px;
+				border-radius: 10px;
+				background-color: currentColor;
+				opacity: 0.2;
+				margin: 0 40px 0 5px;
+			}
+
+			.jsconfirm-timer-progress-circle-container {
+				grid-row: 1/-1 !important;
+				grid-column: -1;
+				align-self: center;
+				justify-self: end;
+				width: $jsconfirm-toast-close-button-width;
+				height: $jsconfirm-toast-close-button-height;
+				overflow: hidden;
+				stroke-width: 40;
+				stroke-linecap: butt;
+				fill: none;
+				rotate: -90deg;
+				pointer-events: none;
+
+				.jsconfirm-timer-progress-circle-track {
+					stroke: $jsconfirm-timer-progress-circle-track;
+				}
+
+				.jsconfirm-timer-progress-circle-fill {
+					stroke: $jsconfirm-timer-progress-circle-fill;
+					stroke-dasharray: 100;
+					stroke-dashoffset: 0;
+				}
+			}
+
+			.jsconfirm-close {
+				grid-column: -1;
+				grid-row: 1/-1;
+				align-self: center;
+				justify-self: end;
+				appearance: none;
+				border: none;
+				background: none;
 				align-items: center;
-				font-size: $jsconfirm-toast-icon-font-size;
-				font-weight: bold;
+				justify-content: center;
+				color: $jsconfirm-toast-close-button-color;
+				width: $jsconfirm-toast-close-button-width;
+				height: $jsconfirm-toast-close-button-height;
+				margin: $jsconfirm-toast-close-button-margin;
+				font-size: $jsconfirm-toast-close-button-font-size;
+
+				svg {
+					height: $jsconfirm-toast-close-button-font-size;
+				}
+			}
+
+			.jsconfirm-html-container {
+				margin: $jsconfirm-toast-html-container-margin;
+				padding: $jsconfirm-toast-html-container-padding;
+				overflow: initial;
+				font-size: $jsconfirm-toast-html-container-font-size;
+				text-align: initial;
+				line-height: $jsconfirm-toast-html-container-font-size;
+				grid-row: 2/3;
+				grid-column: 2/3;
+				align-self: center;
+
+				&:empty {
+					padding: 0;
+				}
+			}
+
+			.jsconfirm-loader {
+				grid-column: 1/2;
+				grid-row: 1/-1;
+				align-self: center;
+				width: $jsconfirm-toast-icon-size;
+				height: $jsconfirm-toast-icon-size;
+				margin: 0;
+			}
+
+			@import 'icons';
+			
+			.jsconfirm-icon {
+				grid-column: 1/2;
+				grid-row: 1/-1;
+				align-self: center;
+				height: $jsconfirm-toast-icon-size;
+				margin: 0;
+
+				.jsconfirm-icon-content {
+					display: flex;
+					align-items: center;
+					font-size: $jsconfirm-toast-icon-size;
+					font-weight: bold;
+				}
+			}
+
+			.jsconfirm-actions {
+				justify-content: flex-start;
+				height: auto;
+				margin: 0;
+				margin-top: 0.5em;
+				padding: 0 0.5em;
+			}
+
+			.jsconfirm-styled {
+				margin: 0.25em 0.5em;
+				padding: 0.4em 0.6em;
+				font-size: $jsconfirm-toast-buttons-font-size;
 			}
 		}
-
-		.jsconfirm-actions {
-			justify-content: flex-start;
-			height: auto;
-			margin: 0;
-			margin-top: 0.5em;
-			padding: 0 0.5em;
-		}
-
-		.jsconfirm-styled {
-			margin: 0.25em 0.5em;
-			padding: 0.4em 0.6em;
-			font-size: $jsconfirm-toast-buttons-font-size;
-		}
-	}
 
 		&.jsconfirm-show {
 			animation: $jsconfirm-toast-show-animation;
@@ -186,12 +195,31 @@
 		&.jsconfirm-hide {
 			animation: $jsconfirm-toast-hide-animation;
 		}
+
+		@mixin toast-type {
+			content: "";
+			width: 6px;
+			border-radius: 100px;
+			position: absolute;
+			top: 6px;
+			bottom: 6px;
+			left: 6px;
+		}
+		
+		$toast-type-body-padding: 8px 10px 8px 20px;
+		
 		&.jsconfirm-blue {
 			--jsconfirm-primary: #{$blue};
 
 			.jsconfirm-body {
-				border-left: solid 4px $blue;
+				// border-left: solid 4px $blue;
 				animation-name: type-blue;
+				padding: $toast-type-body-padding;
+				
+				&::before {
+					@include toast-type;
+					background-color: $blue;
+				}
 			}
 		}
 
@@ -199,8 +227,14 @@
 			--jsconfirm-primary: #{$green};
 
 			.jsconfirm-body {
-				border-left: solid 4px $green;
+				// border-left: solid 4px $green;
 				animation-name: type-green;
+				padding: $toast-type-body-padding;
+				
+				&::before {
+					@include toast-type;
+					background-color: $green;
+				}
 			}
 		}
 
@@ -208,8 +242,14 @@
 			--jsconfirm-primary: #{$red};
 
 			.jsconfirm-body {
-				border-left: solid 4px $red;
+				// border-left: solid 4px $red;
 				animation-name: type-red;
+				padding: $toast-type-body-padding;
+				
+				&::before {
+					@include toast-type;
+					background-color: $red;
+				}
 			}
 		}
 
@@ -217,8 +257,14 @@
 			--jsconfirm-primary: #{$yellow};
 
 			.jsconfirm-body {
-				border-left: solid 4px $yellow;
+				// border-left: solid 4px $yellow;
 				animation-name: type-yellow;
+				padding: $toast-type-body-padding;
+				
+				&::before {
+					@include toast-type;
+					background-color: $yellow;
+				}
 			}
 		}
 
@@ -226,26 +272,44 @@
 			--jsconfirm-primary: #{$purple};
 
 			.jsconfirm-body {
-				border-left: solid 4px $purple;
+				// border-left: solid 4px $purple;
 				animation-name: type-purple;
+				padding: $toast-type-body-padding;
+				
+				&::before {
+					@include toast-type;
+					background-color: $purple;
+				}
 			}
 		}
 
 		&.jsconfirm-dark {
-			--jsconfirm-primary: #{$dark};
+			--jsconfirm-primary: #{$dark-gray};
 
 			.jsconfirm-body {
-				border-left: solid 4px $dark;
-				animation-name: type-dark;
+				// border-left: solid 4px $dark-gray;
+				animation-name: type-dark-gray;
+				padding: $toast-type-body-padding;
+				
+				&::before {
+					@include toast-type;
+					background-color: $dark-gray;
+				}
 			}
 		}
 
 		&.jsconfirm-light {
-			--jsconfirm-primary: #{$light};
+			--jsconfirm-primary: #{$light-gray};
 
 			.jsconfirm-body {
-				border-left: solid 4px $light;
-				animation-name: type-light;
+				// border-left: solid 4px $light-gray;
+				animation-name: type-light-gray;
+				padding: $toast-type-body-padding;
+				
+				&::before {
+					@include toast-type;
+					background-color: $light-gray;
+				}
 			}
 		}
 	}

@@ -38,7 +38,6 @@ export const renderPopup = (instance, params) => {
 	if (params.background) {
 		popupInner.style.background = params.background
 	}
-console.log(popupTypes)
 
 	dom.hide(dom.getValidationMessage())
 
@@ -55,9 +54,10 @@ const addClasses = (popup, params) => {
 	// Default Class + showClass when updating Jsc.update({})
 	// popup.className = `${jscClasses.popup} ${dom.isVisible(popup) ? showClass.popup : ''}`
 	popup.classList.add(jscClasses.popup)
-	// popup.classList.add(`${dom.isVisible(popup) ? showClass.popup : ''}`)
+	if (dom.isVisible(popup)){
+		popup.classList.add(`${showClass.popup}`)
+	}
 	
-console.log(jscClasses.popup)
 	if (params.toast) {
 		dom.addClass([document.documentElement, document.body], jscClasses['toast-shown'])
 		dom.addClass(popup, jscClasses.toast)
@@ -78,7 +78,7 @@ console.log(jscClasses.popup)
 	
 	if (params.type) {
 		if (Object.keys(popupTypes).indexOf(params.type) === -1){
-			error(`Unknown type! Expected "red", "yellow", "green", "blue", "light", "dark", "default", got "${params.type}"`)
+			error(`Unknown type! Expected "red", "yellow", "green", "blue", "light-gray", "dark-gray", "default", got "${params.type}"`)
 			dom.addClass(popup, popupTypes['default'])
 		} else {
 			dom.addClass(popup, popupTypes[params.type])

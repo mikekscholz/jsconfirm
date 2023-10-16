@@ -19,13 +19,13 @@ export const renderCloseButton = (instance, params) => {
 	} else {
 		document.querySelector('.jsconfirm-body').classList.remove('jsconfirm-clip')
 	}
-	if (params.toast) {
+	if (params.toast && params.showCloseButton || params.timerProgressCircle) {
 		const popupInner = dom.getPopupInner()
 		const divider = document.createElement('div')
 		divider.classList.add('jsconfirm-toast-divider')
 		popupInner.appendChild(divider)
 		popupInner.appendChild(closeButton)
 	}
-	dom.toggle(closeButton, params.showCloseButton || params.toast)
+	dom.toggle(closeButton, params.showCloseButton)
 	closeButton.setAttribute('aria-label', params.closeButtonAriaLabel || '')
 }

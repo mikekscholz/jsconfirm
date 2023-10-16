@@ -5,7 +5,7 @@
 
 $icon-zoom: math.div(strip-units($jsconfirm-icon-size), 5);
 
-div:where(.jsconfirm-icon) {
+.jsconfirm-icon {
 	position: relative;
 	box-sizing: content-box;
 	height: $jsconfirm-icon-size;

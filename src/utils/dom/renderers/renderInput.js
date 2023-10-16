@@ -27,7 +27,6 @@ export const renderInput = (instance, params) => {
 
 	inputClasses.forEach((inputClass) => {
 		const inputContainer = dom.getDirectChildByClass(popupInner, jscClasses[inputClass])
-console.log(inputContainer)
 		if (!inputContainer) {
 			return
 		}
@@ -207,7 +206,6 @@ renderInputType.file = (input, params) => {
  * @returns {HTMLInputElement}
  */
 renderInputType.range = (range, params) => {
-	console.log(range)
 	const rangeInput = range.querySelector('input')
 	range.style.setProperty('--min', params.inputAttributes.min)
 	range.style.setProperty('--max', params.inputAttributes.max)

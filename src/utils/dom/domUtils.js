@@ -160,7 +160,6 @@ export const getInput = (popup, inputClass) => {
  * @param {HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement} input
  */
 export const focusInput = (input) => {
-	console.log(input)
 	input.focus()
 
 	// place cursor at end of text in text input
@@ -384,7 +383,6 @@ export const stopTimerProgressCircle = () => {
 	if (!timerProgressCircle) {
 		return
 	}
-	console.log(parseInt(window.getComputedStyle(timerProgressCircle).strokeDashoffset))
 	const timerProgressCircleWidth = window.getComputedStyle(timerProgressCircle).strokeDashoffset
 	timerProgressCircle.style.removeProperty('transition')
 	timerProgressCircle.style.strokeDashoffset = timerProgressCircleWidth
