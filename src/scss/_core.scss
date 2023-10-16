@@ -263,27 +263,7 @@
 	}
 }
 
-// .modalBackdrop {
-// 	position: absolute;
-// 	top: 0;
-// 	left: 0;
-// 	// right: 0;
-// 	// bottom: 0;
-// 	z-index: 3;
-// 	width: 100dvw;
-// 	height: 100dvh;
-// 	min-height: 100dvh;
-// 	// background-color: #181818aa;
-// 	backdrop-filter: blur(6px) brightness(0.8);
-// 	display: flex;
-// 	justify-content: center;
-// 	align-items: center;
-// 	/* transform: translate(-100%, 0); */
-// 	/* opacity: 0; */
-// 	transition: backdrop-filter 500ms ease-in-out, background-color 500ms ease-in-out;
-// 	overflow: hidden;
-// 	scrollbar-width: none;
-// }
+
 .jsconfirm-container {
 	display: grid;
 	position: absolute;
@@ -808,6 +788,14 @@
 					box-shadow: 0 0 0 5px change-color($jsconfirm-error, $alpha: 0.5) !important;
 				}
 			}
+			
+			.nice-select.jsconfirm-select {
+				&:focus {
+					border: $jsconfirm-input-focus-border;
+					outline: $jsconfirm-input-focus-outline;
+					box-shadow: $jsconfirm-input-focus-box-shadow;
+				}
+			}
 
 			.jsconfirm-radio,
 			.jsconfirm-checkbox {
@@ -1085,6 +1073,9 @@
 
 }
 
+.nice-select-float.jsconfirm-select {
+	z-index: 1070 !important;
+}
 
 
 // }

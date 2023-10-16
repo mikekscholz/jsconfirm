@@ -110,17 +110,17 @@ $jsconfirm-input-height: 30px !default;
 $jsconfirm-input-padding: 0 8px !default;
 $jsconfirm-input-border: 1px solid #111 !default;
 $jsconfirm-input-border-radius: 6px !default;
-$jsconfirm-input-box-shadow: none !default;
+$jsconfirm-input-box-shadow: 0 0 0 0 transparent !default;
 $jsconfirm-input-font-size: 14px !default;
 $jsconfirm-input-font-weight: 500 !default;
 $jsconfirm-input-background: #222 !default;
 $jsconfirm-input-color: inherit !default;
-$jsconfirm-input-transition: border-color 0.4s !default;
+$jsconfirm-input-transition: border-color 0.4s, box-shadow 0.5s !default;
 
 // INPUT:FOCUS
 $jsconfirm-input-focus-border: 1px solid #fff !default;
 $jsconfirm-input-focus-outline: none !default;
-$jsconfirm-input-focus-box-shadow: none !default;
+$jsconfirm-input-focus-box-shadow: 0 0 0 4px change-color($white, $alpha: 0.3) !default;
 
 // TEXTAREA SPECIFIC VARIABLES
 $jsconfirm-textarea-height: 6.75em !default;
@@ -246,7 +246,7 @@ $jsconfirm-confirm-button-background-color: var(--jsconfirm-primary, #{$blue}) !
 $jsconfirm-confirm-button-hover-background-color: var(--jsconfirm-hover, #{$blue}) !default;
 $jsconfirm-confirm-button-color: var(--jsconfirm-contrast, #{$black}) !default;
 $jsconfirm-confirm-button-font-size: 14px !default;
-$jsconfirm-confirm-button-focus-box-shadow: 0 0 0 5px var(--jsconfirm-alpha, #{$blue-alpha}), 0 0 0 1px currentColor !default;
+$jsconfirm-confirm-button-focus-box-shadow: 0 0 0 4px var(--jsconfirm-alpha, #{$blue-alpha}), 0 0 0 1px currentColor !default;
 
 // DENY BUTTON
 $jsconfirm-deny-button-order: null !default;
@@ -256,7 +256,7 @@ $jsconfirm-deny-button-background-color: $red !default;
 $jsconfirm-deny-button-hover-background-color: $red-hover !default;
 $jsconfirm-deny-button-color: $jsconfirm-white !default;
 $jsconfirm-deny-button-font-size: 14px !default;
-$jsconfirm-deny-button-focus-box-shadow: 0 0 0 5px $red-alpha, 0 0 0 1px currentColor !default;
+$jsconfirm-deny-button-focus-box-shadow: 0 0 0 4px $red-alpha, 0 0 0 1px currentColor !default;
 
 // CANCEL BUTTON
 $jsconfirm-cancel-button-order: null !default;
@@ -266,7 +266,7 @@ $jsconfirm-cancel-button-background-color: $dark-gray !default;
 $jsconfirm-cancel-button-hover-background-color: $dark-gray-hover !default;
 $jsconfirm-cancel-button-color: $jsconfirm-white !default;
 $jsconfirm-cancel-button-font-size: 14px !default;
-$jsconfirm-cancel-button-focus-box-shadow: 0 0 0 5px $dark-gray-alpha, 0 0 0 1px currentColor !default;
+$jsconfirm-cancel-button-focus-box-shadow: 0 0 0 4px $dark-gray-alpha, 0 0 0 1px currentColor !default;
 
 // LOADER
 $jsconfirm-loader-align-items: center !default;
