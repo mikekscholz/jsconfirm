@@ -118,9 +118,9 @@ $jsconfirm-input-color: inherit !default;
 $jsconfirm-input-transition: border-color 0.4s, box-shadow 0.5s !default;
 
 // INPUT:FOCUS
-$jsconfirm-input-focus-border: 1px solid #fff !default;
+$jsconfirm-input-focus-border: 1px solid var(--jsconfirm-primary, #fff) !default;
 $jsconfirm-input-focus-outline: none !default;
-$jsconfirm-input-focus-box-shadow: 0 0 0 4px change-color($white, $alpha: 0.3) !default;
+$jsconfirm-input-focus-box-shadow: 0 0 0 5px var(--jsconfirm-alpha, change-color($white, $alpha: 0.4)) !default;
 
 // TEXTAREA SPECIFIC VARIABLES
 $jsconfirm-textarea-height: 6.75em !default;
@@ -139,7 +139,7 @@ $jsconfirm-validation-message-margin: 0 !default;
 $jsconfirm-validation-message-padding: 4px !default;
 $jsconfirm-validation-message-background: $gray-900 !default;
 $jsconfirm-validation-message-color: $light-gray !default;
-$jsconfirm-validation-message-font-size: 14px !default;
+$jsconfirm-validation-message-font-size: 16px !default;
 $jsconfirm-validation-message-font-weight: 500 !default;
 $jsconfirm-validation-message-icon-background: none !default;
 $jsconfirm-validation-message-icon-border: $red !default;
@@ -246,7 +246,7 @@ $jsconfirm-confirm-button-background-color: var(--jsconfirm-primary, #{$blue}) !
 $jsconfirm-confirm-button-hover-background-color: var(--jsconfirm-hover, #{$blue}) !default;
 $jsconfirm-confirm-button-color: var(--jsconfirm-contrast, #{$black}) !default;
 $jsconfirm-confirm-button-font-size: 14px !default;
-$jsconfirm-confirm-button-focus-box-shadow: 0 0 0 4px var(--jsconfirm-alpha, #{$blue-alpha}), 0 0 0 1px currentColor !default;
+$jsconfirm-confirm-button-focus-box-shadow: var(--jsconfirm-alpha, #{$blue-alpha}) !default; //Color only, other params set by _mixins.scss
 
 // DENY BUTTON
 $jsconfirm-deny-button-order: null !default;
@@ -256,7 +256,7 @@ $jsconfirm-deny-button-background-color: $red !default;
 $jsconfirm-deny-button-hover-background-color: $red-hover !default;
 $jsconfirm-deny-button-color: $jsconfirm-white !default;
 $jsconfirm-deny-button-font-size: 14px !default;
-$jsconfirm-deny-button-focus-box-shadow: 0 0 0 4px $red-alpha, 0 0 0 1px currentColor !default;
+$jsconfirm-deny-button-focus-box-shadow: $red-alpha !default; //Color only, other params set by _mixins.scss
 
 // CANCEL BUTTON
 $jsconfirm-cancel-button-order: null !default;
@@ -266,7 +266,7 @@ $jsconfirm-cancel-button-background-color: $dark-gray !default;
 $jsconfirm-cancel-button-hover-background-color: $dark-gray-hover !default;
 $jsconfirm-cancel-button-color: $jsconfirm-white !default;
 $jsconfirm-cancel-button-font-size: 14px !default;
-$jsconfirm-cancel-button-focus-box-shadow: 0 0 0 4px $dark-gray-alpha, 0 0 0 1px currentColor !default;
+$jsconfirm-cancel-button-focus-box-shadow: $dark-gray-alpha !default; //Color only, other params set by _mixins.scss
 
 // LOADER
 $jsconfirm-loader-align-items: center !default;

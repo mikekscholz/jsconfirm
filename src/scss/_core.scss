@@ -130,7 +130,7 @@
 			&:focus,
 			&:focus-visible {
 				outline: none;
-				box-shadow: 0 0 0 5px $blue-alpha, 0 0 0 1px currentColor;
+				@include button-focus-box-shadow ($blue-alpha);
 				// box-shadow: inset 0 0 0 2px currentColor, 0 0 0 1px $blue;
 				// border: 1px solid currentColor;
 			}
@@ -149,7 +149,7 @@
 			&:focus,
 			&:focus-visible {
 				outline: none;
-				box-shadow: 0 0 0 5px $green-alpha, 0 0 0 1px currentColor;
+				@include button-focus-box-shadow ($green-alpha);
 				// box-shadow: inset 0 0 0 2px currentColor, 0 0 0 1px $green;
 				// border: 1px solid currentColor;
 			}
@@ -168,7 +168,7 @@
 			&:focus,
 			&:focus-visible {
 				outline: none;
-				box-shadow: 0 0 0 5px $red-alpha, 0 0 0 1px currentColor;
+				@include button-focus-box-shadow ($red-alpha);
 				// box-shadow: 0 0 0 1px currentColor, 0 0 0 5px $red-alpha;
 				// border: 1px solid currentColor;
 			}
@@ -187,7 +187,7 @@
 			&:focus,
 			&:focus-visible {
 				outline: none;
-				box-shadow: 0 0 0 5px $yellow-alpha, 0 0 0 1px currentColor;
+				@include button-focus-box-shadow ($yellow-alpha);
 				// box-shadow: inset 0 0 0 2px currentColor, 0 0 0 1px $yellow;
 				// border: 1px solid currentColor;
 			}
@@ -217,7 +217,7 @@
 			&:focus,
 			&:focus-visible {
 				outline: none;
-				box-shadow: 0 0 0 5px $purple-alpha, 0 0 0 1px currentColor;
+				@include button-focus-box-shadow ($purple-alpha);
 				// box-shadow: inset 0 0 0 2px currentColor, 0 0 0 1px $purple;
 				// border: 1px solid currentColor;
 			}
@@ -236,7 +236,7 @@
 			&:focus,
 			&:focus-visible {
 				outline: none;
-				box-shadow: 0 0 0 5px $dark-gray-alpha, 0 0 0 1px currentColor;
+				@include button-focus-box-shadow ($dark-gray-alpha);
 				// box-shadow: inset 0 0 0 2px currentColor, 0 0 0 1px $dark-gray;
 				// border: 1px solid currentColor;
 			}
@@ -255,7 +255,7 @@
 			&:focus,
 			&:focus-visible {
 				outline: none;
-				box-shadow: 0 0 0 5px $light-gray-alpha, 0 0 0 1px currentColor;
+				@include button-focus-box-shadow ($light-gray-alpha);
 				// box-shadow: inset 0 0 0 2px currentColor, 0 0 0 1px $light-gray;
 				// border: 1px solid currentColor;
 			}
@@ -526,7 +526,7 @@
 					}
 
 					&:focus {
-						box-shadow: $jsconfirm-confirm-button-focus-box-shadow;
+						@include button-focus-box-shadow ($jsconfirm-confirm-button-focus-box-shadow);
 					}
 				}
 
@@ -545,7 +545,7 @@
 					}
 
 					&:focus {
-						box-shadow: $jsconfirm-deny-button-focus-box-shadow;
+						@include button-focus-box-shadow ($jsconfirm-deny-button-focus-box-shadow);
 					}
 				}
 
@@ -564,7 +564,7 @@
 					}
 
 					&:focus {
-						box-shadow: $jsconfirm-cancel-button-focus-box-shadow;
+						@include button-focus-box-shadow ($jsconfirm-cancel-button-focus-box-shadow);
 					}
 				}
 

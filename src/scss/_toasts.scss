@@ -196,14 +196,21 @@
 			animation: $jsconfirm-toast-hide-animation;
 		}
 
-		@mixin toast-type {
+		@mixin toast-type($color) {
 			content: "";
-			width: 6px;
-			border-radius: 100px;
+			width: 12px;
+			border-radius: 8px 0 0 8px;
+			border-width: 0;
+			border-left-width: 5px;
+			border-style: solid;
+			border-color: $color;
+			// background-color: $jsconfirm-toast-background;
 			position: absolute;
-			top: 6px;
-			bottom: 6px;
-			left: 6px;
+			box-sizing: border-box;
+			top: 0px;
+			bottom: 0px;
+			left: 0px;
+			z-index: 2;
 		}
 		
 		$toast-type-body-padding: 8px 10px 8px 20px;
@@ -216,9 +223,8 @@
 				animation-name: type-blue;
 				padding: $toast-type-body-padding;
 				
-				&::before {
-					@include toast-type;
-					background-color: $blue;
+				&::after {
+					@include toast-type ($blue);
 				}
 			}
 		}
@@ -231,9 +237,8 @@
 				animation-name: type-green;
 				padding: $toast-type-body-padding;
 				
-				&::before {
-					@include toast-type;
-					background-color: $green;
+				&::after {
+					@include toast-type ($green);
 				}
 			}
 		}
@@ -246,9 +251,8 @@
 				animation-name: type-red;
 				padding: $toast-type-body-padding;
 				
-				&::before {
-					@include toast-type;
-					background-color: $red;
+				&::after {
+					@include toast-type ($red);
 				}
 			}
 		}
@@ -261,9 +265,8 @@
 				animation-name: type-yellow;
 				padding: $toast-type-body-padding;
 				
-				&::before {
-					@include toast-type;
-					background-color: $yellow;
+				&::after {
+					@include toast-type ($yellow);
 				}
 			}
 		}
@@ -276,9 +279,8 @@
 				animation-name: type-purple;
 				padding: $toast-type-body-padding;
 				
-				&::before {
-					@include toast-type;
-					background-color: $purple;
+				&::after {
+					@include toast-type ($purple);
 				}
 			}
 		}
@@ -291,9 +293,8 @@
 				animation-name: type-dark-gray;
 				padding: $toast-type-body-padding;
 				
-				&::before {
-					@include toast-type;
-					background-color: $dark-gray;
+				&::after {
+					@include toast-type ($dark-gray);
 				}
 			}
 		}
@@ -306,9 +307,8 @@
 				animation-name: type-light-gray;
 				padding: $toast-type-body-padding;
 				
-				&::before {
-					@include toast-type;
-					background-color: $light-gray;
+				&::after {
+					@include toast-type ($light-gray);
 				}
 			}
 		}
