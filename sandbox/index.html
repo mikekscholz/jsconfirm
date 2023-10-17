@@ -59,61 +59,70 @@
 
 		window.Jsc = Jsc
 
+		const jsError = Jsc.mixin({
+			title: 'Error!',
+			html: 'Something went wrong.',
+			type: 'red',
+			icon: 'error',
+			width: '300px',
+		});
+
 		document.querySelector('#error').addEventListener('click', () => {
-			Jsc.fire({
-				title: 'Error',
-				html: 'custom <strong>content</strong>',
-				// input: 'text',
-				icon: 'error',
-				type: 'red',
-				// icon: 'question',
-				// icon: 'info',
-				// icon: 'success',
-				// icon: 'warning',
-				// iconColor: '#ff3311',
-				customClass: {
-					container: '',
-					popup: '',
-					header: '',
-					title: '',
-					closeButton: '',
-					icon: '',
-					image: '',
-					htmlContainer: '',
-					input: '',
-					inputLabel: '',
-					validationMessage: '',
-					actions: '',
-					confirmButton: '',
-					denyButton: '',
-					cancelButton: '',
-					loader: '',
-					footer: '',
-					timerProgressBar: '',
-				},
-				showCloseButton: true,
-				showCancelButton: true,
-				// showDenyButton: true,
-				buttonsStyling: true,
-				allowOutsideClick: false,
-				width: '300px',
-				// confirmButtonColor: '#00d8f5',
-				denyButtonColor: '#111',
-				
-				// timer: 3000,
-				// timerProgressBar: true,
-				// closeButtonHtml: '',
-				inputValidator: (value) => {
-					if (!value) {
-						return 'Should not be empty!'
-					}
-				},
-				didOpen: (modal) => {
-					console.log(modal)
-				},
-			}).then((result) => {
-				console.log(result)
-			})
+			jsError.fire('Error!', 'Something else went wrong');
+			// Jsc.fire({
+			// 	title: 'Error',
+			// 	html: 'custom <strong>content</strong>',
+			// 	// input: 'text',
+			// 	icon: 'error',
+			// 	type: 'red',
+			// 	// icon: 'question',
+			// 	// icon: 'info',
+			// 	// icon: 'success',
+			// 	// icon: 'warning',
+			// 	// iconColor: '#ff3311',
+			// 	customClass: {
+			// 		container: '',
+			// 		popup: '',
+			// 		header: '',
+			// 		title: '',
+			// 		closeButton: '',
+			// 		icon: '',
+			// 		image: '',
+			// 		htmlContainer: '',
+			// 		input: '',
+			// 		inputLabel: '',
+			// 		validationMessage: '',
+			// 		actions: '',
+			// 		confirmButton: '',
+			// 		denyButton: '',
+			// 		cancelButton: '',
+			// 		loader: '',
+			// 		footer: '',
+			// 		timerProgressBar: '',
+			// 	},
+			// 	showCloseButton: true,
+			// 	showCancelButton: true,
+			// 	// showDenyButton: true,
+			// 	buttonsStyling: true,
+			// 	allowOutsideClick: false,
+			// 	width: '300px',
+			// 	// confirmButtonColor: '#00d8f5',
+			// 	denyButtonColor: '#111',
+
+			// 	// timer: 3000,
+			// 	// timerProgressBar: true,
+			// 	// closeButtonHtml: '',
+			// 	inputValidator: (value) => {
+			// 		if (!value) {
+			// 			return 'Should not be empty!'
+			// 		}
+			// 	},
+			// 	didOpen: (modal) => {
+			// 		console.log(modal)
+			// 	},
+			// }).then((result) => {
+			// 	console.log(result)
+			// })
 		})
 		document.querySelector('#warning').addEventListener('click', () => {
 			Jsc.fire({
@@ -398,7 +407,7 @@
 				console.log(result)
 			})
 		})
-		
+
 		document.querySelector('#errorToast').addEventListener('click', () => {
 			Jsc.fire({
 				title: 'Error',
@@ -457,10 +466,10 @@
 				},
 			})
 			// .then((result) => {
-				// console.log(result)
+			// console.log(result)
 			// })
 		})
-		
+
 		document.querySelector('#warningToast').addEventListener('click', () => {
 			new Jsc({
 				title: 'Warning',
@@ -683,6 +692,19 @@
 				didOpen: (modal) => {
 					console.log(modal)
 				},
+			})
+		})
+		document.querySelector('#defaultToast').addEventListener('click', () => {
+			new Jsc({
+				title: 'Default',
+				html: 'With custom icon',
+				iconHtml: '🤯',
+				toast: true,
+				position: 'top-end',
+				color: '#fff',
+				timer: 100000,
+				timerProgressBar: true,
+				showConfirmButton: false
 			})
 		})
 	</script>
