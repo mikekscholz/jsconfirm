@@ -4,7 +4,6 @@
 	"repository": "mikekscholz/jsconfirm",
 	"description": "A beautiful, responsive, customizable and accessible (WAI-ARIA) replacement for JavaScript's popup boxes, supported fork of sweetalert",
 	"main": "src/jsconfirm.js",
-	"style": "src/jsconfirm.scss",
 	"browser": "dist/js/jsconfirm.js",
 	"module": "dist/js/jsconfirm.js",
 	"types": "jsconfirm.d.ts",
