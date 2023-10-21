@@ -31,7 +31,7 @@
 <body>
 	<div class="jsconfirm-actions" style="height: 100%; justify-content: center; align-items: center; flex-direction: column;">
 		<h2>Modals</h2>
-		<div style="background-color: #444; display: flex; flex-wrap: nowrap; gap: 10px; padding: 10px; border-radius: 16px; box-shadow: 0 0 20px 10px #0009;">
+		<div style="background-color: #333; display: flex; flex-wrap: nowrap; gap: 10px; padding: 10px; border-radius: 16px; box-shadow: 0 0 20px 10px #0009;">
 
 			<button id="error" class="btn-red">Error</button>
 			<button id="warning" class="btn-yellow">Warning</button>
@@ -41,7 +41,7 @@
 			<button id="default" class="btn-dark">Default</button>
 		</div>
 		<h2>Toasts</h2>
-		<div style="background-color: #444; display: flex; flex-wrap: nowrap; gap: 10px; padding: 10px; border-radius: 16px; box-shadow: 0 0 20px 10px #0009;">
+		<div style="background-color: #333; display: flex; flex-wrap: nowrap; gap: 10px; padding: 10px; border-radius: 16px; box-shadow: 0 0 20px 10px #0009;">
 
 			<button id="errorToast" class="btn-red">Error</button>
 			<button id="warningToast" class="btn-yellow">Warning</button>
@@ -68,61 +68,61 @@
 		});
 
 		document.querySelector('#error').addEventListener('click', () => {
-			jsError.fire('Error!', 'Something else went wrong');
-			// Jsc.fire({
-			// 	title: 'Error',
-			// 	html: 'custom <strong>content</strong>',
-			// 	// input: 'text',
-			// 	icon: 'error',
-			// 	type: 'red',
-			// 	// icon: 'question',
-			// 	// icon: 'info',
-			// 	// icon: 'success',
-			// 	// icon: 'warning',
-			// 	// iconColor: '#ff3311',
-			// 	customClass: {
-			// 		container: '',
-			// 		popup: '',
-			// 		header: '',
-			// 		title: '',
-			// 		closeButton: '',
-			// 		icon: '',
-			// 		image: '',
-			// 		htmlContainer: '',
-			// 		input: '',
-			// 		inputLabel: '',
-			// 		validationMessage: '',
-			// 		actions: '',
-			// 		confirmButton: '',
-			// 		denyButton: '',
-			// 		cancelButton: '',
-			// 		loader: '',
-			// 		footer: '',
-			// 		timerProgressBar: '',
-			// 	},
-			// 	showCloseButton: true,
-			// 	showCancelButton: true,
-			// 	// showDenyButton: true,
-			// 	buttonsStyling: true,
-			// 	allowOutsideClick: false,
-			// 	width: '300px',
-			// 	// confirmButtonColor: '#00d8f5',
-			// 	denyButtonColor: '#111',
+			// jsError.fire('Error!', 'Something else went wrong');
+			Jsc.fire({
+				title: 'Error',
+				html: 'custom <strong>content</strong>',
+				// input: 'text',
+				icon: 'error',
+				type: 'red',
+				// icon: 'question',
+				// icon: 'info',
+				// icon: 'success',
+				// icon: 'warning',
+				// iconColor: '#ff3311',
+				customClass: {
+					container: '',
+					popup: '',
+					header: '',
+					title: '',
+					closeButton: '',
+					icon: '',
+					image: '',
+					htmlContainer: '',
+					input: '',
+					inputLabel: '',
+					validationMessage: '',
+					actions: '',
+					confirmButton: '',
+					denyButton: '',
+					cancelButton: '',
+					loader: '',
+					footer: '',
+					timerProgressBar: '',
+				},
+				showCloseButton: true,
+				showCancelButton: true,
+				// showDenyButton: true,
+				buttonsStyling: true,
+				allowOutsideClick: false,
+				width: '300px',
+				// confirmButtonColor: '#00d8f5',
+				// denyButtonColor: '#111',
 
-			// 	// timer: 3000,
-			// 	// timerProgressBar: true,
-			// 	// closeButtonHtml: '',
-			// 	inputValidator: (value) => {
-			// 		if (!value) {
-			// 			return 'Should not be empty!'
-			// 		}
-			// 	},
-			// 	didOpen: (modal) => {
-			// 		console.log(modal)
-			// 	},
-			// }).then((result) => {
-			// 	console.log(result)
-			// })
+				// timer: 3000,
+				// timerProgressBar: true,
+				// closeButtonHtml: '',
+				inputValidator: (value) => {
+					if (!value) {
+						return 'Should not be empty!'
+					}
+				},
+				didOpen: (modal) => {
+					console.log(modal)
+				},
+			}).then((result) => {
+				console.log(result)
+			})
 		})
 		document.querySelector('#warning').addEventListener('click', () => {
 			Jsc.fire({
@@ -451,7 +451,7 @@
 				buttonsStyling: false,
 				// allowOutsideClick: false,
 				// width: '301px',
-				timer: 100000,
+				timer: 10000,
 				timerProgressBar: true,
 				// closeButtonHtml: '',
 				// inputValidator: (value) => {
@@ -513,7 +513,7 @@
 				buttonsStyling: false,
 				// allowOutsideClick: false,
 				// width: '301px',
-				timer: 600000,
+				timer: 10000,
 				timerProgressCircle: true,
 				// closeButtonHtml: '',
 				// inputValidator: (value) => {
@@ -569,7 +569,7 @@
 				buttonsStyling: false,
 				// allowOutsideClick: false,
 				width: '401px',
-				timer: 100000,
+				timer: 10000,
 				timerProgressBar: true,
 				// closeButtonHtml: '',
 				// inputValidator: (value) => {
@@ -625,7 +625,7 @@
 				buttonsStyling: false,
 				// allowOutsideClick: false,
 				// width: '301px',
-				timer: 1000000,
+				timer: 10000,
 				timerProgressBar: true,
 				// closeButtonHtml: '',
 				// inputValidator: (value) => {
@@ -681,7 +681,7 @@
 				buttonsStyling: false,
 				// allowOutsideClick: false,
 				// width: '301px',
-				timer: 100000,
+				timer: 10000,
 				timerProgressBar: true,
 				// closeButtonHtml: '',
 				// inputValidator: (value) => {
@@ -698,11 +698,12 @@
 			new Jsc({
 				title: 'Default',
 				html: 'With custom icon',
-				iconHtml: '🤯',
+				iconHtml: '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="100%"><path style="fill:#DC9D55;" d="M494.783,90.911c0,26.995-11.703,51.886-31.553,68.901v273.959c0,43.132-35.097,78.229-78.229,78.229H126.999c-43.132,0-78.229-35.097-78.229-78.229V159.812c-19.85-17.014-31.553-41.905-31.553-68.901C17.217,40.78,57.997,0,108.128,0h295.745C454.003,0,494.783,40.78,494.783,90.911z"/><path style="fill:#F9EBDB;" d="M461.025,90.911c0,22.359-12.851,41.703-31.553,51.087v291.773c0,24.565-19.906,44.471-44.471,44.471H126.999c-24.565,0-44.471-19.906-44.471-44.471V141.998c-18.702-9.385-31.553-28.728-31.553-51.087c0-31.564,25.589-57.153,57.153-57.153h295.745C435.436,33.758,461.025,59.347,461.025,90.911z"/><path style="fill:#E7BF0D;" d="M330.347,182.868v56.241c0,26.725-21.662,48.398-48.398,48.398h-51.898c-26.737,0-48.398-21.673-48.398-48.398v-56.241c0-26.725,21.662-48.398,48.398-48.398h51.898C308.685,134.47,330.347,156.143,330.347,182.868z"/><g><circle style="fill:#E8D6BD;" cx="341.285" cy="412.762" r="8.44"/><circle style="fill:#E8D6BD;" cx="375.043" cy="379.004" r="8.44"/><circle style="fill:#E8D6BD;" cx="169.106" cy="92.779" r="8.44"/></g><g><path style="fill:#FFFFFF;" d="M281.951,262.189H230.05c-12.728,0-23.082-10.355-23.082-23.083V182.87c0-12.728,10.354-23.082,23.082-23.082c4.662,0,8.44,3.778,8.44,8.44s-3.778,8.44-8.44,8.44c-3.42,0-6.202,2.783-6.202,6.203v56.237c0,3.421,2.783,6.204,6.202,6.204h51.901c3.42,0,6.203-2.783,6.203-6.204c0-4.662,3.778-8.44,8.44-8.44s8.44,3.778,8.44,8.44C305.032,251.834,294.678,262.189,281.951,262.189z"/><path style="fill:#FFFFFF;" d="M296.592,191.31c-4.662,0-8.44-3.778-8.44-8.44c0-3.42-2.783-6.203-6.202-6.203c-4.662,0-8.44-3.778-8.44-8.44s3.778-8.44,8.44-8.44c12.728,0,23.082,10.354,23.082,23.082C305.032,187.533,301.254,191.31,296.592,191.31z"/></g></svg>',
+				// iconHtml: '🤯',
 				toast: true,
 				position: 'top-end',
 				color: '#fff',
-				timer: 100000,
+				timer: 10000,
 				timerProgressBar: true,
 				showConfirmButton: false
 			})

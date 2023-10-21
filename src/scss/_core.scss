@@ -785,7 +785,8 @@
 				
 				&.jsconfirm-inputerror + .nice-select {
 					border-color: $jsconfirm-error !important;
-					box-shadow: 0 0 0 5px change-color($jsconfirm-error, $alpha: 0.5) !important;
+					@include button-focus-box-shadow(change-color($jsconfirm-error, $alpha: 0.5));
+					// box-shadow: 0 0 0 5px change-color($jsconfirm-error, $alpha: 0.5) !important;
 				}
 			}
 			

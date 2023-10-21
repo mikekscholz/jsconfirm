@@ -10,27 +10,27 @@ $white: #fff;
 $indigo:			#6610F2 !default;
 $purple:			#a630e0 !default;
 $pink:				#fa1a70 !default;
-$red:				#ff0000 !default;
+$red:				#ea0000 !default;
 $orange:			#FF7300 !default;
-$yellow:			#ffb805 !default;
-$green:				#70ff0e !default;
+$yellow:			#ffc107 !default;
+$green:				#00ea00 !default;
 $blue:				#00dfff !default;
 $light-gray:		#e5e5e5 !default;
-$dark-gray:			#222222 !default;
-$blue-hover:		mix(black, $blue, 10%) !default;
+$dark-gray:			#1b1b1b !default;
+$blue-hover:		mix(black, $blue, 15%) !default;
 $green-hover:		mix(black, $green, 10%) !default;
 $red-hover:			mix(black, $red, 10%) !default;
 $yellow-hover:		mix(black, $yellow, 10%) !default;
 $purple-hover:		mix(black, $purple, 10%) !default;
-$light-gray-hover:	mix(black, $light-gray, 10%) !default;
-$dark-gray-hover:	mix(black, $dark-gray, 10%) !default;
+$light-gray-hover:	mix(black, $light-gray, 20%) !default;
+$dark-gray-hover:	mix(white, $dark-gray, 5%) !default;
 $blue-alpha:		change-color($blue, $alpha: 0.5) !default;
 $green-alpha:		change-color($green, $alpha: 0.5) !default;
-$red-alpha:			change-color($red, $alpha: 0.6) !default;
+$red-alpha:			change-color($red, $alpha: 0.5) !default;
 $yellow-alpha:		change-color($yellow, $alpha: 0.5) !default;
 $purple-alpha:		change-color($purple, $alpha: 0.5) !default;
 $light-gray-alpha:	change-color($light-gray, $alpha: 0.5) !default;
-$dark-gray-alpha:	change-color($dark-gray, $alpha: 0.5) !default;
+$dark-gray-alpha:	change-color(mix(white, $dark-gray, 40%), $alpha: 0.5) !default;
 
 $glow-white: rgba(255, 255, 255, 0.3);
 // CONTAINER
@@ -61,7 +61,7 @@ $jsconfirm-backdrop-transition: backdrop-filter 500ms, background-color 500ms;
 $jsconfirm-backdrop-filter: blur(8px);
 
 // ICONS
-$jsconfirm-icon-size: 35px !default;
+$jsconfirm-icon-size: 31px !default;
 $jsconfirm-icon-animations: true !default;
 $jsconfirm-icon-margin: 0 !default;
 // $jsconfirm-icon-margin: 2.5em auto 0.6em !default;
@@ -85,8 +85,8 @@ $jsconfirm-title-max-width: 100% !default;
 $jsconfirm-title-margin: 0 !default;
 $jsconfirm-title-padding: 0 80px 0 0 !default;
 $jsconfirm-title-color: #fff !default;
-$jsconfirm-title-font-size: 22px !default;
-$jsconfirm-title-font-weight: 500 !default;
+$jsconfirm-title-font-size: 20px !default;
+$jsconfirm-title-font-weight: 600 !default;
 $jsconfirm-title-text-align: left !default;
 
 // HTML CONTAINER
@@ -96,9 +96,9 @@ $jsconfirm-html-container-margin: 0 !default;
 $jsconfirm-html-container-padding: 0 !default;
 $jsconfirm-html-container-overflow: auto !default;
 $jsconfirm-html-container-color: inherit !default;
-$jsconfirm-html-container-font-size: 16px !default;
+$jsconfirm-html-container-font-size: 14px !default;
 $jsconfirm-html-container-font-weight: 400 !default;
-$jsconfirm-html-container-line-height: 23px !default;
+$jsconfirm-html-container-line-height: 21px !default;
 $jsconfirm-html-container-text-align: left !default;
 $jsconfirm-html-container-word-wrap: break-word !default;
 $jsconfirm-html-container-word-break: break-word !default;
@@ -120,7 +120,7 @@ $jsconfirm-input-transition: border-color 0.4s, box-shadow 0.5s !default;
 // INPUT:FOCUS
 $jsconfirm-input-focus-border: 1px solid var(--jsconfirm-primary, #fff) !default;
 $jsconfirm-input-focus-outline: none !default;
-$jsconfirm-input-focus-box-shadow: 0 0 0 5px var(--jsconfirm-alpha, change-color($white, $alpha: 0.4)) !default;
+$jsconfirm-input-focus-box-shadow: 0 0 0 3px var(--jsconfirm-alpha, change-color($white, $alpha: 0.4)) !default;
 
 // TEXTAREA SPECIFIC VARIABLES
 $jsconfirm-textarea-height: 6.75em !default;

@@ -22,7 +22,7 @@
   --thumb-width: 20px;
   --thumb-radius: 10px;
   --thumb-color: var(--primary-color);
-  --thumb-shadow: 0 0 3px #00000099;
+  --thumb-shadow: 0 0 0 0 #0000;
   --thumb-shadow-active: 0 0 0 8px var(--jsconfirm-alpha);
   // --thumb-shadow: 0 0 0 3px #fff inset, 0 0 3px rgba(0,0,0,.6), 0 0 0 99px var(--thumb-color) inset;
   // --thumb-shadow-active: 0 0 0 1px #fff, inset 0 0 0 2px #fff, 0 0 0 99px var(--thumb-color) inset, 0 0 5px 3px #00ccff;
@@ -76,8 +76,8 @@
     background: var(--thumb-color);
     box-shadow: var(--thumb-shadow);
     pointer-events: auto;
-    transition: .1s;
-    box-sizing: border-box;
+    transition: box-shadow 0.5s;
+    box-sizing: border-box;    
   }
   width: 100%;
   box-sizing: content-box;
@@ -227,18 +227,17 @@
       }
     }
 
-    &:active {
-      --thumb-shadow: var(--thumb-shadow-active);
+    &:active,
+    &:focus,
+    &:focus-visible {
+      // --thumb-shadow: var(--thumb-shadow-active);
       cursor: grabbing;
       z-index: 2; // when sliding left thumb over the right or vice-versa, make sure the moved thumb is on top
       + output { transition: 0s; }
-    }
-
-    &:focus {
-      --thumb-shadow: var(--thumb-shadow-active);
-      cursor: grabbing;
-      z-index: 2; // when sliding left thumb over the right or vice-versa, make sure the moved thumb is on top
-      + output { transition: 0s; }
+      
+      &::-webkit-slider-thumb { box-shadow: var(--thumb-shadow-active); }
+      &::-moz-range-thumb { box-shadow: var(--thumb-shadow-active); }
+      &::-ms-thumb { box-shadow: var(--thumb-shadow-active); }
     }
 
     &:nth-of-type(1){
@@ -278,7 +277,7 @@
       padding: 0px 0px;
       // right: -50px;
       // top: -1px;
-      transition: all .12s ease-out, left 0s;
+      transition: left 0s;
       --flip: -1;
       --x-offset: calc(var(--completed-b) * -1%);
       --pos: calc(((var(--value) - var(--min))/(var(--max) - var(--min))) * 100%);
