@@ -162,8 +162,8 @@ function populateSelectOptions(popup, inputOptions, params) {
     }
   })
   let containerPadding = parseInt(window.getComputedStyle(dom.getContainer()).padding)
-  let floatPadding = containerPadding - 1 >= 0 ? containerPadding - 1 : 0
-  select.NiceSelect = new NiceSelect(select, { searchable: false, showSelectedItems: true, offset: 3, floatPadding: floatPadding, availableHeight: true, sameWidth: true })
+  let menuPadding = containerPadding - 1 >= 0 ? containerPadding - 1 : 0
+  select.NiceSelect = new NiceSelect(select, { searchable: false, showSelectedItems: true, offset: 3, menuPadding: menuPadding, menuZ: 1070, availableHeight: true, sameWidth: true })
   select.focus()
 }
 
