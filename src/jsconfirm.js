@@ -17,7 +17,7 @@ import defaultParams, { showWarningsForParams } from './utils/params.js'
 import setParameters from './utils/setParameters.js'
 import { callIfFunction } from './utils/utils.js'
 
-import './jsconfirm.scss'
+// import './jsconfirm.scss'
 
 /** @type {JsConfirm} */
 let currentInstance
