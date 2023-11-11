@@ -426,7 +426,7 @@
 			color: $jsconfirm-color;
 			font-family: $jsconfirm-font;
 			font-size: $jsconfirm-font-size;
-			grid-template-rows: minmax(0, 100%);
+			grid-template-rows: $jsconfirm-icon-size minmax(0, 100%);
 			grid-template-columns: $jsconfirm-icon-size minmax(0, 100%);
 			display: none;
 			// flex-wrap: nowrap;
@@ -693,6 +693,7 @@
 				word-wrap: $jsconfirm-html-container-word-wrap;
 				word-break: $jsconfirm-html-container-word-break;
 				grid-column: 1/3;
+				grid-row: 2/3;
 			}
 
 			input:where(.jsconfirm-input),
