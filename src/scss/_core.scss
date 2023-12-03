@@ -74,10 +74,11 @@
 .jsconfirm-clip {
 	// clip-path: polygon(calc(100% - 70px) 0px, calc(100% - 70px) 36px, 101% 36px, 101% 101%, 0% 101%, 0% 0%);
 	// clip-path: polygon(calc(100% - 70px) -2%, calc(100% - 70px) 35px, 102% 35px, 102% calc(102% + 150px), -2% calc(102% + 150px), -2% -2%);
-	clip-path: polygon(calc(100% - 70px) 0, calc(100% - 70px) 35px, 100% 35px, 100% 100%, 0 100%, 0 0);
 	// clip-path: polygon(calc(100% - 70px) -1px, calc(100% - 70px) 35px, calc(100% + 1px) 35px, calc(100% + 1px) calc(100% + 1px), -1px calc(100% + 1px), -1px -1px);
 	// clip-path: polygon(calc(100% - 70px) -2%, calc(100% - 70px) 23px, calc(100% - 69px) 26px, calc(100% - 68px) 28px, calc(100% - 67px) 29px, calc(100% - 66px) 30px, calc(100% - 65px) 31px, calc(100% - 64px) 32px, calc(100% - 63px) 33px, calc(100% - 61px) 34px, calc(100% - 58px) 35px, 102% 35px, 102% calc(102% + 150px), -2% calc(102% + 150px), -2% -2%);
 	// clip-path: polygon(calc(100% - 70px) -2%, calc(100% - 70px) 19px, calc(100% - 69px) 25px, calc(100% - 68px) 27px, calc(100% - 67px) 29px, calc(100% - 66px) 30px, calc(100% - 65px) 31px, calc(100% - 64px) 32px, calc(100% - 62px) 33px, calc(100% - 60px) 34px, calc(100% - 54px) 35px, 102% 35px, 102% calc(102% + 150px), -2% calc(102% + 150px), -2% -2%);
+	// clip-path: polygon(calc(100% - 70px) 0, calc(100% - 70px) 35px, 100% 35px, 100% 100%, 0 100%, 0 0);
+	clip-path: polygon(16px 0px, 13.398048px 0.208672px, 10.932224px 0.813056px, 8.634976px 1.780704px, 6.538752px 3.079168px, 4.676px 4.676px, 3.079168px 6.538752px, 1.780704px 8.634976px, 0.813056px 10.932224px, 0.208672px 13.398048px, 2.6387397279643E-31px 16px, 0px calc(100% - 16px), 0.208672px calc(100% - 13.398048px), 0.813056px calc(100% - 10.932224px), 1.780704px calc(100% - 8.634976px), 3.079168px calc(100% - 6.5387519999999px), 4.676px calc(100% - 4.676px), 6.538752px calc(100% - 3.079168px), 8.634976px calc(100% - 1.780704px), 10.932224px calc(100% - 0.81305599999996px), 13.398048px calc(100% - 0.20867199999998px), 16px calc(100% - 0px), calc(100% - 16px) calc(100% - 0px), calc(100% - 13.398048px) calc(100% - 0.20867199999998px), calc(100% - 10.932224px) calc(100% - 0.81305599999985px), calc(100% - 8.634976px) calc(100% - 1.780704px), calc(100% - 6.5387519999999px) calc(100% - 3.079168px), calc(100% - 4.676px) calc(100% - 4.676px), calc(100% - 3.079168px) calc(100% - 6.538752px), calc(100% - 1.780704px) calc(100% - 8.6349760000001px), calc(100% - 0.81305599999996px) calc(100% - 10.932224px), calc(100% - 0.20867199999998px) calc(100% - 13.398048px), calc(100% - 0px) calc(100% - 16px), calc(100% - 0px) 35px, calc(100% - 54px) 35px, calc(100% - 56.601952px) 34.791328px, calc(100% - 59.067776px) 34.186944px, calc(100% - 61.365024px) 33.219296px, calc(100% - 63.461248px) 31.920832px, calc(100% - 65.324px) 30.324px, calc(100% - 66.920832px) 28.461248px, calc(100% - 68.219296px) 26.365024px, calc(100% - 69.186944px) 24.067776px, calc(100% - 69.791328px) 21.601952px, calc(100% - 70px) 19px, calc(100% - 70px) 0px);
 }
 
 
@@ -918,9 +919,8 @@
 			right: 0;
 			width: 70px;
 			height: 35px;
-			border-bottom-left-radius: 16px;
-			border-top-right-radius: 16px;
-			box-shadow: -6px 6px 0 6px #333333;
+			border-radius: 0 16px 0 16px;
+			box-shadow: -6px 6px 0 6px $jsconfirm-background;
 			transition: background-color 400ms ease-in-out, color 400ms ease-in-out;
 			align-items: center;
 			justify-content: center;
