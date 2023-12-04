@@ -457,7 +457,11 @@
 				grid-column: 2/3;
 				align-self: center;
 			}
-
+			
+			.jsconfirm-icon[style="display: none;"] + .jsconfirm-title {
+				grid-column: 1/3;
+			}
+			
 			div:where(.jsconfirm-actions) {
 				display: flex;
 				z-index: 1; // prevent success icon from overlapping buttons
