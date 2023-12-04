@@ -428,7 +428,7 @@
 			font-family: $jsconfirm-font;
 			font-size: $jsconfirm-font-size;
 			grid-template-rows: $jsconfirm-icon-size minmax(0, 100%);
-			grid-template-columns: $jsconfirm-icon-size minmax(0, 100%);
+			grid-template-columns: minmax($jsconfirm-icon-size, min-content) minmax(0, 100%);
 			display: none;
 			// flex-wrap: nowrap;
 			// flex-direction: column;
