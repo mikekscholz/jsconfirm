@@ -407,7 +407,7 @@
 		max-width: 100%;
 		min-width: max-content;
 		width: $jsconfirm-width;
-		transform: translate3d(0, 0, 0);
+		will-change: opacity;
 
 		&:focus {
 			outline: none;
@@ -931,8 +931,7 @@
 			appearance: none;
 			color: #FFF;
 			border-width: 0;
-			perspective: 400px;
-			transform: translateZ(0px);
+			will-change: opacity;
 
 			&:hover,
 			&:focus,
