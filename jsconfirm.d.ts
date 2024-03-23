@@ -14,7 +14,7 @@ declare module 'jsconfirm' {
 	namespace Jsc {
 		/**
 		 * Function to display a JsConfirm popup, with an object of options, all being optional.
-		 * See the `SweetAlertOptions` interface for the list of accepted fields and values.
+		 * See the `JsConfirmOptions` interface for the list of accepted fields and values.
 		 *
 		 * Example:
 		 * ```
@@ -353,13 +353,13 @@ declare module 'jsconfirm' {
 
 	type SyncOrAsync<T> = T | Promise<T> | { toPromise: () => T }
 
-	/** In computer programming, a thunk is a subroutine used to 
-	 * inject a calculation into another subroutine. Thunks are 
-	 * primarily used to delay a calculation until its result is 
-	 * needed, or to insert operations at the beginning or end of 
+	/** In computer programming, a thunk is a subroutine used to
+	 * inject a calculation into another subroutine. Thunks are
+	 * primarily used to delay a calculation until its result is
+	 * needed, or to insert operations at the beginning or end of
 	 * the other subroutine. https://en.wikipedia.org/wiki/Thunk
 	 */
-	
+
 	type ValueOrThunk<T> = T | (() => T)
 
 	export type JsConfirmArrayOptions = readonly [string?, string?, JsConfirmIcon?]
@@ -537,7 +537,7 @@ declare module 'jsconfirm' {
 		 * @default false
 		 */
 		animated?: boolean
-		
+
 		/**
 		 * Use this to change the color of the icon.
 		 *
@@ -636,7 +636,7 @@ declare module 'jsconfirm' {
 		 * @default 'body'
 		 */
 		target?: string | HTMLElement | null
-		
+
 		/**
 		 * Input field type, can be `'text'`, `'email'`, `'password'`, `'number'`, `'tel'`, `'range'`, `'textarea'`,
 		 * `'select'`, `'radio'`, `'checkbox'`, `'file'` and `'url'`.
